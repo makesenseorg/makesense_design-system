@@ -8,7 +8,7 @@ module.exports = {
   /**
    * Name of your design system. Changes both page title and sidebar logo.
    */
-  title: "Vue Design System",
+  title: "Makesense Design System",
   /**
    * Most of the styles are defined in /docs/docs.styles.scss
    */
@@ -139,7 +139,7 @@ module.exports = {
    * Custom wrapper template for the documentation.
    */
   template: {
-    title: "Example — Vue Design System",
+    title: "Example — Makesense Design System",
     lang: "en",
     trimWhitespace: true,
     head: {
@@ -195,7 +195,7 @@ module.exports = {
   styleguideDir: "../dist/docs",
   printServerInstructions() {},
   printBuildInstructions(config) {
-    console.log(chalk.cyan("\n  Design System Docs build finished succesfully!\n"))
+    console.log(chalk.cyan("\n 🚀 Design System Docs build finished succesfully!\n"))
     console.log(
       chalk.yellow(
         "  Tip: You can now deploy the docs as a static website.\n" +

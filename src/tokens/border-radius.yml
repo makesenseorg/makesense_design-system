@@ -5,9 +5,13 @@
 
 props:
   radius_default:
-    value: "3px"
+    value: "10px"
+  radius_l:
+    value: "20px"
   radius_circle:
-    value: "50%"
+    value: "1000px"
+  radius_full:
+    value: "1000px"
 global:
   type: number
   category: border-radius

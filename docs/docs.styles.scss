@@ -209,6 +209,15 @@ td[class^="rsg--cell"] p {
 div[class^="rsg--logo"] {
   @include inset-space($space-m);
   border-bottom: 1px solid rgba($color-white, 0.1);
+  &:before {
+    content: "";
+    background-image: url(assets/brand/makesense-logo.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 50px;
+    display: block;
+  }
   h1 {
     color: tint($color-bleu-de-france, 90%);
     font-weight: $weight-normal;
@@ -219,12 +228,12 @@ div[class^="rsg--logo"] {
 p[class^="rsg--version"] {
   @include inset-squish-space($space-xs);
   margin: $space-xs 0 0;
-  color: $color-bleu-de-france;
+  color: $color-blue-dianne;
   font-family: "Fira Sans", Helvetica, Arial, sans-serif;
   font-weight: $weight-normal;
   display: inline-block;
   line-height: $line-height-xs;
-  border: 1px solid $color-bleu-de-france;
+  border: 1px solid $color-blue-dianne;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: $size-xs;
@@ -236,7 +245,7 @@ div[class^="rsg--search"] input {
   @include inset-squish-space($space-s);
   color: $color-white;
   border: 1px solid transparent;
-  background: mix($color-bleu-de-france, $color-rich-black, 20%);
+  background: lighten($color-flame-pea, 5%);
   &:focus {
     border: 1px solid $color-bleu-de-france;
     &::-webkit-textfield-decoration-container {
@@ -247,21 +256,22 @@ div[class^="rsg--search"] input {
     }
   }
   &::-webkit-input-placeholder {
-    color: rgba(mix($color-white, $color-bleu-de-france, 50%), 0.35);
+    color: lighten($color-flame-pea, 25%);
   }
   &:-ms-input-placeholder {
-    color: rgba(mix($color-white, $color-bleu-de-france, 50%), 0.35);
+    color: lighten($color-flame-pea, 25%);
   }
   &::-moz-placeholder {
-    color: rgba(mix($color-white, $color-bleu-de-france, 50%), 0.35);
+    color: lighten($color-flame-pea, 25%);
     opacity: 1;
   }
 }
 
 // Sets sidebar background
 div[class^="rsg--sidebar"] {
-  background: mix($color-bleu-de-france, $color-rich-black, 5%);
+  background: $color-flame-pea;
   border: 0;
+  color: $color-blue-dianne;
   @media (max-width: #{$docs-breakpoint}) {
     padding-bottom: $space-l;
   }
@@ -286,16 +296,16 @@ div[class^="rsg--sidebar"] {
     -moz-osx-font-smoothing: grayscale;
     padding: $space-xx-small $space-m;
     font-weight: $weight-semi-bold;
-    color: $color-bleu-de-france;
+    color: $color-blue-dianne;
     display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     &:hover {
-      color: $color-bleu-de-france-lighter;
+      color: lighten($color-blue-dianne, 10%);
     }
     &:active {
-      color: $color-bleu-de-france-dark;
+      color: $color-calypso;
     }
   }
 
@@ -306,7 +316,7 @@ div[class^="rsg--sidebar"] {
     }
     & > a,
     & > a:hover {
-      color: tint($color-bleu-de-france, 80%);
+      color: $color-calypso;
     }
   }
 

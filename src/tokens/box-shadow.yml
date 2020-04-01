@@ -6,6 +6,12 @@
 props:
   shadow_s:
     value: "0 0 0 1px rgba(92,106,196,.1)"
+  shadow_m:
+    value: "2px 2px 6px 0 rgba(0, 0, 0, 0.15)"
+  shadow_elevated:
+    value: "0 0 0 1px rgba(31, 45, 61, 0.08), 0 2px 2px 0 rgba(31, 45, 61, 0.03)"
+  shadow_elevated_l:
+    value: "0 2px 4px 0 rgba(0, 0, 0, 0.15)"
 global:
   type: ...
   category: box-shadow

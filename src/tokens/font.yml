@@ -5,17 +5,23 @@
 
 props:
   font_heading:
-    value: "'Fira Sans', Helvetica, Arial, sans-serif"
+    value: "'Raleway', Helvetica, Arial, sans-serif"
   font_text:
-    value: "'Fira Sans', Helvetica, Arial, sans-serif"
-  weight_bold:
+    value: "'Raleway', Helvetica, Arial, sans-serif"
+  weight_extrablack:
+    value: "900"
+  weight_black:
+    value: "800"
+  weight_extrabold:
     value: "700"
   weight_semi_bold:
-    value: "600"
-  weight_normal:
+    value: "400" #todelete
+  weight_bold:
     value: "400"
-  weight_light:
+  weight_normal:
     value: "300"
+  weight_light:
+    value: "200"
 global:
   type: ...
   category: font
