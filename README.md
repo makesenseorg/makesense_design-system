@@ -59,7 +59,7 @@ The tool is built on top of [Vue.js](https://vuejs.org), [Vue Styleguidist](http
 
 About to get started with a new design system? I’m an independent designer and developer, specialized in helping companies to build [design systems](https://vueds.com). I also conduct [design system workshops](https://viljamis.com/2018/vue-design-system/) and do consulting. [Let’s talk!](https://twitter.com/viljamis)
 
-## Authors and License
+## Vue Design System : Authors and License
 
 [Viljami Salminen](https://viljamis.com), [Artem Sapegin](http://sapegin.me), [Rafael Escala](https://github.com/rafaesc), [react-styleguidist contributors](https://github.com/styleguidist/react-styleguidist/graphs/contributors), [vue-styleguidist contributors](https://github.com/vue-styleguidist/vue-styleguidist/graphs/contributors), [Vue.js contributors](https://github.com/vuejs/vue/graphs/contributors), [vue-webpack-boilerplate contributors](https://github.com/vuejs-templates/webpack/graphs/contributors), [Theo contributors](https://github.com/salesforce-ux/theo/graphs/contributors), and [Polaris contributors](https://github.com/Shopify/polaris).
 

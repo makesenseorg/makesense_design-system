@@ -1,11 +1,11 @@
 {
 	"name": "makesense_design-system",
 	"version": "3.5.7",
-	"description": "Vue Design System is an open-source tool for building Design Systems with Vue.js",
-	"author": "viljamis <me@viljamis.com>",
+	"description": "Makesense Design System is library of components for makesense org based on Vue Design System",
+	"author": "makesense <digitale@makesense.org>",
 	"main": "dist/system/system.js",
 	"files": [ "dist/system" ],
-	"homepage": "https://vueds.com",
+	"homepage": "https://design-system.makesense.org",
 	"private": true,
 	"license": "MIT",
 	"scripts": {
@@ -34,7 +34,7 @@
 		"type": "git",
 		"url": "git+https://github.com/makesenseorg/makesense_design-system.git"
 	},
-	"keywords": [ "vue design system", "design system", "vue.js", "vue", "design", "system" ],
+	"keywords": [ "vue design system", "design system", "vue.js", "vue", "design", "system", "makesense" ],
 	"babel": {
 		"presets": [ "@babel/preset-env" ],
 		"plugins": [
