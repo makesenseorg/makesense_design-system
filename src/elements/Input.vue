@@ -1,5 +1,5 @@
 <template>
-  <component :is="wrapper" :class="['input', {'input-expand': width === 'expand'}]">
+  <component :is="wrapper" :class="['input', { 'input-expand': width === 'expand' }]">
     <label :for="id" v-if="label">{{ label }}</label>
     <input
       :id="id"
@@ -10,7 +10,7 @@
       :placeholder="placeholder"
       @input="onInput($event.target.value)"
       @focus="onFocus($event.target.value)"
-    >
+    />
   </component>
 </template>
 
@@ -173,7 +173,7 @@ $color-placeholder: tint($color-silver, 50%);
     &:focus,
     &.focus {
       transition: box-shadow 0.2s ease;
-      box-shadow: inset 0 0 0 1px $color-bleu-de-france, 0 0 0 1px $color-bleu-de-france;
+      box-shadow: inset 0 0 0 1px $color-calypso, 0 0 0 1px $color-calypso;
       outline: 0;
     }
     &[disabled] {
@@ -188,7 +188,6 @@ $color-placeholder: tint($color-silver, 50%);
   }
 }
 </style>
-
 
 <docs>
   ```jsx

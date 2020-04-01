@@ -3,13 +3,16 @@
     <NavBar
       active="NotFound"
       :navItems="[
-        {name: 'Template', component: 'Index', href: '/#/'},
-        {name: 'Documentation', href: 'http://localhost:6060/'}
+        { name: 'Template', component: 'Index', href: '/#/' },
+        { name: 'Documentation', href: 'http://localhost:6060/' },
       ]"
     />
     <Wrapper>
       <Heading>404 Error</Heading>
-      <Paragraph>Couldn’t find a component that would match the URL you entered. Double check configuration in router/index.js.</Paragraph>
+      <Paragraph
+        >Couldn’t find a component that would match the URL you entered. Double check configuration
+        in router/index.js.</Paragraph
+      >
     </Wrapper>
   </component>
 </template>
@@ -44,7 +47,7 @@ $color-template-background: $color-rich-black;
 $color-template-background-top: tint($color-template-background, 5%);
 $color-template-background-bottom: shade($color-template-background, 5%);
 $color-template-text: $color-white;
-$color-template-link: $color-bleu-de-france;
+$color-template-link: $color-calypso;
 
 .not-found {
   @include reset;

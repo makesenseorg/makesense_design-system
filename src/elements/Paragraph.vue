@@ -1,7 +1,5 @@
 <template>
-  <component :is="type" :class="['paragraph', variation]">
-    <slot/>
-  </component>
+  <component :is="type" :class="['paragraph', variation]"> <slot /> </component>
 </template>
 
 <script>
@@ -48,10 +46,10 @@ export default {
   line-height: $line-height-m;
   color: shade($color-silver, 70%);
   a {
-    color: $color-bleu-de-france;
+    color: $color-calypso;
     text-decoration: none;
     &:hover {
-      color: darken($color-bleu-de-france, 20%);
+      color: darken($color-calypso, 20%);
     }
   }
   &.intro {

@@ -3,14 +3,16 @@
     <NavBar
       active="Index"
       :navItems="[
-        {name: 'Template', component: 'Index', href: '/#/'},
-        {name: 'Documentation', href: 'http://localhost:6060/'}
+        { name: 'Template', component: 'Index', href: '/#/' },
+        { name: 'Documentation', href: 'http://localhost:6060/' },
       ]"
     />
     <Wrapper>
       <Heading>Vue Design System</Heading>
       <Paragraph>
-        <a href="https://vueds.com">Vue Design System</a>is an open-source tool for building design systems with Vue.js. It provides you and your team a set of organized tools, patterns &amp; practices. It works as the foundation for your application development.
+        <a href="https://vueds.com">Vue Design System</a>is an open-source tool for building design
+        systems with Vue.js. It provides you and your team a set of organized tools, patterns &amp;
+        practices. It works as the foundation for your application development.
       </Paragraph>
     </Wrapper>
   </component>
@@ -48,7 +50,7 @@ $color-template-background: $color-rich-black;
 $color-template-background-top: tint($color-template-background, 5%);
 $color-template-background-bottom: shade($color-template-background, 5%);
 $color-template-text: $color-white;
-$color-template-link: $color-bleu-de-france;
+$color-template-link: $color-calypso;
 
 .index {
   @include reset;
@@ -88,7 +90,7 @@ $color-template-link: $color-bleu-de-france;
   }
   a {
     font-family: $font-text;
-    color: $color-bleu-de-france;
+    color: $color-calypso;
     text-decoration: underline;
   }
 }

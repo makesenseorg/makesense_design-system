@@ -11,7 +11,7 @@
       <tbody>
         <tr v-for="(token, index) in tokens" :key="index" class="token">
           <td v-if="token.name">
-            <code class="name">${{token.name.replace(/_/g, "-")}}</code>
+            <code class="name">${{ token.name.replace(/_/g, "-") }}</code>
           </td>
           <td v-else>N/A</td>
           <td v-if="token.value">
@@ -30,10 +30,10 @@
               class="example box-shadow"
               :style="{ boxShadow: token.value }"
             />
-            <code class="type">{{token.value}}</code>
+            <code class="type">{{ token.value }}</code>
           </td>
           <td v-else>N/A</td>
-          <td v-if="token.category">{{token.category}}</td>
+          <td v-if="token.category">{{ token.category }}</td>
           <td v-else>N/A</td>
         </tr>
       </tbody>
@@ -93,10 +93,10 @@ export default {
   }
   thead th {
     padding: $space-s $space-l $space-s $space-s;
-    background: $color-cloud;
+    background: $color-sahara-sand;
     font-size: $size-s;
     font-weight: $weight-bold;
-    color: $color-oxford-blue;
+    color: $color-blue-dianne;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: $weight-semi-bold;

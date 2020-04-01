@@ -109,13 +109,13 @@ module.exports = {
       usageMode: "expand",
       sectionDepth: 2,
     },
-    {
-      name: "Downloads",
-      content: "../docs/downloads.md",
-      exampleMode: "hide",
-      usageMode: "hide",
-      sectionDepth: 1,
-    },
+    // {
+    //   name: "Downloads",
+    //   content: "../docs/downloads.md",
+    //   exampleMode: "hide",
+    //   usageMode: "hide",
+    //   sectionDepth: 1,
+    // },
     {
       name: "FAQ",
       content: "../docs/faq.md",

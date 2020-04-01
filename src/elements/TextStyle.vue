@@ -1,7 +1,5 @@
 <template>
-  <component :is="type" :class="['text-style', variation]">
-    <slot/>
-  </component>
+  <component :is="type" :class="['text-style', variation]"> <slot /> </component>
 </template>
 
 <script>
@@ -67,11 +65,10 @@ $positive-text: #7cb518;
     color: shade($positive-text, 20%);
   }
   &.negative {
-    color: $color-vermilion;
+    color: $color-negative;
   }
 }
 </style>
-
 
 <docs>
   ```jsx

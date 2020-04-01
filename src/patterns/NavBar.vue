@@ -4,7 +4,7 @@
       v-for="(item, index) in navItems"
       :key="index"
       :href="item.href"
-      :class="{active: localActive === item.component}"
+      :class="{ active: localActive === item.component }"
       v-html="item.name"
     />
   </component>
@@ -59,8 +59,8 @@ export default {
 
 <style lang="scss" scoped>
 // Design Tokens with local scope
-$color-nav-link: $color-bleu-de-france;
-$color-nav-link-active: $color-bleu-de-france;
+$color-nav-link: $color-calypso;
+$color-nav-link-active: $color-calypso;
 
 .nav {
   @include stack-space($space-m);
