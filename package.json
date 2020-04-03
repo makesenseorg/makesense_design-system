@@ -1,5 +1,5 @@
 {
-  "name": "vue-cion-design-system",
+  "name": "makesense-design-system",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -63,7 +63,7 @@
     "webpack-bundle-analyzer": "^2.13.1",
     "webpack-merge-and-include-globally": "^2.0.11"
   },
-  "author": "visualjerk",
+  "author": "makesense",
   "main": "./dist/system.umd.min.js",
   "files": [
     "dist/*",
