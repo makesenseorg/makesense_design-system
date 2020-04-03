@@ -1,0 +1,88 @@
+.ds-card {
+  @include reset;
+  @include border-radius($border-radius-base);
+  display: flex;
+  flex-direction: column;
+  background-color: $background-color-base;
+  color: $text-color-base;
+  box-shadow: $box-shadow-x-small, $box-shadow-base;
+  height: 100%;
+}
+
+.ds-card-centered {
+  text-align: center;
+}
+
+.ds-card-hover {
+  transform: translateY(0);
+  transition:
+    transform $duration-base $ease-out,
+    background $duration-base $ease-out,
+    box-shadow $duration-base $ease-out;
+
+  &:hover {
+    transform: translateY(-$space-x-small);
+    box-shadow: $box-shadow-x-small, $box-shadow-large;
+  }
+}
+
+.ds-card-image {
+  @include border-radius($border-radius-base, 'top');
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.ds-card-icon {
+  padding: $space-base $space-small 0 $space-small;
+  font-size: $font-size-xxxx-large;
+  opacity: $opacity-soft;
+}
+
+.ds-card-header {
+  @include reset;
+  @include border-radius($border-radius-base, 'top');
+  padding: $space-base $space-small $space-small $space-small;
+
+  .ds-card-has-image & {
+    @include border-radius(0, 'top');
+  }
+}
+
+.ds-card-content {
+  @include reset;
+  padding: $space-small;
+  flex: 1 1 0;
+
+  &:last-child:not(:only-child) {
+    padding-bottom: $space-large;
+  }
+}
+
+.ds-card-footer {
+  @include reset;
+  padding: $space-small;
+}
+
+// Color variants
+.ds-card-primary {
+  background-color: $background-color-primary;
+  color: $text-color-primary-inverse;
+
+  &.ds-card-hover:hover {
+    background-color: $background-color-primary-active;
+  }
+}
+
+.ds-card-secondary {
+  background-color: $background-color-secondary;
+  color: $text-color-secondary-inverse;
+
+  &.ds-card-hover:hover {
+    background-color: $background-color-secondary-active;
+  }
+}
