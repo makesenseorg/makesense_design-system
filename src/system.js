@@ -5,6 +5,8 @@
  * You should & can add your own dependencies here if needed.
  */
 
+import "@/styles/global.scss"
+
 // Define contexts to require
 const contexts = [
   require.context("@/atoms/", true, /\.vue$/),
@@ -22,7 +24,6 @@ contexts.forEach(context => {
 // Install the above defined components
 const System = {
   install(Vue) {
-    require("./styles/global.scss")
     components.forEach(component => Vue.component(component.name, component))
   },
 }

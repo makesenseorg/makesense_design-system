@@ -8,6 +8,7 @@ import Meta from "vue-meta"
 
 // Vue Design System: Auto importing components globally
 import DesignSystem from "@/system"
+import "@/styles/global.scss"
 
 Vue.use(DesignSystem)
 Vue.use(Meta)
