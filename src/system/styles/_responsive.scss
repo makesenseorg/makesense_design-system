@@ -1,0 +1,23 @@
+/// Mixin qui permet de générer des media queries (min-width)
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+
+@mixin breakpoint($breakpoint, $type: "min") {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @if $type == "min" {
+      // Prints a media query based on the value
+      @media (min-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+      }
+    } @else {
+      @media (max-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+      }
+    }
+  }
+
+  // If the key doesn't exist in the map @else {
+  @warn "#{$breakpoint} not found. Available breakpoints are: #{map-keys($breakpoints)}.";
+}

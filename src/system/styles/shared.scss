@@ -10,6 +10,9 @@
 @import "../tokens/generated/tokens";
 @import "../tokens/generated/tokens.map";
 
+// styles from spot 
+@import "./styles.scss";
+
 // Mixins
 @import "./shared/functions";
 @import "./shared/mixins";

@@ -1110,54 +1110,33 @@
       "value": "var(--size-height-footer)",
       "originalValue": "64px"
     },
-    "box-shadow-large": {
+    "box-shadow-s": {
       "type": "...",
       "category": "box-shadow",
-      "name": "box-shadow-large",
-      "value": "var(--box-shadow-large)",
-      "originalValue": "0 20px 60px 0 rgba(0, 0, 0, .15)"
+      "name": "box-shadow-s",
+      "value": "var(--box-shadow-s)",
+      "originalValue": "0 0 0 1px rgba(92,106,196,.1)"
     },
-    "box-shadow-base": {
+    "box-shadow-m": {
       "type": "...",
       "category": "box-shadow",
-      "name": "box-shadow-base",
-      "value": "var(--box-shadow-base)",
-      "originalValue": "0px 12px 26px -4px rgba(0, 0, 0, .1)"
+      "name": "box-shadow-m",
+      "value": "var(--box-shadow-m)",
+      "originalValue": "2px 2px 6px 0 rgba(0, 0, 0, 0.15)"
     },
-    "box-shadow-small": {
+    "box-shadow-elevated": {
       "type": "...",
       "category": "box-shadow",
-      "name": "box-shadow-small",
-      "value": "var(--box-shadow-small)",
-      "originalValue": "0px 8px 18px -2px rgba(0, 0, 0, .1)"
+      "name": "box-shadow-elevated",
+      "value": "var(--box-shadow-elevated)",
+      "originalValue": "0 0 0 1px rgba(31, 45, 61, 0.08), 0 2px 2px 0 rgba(31, 45, 61, 0.03)"
     },
-    "box-shadow-x-small": {
+    "box-shadow-elevated-l": {
       "type": "...",
       "category": "box-shadow",
-      "name": "box-shadow-x-small",
-      "value": "var(--box-shadow-x-small)",
-      "originalValue": "0px 0px 3px 0px rgba(0, 0, 0, .1)"
-    },
-    "box-shadow-active": {
-      "type": "...",
-      "category": "box-shadow",
-      "name": "box-shadow-active",
-      "value": "var(--box-shadow-active)",
-      "originalValue": "0 0 6px 1px rgba(20, 100, 160, 0.5)"
-    },
-    "box-shadow-inset": {
-      "type": "...",
-      "category": "box-shadow",
-      "name": "box-shadow-inset",
-      "value": "var(--box-shadow-inset)",
-      "originalValue": "inset 0 0 20px 1px rgba(0,0,0,.15)"
-    },
-    "box-shadow-small-inset": {
-      "type": "...",
-      "category": "box-shadow",
-      "name": "box-shadow-small-inset",
-      "value": "var(--box-shadow-small-inset)",
-      "originalValue": "inset 0 0 0 1px rgba(0,0,0,.05)"
+      "name": "box-shadow-elevated-l",
+      "value": "var(--box-shadow-elevated-l)",
+      "originalValue": "0 2px 4px 0 rgba(0, 0, 0, 0.15)"
     },
     "duration-short": {
       "type": "number",

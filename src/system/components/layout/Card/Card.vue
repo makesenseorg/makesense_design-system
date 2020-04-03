@@ -53,7 +53,7 @@ export default {
   name: 'DsCard',
   props: {
     /**
-     * The outtermost html tag
+     * The outtermost html tag test
      */
     tag: {
       type: String,

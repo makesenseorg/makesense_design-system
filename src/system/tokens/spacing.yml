@@ -70,6 +70,22 @@ props:
     value: "{!xx-small}px"
   - name: space-xxx-small
     value: "{!xxx-small}px"
+  - name: space-xxxl
+    value: "100px"
+  - name: space-xxl
+    value: "60px"
+  - name: space-xl
+    value: "40px"
+  - name: space-l
+    value: "30px"
+  - name: space-m
+    value: "20px"
+  - name: space-s
+    value: "15px"
+  - name: space-xs
+    value: "10px"
+  - name: space-xxs
+    value: "5px"
 
 global:
   type: number

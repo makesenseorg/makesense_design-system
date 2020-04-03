@@ -1,0 +1,5 @@
+@mixin background-makesense {
+  background-image: url("~@/assets/brand/background.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+}

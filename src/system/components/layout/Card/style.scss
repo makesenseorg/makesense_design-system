@@ -5,7 +5,7 @@
   flex-direction: column;
   background-color: $background-color-base;
   color: $text-color-base;
-  box-shadow: $box-shadow-x-small, $box-shadow-base;
+  box-shadow: $box-shadow-s, $box-shadow-base;
   height: 100%;
 }
 
@@ -22,7 +22,7 @@
 
   &:hover {
     transform: translateY(-$space-x-small);
-    box-shadow: $box-shadow-x-small, $box-shadow-large;
+    box-shadow: $box-shadow-s, $box-shadow-large;
   }
 }
 

@@ -62,6 +62,9 @@ export default {
 </script>
 
 <style lang="scss" src="./style.scss">
+.ds-spinner{
+  color: $color-blue-dianne;
+}
 </style>
 
 <docs src="./demo.md"></docs>

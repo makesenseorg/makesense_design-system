@@ -14,7 +14,9 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "vue": "^2.5.17"
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "vue": "^2.5.17",
+    "vue2-editor": "^2.10.2"
   },
   "devDependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
