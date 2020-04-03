@@ -1,5 +1,5 @@
 <template>
-  <component 
+  <component
     :is="tag"
     class="ds-text"
     :class="[
@@ -21,11 +21,11 @@
  * @version 1.0.0
  */
 export default {
-  name: 'DsText',
+  name: "DsText",
   provide() {
     return {
       $parentText: this
-    }
+    };
   },
   inject: {
     $parentText: {
@@ -43,7 +43,7 @@ export default {
       validator: value => {
         return value.match(
           /(default|soft|softer|primary|inverse|success|warning|danger)/
-        )
+        );
       }
     },
     /**
@@ -60,7 +60,7 @@ export default {
     inline: {
       type: Boolean,
       default() {
-        return !!this.$parentText
+        return !!this.$parentText;
       }
     },
     /**
@@ -71,7 +71,7 @@ export default {
       type: String,
       default: null,
       validator: value => {
-        return value.match(/(small|base|large|x-large)/)
+        return value.match(/(small|base|large|x-large)/);
       }
     },
     /**
@@ -81,14 +81,13 @@ export default {
     tag: {
       type: String,
       default() {
-        return this.inline ? 'span' : 'p'
+        return this.inline ? "span" : "p";
       }
     }
   }
-}
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>
