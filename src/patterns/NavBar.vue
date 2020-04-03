@@ -65,7 +65,7 @@ $color-nav-link-active: $color-calypso;
 .nav {
   @include stack-space($space-m);
   font-family: $font-text;
-  font-size: $size-s;
+  font-size: $font-size-s;
   line-height: $line-height-m;
   color: $color-white;
   text-align: center;
@@ -84,7 +84,7 @@ $color-nav-link-active: $color-calypso;
     }
     &.active {
       border-bottom: 2px solid $color-nav-link;
-      font-weight: $weight-bold;
+      font-weight: $font-weight-bold;
       color: $color-nav-link;
     }
   }

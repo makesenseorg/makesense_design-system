@@ -89,8 +89,8 @@ export default {
   transition: all 0.2s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: $weight-semi-bold;
-  font-size: $size-m;
+  font-weight: $font-weight-semi-bold;
+  font-size: $font-size-m;
   font-family: $font-text;
   line-height: $line-height-m;
   text-decoration: none;
@@ -99,7 +99,7 @@ export default {
   justify-content: center;
   border: 0;
   box-shadow: inset 0 0 0 2px $color-calypso;
-  border-radius: $radius-default;
+  border-radius: $border-radius-m;
   background: transparent;
   color: $color-calypso;
   cursor: pointer;
@@ -137,15 +137,15 @@ export default {
   // Various button sizes
   &.large {
     @include inset-squish-space($space-s);
-    font-size: $size-l;
+    font-size: $font-size-l;
   }
   &.medium {
     @include inset-squish-space($space-s);
-    font-size: $size-m;
+    font-size: $font-size-m;
   }
   &.small {
     @include inset-squish-space($space-xs);
-    font-size: $size-s;
+    font-size: $font-size-s;
   }
 
   // Primary button

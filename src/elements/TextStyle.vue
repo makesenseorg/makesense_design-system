@@ -46,20 +46,20 @@ $positive-text: #7cb518;
 .text-style {
   @include reset;
   @include stack-space($space-s);
-  color: $color-rich-black;
+  color: $color-black;
   font-family: $font-text;
-  font-weight: $weight-normal;
-  font-size: $size-m;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-m;
   line-height: $line-height-m;
   @media #{$media-query-l} {
     // This is how you’d use design tokens with media queries
   }
   &.disabled {
-    color: tint($color-rich-black, 50%);
+    color: tint($color-black, 50%);
     text-decoration: line-through;
   }
   &.strong {
-    font-weight: $weight-semi-bold;
+    font-weight: $font-weight-semi-bold;
   }
   &.positive {
     color: shade($positive-text, 20%);

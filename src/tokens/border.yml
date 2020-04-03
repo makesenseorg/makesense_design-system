@@ -1,0 +1,28 @@
+#
+# BORDER RADIUS TOKENS
+# Use these tokens to change border-radius size.
+#
+aliases:
+  gray_light:
+    value: "#eff2f7"
+
+props:
+  border:
+    value: "1px solid {!gray_light}"
+  border_radius_m:
+    value: "10px"
+  border_radius_l:
+    value: "20px"
+  border_radius_circle:
+    value: "1000px"
+  border_radius_full:
+    value: "1000px"
+  border_width_m:
+    value: "1px"
+  border_width_l:
+    value: "2px"
+  border_width_xl:
+    value: "1000px"
+global:
+  type: number
+  category: border

@@ -21,7 +21,9 @@ aliases:
   white:
     value: "#fff"
   red:
-    value: "C62E43"
+    value: "#C62E43"
+  gray_light:
+    value: "#eff2f7"
 
 props:
   color_sahara_sand:
@@ -72,7 +74,7 @@ props:
     category: color_feedback
 
   color_gray_light:
-    value: "#eff2f7"
+    value: "{!gray_light}"
     category: color_z_app
   color_gray:
     value: "#e6ebf3"
@@ -81,7 +83,7 @@ props:
     value: "#8492a6"
     category: color_z_app
 
-  color_rich_black:
+  color_black:
     value: "{!rich_black}"
     category: color_group_4
   color_white:

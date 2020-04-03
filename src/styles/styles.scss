@@ -5,6 +5,18 @@
  * CSS in your final, compiled files.
  */
 
+//@import "variables";
+@import "theme";
+@import "reset";
+@import "responsive";
+@import "type";
+@import "spacing";
+@import "border";
+@import "background";
+@import "layout";
+@import "interaction";
+@import "tooltip";
+
 @import "../styles/functions";
 @import "../styles/mixins";
 @import "../styles/spacing";

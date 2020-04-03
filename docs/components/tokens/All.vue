@@ -78,9 +78,9 @@ export default {
   @include reset;
   margin-top: $space-l;
   font-family: $font-heading;
-  font-weight: $weight-normal;
+  font-weight: $font-weight-normal;
   line-height: $line-height-xs;
-  color: $color-rich-black;
+  color: $color-black;
   margin-bottom: $space-s;
   font-style: normal;
   @media (max-width: 1000px) {
@@ -94,12 +94,12 @@ export default {
   thead th {
     padding: $space-s $space-l $space-s $space-s;
     background: $color-sahara-sand;
-    font-size: $size-s;
-    font-weight: $weight-bold;
+    font-size: $font-size-s;
+    font-weight: $font-weight-bold;
     color: $color-blue-dianne;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: $weight-semi-bold;
+    font-weight: $font-weight-semi-bold;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: left;
@@ -108,12 +108,12 @@ export default {
     position: sticky;
     top: -1px;
     &:first-child {
-      border-top-left-radius: $radius-default;
-      border-bottom-left-radius: $radius-default;
+      border-top-left-radius: $border-radius-m;
+      border-bottom-left-radius: $border-radius-m;
     }
     &:last-child {
-      border-top-right-radius: $radius-default;
-      border-bottom-right-radius: $radius-default;
+      border-top-right-radius: $border-radius-m;
+      border-bottom-right-radius: $border-radius-m;
     }
   }
   tr {
@@ -123,10 +123,10 @@ export default {
     }
   }
   td {
-    font-size: $size-s;
+    font-size: $font-size-s;
     padding: $space-s $space-l $space-s $space-s;
     &:first-child {
-      font-weight: $weight-bold;
+      font-weight: $font-weight-bold;
       white-space: nowrap;
     }
   }
@@ -137,7 +137,7 @@ export default {
   }
   .example {
     @include inline-space($space-xs);
-    border-radius: $radius-default;
+    border-radius: $border-radius-m;
     background: $color-white;
     box-shadow: $shadow-s-inset, $shadow-s-inset, $shadow-s-inset;
     margin-top: $space-xx-small;

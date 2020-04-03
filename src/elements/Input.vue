@@ -123,9 +123,9 @@ $color-placeholder: tint($color-silver, 50%);
 
 .input {
   @include stack-space($space-s);
-  font-weight: $weight-normal;
+  font-weight: $font-weight-normal;
   font-family: $font-text;
-  font-size: $size-m;
+  font-size: $font-size-m;
   line-height: $line-height-xs;
   width: auto;
   &-expand {
@@ -134,8 +134,8 @@ $color-placeholder: tint($color-silver, 50%);
   label {
     cursor: pointer;
     display: block;
-    font-size: $size-s;
-    color: tint($color-rich-black, 20%);
+    font-size: $font-size-s;
+    color: tint($color-black, 20%);
     @include stack-space($space-xs);
   }
   input {
@@ -144,16 +144,15 @@ $color-placeholder: tint($color-silver, 50%);
     transition: all 0.2s ease;
     -webkit-appearance: none;
     appearance: none;
-    font-size: $size-m;
+    font-size: $font-size-m;
     font-family: $font-text;
     background: $color-white;
-    border-radius: $radius-default;
-    color: set-text-color($color-rich-black, $color-white);
+    border-radius: $border-radius-m;
+    color: set-text-color($color-black, $color-white);
     width: 100%;
     margin: 0;
     border: 0;
-    box-shadow: inset 0 1px 0 0 rgba($color-rich-black, 0.07),
-      0 0 0 1px tint($color-rich-black, 80%);
+    box-shadow: inset 0 1px 0 0 rgba($color-black, 0.07), 0 0 0 1px tint($color-black, 80%);
     &::-webkit-input-placeholder {
       -webkit-font-smoothing: antialiased;
       color: $color-placeholder;
@@ -168,7 +167,7 @@ $color-placeholder: tint($color-silver, 50%);
     }
     &:hover,
     &.hover {
-      box-shadow: 0 1px 5px 0 rgba($color-rich-black, 0.07), 0 0 0 1px tint($color-rich-black, 60%);
+      box-shadow: 0 1px 5px 0 rgba($color-black, 0.07), 0 0 0 1px tint($color-black, 60%);
     }
     &:focus,
     &.focus {
@@ -179,7 +178,7 @@ $color-placeholder: tint($color-silver, 50%);
     &[disabled] {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      box-shadow: 0 0 0 1px tint($color-rich-black, 80%);
+      box-shadow: 0 0 0 1px tint($color-black, 80%);
       background: lighten($color-placeholder, 42%);
       color: tint($color-placeholder, 20%);
       cursor: not-allowed;

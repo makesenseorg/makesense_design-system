@@ -42,7 +42,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   transition: color 0.3s ease;
   font-family: $font-text;
-  font-weight: $weight-normal;
+  font-weight: $font-weight-normal;
   line-height: $line-height-m;
   color: shade($color-silver, 70%);
   a {
@@ -55,14 +55,14 @@ export default {
   &.intro {
     @include stack-space($space-m);
     font-family: $font-heading;
-    font-weight: $weight-light;
-    font-size: $size-l;
+    font-weight: $font-weight-light;
+    font-size: $font-size-l;
   }
   &.large {
-    font-size: $size-l;
+    font-size: $font-size-l;
   }
   &.small {
-    font-size: $size-s;
+    font-size: $font-size-s;
   }
 }
 </style>

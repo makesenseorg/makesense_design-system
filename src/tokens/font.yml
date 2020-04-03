@@ -5,22 +5,22 @@
 
 props:
   font_heading:
-    value: "'Raleway', Helvetica, Arial, sans-serif"
+    value: "Raleway, Helvetica, Arial, sans-serif"
   font_text:
-    value: "'Raleway', Helvetica, Arial, sans-serif"
-  weight_extrablack:
+    value: "Raleway, Helvetica, Arial, sans-serif"
+  font_weight_extrablack:
     value: "900"
-  weight_black:
+  font_weight_black:
     value: "800"
-  weight_extrabold:
+  font_weight_extrabold:
     value: "700"
-  weight_semi_bold:
+  font_weight_semi_bold:
     value: "400" #todelete
-  weight_bold:
+  font_weight_bold:
     value: "400"
-  weight_normal:
+  font_weight_normal:
     value: "300"
-  weight_light:
+  font_weight_light:
     value: "200"
 global:
   type: ...

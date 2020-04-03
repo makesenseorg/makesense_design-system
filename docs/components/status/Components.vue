@@ -26,6 +26,7 @@
       <thead>
         <tr>
           <th v-if="show === 'all'">Component Name</th>
+          <th v-if="show === 'atoms'">Atom Name</th>
           <th v-if="show === 'elements'">Element Name</th>
           <th v-if="show === 'patterns'">Pattern Name</th>
           <th v-if="show === 'templates'">Template Name</th>
@@ -82,7 +83,7 @@ export default {
       type: String,
       default: "all",
       validator: value => {
-        return value.match(/(all|patterns|templates|elements)/)
+        return value.match(/(all|patterns|templates|elements|atoms)/)
       },
     },
   },
@@ -92,10 +93,13 @@ export default {
 
       if (this.show === "all") {
         contexts = [
+          require.context("@/atoms/", true, /\.vue$/),
           require.context("@/elements/", true, /\.vue$/),
           require.context("@/patterns/", true, /\.vue$/),
           require.context("@/templates/", true, /\.vue$/),
         ]
+      } else if (this.show === "atoms") {
+        contexts = [require.context("@/atoms/", true, /\.vue$/)]
       } else if (this.show === "elements") {
         contexts = [require.context("@/elements/", true, /\.vue$/)]
       } else if (this.show === "patterns") {
@@ -133,9 +137,9 @@ export default {
 .component-status {
   @include reset;
   font-family: $font-heading;
-  font-weight: $weight-normal;
+  font-weight: $font-weight-normal;
   line-height: $line-height-xs;
-  color: $color-rich-black;
+  color: $color-black;
   margin-bottom: $space-s;
   font-style: normal;
   @media (max-width: 1000px) {
@@ -149,12 +153,12 @@ export default {
   thead th {
     padding: $space-s;
     background: $color-sahara-sand;
-    font-size: $size-s;
-    font-weight: $weight-bold;
+    font-size: $font-size-s;
+    font-weight: $font-weight-bold;
     color: $color-blue-dianne;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: $weight-semi-bold;
+    font-weight: $font-weight-semi-bold;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: left;
@@ -163,12 +167,12 @@ export default {
     position: sticky;
     top: -1px;
     &:first-child {
-      border-top-left-radius: $radius-default;
-      border-bottom-left-radius: $radius-default;
+      border-top-left-radius: $border-radius-m;
+      border-bottom-left-radius: $border-radius-m;
     }
     &:last-child {
-      border-top-right-radius: $radius-default;
-      border-bottom-right-radius: $radius-default;
+      border-top-right-radius: $border-radius-m;
+      border-bottom-right-radius: $border-radius-m;
     }
   }
   tr {
@@ -178,10 +182,10 @@ export default {
     }
   }
   td {
-    font-size: $size-s;
+    font-size: $font-size-s;
     padding: $space-s;
     &:first-child {
-      font-weight: $weight-bold;
+      font-weight: $font-weight-bold;
       white-space: nowrap;
     }
   }
@@ -199,7 +203,7 @@ export default {
     li {
       margin: 0 $space-m 0 0;
       color: $color-silver;
-      font-size: $size-s;
+      font-size: $font-size-s;
       align-items: center;
       display: flex;
       @media (max-width: 1000px) {

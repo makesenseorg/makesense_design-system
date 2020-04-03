@@ -7,6 +7,7 @@
 
 // Define contexts to require
 const contexts = [
+  require.context("@/atoms/", true, /\.vue$/),
   require.context("@/elements/", true, /\.vue$/),
   require.context("@/patterns/", true, /\.vue$/),
   require.context("@/templates/", true, /\.vue$/),
@@ -21,6 +22,7 @@ contexts.forEach(context => {
 // Install the above defined components
 const System = {
   install(Vue) {
+    require("./styles/global.scss")
     components.forEach(component => Vue.component(component.name, component))
   },
 }
