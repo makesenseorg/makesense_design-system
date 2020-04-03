@@ -27,6 +27,9 @@
     "purple": {
       "value": "264, 88%"
     },
+    "gray_light": {
+      "value": "#eff2f7"
+    },
     "x-large": {
       "value": 48
     },
@@ -645,47 +648,61 @@
       "value": "var(--border-color-danger)",
       "originalValue": "hsla({!red}, 50%, 1)"
     },
-    "border-size-base": {
+    "border-width-m": {
       "type": "number",
       "category": "border-size",
-      "name": "border-size-base",
-      "value": "var(--border-size-base)",
+      "name": "border-width-m",
+      "value": "var(--border-width-m)",
       "originalValue": "1px"
     },
-    "border-size-large": {
+    "border-width-l": {
       "type": "number",
       "category": "border-size",
-      "name": "border-size-large",
-      "value": "var(--border-size-large)",
-      "originalValue": "3px"
+      "name": "border-width-l",
+      "value": "var(--border-width-l)",
+      "originalValue": "2px"
     },
-    "border-size-x-large": {
+    "border-width-xl": {
       "type": "number",
       "category": "border-size",
-      "name": "border-size-x-large",
-      "value": "var(--border-size-x-large)",
-      "originalValue": "6px"
-    },
-    "border-radius-base": {
-      "type": "number",
-      "category": "border-radius",
-      "name": "border-radius-base",
-      "value": "var(--border-radius-base)",
+      "name": "border-width-xl",
+      "value": "var(--border-width-xl)",
       "originalValue": "3px"
     },
-    "border-radius-rounded": {
+    "border": {
       "type": "number",
-      "category": "border-radius",
-      "name": "border-radius-rounded",
-      "value": "var(--border-radius-rounded)",
-      "originalValue": "2em"
+      "category": "border",
+      "name": "border",
+      "value": "var(--border)",
+      "originalValue": "1px solid {!gray_light}"
     },
-    "border-radius-circle": {
+    "border-radius-s": {
       "type": "number",
-      "category": "border-radius",
-      "name": "border-radius-circle",
-      "value": "var(--border-radius-circle)",
-      "originalValue": "50%"
+      "category": "border",
+      "name": "border-radius-s",
+      "value": "var(--border-radius-s)",
+      "originalValue": "2px"
+    },
+    "border_radius_m": {
+      "type": "number",
+      "category": "border",
+      "name": "border_radius_m",
+      "value": "var(--border_radius_m)",
+      "originalValue": "10px"
+    },
+    "border_radius_l": {
+      "type": "number",
+      "category": "border",
+      "name": "border_radius_l",
+      "value": "var(--border_radius_l)",
+      "originalValue": "20px"
+    },
+    "border_radius_full": {
+      "type": "number",
+      "category": "border",
+      "name": "border_radius_full",
+      "value": "var(--border_radius_full)",
+      "originalValue": "1000px"
     },
     "font-size-xxxx-large": {
       "type": "number",

@@ -83,7 +83,7 @@ ${code}
   width: auto;
   height: auto;
   border-radius: 0;
-  border: $border-size-base solid $border-color-softer;
+  border: $border-width-m solid $border-color-softer;
   padding: $space-base;
   margin-bottom: $space-small;
   overflow: visible;
@@ -106,7 +106,7 @@ $codemirror-primary: $color-primary;
 	word-spacing: 1px;
 	background: $codemirror-background;
 	color: $text-color-soft;
-	border: $border-size-base solid $border-color-softer;
+	border: $border-width-m solid $border-color-softer;
 
 	.CodeMirror-lines {
     padding: 8px 0;
@@ -115,7 +115,7 @@ $codemirror-primary: $color-primary;
   .CodeMirror-gutters {
     background-color: $codemirror-background;
     border: none;
-    border-right: $border-size-base solid $border-color-softer;
+    border-right: $border-width-m solid $border-color-softer;
     padding-right: $space-x-small;
     z-index: 3;
   }

@@ -1,6 +1,6 @@
 .ds-card {
   @include reset;
-  @include border-radius($border-radius-base);
+  @include border-radius($border-radius-s);
   display: flex;
   flex-direction: column;
   background-color: $background-color-base;
@@ -27,7 +27,7 @@
 }
 
 .ds-card-image {
-  @include border-radius($border-radius-base, 'top');
+  @include border-radius($border-radius-s, 'top');
   overflow: hidden;
 
   img {
@@ -45,7 +45,7 @@
 
 .ds-card-header {
   @include reset;
-  @include border-radius($border-radius-base, 'top');
+  @include border-radius($border-radius-s, 'top');
   padding: $space-base $space-small $space-small $space-small;
 
   .ds-card-has-image & {

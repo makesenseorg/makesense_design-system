@@ -2,7 +2,7 @@
 --------------------------------------------- */
 
 $input-font-size-base: $font-size-base;
-$input-border-size: $border-size-base;
+$input-border-size: $border-width-m;
 $input-padding-vertical: $space-x-small;
 $input-height: calc(
   #{$font-size-base} * #{$line-height-base} + (#{$input-padding-vertical} + #{$input-border-size}) * 2

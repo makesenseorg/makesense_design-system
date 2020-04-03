@@ -27,7 +27,7 @@
   height: $font-size-base;
   border: $input-border-size solid $border-color-base;
   background-color: $background-color-base;
-  border-radius: $border-radius-circle;
+  border-radius: $border-radius-full;
   margin-right: $space-xx-small;
 
   &:before {
@@ -39,7 +39,7 @@
     opacity: 0;
     width: $font-size-x-small;
     height: $font-size-x-small;
-    border-radius: $border-radius-circle;
+    border-radius: $border-radius-full;
     background-color: $text-color-primary;
     transition: all $duration-short $ease-in-sharp;
 

@@ -4,12 +4,12 @@
 #
 
 props:
-  - name: border-size-base
+  - name: border-width-m
     value: "1px"
-  - name: border-size-large
+  - name: border-width-l
+    value: "2px"
+  - name: border-width-xl
     value: "3px"
-  - name: border-size-x-large
-    value: "6px"
 global:
   type: number
   category: border-size

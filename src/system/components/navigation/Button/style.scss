@@ -21,7 +21,7 @@
   text-decoration: none;
   padding: 0 $space-small;
   height: $input-height;
-  border-radius: $border-radius-base;
+  border-radius: $border-radius-s;
   box-shadow: $box-shadow-small-inset, $box-shadow-x-small;
   border: $input-border-size solid transparent;
   transition: color $duration-short $ease-out,
@@ -34,7 +34,7 @@
     left: $space-xxx-small;
     right: $space-xxx-small;
     bottom: $space-xxx-small;
-    border-radius: $border-radius-base;
+    border-radius: $border-radius-s;
     box-shadow: $box-shadow-inset;
     opacity: 0;
     visiblity: hidden;
@@ -48,7 +48,7 @@
     left: $space-xxx-small;
     right: $space-xxx-small;
     bottom: $space-xxx-small;
-    border-radius: $border-radius-base;
+    border-radius: $border-radius-s;
     border: 1px dotted currentColor;
     opacity: 0;
     visiblity: hidden;
@@ -196,10 +196,10 @@
 .ds-button-icon-only {
   width: $input-height;
   padding: 0;
-  border-radius: $border-radius-rounded;
+  border-radius: $border-radius-m;
 
   &:before, &:after {
-    border-radius: $border-radius-rounded;
+    border-radius: $border-radius-m;
   }
 
   &.ds-button-size-small {

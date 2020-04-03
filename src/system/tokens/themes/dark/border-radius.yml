@@ -4,11 +4,11 @@
 #
 
 props:
-  - name: border-radius-base
+  - name: border-radius-s
     value: "6px"
-  - name: border-radius-rounded
+  - name: border-radius-m
     value: "2em"
-  - name: border-radius-circle
+  - name: border-radius-full
     value: "50%"
 global:
   type: number

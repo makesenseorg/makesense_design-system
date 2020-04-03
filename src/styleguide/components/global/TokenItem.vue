@@ -113,7 +113,7 @@ export default {
   height: $size-height-base;
   display: flex;
   align-items: center;
-  border: $border-size-base solid transparent;
+  border: $border-width-m solid transparent;
   line-height: $line-height-base;
 }
 

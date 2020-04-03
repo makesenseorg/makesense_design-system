@@ -105,7 +105,7 @@ ul.ds-menu-list {
       left: 0;
       right: 0;
       bottom: 0;
-      height: $border-size-large;
+      height: $border-width-l;
       background: $text-color-link-active;
       opacity: 0;
       transition: opacity $duration-short $ease-out;

@@ -7,7 +7,7 @@
   font-family: $font-family-text;
   line-height: $line-height-base;
   padding: $font-space-xx-small $font-space-large;
-  border-radius: $border-radius-base;
+  border-radius: $border-radius-s;
   font-weight: $font-weight-bold;
   color: $text-color-base;
   background-color: $background-color-softest;
@@ -43,7 +43,7 @@
 }
 
 .ds-chip-round {
-  border-radius: $border-radius-rounded;
+  border-radius: $border-radius-m;
 }
 
 .ds-chip-size-small {
@@ -72,7 +72,7 @@
   font-size: $font-size-x-small;
   width: $space-small;
   height: $space-small;
-  border-radius: $border-radius-circle;
+  border-radius: $border-radius-full;
   opacity: $opacity-soft;
   cursor: pointer;
   transition: all $duration-short $ease-out-sharp;

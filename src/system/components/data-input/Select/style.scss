@@ -123,8 +123,8 @@
   background-color: $background-color-base;
   border: $input-border-size solid $border-color-active;
   border-top: 0;
-  border-bottom-left-radius: $border-radius-base;
-  border-bottom-right-radius: $border-radius-base;
+  border-bottom-left-radius: $border-radius-s;
+  border-bottom-right-radius: $border-radius-s;
   visibility: hidden;
   opacity: 0;
   transition: all $duration-short $ease-out;
