@@ -2,9 +2,7 @@
   <component
     class="ds-code"
     :is="inline ? 'code' : 'pre'"
-    :class="[
-      inline && `ds-code-inline`
-    ]"
+    :class="[inline && `ds-code-inline`]"
   >
     <slot />
   </component>
@@ -16,7 +14,7 @@
  * @version 1.0.0
  */
 export default {
-  name: 'DsCode',
+  name: "DsCode",
   props: {
     /**
      * Display the code inline.
@@ -26,10 +24,9 @@ export default {
       default: false
     }
   }
-}
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>

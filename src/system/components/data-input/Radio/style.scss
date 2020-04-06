@@ -12,7 +12,7 @@
 
 .ds-radio-option {
   &:not(.ds-button) {
-    @include inline-space($space-small);
+    @include inline-space($space-s);
   }
   display: inline-flex;
   align-items: center;
@@ -23,12 +23,12 @@
 .ds-radio-option-mark {
   display: inline-block;
   position: relative;
-  width: $font-size-base;
-  height: $font-size-base;
+  width: $font-size-m;
+  height: $font-size-m;
   border: $input-border-size solid $border-color-base;
   background-color: $background-color-base;
   border-radius: $border-radius-full;
-  margin-right: $space-xx-small;
+  margin-right: $space-xxs;
 
   &:before {
     position: absolute;
@@ -37,8 +37,8 @@
     left: 50%;
     transform: translateY(-50%) translateX(-50%) scale(0);
     opacity: 0;
-    width: $font-size-x-small;
-    height: $font-size-x-small;
+    width: $font-size-xs;
+    height: $font-size-xs;
     border-radius: $border-radius-full;
     background-color: $text-color-primary;
     transition: all $duration-short $ease-in-sharp;
@@ -51,6 +51,6 @@
 }
 
 .ds-radio-option-label {
-  font-size: $font-size-base;
+  font-size: $font-size-m;
   cursor: pointer;
 }

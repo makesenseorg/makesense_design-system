@@ -1,12 +1,17 @@
 <template>
-  <label class="FieldLabel" :class="cssClass" :for="targetName" v-on:click="onClickLabel()">
+  <label
+    class="FieldLabel"
+    :class="cssClass"
+    :for="targetName"
+    @click="onClickLabel()"
+  >
     <slot />
     <Icon :type="icon" v-if="icon" class="FieldLabelIcon" />
   </label>
 </template>
 
 <script>
-import Icon from "@@/components/atoms/icon"
+import Icon from "@@/components/atoms/icon";
 
 export default {
   name: "FieldLabel",
@@ -14,24 +19,24 @@ export default {
   props: {
     targetName: {
       type: String,
-      required: false,
+      required: false
     },
     cssClass: {
-      required: false,
+      required: false
     },
     icon: {
       type: String,
       required: false,
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {},
   methods: {
     onClickLabel: function() {
-      this.$emit("click")
-    },
-  },
-}
+      this.$emit("click");
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

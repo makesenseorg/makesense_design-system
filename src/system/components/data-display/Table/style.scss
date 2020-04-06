@@ -13,7 +13,7 @@
   @include reset;
   border-bottom: $border-color-softer solid $border-width-m;
   vertical-align: top;
-  padding: $space-small $space-xx-small;
+  padding: $space-s $space-xxs;
 
   &:last-child {
     padding-right: 0;
@@ -23,7 +23,7 @@
 .ds-table-head-col {
   @include reset;
   border-bottom: $border-color-softer solid $border-width-m;
-  padding: $space-small $space-xx-small;
+  padding: $space-s $space-xxs;
   text-align: left;
   font-weight: $font-weight-bold;
 }

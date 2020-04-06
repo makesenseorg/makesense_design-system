@@ -8,6 +8,8 @@ props:
     value: "Raleway, Helvetica, Arial, sans-serif"
   - name: font-text
     value: "Raleway, Helvetica, Arial, sans-serif"
+  - name: font-code
+    value: "inconsolata, monospace"
   - name: font-weight-extrablack
     value: "900"
   - name: font-weight-black

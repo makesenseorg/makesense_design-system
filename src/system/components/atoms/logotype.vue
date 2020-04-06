@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  name: "Logotype",
-}
+  name: "Logotype"
+};
 </script>
 
 <style lang="scss" scoped>

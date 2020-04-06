@@ -1,10 +1,8 @@
 <template>
-  <component 
+  <component
     :is="tag"
     class="ds-page-title"
-    :class="[
-      highlight && `ds-page-title-highlight`
-    ]"
+    :class="[highlight && `ds-page-title-highlight`]"
   >
     <ds-container>
       <ds-heading>
@@ -21,14 +19,14 @@
  * @version 1.0.0
  */
 export default {
-  name: 'DsPageTitle',
+  name: "DsPageTitle",
   props: {
     /**
      * The heading of the page.
      */
     heading: {
       type: String,
-      default: '',
+      default: "",
       required: true
     },
     /**
@@ -43,13 +41,12 @@ export default {
      */
     tag: {
       type: String,
-      default: 'header'
+      default: "header"
     }
   }
-}
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>

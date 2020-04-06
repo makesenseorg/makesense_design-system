@@ -2,7 +2,7 @@
   <component
     :is="tag"
     :class="`button button--${type} button--${size}`"
-    v-on:click="$emit('click')"
+    @click="$emit('click')"
     :type="inputType"
     :disabled="disabled"
   >
@@ -18,38 +18,41 @@ export default {
       type: String,
       default: "div",
       validator: function(value) {
-        return ["div", "a", "input", "button", "span"].indexOf(value) !== -1
-      },
+        return ["div", "a", "input", "button", "span"].indexOf(value) !== -1;
+      }
     },
     loading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     inputType: {
       type: String,
       required: false,
-      default: "",
+      default: ""
     },
     type: {
       type: String,
       default: "default",
       validator: function(value) {
-        return ["default", "positive", "negative", "shy", "black"].indexOf(value) !== -1
-      },
+        return (
+          ["default", "positive", "negative", "shy", "black"].indexOf(value) !==
+          -1
+        );
+      }
     },
     size: {
       type: String,
       default: "default",
       validator: function(value) {
-        return ["default", "small", "full"].indexOf(value) !== -1
-      },
-    },
-  },
-}
+        return ["default", "small", "full"].indexOf(value) !== -1;
+      }
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -60,9 +63,9 @@ export default {
   @include padding-button;
   @include text-body;
   display: inline-block;
-  background-color: $color-main;
+  background-color: $color-primary;
   color: $color-white;
-  border-color: $color-main;
+  border-color: $color-primary;
   font-weight: $font-weight-extrabold; // override text-body
   border-width: $border-width-m;
   border-style: solid;

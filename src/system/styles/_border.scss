@@ -6,9 +6,6 @@
   box-shadow: inset 0 -3px 0 $color;
 }
 
-@mixin border-radius {
-  border-radius: $border-radius-m;
-}
 
 @mixin border-round {
   border-radius: $border-radius-full;

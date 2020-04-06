@@ -1,6 +1,6 @@
 <template>
   <td class="ds-table-col">
-    <slot/>
+    <slot />
   </td>
 </template>
 
@@ -12,7 +12,7 @@
  * @private
  */
 export default {
-  name: 'DsTableCol',
+  name: "DsTableCol",
   inject: {
     $parentTable: {
       default: null
@@ -28,5 +28,5 @@ export default {
     }
   },
   computed: {}
-}
+};
 </script>

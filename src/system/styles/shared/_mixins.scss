@@ -107,7 +107,7 @@
   max-width: 100%;
 }
 
-@mixin border-radius($size, $side: false) {
+@mixin border-radius($size: $border-radius-m, $side: false) {
   @if ($side == 'top') {
     border-top-left-radius: $size;
     border-top-right-radius: $size;

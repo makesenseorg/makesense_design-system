@@ -1,18 +1,23 @@
 #
 # COLOR TOKENS
-#
-# We use HSL in order to keep consistent hues
+# Use these tokens to set a color.
 # For reference, see http://hslpicker.com/
 #
+# To make things a little simpler for your team,
+# utilize both global & local tokens for colors.
+#
 
-#
-# Base Hues
-#
-# Set hues here (these don't set lightness)
-#
 aliases:
+  rich_black:
+    value: "#001123"
+  white:
+    value: "#fff"
+  red:
+    value: "#C62E43"
+  gray_light:
+    value: "#eff2f7"
   neutral:
-    value: "221, 40%"
+    value: "264, 10%"
   green:
     value: "100, 69%"
   orange:
@@ -20,15 +25,13 @@ aliases:
   yellow:
     value: "48, 100%"
   blue:
-    value: "215, 100%"
+    value: "200, 100%"
   purple:
     value: "264, 88%"
   pink:
     value: "330, 86%"
   teal:
-    value: "178, 100%"
-  red:
-    value: "3, 65%"
+    value: "174, 80%"
 
 props:
   #
@@ -38,6 +41,76 @@ props:
   # Use different lightness variations of the base hues.
   #
   # Light theme: darkest color | Dark theme: lightest color
+  - name: color-sahara-sand
+    value: "#FCF6A0"
+    category: color_brand
+  - name: color-flame-pea
+    value: "#F3976B"
+    category: color_brand
+  - name: color-roman
+    value: "#E36164"
+    category: color_brand
+  - name: color-cerise
+    value: "#9B084F"
+    category: color_brand
+  - name: color-atlantis
+    value: "#C1E94E"
+    category: color_brand
+  - name: color-calypso
+    value: "#196C84"
+    category: color_brand
+  - name: color-blue-dianne
+    value: "#0C3944"
+    category: color_brand
+  - name: color-silver-tree
+    value: "#70AF90"
+    category: color_brand
+  - name: color-zeus
+    value: "#474136"
+    category: color_brand
+  - name: color-brick-red
+    value: "#C62E43"
+    category: color_brand
+  - name: color-parsley
+    value: "#24673A"
+    category: color_brand
+  - name: color-broom
+    value: "#FFF30D"
+    category: color_brand
+
+  - name: color-positive
+    value: "#27AE60"
+    category: color_feedback
+  - name: color-negative
+    value: "{!red}"
+    category: color_feedback
+  - name: color-warning
+    value: "#fef090"
+    category: color_feedback
+
+  - name: color-gray-light
+    value: "{!gray_light}"
+    category: color_z_app
+  - name: color-gray
+    value: "#e6ebf3"
+    category: color_z_app
+  - name: color-gray-dark
+    value: "#8492a6"
+    category: color_z_app
+
+  - name: color-black
+    value: "{!rich_black}"
+    category: color_group_4
+  - name: color-white
+    value: "{!white}"
+    category: color_group_4
+  - name: color-silver
+    value: "#7F8891"
+    category: color_group_4
+  - name: color-cloud
+    value: "#E9F3FD"
+    category: color_group_4
+
   - name: color-neutral-0
     value: &color-neutral-0 "hsla({!neutral}, 10%, 1)"
   - name: color-neutral-10
@@ -67,18 +140,18 @@ props:
     value: &color-neutral-100 "hsla({!neutral}, 100%, 1)"
 
   - name: color-primary
-    value: &color-primary "hsla({!blue}, 50%, 1)"
+    value: &color-primary "hsla({!teal}, 40%, 1)"
   - name: color-primary-active
-    value: &color-primary-active "hsla({!blue}, 54%, 1)"
+    value: &color-primary-active "hsla({!teal}, 43%, 1)"
   - name: color-primary-inverse
-    value: &color-primary-inverse "hsla({!blue}, 97%, 1)"
+    value: &color-primary-inverse "hsla({!teal}, 97%, 1)"
 
   - name: color-secondary
-    value: &color-secondary "hsla({!teal}, 40%, 1)"
+    value: &color-secondary "hsla({!purple}, 45%, 1)"
   - name: color-secondary-active
-    value: &color-secondary-active "hsla({!teal}, 42%, 1)"
+    value: &color-secondary-active "hsla({!purple}, 52%, 1)"
   - name: color-secondary-inverse
-    value: &color-secondary-inverse "hsla({!teal}, 97%, 1)"
+    value: &color-secondary-inverse "hsla({!purple}, 97%, 1)"
 
   - name: color-success
     value: &color-success "hsla({!green}, 40%, 1)"
@@ -109,15 +182,15 @@ props:
     value: &color-yellow-inverse "hsla({!yellow}, 97%, 1)"
 
   # Text Colors
-  - name: text-color-base
+  - name: color-text
     value: *color-neutral-20
     category: text-color
 
-  - name: text-color-soft
+  - name: color-text-light
     value: *color-neutral-40
     category: text-color
 
-  - name: text-color-softer
+  - name: color-text-lighter
     value: *color-neutral-60
     category: text-color
 
@@ -216,6 +289,10 @@ props:
 
   - name: background-color-inverse-softer-active
     value: *color-neutral-30
+    category: background-color
+
+  - name: background-color-disabled
+    value: *color-neutral-90
     category: background-color
 
   - name: background-color-primary

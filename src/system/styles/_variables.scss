@@ -1,6 +1,6 @@
 //----- color -----//
 // $color-white: #fff;
-// $color-main: #9b084f;
+// $color-primary: #9b084f;
 // $color-secondary: #fabe3c;
 // $color-black: #003643;
 // $color-black-light: #075163;
@@ -18,19 +18,19 @@
 // $font-secondary: "Raleway", sans-serif;
 
 // $font-size-xsmall: 0.75rem;
-// $font-size-small: 0.875rem;
+// $font-size-s: 0.875rem;
 
 // $font-size-normal: 1rem;
 // $font-base-size: 16px;
 
 // $font-size-m: 1.2rem;
-// $font-size-large: 1.4rem;
+// $font-size-l: 1.4rem;
 // $font-size-xl: 1.5rem;
 // $font-size-xxl: 1.625rem;
-// $font-size-xxxl: 2rem;
+// $font-size-xxl: 2rem;
 // $font-size-xxxxxl: 3rem;
 
-// $line-height-base: 1.3;
+// $line-height-m: 1.3;
 
 // $line-height-default: 1rem;
 // $line-height-medium: 1.2rem;
@@ -79,11 +79,7 @@
 // $margin-equal: 1rem;
 
 //----- responsive -----//
-$breakpoints: (
-  "small": 767px,
-  "medium": 992px,
-  "large": 1200px,
-) !default;
+$breakpoints: ("small": 767px, "medium": 992px, "large": 1200px) !default;
 
 //----- section -----//
 

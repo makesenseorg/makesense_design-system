@@ -7,14 +7,14 @@
 
 <script>
 export default {
-  name: "Number",
-}
+  name: "Number"
+};
 </script>
 
 <style lang="scss" scoped>
 .number__value {
   @include title-small;
-  color: $color-main;
+  color: $color-primary;
 }
 .number__label {
   margin-bottom: $space_xxs;

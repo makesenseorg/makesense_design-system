@@ -4,23 +4,23 @@
 #
 
 props:
-  font-size-xxxxxl:
+  - name: font-size-xxxxxl
     value: "3rem"
-  font-size-xxxxl:
+  - name: font-size-xxxxl
     value: "2rem"
-  font-size-xxxl:
+  - name: font-size-xxxl
     value: "1.625rem"
-  font-size-xxl:
+  - name: font-size-xxl
     value: "1.5rem"
-  font-size-xl:
+  - name: font-size-xl
     value: "1.4rem"
-  font-size-l:
+  - name: font-size-l
     value: "1.2rem"
-  font-size-m:
+  - name: font-size-m
     value: "1.0rem"
-  font-size-s:
+  - name: font-size-s
     value: "0.875rem"
-  font-size-xs:
+  - name: font-size-xs
     value: "0.75rem"
 global:
   type: number

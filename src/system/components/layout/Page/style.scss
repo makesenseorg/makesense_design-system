@@ -45,7 +45,7 @@ $drawer-background-color: $background-color-base;
 .ds-page-header-container {
   height: $header-height;
   background: $header-background-color;
-  box-shadow: $box-shadow-small;
+  box-shadow: $box-shadow-s;
   display: flex;
   justify-content: space-between;
 
@@ -69,7 +69,7 @@ $drawer-background-color: $background-color-base;
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 $space-small;
+  padding: 0 $space-s;
 
   .ds-page-has-no-header & {
     @media #{$media-query-medium} {
@@ -91,7 +91,7 @@ $drawer-background-color: $background-color-base;
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 $space-small;
+  padding: 0 $space-s;
   color: $text-color-link;
   cursor: pointer;
 
@@ -112,7 +112,7 @@ $drawer-background-color: $background-color-base;
   width: $sidebar-width;
   z-index: $z-index-page-sidebar;
   background-color: $sidebar-background-color;
-  box-shadow: $box-shadow-base;
+  box-shadow: $box-shadow-m;
   display: none;
 
   @media #{$media-query-medium} {

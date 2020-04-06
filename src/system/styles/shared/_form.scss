@@ -1,21 +1,21 @@
 /* FORM VARIABLES / MIXINS
 --------------------------------------------- */
 
-$input-font-size-base: $font-size-base;
+$input-font-size-m: $font-size-m;
 $input-border-size: $border-width-m;
-$input-padding-vertical: $space-x-small;
+$input-padding-vertical: $space-xs;
 $input-height: calc(
-  #{$font-size-base} * #{$line-height-base} + (#{$input-padding-vertical} + #{$input-border-size}) * 2
+  #{$font-size-m} * #{$line-height-m} + (#{$input-padding-vertical} + #{$input-border-size}) * 2
 );
 
-$input-font-size-small: $font-size-base;
-$input-padding-vertical-small: $space-xxx-small;
+$input-font-size-s: $font-size-m;
+$input-padding-vertical-small: $space-xxs;
 $input-height-small: calc(
-  #{$font-size-base} * #{$line-height-base} + (#{$input-padding-vertical-small} + #{$input-border-size}) * 2
+  #{$font-size-m} * #{$line-height-m} + (#{$input-padding-vertical-small} + #{$input-border-size}) * 2
 );
 
-$input-font-size-large: $font-size-large;
-$input-padding-vertical-large: $space-x-small;
+$input-font-size-l: $font-size-l;
+$input-padding-vertical-large: $space-xs;
 $input-height-large: calc(
-  #{$input-font-size-large} * #{$line-height-base} + (#{$input-padding-vertical-large} + #{$input-border-size}) * 2
+  #{$input-font-size-l} * #{$line-height-m} + (#{$input-padding-vertical-large} + #{$input-border-size}) * 2
 );

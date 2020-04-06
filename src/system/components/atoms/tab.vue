@@ -1,5 +1,9 @@
 <template>
-  <div class="tab-button" v-on:click="onClick" :class="{ 'tab-button--active': active }">
+  <div
+    class="tab-button"
+    @click="onClick"
+    :class="{ 'tab-button--active': active }"
+  >
     {{ title }}
   </div>
 </template>
@@ -10,25 +14,25 @@ export default {
   props: {
     id: {
       type: String,
-      required: true,
+      required: true
     },
     title: {
       type: String,
       required: true,
-      default: "TabButtonTitle",
+      default: "TabButtonTitle"
     },
     active: {
       type: Boolean,
       required: true,
-      default: false,
-    },
+      default: false
+    }
   },
   methods: {
     onClick: function() {
-      this.$emit("click", this.id)
-    },
-  },
-}
+      this.$emit("click", this.id);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -40,13 +44,13 @@ export default {
   font-weight: $font-weight-extrabold;
 
   &--active {
-    @include border-bottom-shadow($color-main);
+    @include border-bottom-shadow($color-primary);
     border-width: $border-width-l;
-    color: $color-main;
+    color: $color-primary;
   }
 
   &:hover {
-    color: $color-main;
+    color: $color-primary;
   }
 }
 </style>

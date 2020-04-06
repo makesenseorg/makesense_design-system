@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import ComponentDoc from './ComponentDoc'
+import ComponentDoc from "./ComponentDoc";
 
 export default {
-  name: 'ComponentPage',
+  name: "ComponentPage",
   props: {
     component: {
       type: Object,
@@ -18,5 +18,5 @@ export default {
   components: {
     ComponentDoc
   }
-}
+};
 </script>

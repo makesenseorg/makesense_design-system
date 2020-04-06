@@ -5,19 +5,20 @@
       field__container: true,
       'field--folding': fold,
       'field--folding-open': foldingOpen,
-      'field--folding-close': !foldingOpen,
+      'field--folding-close': !foldingOpen
     }"
   >
     <div class="field__header" v-if="label">
       <FieldLabel
         v-if="label && label !== undefined"
         class="field__label"
-        :cssClass="getCss"
+        :css-class="getCss"
         :target-name="type !== 'checkbox' ? name : ''"
         :icon="getIconLabel"
         @click="onClickLabel()"
       >
-        {{ label }} <span class="field__sublabel" v-if="subLabel">{{ subLabel }}</span>
+        {{ label }}
+        <span class="field__sublabel" v-if="subLabel">{{ subLabel }}</span>
       </FieldLabel>
       <div class="field__action"><slot name="action"></slot></div>
     </div>
@@ -31,9 +32,12 @@
       @blur="$emit('blur')"
       @change="$emit('change')"
     >
-      <option v-for="(item, index) in options" :key="index" :value="item.value">{{
-        item.label
-      }}</option>
+      <option
+        v-for="(item, index) in options"
+        :key="index"
+        :value="item.value"
+        >{{ item.label }}</option
+      >
     </select>
     <VueEditor
       v-else-if="type === 'editor'"
@@ -41,7 +45,7 @@
       class="field__input field--rich-text-editor rte-render"
       :id="name"
       :ref="reference"
-      :editorToolbar="editorToolbar"
+      :editor-toolbar="editorToolbar"
       :name="name"
       :placeholder="placeholder"
       :class="getCss"
@@ -62,7 +66,12 @@
       @blur="$emit('blur')"
       @change="$emit('change')"
     ></textarea>
-    <label v-else-if="type === 'checkbox'" :for="name" class="checkbox__label" :class="getCss">
+    <label
+      v-else-if="type === 'checkbox'"
+      :for="name"
+      class="checkbox__label"
+      :class="getCss"
+    >
       <input
         type="checkbox"
         :id="name"
@@ -80,7 +89,7 @@
         type="text"
         class="field field__input -style-default -light-default"
         :value="getFormattedAddress"
-        v-on:keydown.enter.prevent
+        @keydown.enter.prevent
         @place_changed="setPlace"
         @blur="$emit('blur')"
         @change="$emit('change')"
@@ -90,7 +99,7 @@
       <div class="tags">
         <div v-for="(tag, index) in theValue" :key="index" class="tag">
           <span class="tag__label">{{ tag }}</span>
-          <span class="tag__remove" v-on:click="removeTag(tag)">
+          <span class="tag__remove" @click="removeTag(tag)">
             <Icon type="close" class="tag__icon" />
           </span>
         </div>
@@ -101,7 +110,7 @@
         ref="tagField"
         :placeholder="placeholder"
         :class="getCss"
-        v-on:keydown.enter.prevent="addTag"
+        @keydown.enter.prevent="addTag"
         @blur="$emit('blur')"
         @change="$emit('change')"
       />
@@ -126,14 +135,16 @@
       src="@@/assets/img/ui/search.svg"
       alt="rechercher un projet"
     />
-    <div class="field__description" v-if="description" :class="getCss">{{ description }}</div>
+    <div class="field__description" v-if="description" :class="getCss">
+      {{ description }}
+    </div>
   </div>
 </template>
 
 <script>
-import { VueEditor } from "vue2-editor"
-import FieldLabel from "@@/components/atoms/fieldLabel"
-import Icon from "@@/components/atoms/icon"
+import { VueEditor } from "vue2-editor";
+import FieldLabel from "@@/components/atoms/fieldLabel";
+import Icon from "@@/components/atoms/icon";
 
 export default {
   name: "Field",
@@ -141,44 +152,44 @@ export default {
   props: {
     name: {
       type: String,
-      required: true,
+      required: true
     },
     reference: {
       type: String,
-      required: false,
+      required: false
     },
     disable: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     error: {
       type: Boolean,
-      required: false,
+      required: false
     },
     description: {
       type: String,
-      required: false,
+      required: false
     },
     checkboxLabel: {
       type: String,
-      required: false,
+      required: false
     },
     value: {
-      required: true,
+      required: true
     },
     fold: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     foldDefault: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     options: {
-      type: Object,
+      type: Object
     },
     type: {
       type: String,
@@ -198,86 +209,94 @@ export default {
             "checkbox",
             "search",
             "tel",
-            "url",
+            "url"
           ].indexOf(value) !== -1
-        )
-      },
+        );
+      }
     },
     placeholder: {
       type: String,
-      default: "text",
+      default: "text"
     },
     label: {
-      type: String,
+      type: String
     },
     subLabel: {
-      type: String,
+      type: String
     },
     valueTest: {
       type: String,
-      default: null,
+      default: null
     },
     editorToolbar: {
       type: Array,
       required: false,
       default: function() {
-        return [["bold", "italic", "underline"]]
-      },
+        return [["bold", "italic", "underline"]];
+      }
     },
     version: {
       type: String,
       default: "default",
       validator: function(value) {
-        return ["default", "border-bottom", "no-border", "disable"].indexOf(value) !== -1
-      },
+        return (
+          ["default", "border-bottom", "no-border", "disable"].indexOf(
+            value
+          ) !== -1
+        );
+      }
     },
     light: {
       type: String,
       default: "default",
       validator: function(value) {
-        return ["default", "onBlack"].indexOf(value) !== -1
-      },
-    },
+        return ["default", "onBlack"].indexOf(value) !== -1;
+      }
+    }
   },
   watch: {
     theValue: function() {
-      this.$emit("input", this.theValue)
+      this.$emit("input", this.theValue);
     },
     value: function() {
-      this.theValue = this.value
-    },
+      this.theValue = this.value;
+    }
   },
   data: function() {
     return {
       theValue: null,
-      foldingOpen: false,
-    }
+      foldingOpen: false
+    };
   },
   methods: {
     onClickLabel: function() {
-      if (this.foldingOpen) this.foldingOpen = false
-      else this.foldingOpen = true
+      if (this.foldingOpen) this.foldingOpen = false;
+      else this.foldingOpen = true;
     },
     removeTag: function(value) {
-      if (this.theValue && this.theValue.length > 0 && this.theValue.indexOf(value) !== -1)
-        this.theValue.splice(this.theValue.indexOf(value), 1)
+      if (
+        this.theValue &&
+        this.theValue.length > 0 &&
+        this.theValue.indexOf(value) !== -1
+      )
+        this.theValue.splice(this.theValue.indexOf(value), 1);
     },
     addTag: function() {
-      var value = this.$refs.tagField.value
+      var value = this.$refs.tagField.value;
 
       if (this.valueTest && this.valueTest === "isDomain") {
         var re = new RegExp(
           /^((?:(?:(?:\w[\.\-\+]?)*)\w)+)((?:(?:(?:\w[\.\-\+]?){0,62})\w)+)\.(\w{2,6})$/
-        )
+        );
 
-        if (!value.match(re)) return false
+        if (!value.match(re)) return false;
       }
 
-      if (!this.theValue) this.theValue = []
+      if (!this.theValue) this.theValue = [];
 
-      if (this.theValue.indexOf(value) === -1) this.theValue.push(value)
+      if (this.theValue.indexOf(value) === -1) this.theValue.push(value);
 
-      this.$refs.tagField.value = ""
+      this.$refs.tagField.value = "";
     },
 
     setPlace: function(address) {
@@ -290,61 +309,65 @@ export default {
         region: "",
         zipCode: "",
         lat: address.geometry.location.lat(),
-        lng: address.geometry.location.lng(),
-      }
+        lng: address.geometry.location.lng()
+      };
 
       if (address.address_components.length > 0) {
         for (var i = 0; i < address.address_components.length; i++) {
           // CITY
           if (address.address_components[i].types.indexOf("locality") >= 0)
-            data.city = address.address_components[i].long_name
+            data.city = address.address_components[i].long_name;
 
           // REGION
-          if (address.address_components[i].types.indexOf("administrative_area_level_1") >= 0)
-            data.region = address.address_components[i].long_name
+          if (
+            address.address_components[i].types.indexOf(
+              "administrative_area_level_1"
+            ) >= 0
+          )
+            data.region = address.address_components[i].long_name;
 
           // COUNTRY
           if (address.address_components[i].types.indexOf("country") >= 0) {
-            data.country = address.address_components[i].long_name
-            data.countryCode = address.address_components[i].short_name
+            data.country = address.address_components[i].long_name;
+            data.countryCode = address.address_components[i].short_name;
           }
 
           // POSTAL CODE
           if (address.address_components[i].types.indexOf("postal_code") >= 0)
-            data.zipCode = address.address_components[i].long_name
+            data.zipCode = address.address_components[i].long_name;
         }
       }
 
-      this.theValue = data
-    },
+      this.theValue = data;
+    }
   },
   computed: {
     getCss: function() {
-      var styles = ["-style-" + this.version, "-light-" + this.light]
-      if (this.error) styles.push("-in-error")
+      var styles = ["-style-" + this.version, "-light-" + this.light];
+      if (this.error) styles.push("-in-error");
 
-      return styles
+      return styles;
     },
     getIconLabel: function() {
-      if (!this.fold) return null
+      if (!this.fold) return null;
 
-      if (this.foldingOpen) return "arrowDown"
-      else return "arrowRight"
+      if (this.foldingOpen) return "arrowDown";
+      else return "arrowRight";
     },
 
     getFormattedAddress: function() {
       if (!!this.theValue && this.theValue.formattedAddress !== undefined)
-        return this.theValue.formattedAddress
+        return this.theValue.formattedAddress;
 
-      return ""
-    },
+      return "";
+    }
   },
   created() {
-    this.theValue = this.value
+    this.theValue = this.value;
 
-    if (this.foldDefault) this.foldingOpen = true
-  },
-}
+    if (this.foldDefault) this.foldingOpen = true;
+  }
+};
 </script>
 <style lang="scss">
 // on utilise une autre balise style sans l'attribut scoped

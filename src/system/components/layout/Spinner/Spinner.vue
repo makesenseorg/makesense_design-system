@@ -1,5 +1,5 @@
 <template>
-  <svg 
+  <svg
     viewBox="0 0 50 50"
     class="ds-spinner"
     :class="[
@@ -7,16 +7,23 @@
       inverse && 'ds-spinner-inverse',
       primary && !inverse && `ds-spinner-primary`,
       secondary && !inverse && `ds-spinner-secondary`,
-      danger && !inverse && `ds-spinner-danger`,
+      danger && !inverse && `ds-spinner-danger`
     ]"
   >
-    <circle class="ds-spinner-circle" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+    <circle
+      class="ds-spinner-circle"
+      cx="25"
+      cy="25"
+      r="20"
+      fill="none"
+      stroke-width="5"
+    ></circle>
   </svg>
 </template>
 
 <script>
 export default {
-  name: 'DsSpinner',
+  name: "DsSpinner",
   props: {
     /**
      * The size used for the spinner.
@@ -24,9 +31,9 @@ export default {
      */
     size: {
       type: String,
-      default: 'base',
+      default: "base",
       validator: value => {
-        return value.match(/(small|base|large)/)
+        return value.match(/(small|base|large)/);
       }
     },
     /**
@@ -58,11 +65,11 @@ export default {
       default: false
     }
   }
-}
+};
 </script>
 
 <style lang="scss" src="./style.scss">
-.ds-spinner{
+.ds-spinner {
   color: $color-blue-dianne;
 }
 </style>

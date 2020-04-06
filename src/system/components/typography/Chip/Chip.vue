@@ -1,5 +1,5 @@
 <template>
-  <component 
+  <component
     :is="tag"
     class="ds-chip"
     :class="[
@@ -14,7 +14,8 @@
       v-if="removable"
       @click="remove"
       class="ds-chip-close"
-      tabindex="-1">
+      tabindex="-1"
+    >
       <ds-icon name="close" />
     </button>
   </component>
@@ -27,7 +28,7 @@
  * @version 1.0.0
  */
 export default {
-  name: 'DsChip',
+  name: "DsChip",
   props: {
     /**
      * The background color used for the chip.
@@ -35,9 +36,9 @@ export default {
      */
     color: {
       type: String,
-      default: 'medium',
+      default: "medium",
       validator: value => {
-        return value.match(/(medium|inverse|primary|success|warning|danger)/)
+        return value.match(/(medium|inverse|primary|success|warning|danger)/);
       }
     },
     /**
@@ -46,9 +47,9 @@ export default {
      */
     size: {
       type: String,
-      default: 'base',
+      default: "base",
       validator: value => {
-        return value.match(/(base|large|small)/)
+        return value.match(/(base|large|small)/);
       }
     },
     /**
@@ -70,7 +71,7 @@ export default {
      */
     tag: {
       type: String,
-      default: 'span'
+      default: "span"
     }
   },
   methods: {
@@ -80,13 +81,12 @@ export default {
        *
        * @event remove
        */
-      this.$emit('remove')
+      this.$emit("remove");
     }
   }
-}
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>

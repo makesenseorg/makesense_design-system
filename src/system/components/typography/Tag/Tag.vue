@@ -1,12 +1,8 @@
 <template>
-  <component 
+  <component
     :is="tag"
     class="ds-tag"
-    :class="[
-      `ds-tag-size-${size}`,
-      `ds-tag-${color}`,
-      round && 'ds-tag-round'
-    ]"
+    :class="[`ds-tag-size-${size}`, `ds-tag-${color}`, round && 'ds-tag-round']"
   >
     <slot />
   </component>
@@ -19,7 +15,7 @@
  * @version 1.0.0
  */
 export default {
-  name: 'DsTag',
+  name: "DsTag",
   props: {
     /**
      * The background color used for the tag.
@@ -27,9 +23,9 @@ export default {
      */
     color: {
       type: String,
-      default: 'medium',
+      default: "medium",
       validator: value => {
-        return value.match(/(medium|inverse|primary|success|warning|danger)/)
+        return value.match(/(medium|inverse|primary|success|warning|danger)/);
       }
     },
     /**
@@ -38,9 +34,9 @@ export default {
      */
     size: {
       type: String,
-      default: 'base',
+      default: "base",
       validator: value => {
-        return value.match(/(base|large|small)/)
+        return value.match(/(base|large|small)/);
       }
     },
     /**
@@ -55,13 +51,12 @@ export default {
      */
     tag: {
       type: String,
-      default: 'span'
+      default: "span"
     }
   }
-}
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>

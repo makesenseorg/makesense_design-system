@@ -24,8 +24,8 @@ export default {
       default: "h1",
       required: false,
       validator: function(value) {
-        return ["h1", "h2", "h3", "h4", "h5"].indexOf(value) !== -1
-      },
+        return ["h1", "h2", "h3", "h4", "h5"].indexOf(value) !== -1;
+      }
     },
     /**
      * The class name to apply on the title.
@@ -35,8 +35,8 @@ export default {
       type: String,
       required: false,
       validator: function(value) {
-        return ["h1", "h2", "h3", "h4", "h5"].indexOf(value) !== -1
-      },
+        return ["h1", "h2", "h3", "h4", "h5"].indexOf(value) !== -1;
+      }
     },
     /**
      * The color of the title.
@@ -47,11 +47,11 @@ export default {
       default: "text",
       required: false,
       validator: function(value) {
-        return ["main", "secondary", "text"].indexOf(value) !== -1
-      },
-    },
-  },
-}
+        return ["main", "secondary", "text"].indexOf(value) !== -1;
+      }
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -59,7 +59,7 @@ export default {
   color: $color-text;
 
   &--main {
-    color: $color-main;
+    color: $color-primary;
   }
   &--secondary {
     color: $color-secondary;

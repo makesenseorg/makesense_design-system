@@ -1,29 +1,29 @@
 export default {
   sections: [
     {
-      name: 'Introduction',
-      path: '/'
+      name: "Introduction",
+      path: "/"
     },
     {
-      name: 'Brand Guidelines'
+      name: "Brand Guidelines"
     },
     {
-      name: 'Design Tokens'
+      name: "Design Tokens"
     },
     {
-      name: 'Layout'
+      name: "Layout"
     },
     {
-      name: 'Typography'
+      name: "Typography"
     },
     {
-      name: 'Data Input'
+      name: "Data Input"
     },
     {
-      name: 'Data Display'
+      name: "Data Display"
     },
     {
-      name: 'Navigation'
+      name: "Navigation"
     }
   ]
-}
+};

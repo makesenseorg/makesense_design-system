@@ -1,10 +1,8 @@
 <template>
   <ds-form-item>
     <div class="ds-input-wrap">
-      <div
-        v-if="icon"
-        class="ds-input-icon">
-        <ds-icon :name="icon"/>
+      <div v-if="icon" class="ds-input-icon">
+        <ds-icon :name="icon" />
       </div>
       <component
         class="ds-input"
@@ -26,25 +24,24 @@
         @focus="handleFocus"
         @blur="handleBlur"
         :rows="type === 'textarea' ? rows : null"
-        v-html="type === 'textarea' ? innerValue : null"/>
-      <div
-        v-if="iconRight"
-        class="ds-input-icon-right">
-        <ds-icon :name="iconRight"/>
+        v-html="type === 'textarea' ? innerValue : null"
+      />
+      <div v-if="iconRight" class="ds-input-icon-right">
+        <ds-icon :name="iconRight" />
       </div>
     </div>
   </ds-form-item>
 </template>
 
 <script>
-import inputMixin from '../shared/input'
+import inputMixin from "../shared/input";
 
 /**
  * Used for handling basic user input.
  * @version 1.0.0
  */
 export default {
-  name: 'DsInput',
+  name: "DsInput",
   mixins: [inputMixin],
   props: {
     /**
@@ -53,9 +50,9 @@ export default {
      */
     type: {
       type: String,
-      default: 'text',
+      default: "text",
       validator: value => {
-        return value.match(/(url|text|password|email|search|textarea)/)
+        return value.match(/(url|text|password|email|search|textarea)/);
       }
     },
     /**
@@ -96,16 +93,15 @@ export default {
   },
   computed: {
     tag() {
-      if (this.type === 'textarea') {
-        return 'textarea'
+      if (this.type === "textarea") {
+        return "textarea";
       }
-      return 'input'
+      return "input";
     }
   }
-}
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>

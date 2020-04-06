@@ -20,7 +20,7 @@
  * @version 1.0.0
  */
 export default {
-  name: 'DsHeading',
+  name: "DsHeading",
   props: {
     /**
      * The heading type used for the heading.
@@ -28,9 +28,9 @@ export default {
      */
     tag: {
       type: String,
-      default: 'h1',
+      default: "h1",
       validator: value => {
-        return value.match(/(h1|h2|h3|h4|h5|h6)/)
+        return value.match(/(h1|h2|h3|h4|h5|h6)/);
       }
     },
     /**
@@ -41,7 +41,7 @@ export default {
       type: String,
       default: null,
       validator: value => {
-        return value.match(/(h1|h2|h3|h4|h5|h6)/)
+        return value.match(/(h1|h2|h3|h4|h5|h6)/);
       }
     },
     /**
@@ -59,10 +59,9 @@ export default {
       default: false
     }
   }
-}
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>

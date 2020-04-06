@@ -1,7 +1,13 @@
 <template>
   <div :class="['loading', 'loading--' + type, { 'loading--inline': inline }]">
-    <img class="loading__svg" src="@@/assets/img/ui/loading.svg" :width="size" />
-    <div class="loading__progress" v-if="progress !== -1">{{ getProgress() }}%</div>
+    <img
+      class="loading__svg"
+      src="@@/assets/img/ui/loading.svg"
+      :width="size"
+    />
+    <div class="loading__progress" v-if="progress !== -1">
+      {{ getProgress() }}%
+    </div>
   </div>
 </template>
 
@@ -13,28 +19,30 @@ export default {
       type: String,
       default: "full",
       validator: function(value) {
-        return ["full", "component", "standalone", "simple"].indexOf(value) !== -1
-      },
+        return (
+          ["full", "component", "standalone", "simple"].indexOf(value) !== -1
+        );
+      }
     },
     progress: {
       type: Number,
-      default: -1,
+      default: -1
     },
     size: {
       type: Number,
-      default: 50,
+      default: 50
     },
     inline: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   methods: {
     getProgress: function() {
-      return Math.floor(this.progress)
-    },
-  },
-}
+      return Math.floor(this.progress);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

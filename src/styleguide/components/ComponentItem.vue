@@ -1,12 +1,9 @@
 <template>
   <ds-flex-item>
-    <ds-card 
-      :header="name">
+    <ds-card :header="name">
       {{ component.description }}
       <template slot="footer">
-        <ds-button
-          :path="{ name: component.name }"
-          primary>
+        <ds-button :path="{ name: component.name }" primary>
           {{ name }} Details
         </ds-button>
       </template>
@@ -16,7 +13,7 @@
 
 <script>
 export default {
-  name: 'ComponentItem',
+  name: "ComponentItem",
   props: {
     component: {
       type: Object,
@@ -25,8 +22,8 @@ export default {
   },
   computed: {
     name() {
-      return this.$options.filters.componentName(this.component.name)
+      return this.$options.filters.componentName(this.component.name);
     }
   }
-}
+};
 </script>

@@ -1,1 +1,1 @@
-require('./styleguide')
+require("./styleguide");

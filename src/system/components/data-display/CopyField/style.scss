@@ -1,27 +1,27 @@
 .ds-copy-field {
   @include reset;
-  @include stack-space($space-xx-small);
+  @include stack-space($space-xxs);
   position: relative;
-  font-family: $font-family-text;
-  line-height: $line-height-base;
-  padding: $space-x-small $space-small;
+  font-family: $font-text;
+  line-height: $line-height-m;
+  padding: $space-xs $space-s;
   border-radius: $border-radius-s;
   letter-spacing: $letter-spacing-small;
   background-color: $background-color-softer;
 }
 
 .ds-copy-field-small {
-  font-size: $font-size-small;
+  font-size: $font-size-s;
 }
 
 .ds-copy-field-large {
-  font-size: $font-size-large;
+  font-size: $font-size-l;
 }
 
 .ds-copy-field-link {
   @include reset;
   position: absolute;
-  right: $space-xx-small;
+  right: $space-xxs;
   top: 50%;
   transform: translateY(-50%);
   user-select: none;
@@ -43,7 +43,7 @@
 
 .ds-copy-field-message-text {
   @include reset;
-  padding: $space-x-small $space-small;
+  padding: $space-xs $space-s;
   transition: all $duration-x-long $ease-out;
   transform: scale(1);
   transform-origin: 0 50%;

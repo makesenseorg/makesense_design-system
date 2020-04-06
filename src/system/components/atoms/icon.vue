@@ -1,5 +1,9 @@
 <template>
-  <font-awesome-icon :icon="getIcon" class="icon" :class="['-color-' + color]" />
+  <font-awesome-icon
+    :icon="getIcon"
+    class="icon"
+    :class="['-color-' + color]"
+  />
 </template>
 
 <script>
@@ -17,58 +21,58 @@ import {
   faCheck,
   faClock,
   faWallet,
-  faShare,
-} from "@fortawesome/free-solid-svg-icons"
+  faShare
+} from "@fortawesome/free-solid-svg-icons";
 
 export default {
   name: "Icon",
   props: {
     type: {
       type: String,
-      default: "",
+      default: ""
     },
     color: {
       type: String,
-      default: "default",
-    },
+      default: "default"
+    }
   },
   computed: {
     getIcon: function() {
       switch (this.type) {
         case "arrowDown":
-          return faArrowDown
+          return faArrowDown;
         case "arrowUp":
-          return faArrowUp
+          return faArrowUp;
         case "arrowRight":
-          return faArrowRight
+          return faArrowRight;
         case "arrowLeft":
-          return faArrowLeft
+          return faArrowLeft;
         case "close":
-          return faTimes
+          return faTimes;
         case "search":
-          return faSearch
+          return faSearch;
         case "share":
-          return faShare
+          return faShare;
         case "check":
-          return faCheck
+          return faCheck;
         case "sort":
-          return faSort
+          return faSort;
         case "clock":
-          return faClock
+          return faClock;
         case "wallet":
-          return faWallet
+          return faWallet;
         case "lock":
-          return faLock
+          return faLock;
         case "menu":
-          return faBars
+          return faBars;
         case "help":
-          return faLifeRing
+          return faLifeRing;
         default:
-          return faSearch
+          return faSearch;
       }
-    },
-  },
-}
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

@@ -1,24 +1,17 @@
 <template>
-  <component
-    :is="tag"
-    :aria-label="ariaLabel"
-    class="ds-icon"
-  >
-    <component
-      v-if="svgComponent"
-      :is="svgComponent"
-      class="ds-icon-svg"/>
+  <component :is="tag" :aria-label="ariaLabel" class="ds-icon">
+    <component v-if="svgComponent" :is="svgComponent" class="ds-icon-svg" />
   </component>
 </template>
 
 <script>
-import icons from '@@/icons'
+import icons from "@@/icons";
 /**
  * Icons are used to add meaning and improve accessibility.
  * @version 1.0.0
  */
 export default {
-  name: 'DsIcon',
+  name: "DsIcon",
   props: {
     /**
      * The name of the icon.
@@ -32,29 +25,28 @@ export default {
      */
     ariaLabel: {
       type: String,
-      default: 'icon'
+      default: "icon"
     },
     /**
      * The html element name used for the icon.
      */
     tag: {
       type: String,
-      default: 'span'
+      default: "span"
     }
   },
   computed: {
     svgComponent() {
-      const icon = icons[this.name]
+      const icon = icons[this.name];
       if (!icon) {
-        return false
+        return false;
       }
-      return icon.render ? icon : icon.default
+      return icon.render ? icon : icon.default;
     }
   }
-}
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>

@@ -4,8 +4,8 @@
 
 <script>
 export default {
-  name: "Separator",
-}
+  name: "Separator"
+};
 </script>
 
 <style lang="scss" scoped>

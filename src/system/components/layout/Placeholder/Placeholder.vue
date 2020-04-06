@@ -1,7 +1,5 @@
 <template>
-  <component 
-    :is="tag"
-    class="ds-placeholder">
+  <component :is="tag" class="ds-placeholder">
     <div class="ds-placeholder-content">
       <slot />
     </div>
@@ -14,20 +12,19 @@
  * @version 1.0.0
  */
 export default {
-  name: 'DsPlaceholder',
+  name: "DsPlaceholder",
   props: {
     /**
      * The html element name used for the placeholder.
      */
     tag: {
       type: String,
-      default: 'div'
+      default: "div"
     }
   }
-}
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>

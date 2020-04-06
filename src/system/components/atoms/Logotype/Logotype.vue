@@ -5,12 +5,15 @@
 </template>
 
 <script>
+/**
+ * Le logotype du produit
+ * @version 1.0.0
+ */
 export default {
-  name: "Logotype",
-}
+  name: "Logotype"
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>

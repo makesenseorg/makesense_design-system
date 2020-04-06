@@ -4,25 +4,21 @@
       class="ds-radio"
       :tabindex="tabindex"
       @keydown.self.down.prevent="pointerNext"
-      @keydown.self.up.prevent="pointerPrev">
+      @keydown.self.up.prevent="pointerPrev"
+    >
       <component
         class="ds-radio-option"
-        :class="[
-          isSelected(option) && `ds-radio-option-is-selected`
-        ]"
+        :class="[isSelected(option) && `ds-radio-option-is-selected`]"
         v-for="option in options"
         @click="handleSelect(option)"
         :key="option[labelProp] || option"
         :is="buttons ? 'ds-button' : 'div'"
-        :primary="buttons && isSelected(option)">
-        <span 
-          class="ds-radio-option-mark" 
-          v-if="!buttons"/>
+        :primary="buttons && isSelected(option)"
+      >
+        <span class="ds-radio-option-mark" v-if="!buttons" />
         <span class="ds-radio-option-label">
           <!-- @slot Slot to provide custom option items -->
-          <slot
-            name="option"
-            :option="option">
+          <slot name="option" :option="option">
             {{ option[labelProp] || option }}
           </slot>
         </span>
@@ -32,16 +28,16 @@
 </template>
 
 <script>
-import inputMixin from '../shared/input'
-import multiinputMixin from '../shared/multiinput'
-import DsFormItem from '@@/components/data-input/FormItem/FormItem'
+import inputMixin from "../shared/input";
+import multiinputMixin from "../shared/multiinput";
+import DsFormItem from "@@/components/data-input/FormItem/FormItem";
 
 /**
  * Used for letting the user choose one value from a set of options.
  * @version 1.0.0
  */
 export default {
-  name: 'DsRadio',
+  name: "DsRadio",
   mixins: [inputMixin, multiinputMixin],
   components: {
     DsFormItem
@@ -49,7 +45,7 @@ export default {
   data() {
     return {
       pointer: 0
-    }
+    };
   },
   props: {
     /**
@@ -65,7 +61,7 @@ export default {
     options: {
       type: Array,
       default() {
-        return []
+        return [];
       }
     },
     /**
@@ -73,51 +69,50 @@ export default {
      */
     labelProp: {
       type: String,
-      default: 'label'
+      default: "label"
     }
   },
   computed: {
     pointerMax() {
-      return this.options.length - 1
+      return this.options.length - 1;
     }
   },
   watch: {
     pointerMax(max) {
       if (max < this.pointer) {
         this.$nextTick(() => {
-          this.pointer = max
-        })
+          this.pointer = max;
+        });
       }
     }
   },
   methods: {
     handleSelect(option) {
-      this.selectOption(option)
+      this.selectOption(option);
     },
     pointerPrev() {
       if (this.pointer === 0) {
-        this.pointer = this.pointerMax
+        this.pointer = this.pointerMax;
       } else {
-        this.pointer--
+        this.pointer--;
       }
-      this.selectPointerOption()
+      this.selectPointerOption();
     },
     pointerNext() {
       if (this.pointer === this.pointerMax) {
-        this.pointer = 0
+        this.pointer = 0;
       } else {
-        this.pointer++
+        this.pointer++;
       }
-      this.selectPointerOption()
+      this.selectPointerOption();
     },
     selectPointerOption() {
-      this.handleSelect(this.options[this.pointer])
+      this.handleSelect(this.options[this.pointer]);
     }
   }
-}
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>

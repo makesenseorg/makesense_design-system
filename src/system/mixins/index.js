@@ -1,3 +1,3 @@
-import mediaQuery from './media-query'
+import mediaQuery from "./media-query";
 
-export { mediaQuery }
+export { mediaQuery };

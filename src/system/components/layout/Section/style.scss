@@ -1,10 +1,10 @@
 .ds-section {
   @include reset;
-  padding: $space-large 0;
+  padding: $space-l 0;
   background-color: $background-color-soft;
 
   @media #{$media-query-medium} {
-    padding: $space-x-large 0;
+    padding: $space-xl 0;
   }
 }
 

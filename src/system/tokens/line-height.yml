@@ -4,12 +4,12 @@
 #
 
 props:
-  - name: line-height-base
-    value: "1.5"
-  - name: line-height-small
+  - name: line-height-m
     value: "1.3"
-  - name: line-height-smaller
-    value: "1.1"
+  - name: line-height-s
+    value: "1.15"
+  - name: line-height-xs
+    value: "1"
 global:
   type: number
   category: line-height

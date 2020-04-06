@@ -1,26 +1,24 @@
 <template>
-  <component 
+  <component
     :is="tag"
     :style="styles"
     class="ds-space"
-    :class="[
-      centered && `ds-space-centered`
-    ]"
+    :class="[centered && `ds-space-centered`]"
   >
     <slot />
   </component>
 </template>
 
 <script>
-import { getSpace } from '@@/utils'
-import { mediaQuery } from '@@/mixins'
+import { getSpace } from "@@/utils";
+import { mediaQuery } from "@@/mixins";
 
 /**
  * Use this component for grouping and separation.
  * @version 1.0.0
  */
 export default {
-  name: 'DsSpace',
+  name: "DsSpace",
   mixins: [mediaQuery],
   inject: {
     $parentRow: {
@@ -40,14 +38,14 @@ export default {
      */
     marginBottom: {
       type: [String, Object],
-      default: 'large'
+      default: "large"
     },
     /**
      * The html element name used for this space.
      */
     tag: {
       type: String,
-      default: 'div'
+      default: "div"
     },
     /**
      * Center the content
@@ -59,35 +57,34 @@ export default {
   },
   computed: {
     styles() {
-      const marginTop = this.mediaQuery(this.marginTop)
-      const marginBottom = this.mediaQuery(this.marginBottom)
-      const marginTopStyle = this.parseMargin('Top')(marginTop)
-      const marginBottomStyle = this.parseMargin('Bottom')(marginBottom)
+      const marginTop = this.mediaQuery(this.marginTop);
+      const marginBottom = this.mediaQuery(this.marginBottom);
+      const marginTopStyle = this.parseMargin("Top")(marginTop);
+      const marginBottomStyle = this.parseMargin("Bottom")(marginBottom);
       return {
         ...marginTopStyle,
         ...marginBottomStyle
-      }
+      };
     }
   },
   methods: {
     parseMargin(direction) {
       return margin => {
-        const styles = {}
+        const styles = {};
         if (!margin) {
-          return styles
+          return styles;
         }
-        const realMargin = getSpace(margin)
+        const realMargin = getSpace(margin);
         if (realMargin !== 0) {
-          styles[`margin${direction}`] = `calc(${realMargin} * 1px)`
+          styles[`margin${direction}`] = `calc(${realMargin} * 1px)`;
         }
-        return styles
-      }
+        return styles;
+      };
     }
   }
-}
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>

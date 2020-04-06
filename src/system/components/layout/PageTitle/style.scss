@@ -1,11 +1,11 @@
 .ds-page-title {
   @include reset;
-  padding: $space-large 0;
+  padding: $space-l 0;
   color: $text-color-primary;
   @include gradient-pattern($background-color-soft, $background-color-softer);
 
   @media #{$media-query-medium} {
-    padding: $space-x-large 0;
+    padding: $space-xl 0;
   }
 }
 

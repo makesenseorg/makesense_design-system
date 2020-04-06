@@ -1,35 +1,37 @@
-import { themeMap } from '@@/tokens'
+import { themeMap } from "@@/tokens";
 
-let stylesheet = null
+let stylesheet = null;
 
 export default {
   install(Vue) {
-    Vue.prototype.$loadTheme = (name) => {
+    Vue.prototype.$loadTheme = name => {
       if (!themeMap.hasOwnProperty(name)) {
         // eslint-disable-next-line
         console.warn(`Theme '${name}' not found.`)
-        return
+        return;
       }
-      const theme = { ...themeMap.base, ... themeMap[name] }
-      useTheme(theme)
-    }
+      const theme = { ...themeMap.base, ...themeMap[name] };
+      useTheme(theme);
+    };
   }
-}
+};
 
-const useTheme = (theme) => {
+const useTheme = theme => {
   if (!stylesheet) {
-    stylesheet = document.createElement('style')
-    document.querySelector('head').append(stylesheet)
+    stylesheet = document.createElement("style");
+    document.querySelector("head").append(stylesheet);
   }
-  const variables = Object.keys(theme).map(key => {
-    return `${key}: ${theme[key]};`
-  }).join('\n')
+  const variables = Object.keys(theme)
+    .map(key => {
+      return `${key}: ${theme[key]};`;
+    })
+    .join("\n");
   stylesheet.innerHTML = `:root {
   ${variables}
-}`
-}
+}`;
+};
 
 // Init base theme
-if (typeof document !== 'undefined') {
-  useTheme(themeMap.base)
+if (typeof document !== "undefined") {
+  useTheme(themeMap.base);
 }

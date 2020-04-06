@@ -1,43 +1,43 @@
 .ds-heading {
-  @include reset;
-  @include stack-space($font-space-large, $font-space-xxxx-large);
-  font-family: $font-family-heading;
-  line-height: $line-height-small;
-  letter-spacing: $letter-spacing-small;
-  font-weight: $font-weight-bold;
+	@include reset;
+	@include stack-space($font-space-l, $font-space-xxxxl);
+	font-family: $font-heading;
+	line-height: $line-height-s;
+	letter-spacing: $letter-spacing-small;
+	font-weight: $font-weight-bold;
 }
 
 .ds-heading-primary {
-  color: $text-color-primary;
+	color: $text-color-primary;
 }
 
 .ds-heading-soft {
-  color: $text-color-softer;
+	color: $color-text-lighter;
 }
 
 .ds-heading-h1 {
-  font-size: $font-size-xx-large;
-  @media #{$media-query-large} {
-    font-size: $font-size-xxx-large;
-  }
+	font-size: $font-size-xxl;
+	@media #{$media-query-large} {
+		font-size: $font-size-xxxl;
+	}
 }
 
 .ds-heading-h2 {
-  font-size: $font-size-xx-large;
+	font-size: $font-size-xxl;
 }
 
 .ds-heading-h3 {
-  font-size: $font-size-x-large;
+	font-size: $font-size-xl;
 }
 
 .ds-heading-h4 {
-  font-size: $font-size-large;
+	font-size: $font-size-l;
 }
 
 .ds-heading-h5 {
-  font-size: $font-size-base;
+	font-size: $font-size-m;
 }
 
 .ds-heading-h6 {
-  font-size: $font-size-small;
+	font-size: $font-size-s;
 }

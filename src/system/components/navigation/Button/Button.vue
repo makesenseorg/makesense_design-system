@@ -13,18 +13,13 @@
       hover && `ds-button-hover`
     ]"
     v-bind="bindings"
-    :is="linkTag">
-    <ds-icon 
-      v-if="icon" 
-      :name="icon"/>
-    <span 
-      class="ds-button-text"
-      v-if="$slots.default">
+    :is="linkTag"
+  >
+    <ds-icon v-if="icon" :name="icon" />
+    <span class="ds-button-text" v-if="$slots.default">
       <slot />
     </span>
-    <ds-icon 
-      v-if="iconRight" 
-      :name="iconRight"/>
+    <ds-icon v-if="iconRight" :name="iconRight" />
   </component>
 </template>
 
@@ -34,7 +29,7 @@
  * @version 1.0.0
  */
 export default {
-  name: 'DsButton',
+  name: "DsButton",
   props: {
     /**
      * The path of this button. Can be a url or a Vue router path object.
@@ -42,7 +37,7 @@ export default {
     path: {
       type: [String, Object],
       default() {
-        return null
+        return null;
       }
     },
     /**
@@ -53,7 +48,7 @@ export default {
       type: String,
       default: null,
       validator: value => {
-        return value.match(/(small|base|large)/)
+        return value.match(/(small|base|large)/);
       }
     },
     /**
@@ -63,11 +58,11 @@ export default {
     linkTag: {
       type: String,
       default() {
-        const defaultLink = this.$router ? 'router-link' : 'a'
-        return this.path ? defaultLink : 'button'
+        const defaultLink = this.$router ? "router-link" : "a";
+        return this.path ? defaultLink : "button";
       },
       validator: value => {
-        return value.match(/(router-link|a|button)/)
+        return value.match(/(router-link|a|button)/);
       }
     },
     /**
@@ -129,17 +124,17 @@ export default {
   },
   computed: {
     bindings() {
-      const bindings = {}
-      if (this.path && this.linkTag === 'router-link') {
-        bindings.to = this.path
+      const bindings = {};
+      if (this.path && this.linkTag === "router-link") {
+        bindings.to = this.path;
       }
-      if (this.path && this.linkTag === 'a') {
-        bindings.href = this.path
+      if (this.path && this.linkTag === "a") {
+        bindings.href = this.path;
       }
-      return bindings
+      return bindings;
     },
     iconOnly() {
-      return !this.$slots.default && this.icon && !this.iconRight
+      return !this.$slots.default && this.icon && !this.iconRight;
     }
   },
   methods: {
@@ -151,13 +146,12 @@ export default {
        *
        * @event click
        */
-      this.$emit('click', event, this.route)
+      this.$emit("click", event, this.route);
     }
   }
-}
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>
