@@ -82,154 +82,154 @@
   "props": {
     "color-sahara-sand": {
       "type": "color",
-      "category": "color_brand",
+      "category": "color",
       "name": "color-sahara-sand",
       "value": "var(--color-sahara-sand)",
       "originalValue": "#FCF6A0"
     },
     "color-flame-pea": {
       "type": "color",
-      "category": "color_brand",
+      "category": "color",
       "name": "color-flame-pea",
       "value": "var(--color-flame-pea)",
       "originalValue": "#F3976B"
     },
     "color-roman": {
       "type": "color",
-      "category": "color_brand",
+      "category": "color",
       "name": "color-roman",
       "value": "var(--color-roman)",
       "originalValue": "#E36164"
     },
     "color-cerise": {
       "type": "color",
-      "category": "color_brand",
+      "category": "color",
       "name": "color-cerise",
       "value": "var(--color-cerise)",
       "originalValue": "#9B084F"
     },
     "color-atlantis": {
       "type": "color",
-      "category": "color_brand",
+      "category": "color",
       "name": "color-atlantis",
       "value": "var(--color-atlantis)",
       "originalValue": "#C1E94E"
     },
     "color-calypso": {
       "type": "color",
-      "category": "color_brand",
+      "category": "color",
       "name": "color-calypso",
       "value": "var(--color-calypso)",
       "originalValue": "#196C84"
     },
     "color-blue-dianne": {
       "type": "color",
-      "category": "color_brand",
+      "category": "color",
       "name": "color-blue-dianne",
       "value": "var(--color-blue-dianne)",
       "originalValue": "#0C3944"
     },
     "color-silver-tree": {
       "type": "color",
-      "category": "color_brand",
+      "category": "color",
       "name": "color-silver-tree",
       "value": "var(--color-silver-tree)",
       "originalValue": "#70AF90"
     },
     "color-zeus": {
       "type": "color",
-      "category": "color_brand",
+      "category": "color",
       "name": "color-zeus",
       "value": "var(--color-zeus)",
       "originalValue": "#474136"
     },
     "color-brick-red": {
       "type": "color",
-      "category": "color_brand",
+      "category": "color",
       "name": "color-brick-red",
       "value": "var(--color-brick-red)",
       "originalValue": "#C62E43"
     },
     "color-parsley": {
       "type": "color",
-      "category": "color_brand",
+      "category": "color",
       "name": "color-parsley",
       "value": "var(--color-parsley)",
       "originalValue": "#24673A"
     },
     "color-broom": {
       "type": "color",
-      "category": "color_brand",
+      "category": "color",
       "name": "color-broom",
       "value": "var(--color-broom)",
       "originalValue": "#FFF30D"
     },
     "color-positive": {
       "type": "color",
-      "category": "color_feedback",
+      "category": "color",
       "name": "color-positive",
       "value": "var(--color-positive)",
       "originalValue": "#27AE60"
     },
     "color-negative": {
       "type": "color",
-      "category": "color_feedback",
+      "category": "color",
       "name": "color-negative",
       "value": "var(--color-negative)",
       "originalValue": "{!red}"
     },
     "color-warning": {
       "type": "color",
-      "category": "color_feedback",
+      "category": "color",
       "name": "color-warning",
       "value": "var(--color-warning)",
       "originalValue": "#fef090hsla({!orange}, 50%, 1)"
     },
     "color-gray-light": {
       "type": "color",
-      "category": "color_z_app",
+      "category": "color",
       "name": "color-gray-light",
       "value": "var(--color-gray-light)",
       "originalValue": "{!gray_light}"
     },
     "color-gray": {
       "type": "color",
-      "category": "color_z_app",
+      "category": "color",
       "name": "color-gray",
       "value": "var(--color-gray)",
       "originalValue": "#e6ebf3"
     },
     "color-gray-dark": {
       "type": "color",
-      "category": "color_z_app",
+      "category": "color",
       "name": "color-gray-dark",
       "value": "var(--color-gray-dark)",
       "originalValue": "#8492a6"
     },
     "color-black": {
       "type": "color",
-      "category": "color_group_4",
+      "category": "color",
       "name": "color-black",
       "value": "var(--color-black)",
       "originalValue": "{!rich_black}"
     },
     "color-white": {
       "type": "color",
-      "category": "color_group_4",
+      "category": "color",
       "name": "color-white",
       "value": "var(--color-white)",
       "originalValue": "{!white}"
     },
     "color-silver": {
       "type": "color",
-      "category": "color_group_4",
+      "category": "color",
       "name": "color-silver",
       "value": "var(--color-silver)",
       "originalValue": "#7F8891"
     },
     "color-cloud": {
       "type": "color",
-      "category": "color_group_4",
+      "category": "color",
       "name": "color-cloud",
       "value": "var(--color-cloud)",
       "originalValue": "#E9F3FD"

@@ -7,9 +7,9 @@ module.exports = {
 	rules: {
 		'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-		'no-useless-escape': 'warn',
-		'vue/require-default-prop': 'warn',
-		'vue/require-prop-types': 'warn',
+		'no-useless-escape': 'off',
+		'vue/require-default-prop': 'off',
+		'vue/require-prop-types': 'off',
 	},
 	parserOptions: {
 		parser: 'babel-eslint'
