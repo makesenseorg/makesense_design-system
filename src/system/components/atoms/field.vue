@@ -176,6 +176,7 @@ export default {
       required: false
     },
     value: {
+      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
       required: true
     },
     fold: {

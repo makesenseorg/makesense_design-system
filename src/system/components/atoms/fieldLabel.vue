@@ -22,6 +22,7 @@ export default {
       required: false
     },
     cssClass: {
+      type: [String, Array, Object],
       required: false
     },
     icon: {

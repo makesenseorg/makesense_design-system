@@ -20,8 +20,8 @@ export default {
      * `h1, h2, h3, h4, h5`
      */
     tag: {
-      type: String,
-      default: "h1",
+      type: [Boolean, String],
+      default: false,
       required: false,
       validator: function(value) {
         return ["h1", "h2", "h3", "h4", "h5"].indexOf(value) !== -1;
@@ -32,7 +32,8 @@ export default {
      * `my-class-name`
      */
     tagClass: {
-      type: String,
+      type: [String, Boolean],
+      default: false,
       required: false,
       validator: function(value) {
         return ["h1", "h2", "h3", "h4", "h5"].indexOf(value) !== -1;

@@ -18,7 +18,7 @@ export default {
   props: {
     color: {
       type: String,
-      require: false,
+      required: false,
       default: "default",
       validator: function(value) {
         return ["default", "main"].indexOf(value) !== -1;
@@ -26,7 +26,7 @@ export default {
     },
     size: {
       type: String,
-      require: false,
+      required: false,
       default: "medium",
       validator: function(value) {
         return ["medium", "small", "large"].indexOf(value) !== -1;
@@ -34,22 +34,23 @@ export default {
     },
     label: {
       type: String,
-      require: true
+      required: true
     },
     trunc: {
       type: Boolean,
       default: true
     },
     icon: {
-      type: String,
-      require: false,
+      type: [String, Boolean],
+      required: false,
+      default: false,
       validator: function(value) {
         return ["close", "check"].indexOf(value) !== -1;
       }
     },
     cliquable: {
       type: Boolean,
-      require: false,
+      required: false,
       default: false
     }
   },

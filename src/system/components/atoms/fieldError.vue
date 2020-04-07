@@ -7,6 +7,7 @@ export default {
   name: "FieldError",
   props: {
     error: {
+      type: [Boolean, String, Object],
       required: true
     }
   },
