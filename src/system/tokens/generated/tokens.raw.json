@@ -1,5 +1,11 @@
 {
   "aliases": {
+    "flame_pea": {
+      "value": "#F3976B"
+    },
+    "calypso": {
+      "value": "#196C84"
+    },
     "green": {
       "value": "100, 69%"
     },
@@ -9,10 +15,31 @@
     "white": {
       "value": "#fff"
     },
+    "zeus": {
+      "value": "#474136"
+    },
+    "cerise": {
+      "value": "#9B084F"
+    },
+    "sahara_sand": {
+      "value": "#FCF6A0"
+    },
+    "blue_dianne": {
+      "value": "#0C3944"
+    },
+    "parsley": {
+      "value": "#24673A"
+    },
     "orange": {
       "value": "28, 80%"
     },
+    "silver_tree": {
+      "value": "#70AF90"
+    },
     "red": {
+      "value": "#C62E43"
+    },
+    "brick_red": {
       "value": "#C62E43"
     },
     "yellow": {
@@ -20,6 +47,9 @@
     },
     "pink": {
       "value": "330, 86%"
+    },
+    "atlantis": {
+      "value": "#C1E94E"
     },
     "gray_light": {
       "value": "#eff2f7"
@@ -35,6 +65,12 @@
     },
     "purple": {
       "value": "264, 88%"
+    },
+    "broom": {
+      "value": "#FFF30D"
+    },
+    "roman": {
+      "value": "#E36164"
     },
     "x-large": {
       "value": 40
@@ -85,84 +121,84 @@
       "category": "color",
       "name": "color-sahara-sand",
       "value": "var(--color-sahara-sand)",
-      "originalValue": "#FCF6A0"
+      "originalValue": "{!sahara_sand}"
     },
     "color-flame-pea": {
       "type": "color",
       "category": "color",
       "name": "color-flame-pea",
       "value": "var(--color-flame-pea)",
-      "originalValue": "#F3976B"
+      "originalValue": "{!flame_pea}"
     },
     "color-roman": {
       "type": "color",
       "category": "color",
       "name": "color-roman",
       "value": "var(--color-roman)",
-      "originalValue": "#E36164"
+      "originalValue": "{!roman}"
     },
     "color-cerise": {
       "type": "color",
       "category": "color",
       "name": "color-cerise",
       "value": "var(--color-cerise)",
-      "originalValue": "#9B084F"
+      "originalValue": "{!cerise}"
     },
     "color-atlantis": {
       "type": "color",
       "category": "color",
       "name": "color-atlantis",
       "value": "var(--color-atlantis)",
-      "originalValue": "#C1E94E"
+      "originalValue": "{!atlantis}"
     },
     "color-calypso": {
       "type": "color",
       "category": "color",
       "name": "color-calypso",
       "value": "var(--color-calypso)",
-      "originalValue": "#196C84"
+      "originalValue": "{!calypso}"
     },
     "color-blue-dianne": {
       "type": "color",
       "category": "color",
       "name": "color-blue-dianne",
       "value": "var(--color-blue-dianne)",
-      "originalValue": "#0C3944"
+      "originalValue": "{!blue_dianne}"
     },
     "color-silver-tree": {
       "type": "color",
       "category": "color",
       "name": "color-silver-tree",
       "value": "var(--color-silver-tree)",
-      "originalValue": "#70AF90"
+      "originalValue": "{!silver_tree}"
     },
     "color-zeus": {
       "type": "color",
       "category": "color",
       "name": "color-zeus",
       "value": "var(--color-zeus)",
-      "originalValue": "#474136"
+      "originalValue": "{!zeus}"
     },
     "color-brick-red": {
       "type": "color",
       "category": "color",
       "name": "color-brick-red",
       "value": "var(--color-brick-red)",
-      "originalValue": "#C62E43"
+      "originalValue": "{!brick_red}"
     },
     "color-parsley": {
       "type": "color",
       "category": "color",
       "name": "color-parsley",
       "value": "var(--color-parsley)",
-      "originalValue": "#24673A"
+      "originalValue": "{!parsley}"
     },
     "color-broom": {
       "type": "color",
       "category": "color",
       "name": "color-broom",
       "value": "var(--color-broom)",
-      "originalValue": "#FFF30D"
+      "originalValue": "{!broom}"
     },
     "color-positive": {
       "type": "color",
@@ -219,20 +255,6 @@
       "name": "color-white",
       "value": "var(--color-white)",
       "originalValue": "{!white}"
-    },
-    "color-silver": {
-      "type": "color",
-      "category": "color",
-      "name": "color-silver",
-      "value": "var(--color-silver)",
-      "originalValue": "#7F8891"
-    },
-    "color-cloud": {
-      "type": "color",
-      "category": "color",
-      "name": "color-cloud",
-      "value": "var(--color-cloud)",
-      "originalValue": "#E9F3FD"
     },
     "color-neutral-0": {
       "type": "color",
@@ -330,42 +352,49 @@
       "category": "color",
       "name": "color-primary",
       "value": "var(--color-primary)",
-      "originalValue": "hsla({!teal}, 40%, 1)"
+      "originalValue": "{!calypso}"
     },
     "color-primary-active": {
       "type": "color",
       "category": "color",
       "name": "color-primary-active",
       "value": "var(--color-primary-active)",
-      "originalValue": "hsla({!teal}, 43%, 1)"
+      "originalValue": "tint({!calypso}, 5%)"
     },
     "color-primary-inverse": {
       "type": "color",
       "category": "color",
       "name": "color-primary-inverse",
       "value": "var(--color-primary-inverse)",
-      "originalValue": "hsla({!teal}, 97%, 1)"
+      "originalValue": "darken({!calypso}, 5%)"
     },
     "color-secondary": {
       "type": "color",
       "category": "color",
       "name": "color-secondary",
       "value": "var(--color-secondary)",
-      "originalValue": "hsla({!purple}, 45%, 1)"
+      "originalValue": "{!broom}"
     },
     "color-secondary-active": {
       "type": "color",
       "category": "color",
       "name": "color-secondary-active",
       "value": "var(--color-secondary-active)",
-      "originalValue": "hsla({!purple}, 52%, 1)"
+      "originalValue": "tint({!broom}, 5%)tint({!cerise}, 5%)"
     },
     "color-secondary-inverse": {
       "type": "color",
       "category": "color",
       "name": "color-secondary-inverse",
       "value": "var(--color-secondary-inverse)",
-      "originalValue": "hsla({!purple}, 97%, 1)"
+      "originalValue": "darken({!broom}, 5%)darken({!cerise}, 5%)"
+    },
+    "color-tertiary": {
+      "type": "color",
+      "category": "color",
+      "name": "color-tertiary",
+      "value": "var(--color-tertiary)",
+      "originalValue": "{!cerise}"
     },
     "color-success": {
       "type": "color",
@@ -484,42 +513,42 @@
       "category": "text-color",
       "name": "text-color-link",
       "value": "var(--text-color-link)",
-      "originalValue": "hsla({!teal}, 40%, 1)"
+      "originalValue": "{!calypso}"
     },
     "text-color-link-active": {
       "type": "color",
       "category": "text-color",
       "name": "text-color-link-active",
       "value": "var(--text-color-link-active)",
-      "originalValue": "hsla({!teal}, 43%, 1)"
+      "originalValue": "tint({!calypso}, 5%)"
     },
     "text-color-primary": {
       "type": "color",
       "category": "text-color",
       "name": "text-color-primary",
       "value": "var(--text-color-primary)",
-      "originalValue": "hsla({!teal}, 40%, 1)"
+      "originalValue": "{!calypso}"
     },
     "text-color-primary-inverse": {
       "type": "color",
       "category": "text-color",
       "name": "text-color-primary-inverse",
       "value": "var(--text-color-primary-inverse)",
-      "originalValue": "hsla({!teal}, 97%, 1)"
+      "originalValue": "darken({!calypso}, 5%)"
     },
     "text-color-secondary": {
       "type": "color",
       "category": "text-color",
       "name": "text-color-secondary",
       "value": "var(--text-color-secondary)",
-      "originalValue": "hsla({!purple}, 45%, 1)"
+      "originalValue": "{!cerise}"
     },
     "text-color-secondary-inverse": {
       "type": "color",
       "category": "text-color",
       "name": "text-color-secondary-inverse",
       "value": "var(--text-color-secondary-inverse)",
-      "originalValue": "hsla({!purple}, 97%, 1)"
+      "originalValue": "darken({!cerise}, 5%)"
     },
     "text-color-success": {
       "type": "color",
@@ -645,42 +674,42 @@
       "category": "background-color",
       "name": "background-color-primary",
       "value": "var(--background-color-primary)",
-      "originalValue": "hsla({!teal}, 40%, 1)"
+      "originalValue": "{!calypso}"
     },
     "background-color-primary-active": {
       "type": "color",
       "category": "background-color",
       "name": "background-color-primary-active",
       "value": "var(--background-color-primary-active)",
-      "originalValue": "hsla({!teal}, 43%, 1)"
+      "originalValue": "tint({!calypso}, 5%)"
     },
     "background-color-primary-inverse": {
       "type": "color",
       "category": "background-color",
       "name": "background-color-primary-inverse",
       "value": "var(--background-color-primary-inverse)",
-      "originalValue": "hsla({!teal}, 97%, 1)"
+      "originalValue": "darken({!calypso}, 5%)"
     },
     "background-color-secondary": {
       "type": "color",
       "category": "background-color",
       "name": "background-color-secondary",
       "value": "var(--background-color-secondary)",
-      "originalValue": "hsla({!purple}, 45%, 1)"
+      "originalValue": "{!cerise}"
     },
     "background-color-secondary-active": {
       "type": "color",
       "category": "background-color",
       "name": "background-color-secondary-active",
       "value": "var(--background-color-secondary-active)",
-      "originalValue": "hsla({!purple}, 52%, 1)"
+      "originalValue": "tint({!cerise}, 5%)"
     },
     "background-color-secondary-inverse": {
       "type": "color",
       "category": "background-color",
       "name": "background-color-secondary-inverse",
       "value": "var(--background-color-secondary-inverse)",
-      "originalValue": "hsla({!purple}, 97%, 1)"
+      "originalValue": "darken({!cerise}, 5%)"
     },
     "background-color-success": {
       "type": "color",
@@ -771,14 +800,14 @@
       "category": "border-color",
       "name": "border-color-active",
       "value": "var(--border-color-active)",
-      "originalValue": "hsla({!teal}, 40%, 1)"
+      "originalValue": "{!calypso}"
     },
     "border-color-primary": {
       "type": "color",
       "category": "border-color",
       "name": "border-color-primary",
       "value": "var(--border-color-primary)",
-      "originalValue": "hsla({!teal}, 40%, 1)"
+      "originalValue": "{!calypso}"
     },
     "border-color-success": {
       "type": "color",
