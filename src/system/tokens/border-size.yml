@@ -5,11 +5,18 @@
 
 props:
   - name: border-width-m
-    value: "1px"
+    value: &border-width-m "1px"
   - name: border-width-l
-    value: "2px"
+    value: &border-width-l "2px"
   - name: border-width-xl
-    value: "3px"
+    value: &border-width-xl "3px"
+
+  - name: border-size-base
+    value: *border-width-m
+  - name: border-size-large
+    value: *border-width-l
+  - name: border-size-x-large
+    value: *border-width-xl
 global:
   type: number
   category: border-size

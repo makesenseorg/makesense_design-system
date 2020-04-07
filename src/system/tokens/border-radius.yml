@@ -19,6 +19,13 @@ props:
     value: "20px"
   - name: border_radius_full
     value: "1000px"
+
+  - name: border-radius-base
+    value: "2px"
+  - name: border-radius-rounded
+    value: "10px"
+  - name: border-radius-circle
+    value: "50%"
   
 global:
   type: number

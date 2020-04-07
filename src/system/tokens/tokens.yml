@@ -1,5 +1,6 @@
 #
 # GLOBAL: DESIGN TOKENS
+# TODO : replace spot convention (prop-xs, prop-s, prop-m, prop-l, prop-xl...) by cion convention
 #
 
 imports:
