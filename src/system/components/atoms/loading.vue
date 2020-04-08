@@ -52,7 +52,7 @@ export default {
   &--full {
     height: 100vh;
     width: 100%;
-    background: $color-white;
+    background: $color-neutral-100;
   }
 
   &--component {

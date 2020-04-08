@@ -6,7 +6,8 @@
     :type="inputType"
     :disabled="disabled"
   >
-    <slot v-if="!loading" /> <slot v-else name="loading">Processing...</slot>
+    <slot v-if="!loading" />
+    <slot v-else name="loading">Processing...</slot>
   </component>
 </template>
 
@@ -64,7 +65,7 @@ export default {
   @include text-body;
   display: inline-block;
   background-color: $color-primary;
-  color: $color-white;
+  color: $color-neutral-100;
   border-color: $color-primary;
   font-weight: $font-weight-extrabold; // override text-body
   border-width: $border-width-m;
@@ -87,30 +88,30 @@ export default {
   }
 
   &--positive {
-    background-color: $color-positive;
-    border-color: $color-positive;
+    background-color: $color-success;
+    border-color: $color-success;
   }
 
   &--shy {
-    background-color: $color-gray;
-    border-color: $color-gray;
+    background-color: $color-neutral-80;
+    border-color: $color-neutral-80;
     color: $color-text;
 
     &:hover {
-      background-color: $color-white;
-      border-color: $color-gray;
+      background-color: $color-neutral-100;
+      border-color: $color-neutral-80;
     }
   }
 
   &--black {
     background-color: $color-secondary;
     border-color: $color-secondary;
-    color: $color-white;
+    color: $color-neutral-100;
 
     &:hover {
       // todo : garder la border peut-être? ou rendre l'effet un peu plus légeer
-      background-color: $color-black;
-      border-color: $color-black;
+      background-color: $color-neutral-0;
+      border-color: $color-neutral-0;
     }
   }
 

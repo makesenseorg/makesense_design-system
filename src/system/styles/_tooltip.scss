@@ -3,103 +3,103 @@ $arrow-color: #eee;
 // todo fix en haut
 
 @mixin tooltip {
-  display: block !important;
-  z-index: 10000;
-  @include border-radius;
+	display: block !important;
+	z-index: 10000;
+	@include border-radius;
 
-  &[x-placement^="top"],
-  &--arrow-top {
-    margin-bottom: $arrow-size;
+	&[x-placement^="top"],
+	&--arrow-top {
+		margin-bottom: $arrow-size;
 
-    .arrow {
-      border-width: $arrow-size $arrow-size 0 $arrow-size;
-      border-left-color: transparent !important;
-      border-right-color: transparent !important;
-      border-bottom-color: transparent !important;
-      bottom: -$arrow-size;
-      left: calc(50% - #{$arrow-size});
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-  }
+		.arrow {
+			border-width: $arrow-size $arrow-size 0 $arrow-size;
+			border-left-color: transparent !important;
+			border-right-color: transparent !important;
+			border-bottom-color: transparent !important;
+			bottom: -$arrow-size;
+			left: calc(50% - #{$arrow-size});
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
 
-  &[x-placement^="bottom"],
-  &--arrow-bottom {
-    margin-top: $arrow-size;
+	&[x-placement^="bottom"],
+	&--arrow-bottom {
+		margin-top: $arrow-size;
 
-    .arrow {
-      border-width: 0 $arrow-size $arrow-size $arrow-size;
-      border-left-color: transparent !important;
-      border-right-color: transparent !important;
-      border-top-color: transparent !important;
-      top: -$arrow-size;
-      left: calc(50% - #{$arrow-size});
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-  }
+		.arrow {
+			border-width: 0 $arrow-size $arrow-size $arrow-size;
+			border-left-color: transparent !important;
+			border-right-color: transparent !important;
+			border-top-color: transparent !important;
+			top: -$arrow-size;
+			left: calc(50% - #{$arrow-size});
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
 
-  &[x-placement^="right"],
-  &--arrow-right {
-    margin-left: $arrow-size;
+	&[x-placement^="right"],
+	&--arrow-right {
+		margin-left: $arrow-size;
 
-    .arrow {
-      border-width: $arrow-size $arrow-size $arrow-size 0;
-      border-left-color: transparent !important;
-      border-top-color: transparent !important;
-      border-bottom-color: transparent !important;
-      left: -$arrow-size;
-      top: calc(50% - #{$arrow-size});
-      margin-left: 0;
-      margin-right: 0;
-    }
-  }
+		.arrow {
+			border-width: $arrow-size $arrow-size $arrow-size 0;
+			border-left-color: transparent !important;
+			border-top-color: transparent !important;
+			border-bottom-color: transparent !important;
+			left: -$arrow-size;
+			top: calc(50% - #{$arrow-size});
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
 
-  &[x-placement^="left"],
-  &--arrow-left {
-    margin-right: $arrow-size;
+	&[x-placement^="left"],
+	&--arrow-left {
+		margin-right: $arrow-size;
 
-    .arrow {
-      border-width: $arrow-size 0 $arrow-size $arrow-size;
-      border-top-color: transparent !important;
-      border-right-color: transparent !important;
-      border-bottom-color: transparent !important;
-      right: -$arrow-size;
-      top: calc(50% - #{$arrow-size});
-      margin-left: 0;
-      margin-right: 0;
-    }
-  }
+		.arrow {
+			border-width: $arrow-size 0 $arrow-size $arrow-size;
+			border-top-color: transparent !important;
+			border-right-color: transparent !important;
+			border-bottom-color: transparent !important;
+			right: -$arrow-size;
+			top: calc(50% - #{$arrow-size});
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
 
-  &[aria-hidden="true"] {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.15s, visibility 0.15s;
-  }
+	&[aria-hidden="true"] {
+		visibility: hidden;
+		opacity: 0;
+		transition: opacity 0.15s, visibility 0.15s;
+	}
 
-  &[aria-hidden="false"] {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 0.15s;
-  }
+	&[aria-hidden="false"] {
+		visibility: visible;
+		opacity: 1;
+		transition: opacity 0.15s;
+	}
 }
 
 @mixin tooltip-inner {
-  @include elevated;
-  @include border-radius;
-  @include text-small;
-  position: relative;
-  overflow: hidden;
-  background: $color-white;
-  border: $color-black;
+	@include elevated;
+	@include border-radius;
+	@include text-small;
+	position: relative;
+	overflow: hidden;
+	background: $color-neutral-100;
+	border: $color-neutral-0;
 }
 
 @mixin tooltip-arrow {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  position: absolute;
-  margin: $arrow-size;
-  border-color: $arrow-color;
-  z-index: 1;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	position: absolute;
+	margin: $arrow-size;
+	border-color: $arrow-color;
+	z-index: 1;
 }

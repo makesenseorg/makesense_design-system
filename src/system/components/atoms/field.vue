@@ -20,7 +20,9 @@
         {{ label }}
         <span class="field__sublabel" v-if="subLabel">{{ subLabel }}</span>
       </FieldLabel>
-      <div class="field__action"><slot name="action"></slot></div>
+      <div class="field__action">
+        <slot name="action"></slot>
+      </div>
     </div>
     <select
       v-if="type === 'select'"
@@ -441,7 +443,7 @@ textarea,
   } // end hover or focus
 
   &:disabled {
-    background-color: $color-gray;
+    background-color: $color-neutral-80;
     user-select: none;
   }
 
@@ -453,7 +455,7 @@ textarea,
 
   &.-style-border-bottom {
     padding: 1rem 0px;
-    border-bottom: 1px solid $color-gray-light;
+    border-bottom: 1px solid $color-neutral-90;
   }
 
   &.-style-no-border {
@@ -461,11 +463,11 @@ textarea,
   }
 
   &.-light-onBlack {
-    border-color: $color-black;
+    border-color: $color-neutral-0;
   }
 
   &.-in-error {
-    border-color: $color-negative;
+    border-color: $color-danger;
   }
 }
 
@@ -475,7 +477,7 @@ textarea,
   opacity: 0.5;
 
   &.-light-onBlack {
-    color: $color-gray;
+    color: $color-neutral-80;
   }
 }
 
@@ -528,7 +530,7 @@ textarea,
 .checkbox__label {
   @include flex;
   &.-light-onBlack {
-    color: $color-gray;
+    color: $color-neutral-80;
   }
 }
 .checkbox__input {
@@ -590,7 +592,7 @@ select {
   &.-light-onBlack {
     .ql-toolbar,
     .ql-container {
-      background: $color-white;
+      background: $color-neutral-100;
     }
   }
 }

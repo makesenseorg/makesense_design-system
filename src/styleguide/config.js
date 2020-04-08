@@ -11,19 +11,22 @@ export default {
       name: "Design Tokens"
     },
     {
-      name: "Layout"
-    },
-    {
-      name: "Typography"
-    },
-    {
-      name: "Data Input"
-    },
-    {
-      name: "Data Display"
-    },
-    {
-      name: "Navigation"
+      name: "Atoms"
     }
+    // {
+    //   name: "Layout"
+    // },
+    // {
+    //   name: "Typography"
+    // },
+    // {
+    //   name: "Data Input"
+    // },
+    // {
+    //   name: "Data Display"
+    // },
+    // {
+    //   name: "Navigation"
+    // }
   ]
 };

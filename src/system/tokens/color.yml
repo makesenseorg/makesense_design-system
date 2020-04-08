@@ -17,7 +17,7 @@ aliases:
   gray_light:
     value: "#eff2f7"
   neutral:
-    value: "264, 10%"
+    value: "216, 23%"
   green:
     value: "100, 69%"
   orange:
@@ -89,26 +89,7 @@ props:
     value: &color-parsley "{!parsley}"
   - name: color-broom
     value: &color-broom "{!broom}"
-
-  - name: color-positive
-    value: &color-positive "#27AE60"
-  - name: color-negative
-    value: &color-negative "{!red}"
-  - name: color-warning
-    value: &color-warning "#fef090"
-
-  - name: color-gray-light
-    value: &color-gray-light "{!gray_light}"
-  - name: color-gray
-    value: &color-gray "#e6ebf3"
-  - name: color-gray-dark
-    value: &color-gray-dark "#8492a6"
-
-  - name: color-black
-    value: &color-black "{!rich_black}"
-  - name: color-white
-    value: &color-white "{!white}"
-
+  
   - name: color-neutral-0
     value: &color-neutral-0 "hsla({!neutral}, 10%, 1)"
   - name: color-neutral-10
@@ -119,6 +100,7 @@ props:
     value: &color-neutral-30 "hsla({!neutral}, 40%, 1)"
   - name: color-neutral-40
     value: &color-neutral-40 "hsla({!neutral}, 45%, 1)"
+    #color-gray-dark - below
   - name: color-neutral-50
     value: &color-neutral-50 "hsla({!neutral}, 60%, 1)"
   - name: color-neutral-60
@@ -126,9 +108,11 @@ props:
   - name: color-neutral-70
     value: &color-neutral-70 "hsla({!neutral}, 80%, 1)"
   - name: color-neutral-80
+   #color-gray -below
     value: &color-neutral-80 "hsla({!neutral}, 90%, 1)"
   - name: color-neutral-85
     value: &color-neutral-85 "hsla({!neutral}, 94%, 1)"
+    #color-gray-light -below
   - name: color-neutral-90
     value: &color-neutral-90 "hsla({!neutral}, 96%, 1)"
   - name: color-neutral-95
@@ -140,37 +124,37 @@ props:
   - name: color-primary
     value: &color-primary "{!calypso}"
   - name: color-primary-active
-    value: &color-primary-active "tint({!calypso}, 5%)"
+    value: &color-primary-active "#2088a7"
   - name: color-primary-inverse
-    value: &color-primary-inverse "darken({!calypso}, 5%)"
+    value: &color-primary-inverse "#e5f6fa"
 
   - name: color-secondary
     value: &color-secondary "{!broom}"
   - name: color-secondary-active
-    value: &color-secondary-active "tint({!broom}, 5%)"
+    value: &color-secondary-active "#fff87a"
   - name: color-secondary-inverse
-    value: &color-secondary-inverse "darken({!broom}, 5%)"
+    value: &color-secondary-inverse "#fffdd6"
 
   - name: color-tertiary
-    value: &color-secondary "{!cerise}"
-  - name: color-secondary-active
-    value: &color-secondary-active "tint({!cerise}, 5%)"
-  - name: color-secondary-inverse
-    value: &color-secondary-inverse "darken({!cerise}, 5%)"
+    value: &color-tertiary "{!cerise}"
+  - name: color-tertiary-active
+    value: &color-tertiary-active "#c10b63"
+  - name: color-tertiary-inverse
+    value: &color-tertiary-inverse "#fddded"
 
   - name: color-success
-    value: &color-success "hsla({!green}, 40%, 1)"
+    value: &color-success "#27AE60"
   - name: color-success-active
-    value: &color-success-active "hsla({!green}, 45%, 1)"
+    value: &color-success-active "#2abb67"
   - name: color-success-inverse
     value: &color-success-inverse "hsla({!green}, 97%, 1)"
 
   - name: color-danger
-    value: &color-danger "hsla({!red}, 50%, 1)"
+    value: &color-danger "#d93a3a"
   - name: color-danger-active
-    value: &color-danger-active "hsla({!red}, 56%, 1)"
+    value: &color-danger-active "#dd4b4b"
   - name: color-danger-inverse
-    value: &color-danger-inverse "hsla({!red}, 97%, 1)"
+    value: &color-danger-inverse "#f8dddd"
 
   - name: color-warning
     value: &color-warning "hsla({!orange}, 50%, 1)"
@@ -186,13 +170,16 @@ props:
   - name: color-yellow-inverse
     value: &color-yellow-inverse "hsla({!yellow}, 97%, 1)"
 
+
+##### END OF COLOR CONFIGURATION FOR THEME
+
   # Text Colors
   - name: color-text
-    value: *color-neutral-20
+    value: *color-blue-dianne
     category: text-color
 
   - name: color-text-light
-    value: *color-neutral-40
+    value: *color-neutral-50
     category: text-color
 
   - name: color-text-lighter
@@ -200,7 +187,7 @@ props:
     category: text-color
 
   - name: text-color-disabled
-    value: *color-neutral-60
+    value: *color-neutral-70
     category: text-color
 
   - name: text-color-inverse

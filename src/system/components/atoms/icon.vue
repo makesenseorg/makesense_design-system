@@ -77,14 +77,14 @@ export default {
 
 <style lang="scss" scoped>
 .icon {
-  color: $color-gray-light;
+  color: $color-neutral-90;
 
   &.-color-inherit {
     color: inherit;
   }
 
-  &.-color-positive {
-    color: $color-positive;
+  &.-color-success {
+    color: $color-success;
   }
 }
 </style>

@@ -50,7 +50,7 @@ label,
   font-weight: $font-weight-extrabold;
 
   &.-light-onBlack {
-    color: $color-white;
+    color: $color-neutral-100;
   }
 
   .FieldLabelIcon {

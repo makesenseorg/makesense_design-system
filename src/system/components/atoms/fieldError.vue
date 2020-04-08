@@ -25,7 +25,7 @@ export default {
 <style lang="scss" scoped>
 .field__error {
   @include text-small;
-  color: $color-negative;
+  color: $color-danger;
   margin-top: $space-m / 4;
 }
 </style>

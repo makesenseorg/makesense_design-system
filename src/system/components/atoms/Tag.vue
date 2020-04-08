@@ -83,12 +83,12 @@ export default {
   align-items: center;
   font-weight: $font-weight-extrabold;
   padding: 0.625em;
-  background: $color-gray;
+  background: $color-neutral-80;
   color: $color-text;
 
   &--main {
     background: $color-secondary;
-    color: $color-white;
+    color: $color-neutral-100;
   }
 
   &--small {
@@ -101,7 +101,7 @@ export default {
 
   &:hover {
     background: $color-secondary;
-    color: $color-white;
+    color: $color-neutral-100;
   }
 }
 

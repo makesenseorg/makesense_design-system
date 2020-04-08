@@ -2,7 +2,7 @@
   <div class="file-upload" :class="{ loading: getStatus == 'PENDING' }">
     <FieldLabel v-if="label && label !== undefined" :css-class="getCss">
       {{ label }}
-      <span class="field__sublabel" v-if="subLabel"> {{ subLabel }} </span>
+      <span class="field__sublabel" v-if="subLabel">{{ subLabel }}</span>
     </FieldLabel>
     <div class="file-upload__description" v-if="description" :class="getCss">
       {{ description }}
@@ -204,7 +204,7 @@ export default {
   opacity: 0.5;
 
   &.-light-onBlack {
-    color: $color-gray;
+    color: $color-neutral-80;
   }
 }
 </style>
