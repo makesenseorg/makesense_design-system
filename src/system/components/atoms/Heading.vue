@@ -102,13 +102,12 @@ h6,
 
 <docs>
   ```jsx
-  <div>
     <Heading tag="h1">The quick brown fox</Heading>
     <Heading tag="h2" color="primary">The quick brown fox</Heading>
     <Heading tag="h3" color="secondary">The quick brown fox</Heading>
     <Heading tag="h4" color="tertiary">The quick brown fox</Heading>
     <Heading tag="h5">The quick brown fox</Heading>
     <Heading tag="h6">The quick brown fox</Heading>
-  </div>
+
   ```
 </docs>

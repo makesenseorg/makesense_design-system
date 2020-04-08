@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
   faArrowDown,
   faSort,
@@ -26,6 +27,7 @@ import {
 
 export default {
   name: "Icon",
+  components: { FontAwesomeIcon },
   props: {
     type: {
       type: String,
@@ -77,10 +79,10 @@ export default {
 
 <style lang="scss" scoped>
 .icon {
-  color: $color-neutral-90;
+  color: inherit;
 
-  &.-color-inherit {
-    color: inherit;
+  &.-neutral {
+    color: $color-neutral-70;
   }
 
   &.-color-success {

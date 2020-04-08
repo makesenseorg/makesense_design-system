@@ -349,15 +349,15 @@ props:
 
   # Border Colors
   - name: border-color-base
-    value: *color-neutral-60
+    value: *color-neutral-80
     category: border-color
 
   - name: border-color-soft
-    value: *color-neutral-70
+    value: *color-neutral-85
     category: border-color
 
   - name: border-color-softer
-    value: *color-neutral-80
+    value: *color-neutral-90
     category: border-color
 
   - name: border-color-active

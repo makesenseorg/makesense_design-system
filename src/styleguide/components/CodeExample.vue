@@ -52,7 +52,7 @@ export default {
       const code = codeLines.map(line => "    " + line).join("\n");
       /* eslint-disable */
       return `<template>
-  <div>
+  <div class="my-component">
 ${code}
   </div>
 </template>
@@ -88,6 +88,10 @@ ${code}
   .vuep-iframe & {
     padding: 0;
     min-height: 600px;
+  }
+
+  .my-component > * {
+    margin-bottom: $space-base;
   }
 }
 

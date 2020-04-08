@@ -13,11 +13,11 @@ props:
     value: "1px solid {!gray_light}"
   - name: border-radius-s
     value: "2px"
-  - name: border_radius_m
+  - name: border-radius-m
     value: "10px"
-  - name: border_radius_l
+  - name: border-radius-l
     value: "20px"
-  - name: border_radius_full
+  - name: border-radius-full
     value: "1000px"
 
   - name: border-radius-base

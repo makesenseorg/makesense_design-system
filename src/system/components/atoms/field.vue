@@ -131,12 +131,13 @@
       @blur="$emit('blur')"
       @change="$emit('change')"
     />
-    <img
+    <!-- <img
       v-if="type === 'search'"
       class="input__search-icon"
-      src="@@/assets/img/ui/search.svg"
+      :src="require('@@/assets/img/ui/search.svg')"
       alt="rechercher un projet"
-    />
+    />-->
+    <Icon v-if="type === 'search'" type="search" class="input__search-icon" />
     <div class="field__description" v-if="description" :class="getCss">
       {{ description }}
     </div>
@@ -192,7 +193,7 @@ export default {
       default: false
     },
     options: {
-      type: Object
+      type: [Object, Array]
     },
     type: {
       type: String,
@@ -377,6 +378,14 @@ export default {
 // car ce n'est pas ce component qui render le rich text editor
 .field--rich-text-editor {
   @include rte-render;
+}
+.quillWrapper {
+  &.-light-onBlack {
+    .ql-toolbar,
+    .ql-container {
+      background: $color-neutral-100;
+    }
+  }
 }
 </style>
 <style lang="scss" scoped>
@@ -587,13 +596,17 @@ select {
     opacity: 0;
   }
 }
-
-.quillWrapper {
-  &.-light-onBlack {
-    .ql-toolbar,
-    .ql-container {
-      background: $color-neutral-100;
-    }
-  }
-}
 </style>
+
+<docs>
+ <!-- TODO : add search icon file-->
+  ```jsx
+    <Field name="text" type="text" label="Text" sub-label="and sub-label" placeholder="Placeholder" value=""></Field>
+    <Field name="number" type="number" label="Number" placeholder="Placeholder" value=""></Field>
+    <Field name="select" type="select" label="Select" placeholder="Placeholder" v-bind:options="[{value: '1', label: 'Option 1'}, {value: '2', label: 'Option 2'}]" value=""></Field>
+    <Field name="editor" type="editor" label="Editor" placeholder="Placeholder" value=""></Field>
+    <Field name="textarea" type="textarea" label="Textarea" placeholder="Placeholder" value=""></Field>
+    <Field name="checkbox" type="checkbox" label="Checkbox" checkbox-label="Checkbox label" value=""></Field>
+    <Field name="search" type="search" placeholder="Placeholder" value=""></Field>
+  ```
+</docs>

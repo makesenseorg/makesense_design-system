@@ -9,7 +9,7 @@
 // $color-gray: #eff2f7;
 // $color-gray-dark: #e6ebf3;
 // $color-positive: #13ce66;
-// $color-negative: #f21d1d;
+// $color-danger: #f21d1d;
 // $color-warning: #fef090;
 // $color-border: #e0e6ed;
 
@@ -47,11 +47,11 @@
 
 //----- dimensions -----//
 // $space-m: 20px;
-// $size-xxs: $main-size/4;
-// $size-s: $main-size/2;
-// $size: $main-size;
-// $size-m: $main-size * 2;
-// $size-l: $main-size * 4;
+// $size-xxs: $space-m/4;
+// $size-s: $space-m/2;
+// $size: $space-m;
+// $size-m: $space-m * 2;
+// $size-l: $space-m * 4;
 
 // $width-small: 250px;
 // $width-medium: 450px;
@@ -65,16 +65,16 @@
 // $border-width-m: 2px;
 // $border-width-l: 3px;
 
-// $border: $border-width solid $color-border;
+// $border: $border-width solid $border-color-base;
 
 //----- spacings -----//
-// $padding-small: $main-size/2;
-// $padding-default: $main-size;
-// $padding-large: $main-size * 2;
+// $padding-small: $space-m/2;
+// $padding-default: $space-m;
+// $padding-large: $space-m * 2;
 
-// $margin-small: $main-size/2;
-// $margin-default: $main-size;
-// $margin-large: $main-size * 2;
+// $margin-small: $space-m/2;
+// $margin-default: $space-m;
+// $margin-large: $space-m * 2;
 
 // $margin-equal: 1rem;
 

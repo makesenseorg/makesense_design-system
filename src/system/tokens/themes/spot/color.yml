@@ -81,7 +81,7 @@ props:
   - name: color-positive
     value: "#27AE60"
     category: color_feedback
-  - name: color-negative
+  - name: color-danger
     value: "{!red}"
     category: color_feedback
   - name: color-warning
