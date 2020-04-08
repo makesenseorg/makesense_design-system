@@ -10,9 +10,9 @@
 
 <script>
 /**
- * Titles are used in each major section of a page in the
+ * Headings are used in each major section of a page in the
  * interface.
- * Title element provides an option to change the level of the heading.
+ * Heading element provides an option to change the level of the heading.
  */
 export default {
   name: "Heading",
@@ -43,14 +43,16 @@ export default {
     },
     /**
      * The color of the title.
-     * values : text, main, secondary
+     * values : text, primary, secondary, tertiary
      */
     color: {
       type: String,
       default: "text",
       required: false,
       validator: function(value) {
-        return ["main", "secondary", "text"].indexOf(value) !== -1;
+        return (
+          ["primary", "secondary", "text", "tertiary"].indexOf(value) !== -1
+        );
       }
     }
   }
@@ -59,13 +61,17 @@ export default {
 
 <style lang="scss" scoped>
 .heading {
+  @include reset;
   color: $color-text;
 
-  &--main {
+  &--primary {
     color: $color-primary;
   }
   &--secondary {
     color: $color-secondary;
+  }
+  &--tertiary {
+    color: $color-tertiary;
   }
 }
 .h1,
@@ -98,9 +104,9 @@ h6,
   ```jsx
   <div>
     <Heading tag="h1">The quick brown fox</Heading>
-    <Heading tag="h2">The quick brown fox</Heading>
-    <Heading tag="h3">The quick brown fox</Heading>
-    <Heading tag="h4">The quick brown fox</Heading>
+    <Heading tag="h2" color="primary">The quick brown fox</Heading>
+    <Heading tag="h3" color="secondary">The quick brown fox</Heading>
+    <Heading tag="h4" color="tertiary">The quick brown fox</Heading>
     <Heading tag="h5">The quick brown fox</Heading>
     <Heading tag="h6">The quick brown fox</Heading>
   </div>
