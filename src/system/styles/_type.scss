@@ -33,18 +33,18 @@
 	font-weight: $font-weight-black;
 
 	@include breakpoint("small") {
-		font-size: $font-size-xxl;
+		font-size: $font-size-xxxl;
 	}
 }
 
 // equivalent of h4
 @mixin title-xsmall {
-	font-size: $font-size-l;
+	font-size: $font-size-m;
 	line-height: $line-height-s;
 	font-weight: $font-weight-black;
 
 	@include breakpoint("small") {
-		font-size: $font-size-xxl;
+		font-size: $font-size-xl;
 	}
 }
 
@@ -54,7 +54,7 @@
 	line-height: $line-height-m;
 
 	@include breakpoint("small") {
-		font-size: $font-size-m;
+		font-size: $font-size-l;
 	}
 }
 

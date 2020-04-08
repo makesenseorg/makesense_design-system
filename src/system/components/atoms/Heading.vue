@@ -3,6 +3,7 @@
     :is="tag"
     :class="`heading heading--${color} heading--${tagClass}`"
   >
+    <!-- @slot The text passed to the heading -->
     <slot />
   </component>
 </template>
@@ -20,7 +21,7 @@ export default {
   props: {
     /**
      * The tag used for the title, also heading level.
-     * @values h1, h2, h3, h4, h5, h6
+     * values: h1, h2, h3, h4, h5, h6
      */
     tag: {
       type: [Boolean, String],
@@ -31,7 +32,7 @@ export default {
     },
     /**
      * The class name to apply on the title.
-     * @values h1, h2, h3, h4, h5, h6
+     * values: h1, h2, h3, h4, h5, h6
      */
     tagClass: {
       type: String,
@@ -42,7 +43,7 @@ export default {
     },
     /**
      * The color of the title.
-     * `text, main, secondary`
+     * values : text, main, secondary
      */
     color: {
       type: String,
@@ -87,6 +88,10 @@ h5,
 .h5 {
   @include text-large-black;
 }
+h6,
+.h6 {
+  @include text-body-black;
+}
 </style>
 
 <docs>
@@ -96,6 +101,8 @@ h5,
     <Heading tag="h2">The quick brown fox</Heading>
     <Heading tag="h3">The quick brown fox</Heading>
     <Heading tag="h4">The quick brown fox</Heading>
+    <Heading tag="h5">The quick brown fox</Heading>
+    <Heading tag="h6">The quick brown fox</Heading>
   </div>
   ```
 </docs>
