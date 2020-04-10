@@ -21,6 +21,7 @@
         <span class="field__sublabel" v-if="subLabel">{{ subLabel }}</span>
       </FieldLabel>
       <div class="field__action">
+        <!-- @slot appears in the field header -->
         <slot name="action"></slot>
       </div>
     </div>
@@ -143,35 +144,67 @@ import { VueEditor } from "vue2-editor";
 import FieldLabel from "@@/components/atoms/fieldLabel";
 import Icon from "@@/components/atoms/icon";
 
+/**
+ * The field component can be used in forms. It emits 'blur', 'change' and 'input' events, as a native input would.
+ * @version 1.0.0
+ */
 export default {
-  name: "Field",
+  name: "MksField",
   components: { Icon, FieldLabel, VueEditor },
   props: {
+    /**
+     * Name of the field for formData
+     */
     name: {
       type: String,
       required: true
     },
+    /**
+     * HTML reference
+     */
     reference: {
       type: String,
       required: false
     },
+    /**
+     * Disables the field
+     */
     disable: {
       type: Boolean,
       required: false,
       default: false
     },
+    /**
+     * Shows the field is successfully filled
+     */
+    success: {
+      type: Boolean,
+      required: false
+    },
+    /**
+     * Shows the field is not properly filled
+     */
     error: {
       type: Boolean,
       required: false
     },
+    /**
+     * Displays a description under the field
+     */
     description: {
       type: String,
       required: false
     },
+    /**
+     * If type of field is checkbox, displays this text on its right
+     */
     checkboxLabel: {
       type: String,
       required: false
     },
+    /**
+     * Value of the field
+     */
     value: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
       required: true
@@ -186,9 +219,27 @@ export default {
       required: false,
       default: false
     },
+    /**
+     * Options of the select type
+     */
     options: {
       type: [Object, Array]
     },
+    /**
+     * Type of input : "text",
+            "email",
+            "location",
+            "password",
+            "number",
+            "select",
+            "editor",
+            "textarea",
+            "tags",
+            "checkbox",
+            "search",
+            "tel",
+            "url"
+     */
     type: {
       type: String,
       default: "text",
@@ -226,6 +277,9 @@ export default {
       type: String,
       default: null
     },
+    /**
+     * For vue2-editor
+     */
     editorToolbar: {
       type: Array,
       required: false,
@@ -343,6 +397,9 @@ export default {
     getCss: function() {
       var styles = ["-style-" + this.version, "-light-" + this.light];
       if (this.error) styles.push("-in-error");
+      if (this.success) styles.push("-in-success");
+
+      console.log("styles", styles);
 
       return styles;
     },
@@ -446,7 +503,7 @@ textarea,
   } // end hover or focus
 
   &:disabled {
-    background-color: $color-neutral-80;
+    background-color: $color-neutral-90;
     user-select: none;
   }
 
@@ -470,7 +527,13 @@ textarea,
   }
 
   &.-in-error {
-    border-color: $color-danger;
+    border: $border-width-m solid $border-color-danger;
+    color: $color-danger;
+  }
+
+  &.-in-success {
+    border: $border-width-m solid $border-color-success;
+    color: $color-success;
   }
 }
 
@@ -593,13 +656,36 @@ select {
 </style>
 
 <docs>
+
+## Type of fields
   ```jsx
-    <Field name="text" type="text" label="Text" sub-label="and sub-label" placeholder="Placeholder" value=""></Field>
-    <Field name="number" type="number" label="Number" placeholder="Placeholder" value=""></Field>
-    <Field name="select" type="select" label="Select" placeholder="Placeholder" v-bind:options="[{value: '1', label: 'Option 1'}, {value: '2', label: 'Option 2'}]" value=""></Field>
-    <Field name="editor" type="editor" label="Editor" placeholder="Placeholder" value=""></Field>
-    <Field name="textarea" type="textarea" label="Textarea" placeholder="Placeholder" value=""></Field>
-    <Field name="checkbox" type="checkbox" label="Checkbox" checkbox-label="Checkbox label" value=""></Field>
-    <Field name="search" type="search" placeholder="Placeholder" value=""></Field>
+    <mks-field name="text" type="text" label="Text" placeholder="Placeholder" value=""></mks-field>
+    <mks-field name="number" type="number" label="Number" placeholder="Placeholder" value=""></mks-field>
+    <mks-field name="select" etype="select" label="Select" placeholder="Placeholder" v-bind:options="[{value: '1', label: 'Option 1'}, {value: '2', label: 'Option 2'}]" value=""></mks-field>
+    <mks-field name="editor" type="editor" label="Editor" placeholder="Placeholder" value=""></mks-field>
+    <mks-field name="textarea" type="textarea" label="Textarea" placeholder="Placeholder" value=""></mks-field>
+    <mks-field name="checkbox" type="checkbox" label="Checkbox" checkbox-label="Checkbox label" value=""></mks-field>
+    <mks-field name="search" type="search" placeholder="Search..." value=""></mks-field>
   ```
+
+## Additional texts
+```jsx
+    <mks-field name="text" type="text" label="Sublabel" sub-label="with sublabel" value=""></mks-field>
+    <mks-field name="text" type="text" label="Description" description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. " value=""></mks-field>
+    <mks-field name="text" type="text" label="Action slot" value="">
+      <template v-slot:action>
+  Remove
+  <Icon type="close"></Icon>
+</template>
+    </mks-field>
+  ```
+
+## States
+```jsx
+    <mks-field name="text" type="text" label="Default" value=""></mks-field>
+    <mks-field name="text" type="text" label="Disabled" v-bind:disable="true" value=""></mks-field>
+    <mks-field name="text" type="text" label="Success" v-bind:success="true" value="Foo success"></mks-field>
+    <mks-field name="text" type="text" label="Error" v-bind:error="true" value="Bar error"></mks-field>
+  ```
+
 </docs>

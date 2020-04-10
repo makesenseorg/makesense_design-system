@@ -4,7 +4,11 @@
 
 <script>
 export default {
-  name: "FieldError",
+  /**
+   * Made to display an error under a field.
+   * @version 1.0.0
+   */
+  name: "MksFieldError",
   props: {
     error: {
       type: [Boolean, String, Object],
@@ -29,3 +33,8 @@ export default {
   margin-top: $space-m / 4;
 }
 </style>
+<docs>
+  ```jsx
+    <mks-field-error error="There is an error with this field."></mks-field-error>
+    ```
+</docs>
