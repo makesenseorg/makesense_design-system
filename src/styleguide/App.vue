@@ -3,7 +3,7 @@
     <ds-page ref="page">
       <template slot="brand">
         <router-link to="/">
-          <ds-logo />
+          <mks-logotype />
         </router-link>
       </template>
       <navigation slot="sidebar" @navigate="$refs.page.closeDrawer()" />
