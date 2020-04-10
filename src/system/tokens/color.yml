@@ -8,7 +8,7 @@
 #
 
 aliases:
-  rich_black:
+  black:
     value: "#001123"
   white:
     value: "#fff"
@@ -126,49 +126,49 @@ props:
   - name: color-primary-active
     value: &color-primary-active "#2088a7"
   - name: color-primary-inverse
-    value: &color-primary-inverse "#e5f6fa"
+    value: &color-primary-inverse "{!white}"
 
   - name: color-secondary
     value: &color-secondary "{!broom}"
   - name: color-secondary-active
     value: &color-secondary-active "#fff87a"
   - name: color-secondary-inverse
-    value: &color-secondary-inverse "#fffdd6"
+    value: &color-secondary-inverse "{!black}"
 
   - name: color-tertiary
     value: &color-tertiary "{!cerise}"
   - name: color-tertiary-active
     value: &color-tertiary-active "#c10b63"
   - name: color-tertiary-inverse
-    value: &color-tertiary-inverse "#fddded"
+    value: &color-tertiary-inverse "{!white}"
 
   - name: color-success
     value: &color-success "#27AE60"
   - name: color-success-active
     value: &color-success-active "#2abb67"
   - name: color-success-inverse
-    value: &color-success-inverse "hsla({!green}, 97%, 1)"
+    value: &color-success-inverse "{!white}"
 
   - name: color-danger
     value: &color-danger "#d93a3a"
   - name: color-danger-active
     value: &color-danger-active "#dd4b4b"
   - name: color-danger-inverse
-    value: &color-danger-inverse "#f8dddd"
+    value: &color-danger-inverse "{!white}"
 
   - name: color-warning
     value: &color-warning "hsla({!orange}, 50%, 1)"
   - name: color-warning-active
     value: &color-warning-active "hsla({!orange}, 56%, 1)"
   - name: color-warning-inverse
-    value: &color-warning-inverse "hsla({!orange}, 97%, 1)"
+    value: &color-warning-inverse "{!white}"
 
   - name: color-yellow
     value: &color-yellow "hsla({!yellow}, 48%, 1)"
   - name: color-yellow-active
     value: &color-yellow-active "hsla({!yellow}, 52%, 1)"
   - name: color-yellow-inverse
-    value: &color-yellow-inverse "hsla({!yellow}, 97%, 1)"
+    value: &color-yellow-inverse "{!white}"
 
 
 ##### END OF COLOR CONFIGURATION FOR THEME

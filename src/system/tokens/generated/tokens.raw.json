@@ -60,9 +60,6 @@
     "teal": {
       "value": "174, 80%"
     },
-    "rich_black": {
-      "value": "#001123"
-    },
     "purple": {
       "value": "264, 88%"
     },
@@ -71,6 +68,9 @@
     },
     "roman": {
       "value": "#E36164"
+    },
+    "black": {
+      "value": "#001123"
     },
     "x-large": {
       "value": 40
@@ -310,7 +310,7 @@
       "category": "color",
       "name": "color-primary-inverse",
       "value": "var(--color-primary-inverse)",
-      "originalValue": "#e5f6fa"
+      "originalValue": "{!white}"
     },
     "color-secondary": {
       "type": "color",
@@ -331,7 +331,7 @@
       "category": "color",
       "name": "color-secondary-inverse",
       "value": "var(--color-secondary-inverse)",
-      "originalValue": "#fffdd6"
+      "originalValue": "{!black}"
     },
     "color-tertiary": {
       "type": "color",
@@ -352,7 +352,7 @@
       "category": "color",
       "name": "color-tertiary-inverse",
       "value": "var(--color-tertiary-inverse)",
-      "originalValue": "#fddded"
+      "originalValue": "{!white}"
     },
     "color-success": {
       "type": "color",
@@ -373,7 +373,7 @@
       "category": "color",
       "name": "color-success-inverse",
       "value": "var(--color-success-inverse)",
-      "originalValue": "hsla({!green}, 97%, 1)"
+      "originalValue": "{!white}"
     },
     "color-danger": {
       "type": "color",
@@ -394,7 +394,7 @@
       "category": "color",
       "name": "color-danger-inverse",
       "value": "var(--color-danger-inverse)",
-      "originalValue": "#f8dddd"
+      "originalValue": "{!white}"
     },
     "color-warning": {
       "type": "color",
@@ -415,7 +415,7 @@
       "category": "color",
       "name": "color-warning-inverse",
       "value": "var(--color-warning-inverse)",
-      "originalValue": "hsla({!orange}, 97%, 1)"
+      "originalValue": "{!white}"
     },
     "color-yellow": {
       "type": "color",
@@ -436,7 +436,7 @@
       "category": "color",
       "name": "color-yellow-inverse",
       "value": "var(--color-yellow-inverse)",
-      "originalValue": "hsla({!yellow}, 97%, 1)"
+      "originalValue": "{!white}"
     },
     "color-text": {
       "type": "color",
@@ -499,7 +499,7 @@
       "category": "text-color",
       "name": "text-color-primary-inverse",
       "value": "var(--text-color-primary-inverse)",
-      "originalValue": "#e5f6fa"
+      "originalValue": "{!white}"
     },
     "text-color-secondary": {
       "type": "color",
@@ -513,7 +513,7 @@
       "category": "text-color",
       "name": "text-color-secondary-inverse",
       "value": "var(--text-color-secondary-inverse)",
-      "originalValue": "#fffdd6"
+      "originalValue": "{!black}"
     },
     "text-color-success": {
       "type": "color",
@@ -527,7 +527,7 @@
       "category": "text-color",
       "name": "text-color-success-inverse",
       "value": "var(--text-color-success-inverse)",
-      "originalValue": "hsla({!green}, 97%, 1)"
+      "originalValue": "{!white}"
     },
     "text-color-warning": {
       "type": "color",
@@ -541,7 +541,7 @@
       "category": "text-color",
       "name": "text-color-warning-inverse",
       "value": "var(--text-color-warning-inverse)",
-      "originalValue": "hsla({!orange}, 97%, 1)"
+      "originalValue": "{!white}"
     },
     "text-color-danger": {
       "type": "color",
@@ -555,7 +555,7 @@
       "category": "text-color",
       "name": "text-color-danger-inverse",
       "value": "var(--text-color-danger-inverse)",
-      "originalValue": "#f8dddd"
+      "originalValue": "{!white}"
     },
     "background-color-base": {
       "type": "color",
@@ -653,7 +653,7 @@
       "category": "background-color",
       "name": "background-color-primary-inverse",
       "value": "var(--background-color-primary-inverse)",
-      "originalValue": "#e5f6fa"
+      "originalValue": "{!white}"
     },
     "background-color-secondary": {
       "type": "color",
@@ -674,7 +674,7 @@
       "category": "background-color",
       "name": "background-color-secondary-inverse",
       "value": "var(--background-color-secondary-inverse)",
-      "originalValue": "#fffdd6"
+      "originalValue": "{!black}"
     },
     "background-color-success": {
       "type": "color",
@@ -695,7 +695,7 @@
       "category": "background-color",
       "name": "background-color-success-inverse",
       "value": "var(--background-color-success-inverse)",
-      "originalValue": "hsla({!green}, 97%, 1)"
+      "originalValue": "{!white}"
     },
     "background-color-warning": {
       "type": "color",
@@ -716,7 +716,7 @@
       "category": "background-color",
       "name": "background-color-warning-inverse",
       "value": "var(--background-color-warning-inverse)",
-      "originalValue": "hsla({!orange}, 97%, 1)"
+      "originalValue": "{!white}"
     },
     "background-color-danger": {
       "type": "color",
@@ -737,7 +737,7 @@
       "category": "background-color",
       "name": "background-color-danger-inverse",
       "value": "var(--background-color-danger-inverse)",
-      "originalValue": "#f8dddd"
+      "originalValue": "{!white}"
     },
     "border-color-base": {
       "type": "color",

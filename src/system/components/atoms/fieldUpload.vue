@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import Button from "@@/components/atoms/button";
+import Button from "@@/components/atoms/Button";
 import FieldLabel from "@@/components/atoms/fieldLabel";
 import Loading from "@@/components/atoms/loading";
 

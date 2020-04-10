@@ -131,12 +131,6 @@
       @blur="$emit('blur')"
       @change="$emit('change')"
     />
-    <!-- <img
-      v-if="type === 'search'"
-      class="input__search-icon"
-      :src="require('@@/assets/img/ui/search.svg')"
-      alt="rechercher un projet"
-    />-->
     <Icon v-if="type === 'search'" type="search" class="input__search-icon" />
     <div class="field__description" v-if="description" :class="getCss">
       {{ description }}
@@ -599,7 +593,6 @@ select {
 </style>
 
 <docs>
- <!-- TODO : add search icon file-->
   ```jsx
     <Field name="text" type="text" label="Text" sub-label="and sub-label" placeholder="Placeholder" value=""></Field>
     <Field name="number" type="number" label="Number" placeholder="Placeholder" value=""></Field>
