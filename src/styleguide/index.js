@@ -12,7 +12,7 @@ Vue.use(System);
 Vue.use(Components);
 
 Vue.filter("componentName", value => {
-  return startCase(value.replace(/^Ds/, ""));
+  return startCase(value.replace(/^Ds|^Mks/, ""));
 });
 
 new Vue({
