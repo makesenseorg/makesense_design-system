@@ -5,21 +5,21 @@
 
 aliases:
   xxx-large:
-    value: &xxx-large 128
+    value: &xxx-large 100
   xx-large:
-    value: &xx-large 64
+    value: &xx-large 60
   x-large:
-    value: &x-large 48
+    value: &x-large 40
   large:
-    value: &large 32
+    value: &large 30
   base:
-    value: &base 24
+    value: &base 20
   small:
-    value: &small 16
+    value: &small 15
   x-small:
-    value: &x-small 8
+    value: &x-small 10
   xx-small:
-    value: &xx-small 4
+    value: &xx-small 5
   xxx-small:
     value: &xxx-small 2
 
@@ -70,6 +70,23 @@ props:
     value: "{!xx-small}px"
   - name: space-xxx-small
     value: "{!xxx-small}px"
+
+  - name: space-xxxl
+    value: "{!xxx-large}px"
+  - name: space-xxl
+    value: "{!xx-large}px"
+  - name: space-xl
+    value: "{!x-large}px"
+  - name: space-l
+    value: "{!large}px"
+  - name: space-m
+    value: "{!base}px"
+  - name: space-s
+    value: "{!small}px"
+  - name: space-xs
+    value: "{!x-small}px"
+  - name: space-xxs
+    value: "{!xx-small}px"
 
 global:
   type: number

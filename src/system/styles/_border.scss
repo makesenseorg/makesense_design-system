@@ -1,0 +1,35 @@
+@mixin border-shadow($color: $color-neutral-90) {
+	box-shadow: inset 0 0 0 1px $color;
+}
+
+@mixin border-bottom-shadow($color: $color-neutral-90) {
+	box-shadow: inset 0 -3px 0 $color;
+}
+
+@mixin border-round {
+	border-radius: $border-radius-full;
+}
+
+@mixin avatar {
+	border-radius: 1000px;
+	overflow: hidden;
+}
+
+@mixin elevated {
+	box-shadow: 0 0 0 1px rgba(31, 45, 61, 0.08), 0 2px 2px 0 rgba(31, 45, 61, 0.03);
+}
+
+@mixin elevated-xxl {
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+}
+
+@mixin elevated-xxl-hover {
+	&:hover .elevated-target,
+	&.elevated-target:hover {
+		@include elevated-xxl;
+	}
+}
+
+@mixin shadow($color: $color-neutral-90) {
+	box-shadow: 0 0 4px 0 $color;
+}

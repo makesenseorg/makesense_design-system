@@ -1,0 +1,135 @@
+// todo CSS REFACTORING :
+// ici ajouter les mixins de grid et de flex
+
+@mixin flex {
+  display: flex;
+}
+
+@mixin flex-desktop {
+  display: block;
+
+  @include breakpoint("medium") {
+    display: flex;
+  }
+}
+
+@mixin flex-center {
+  @include flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-item-margin($size: "default") {
+  $sizes: (
+    default: 1rem,
+    small: 0.6rem,
+    xs: 0.4rem,
+    xxs: 0.2rem,
+  );
+
+  @if map-has-key($sizes, $size) {
+    margin-right: map-get($sizes, $size);
+  } @else {
+    @warn "`#{$size}` is not a valid key in `$sizes` Try 'default', 'small', 'xs' or 'xxs'.";
+  }
+
+  &:last-child {
+    margin-right: 0 !important;
+  }
+}
+
+@mixin view {
+  width: 100%;
+  min-height: 100%;
+}
+@mixin workarea-small {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//  GRID
+
+@mixin grid-layout {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: $space-m $space-m;
+}
+
+@mixin grid-layout-item-v2 {
+  grid-column: 1/13;
+}
+
+@mixin grid-layout-item-1-8 {
+  grid-column: 1/13;
+
+  @include breakpoint("small") {
+    grid-column: 1/8;
+  }
+}
+
+@mixin grid-layout-item-6 {
+  grid-column: 1/13;
+
+  @include breakpoint("small") {
+    grid-column: 6;
+  }
+}
+
+@mixin grid-layout-item-7-13 {
+  grid-column: 1/13;
+
+  @include breakpoint("small") {
+    grid-column: 7/13;
+  }
+}
+
+@mixin grid-layout-item-1-9 {
+  grid-column: 1/13;
+
+  @include breakpoint("small") {
+    grid-column: 1/9;
+  }
+}
+
+@mixin grid-layout-item-9-13 {
+  grid-column: 1/13;
+
+  @include breakpoint("small") {
+    grid-column: 9/13;
+  }
+}
+
+@mixin grid-layout-item-1-4 {
+  grid-column: 1/13;
+
+  @include breakpoint("small") {
+    grid-column: 1/8;
+  }
+}
+
+@mixin grid($fit: auto-fill) {
+  display: grid;
+  grid-template-columns: repeat($fit, minmax(250px, 1fr));
+  grid-gap: 1rem;
+}
+
+@mixin grid-medium($fit: auto-fill) {
+  display: grid;
+  grid-template-columns: repeat($fit, minmax(275px, 1fr));
+  grid-gap: 1rem;
+
+  @include breakpoint("medium") {
+    grid-template-columns: repeat($fit, minmax(300px, 1fr));
+  }
+}
+
+@mixin grid-large($fit: auto-fill) {
+  display: grid;
+  grid-template-columns: repeat($fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+
+  @include breakpoint("medium") {
+    grid-template-columns: repeat($fit, minmax(350px, 1fr));
+  }
+}

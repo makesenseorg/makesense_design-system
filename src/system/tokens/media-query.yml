@@ -16,6 +16,14 @@ aliases:
     value: &xl 1200
 
 props:
+  - name: breakpoints
+    value: "('small': 767px, 'medium': 992px, 'large': 1200px)"
+  - name: media_query_s
+    value: "(min-width: 767px)"
+  - name: media_query_m
+    value: "(min-width: 992px)"
+  - name: media_query_l
+    value: "(min-width: 1200px)"
   - name: xs
     value: *xs
     category: media-size

@@ -1,10 +1,8 @@
 <template>
   <li class="ds-list-item">
     <span class="ds-list-item-prefix">
-      <span
-        v-if="!$parentList.ordered"
-        class="ds-list-item-icon">
-        <ds-icon :name="icon"/>
+      <span v-if="!$parentList.ordered" class="ds-list-item-icon">
+        <ds-icon :name="icon" />
       </span>
     </span>
     <span class="ds-list-item-content">
@@ -19,7 +17,7 @@
  * @see DsList
  */
 export default {
-  name: 'DsListItem',
+  name: "DsListItem",
   inject: {
     $parentList: {
       default: null
@@ -32,9 +30,9 @@ export default {
     icon: {
       type: String,
       default() {
-        return this.$parentList ? this.$parentList.icon : 'angle-right'
+        return this.$parentList ? this.$parentList.icon : "angle-right";
       }
     }
   }
-}
+};
 </script>

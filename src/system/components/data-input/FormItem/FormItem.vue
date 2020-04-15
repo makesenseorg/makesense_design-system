@@ -1,11 +1,7 @@
 <template>
-  <div 
-    class="ds-form-item"
-    :class="$parentInput.stateClasses">
-    <ds-input-label 
-      :label="$parentInput.label" 
-      :for="$parentInput.id" />
-    <slot/>
+  <div class="ds-form-item" :class="$parentInput.stateClasses">
+    <ds-input-label :label="$parentInput.label" :for="$parentInput.id" />
+    <slot />
     <ds-input-error :error="$parentInput.error" />
   </div>
 </template>
@@ -16,10 +12,9 @@
  * @private
  */
 export default {
-  name: 'DsFormItem',
-  inject: ['$parentInput']
-}
+  name: "DsFormItem",
+  inject: ["$parentInput"]
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>

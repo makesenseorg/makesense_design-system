@@ -1,12 +1,12 @@
 <template>
   <div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'PageWrapper',
+  name: "PageWrapper",
   props: {
     section: {
       type: Object,
@@ -17,5 +17,5 @@ export default {
       default: null
     }
   }
-}
+};
 </script>

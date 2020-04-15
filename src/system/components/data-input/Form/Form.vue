@@ -3,28 +3,27 @@
     class="ds-form"
     @submit.prevent="submit"
     novalidate="true"
-    autocomplete="off">
-    <slot 
-      :errors="errors" 
-      :reset="reset" />
+    autocomplete="off"
+  >
+    <slot :errors="errors" :reset="reset" />
   </form>
 </template>
 
 <script>
-import Schema from 'async-validator'
-import cloneDeep from 'clone-deep'
-import dotProp from 'dot-prop'
+import Schema from "async-validator";
+import cloneDeep from "clone-deep";
+import dotProp from "dot-prop";
 
 /**
  * Used for handling complex user input.
  * @version 1.0.0
  */
 export default {
-  name: 'DsForm',
+  name: "DsForm",
   provide() {
     return {
       $parentForm: this
-    }
+    };
   },
   props: {
     /**
@@ -47,13 +46,13 @@ export default {
       newData: null,
       subscriber: [],
       errors: null
-    }
+    };
   },
   watch: {
     value: {
       handler(value) {
-        this.newData = cloneDeep(value)
-        this.notify(value, this.errors)
+        this.newData = cloneDeep(value);
+        this.notify(value, this.errors);
       },
       deep: true
     }
@@ -67,18 +66,18 @@ export default {
          *
          * @event input
          */
-        this.$emit('input', this.newData)
+        this.$emit("input", this.newData);
         /**
          * Fires on form submit.
          * Receives the current form data.
          *
          * @event submit
          */
-        this.$emit('submit', this.newData)
-      })
+        this.$emit("submit", this.newData);
+      });
     },
     validate(cb) {
-      const validator = new Schema(this.schema)
+      const validator = new Schema(this.schema);
       // Prevent validator from printing to console
       // eslint-disable-next-line
       const warn = console.warn;
@@ -87,53 +86,52 @@ export default {
       validator.validate(this.newData, errors => {
         if (errors) {
           this.errors = errors.reduce((errorObj, error) => {
-            const result = { ...errorObj }
-            result[error.field] = error.message
-            return result
-          }, {})
+            const result = { ...errorObj };
+            result[error.field] = error.message;
+            return result;
+          }, {});
         } else {
-          this.errors = null
+          this.errors = null;
         }
         // eslint-disable-next-line
         console.warn = warn;
-        this.notify(this.newData, this.errors)
-        if (!errors && cb && typeof cb === 'function') {
-          cb()
+        this.notify(this.newData, this.errors);
+        if (!errors && cb && typeof cb === "function") {
+          cb();
         }
-      })
+      });
     },
     subscribe(cb) {
-      if (cb && typeof cb === 'function') {
-        cb(cloneDeep(this.newData))
-        this.subscriber.push(cb)
+      if (cb && typeof cb === "function") {
+        cb(cloneDeep(this.newData));
+        this.subscriber.push(cb);
       }
     },
     unsubscribe(cb) {
-      const index = this.subscriber.findIndex(cb)
+      const index = this.subscriber.findIndex(cb);
       if (index > -1) {
-        this.subscriber.splice(index, 1)
+        this.subscriber.splice(index, 1);
       }
     },
     notify(data, errors) {
       this.subscriber.forEach(cb => {
-        cb(cloneDeep(data), errors)
-      })
+        cb(cloneDeep(data), errors);
+      });
     },
     async update(model, value) {
-      dotProp.set(this.newData, model, value)
-      this.validate()
+      dotProp.set(this.newData, model, value);
+      this.validate();
     },
     reset() {
-      this.$emit('input', cloneDeep(this.value))
+      this.$emit("input", cloneDeep(this.value));
     }
   },
   created() {
-    this.newData = cloneDeep(this.value)
+    this.newData = cloneDeep(this.value);
   }
-}
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>

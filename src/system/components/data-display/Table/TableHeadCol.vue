@@ -14,7 +14,7 @@
  * @private
  */
 export default {
-  name: 'DsTableHeadCol',
+  name: "DsTableHeadCol",
   inject: {
     $parentTable: {
       default: null
@@ -27,7 +27,7 @@ export default {
     label: {
       type: [Number, String, Array, Object],
       default() {
-        return null
+        return null;
       }
     },
     /**
@@ -39,5 +39,5 @@ export default {
     }
   },
   computed: {}
-}
+};
 </script>

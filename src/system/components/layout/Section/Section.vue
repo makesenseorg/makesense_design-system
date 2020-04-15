@@ -1,5 +1,5 @@
 <template>
-  <component 
+  <component
     :is="tag"
     class="ds-section"
     :class="[
@@ -23,7 +23,7 @@
  * @version 1.0.0
  */
 export default {
-  name: 'DsSection',
+  name: "DsSection",
   props: {
     /**
      * Whether this section should be fullheight
@@ -58,13 +58,12 @@ export default {
      */
     tag: {
       type: String,
-      default: 'section'
+      default: "section"
     }
   }
-}
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>

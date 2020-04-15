@@ -1,15 +1,32 @@
+
+    
 #
 # BORDER RADIUS TOKENS
 # Use these tokens to change border-radius size.
 #
+aliases:
+  gray_light:
+    value: "#eff2f7"
 
 props:
+  - name: border
+    value: "1px solid {!gray_light}"
+  - name: border-radius-s
+    value: "2px"
+  - name: border-radius-m
+    value: "10px"
+  - name: border-radius-l
+    value: "20px"
+  - name: border-radius-full
+    value: "1000px"
+
   - name: border-radius-base
-    value: "3px"
+    value: "2px"
   - name: border-radius-rounded
-    value: "2em"
+    value: "10px"
   - name: border-radius-circle
     value: "50%"
+  
 global:
   type: number
-  category: border-radius
+  category: border

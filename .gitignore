@@ -13,6 +13,7 @@ dist/*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+old-src/
 
 # Editor directories and files
 .idea

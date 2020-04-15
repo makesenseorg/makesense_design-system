@@ -4,25 +4,23 @@
       <ds-input
         v-model="searchString"
         icon="search"
-        placeholder="Search icon ..."/>
+        placeholder="Search icon ..."
+      />
     </ds-space>
     <ds-flex
       gutter="large"
-      :width="{ base: '100%', xs: '50%', lg: '33.3332%'}">
-      <ds-flex-item
-        v-for="icon in filteredIcons"
-        :key="icon">
+      :width="{ base: '100%', xs: '50%', lg: '33.3332%' }"
+    >
+      <ds-flex-item v-for="icon in filteredIcons" :key="icon">
         <ds-card>
           <div class="icon-preview">
             <ds-text size="x-large">
-              <ds-icon :name="icon"/>
+              <ds-icon :name="icon" />
             </ds-text>
           </div>
           <ds-copy-field>{{ icon }}</ds-copy-field>
           <template slot="footer">
-            <ds-button
-              @click="copy(icon)"
-              primary>Copy Code</ds-button>
+            <ds-button @click="copy(icon)" primary>Copy Code</ds-button>
           </template>
         </ds-card>
       </ds-flex-item>
@@ -31,35 +29,35 @@
 </template>
 
 <script>
-import { iconNames } from '@@/icons'
+import { iconNames } from "@@/icons";
 
 export default {
-  name: 'IconList',
+  name: "IconList",
   data() {
     return {
-      searchString: ''
-    }
+      searchString: ""
+    };
   },
   computed: {
     icons() {
-      return iconNames
+      return iconNames;
     },
     filteredIcons() {
       if (!this.searchString) {
-        return this.icons
+        return this.icons;
       }
       return this.icons.filter(icon => {
-        return icon.toLowerCase().indexOf(this.searchString.toLowerCase()) > -1
-      })
+        return icon.toLowerCase().indexOf(this.searchString.toLowerCase()) > -1;
+      });
     }
   },
   methods: {
     copy(icon) {
-      const code = `<ds-icon name="${icon}" />`
-      this.$copyToClipboard(code)
+      const code = `<ds-icon name="${icon}" />`;
+      this.$copyToClipboard(code);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

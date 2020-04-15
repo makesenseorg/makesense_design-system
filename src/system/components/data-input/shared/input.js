@@ -1,5 +1,5 @@
-import dotProp from 'dot-prop'
-import Schema from 'async-validator'
+import dotProp from "dot-prop";
+import Schema from "async-validator";
 
 /**
  * @mixin
@@ -13,7 +13,7 @@ export default {
   provide() {
     return {
       $parentInput: this
-    }
+    };
   },
   props: {
     /**
@@ -79,9 +79,9 @@ export default {
      */
     size: {
       type: String,
-      default: 'base',
+      default: "base",
       validator: value => {
-        return value.match(/(small|base|large)/)
+        return value.match(/(small|base|large)/);
       }
     },
     tabindex: {
@@ -94,23 +94,23 @@ export default {
       innerValue: null,
       error: null,
       focus: false
-    }
+    };
   },
   computed: {
     stateClasses() {
       return [
         this.size && `ds-input-size-${this.size}`,
-        this.disabled && 'ds-input-is-disabled',
-        this.readonly && 'ds-input-is-readonly',
-        this.error && 'ds-input-has-error',
-        this.focus && 'ds-input-has-focus'
-      ]
+        this.disabled && "ds-input-is-disabled",
+        this.readonly && "ds-input-is-readonly",
+        this.error && "ds-input-has-error",
+        this.focus && "ds-input-has-focus"
+      ];
     }
   },
   watch: {
     value: {
       handler(value) {
-        this.innerValue = value
+        this.innerValue = value;
       },
       deep: true,
       immediate: true
@@ -118,22 +118,22 @@ export default {
   },
   created() {
     if (this.$parentForm) {
-      this.$parentForm.subscribe(this.handleFormUpdate)
+      this.$parentForm.subscribe(this.handleFormUpdate);
     }
   },
   beforeDestroy() {
     if (this.$parentForm) {
-      this.$parentForm.unsubscribe(this.handleFormUpdate)
+      this.$parentForm.unsubscribe(this.handleFormUpdate);
     }
   },
   methods: {
     handleInput(event) {
-      this.input(event.target.value)
+      this.input(event.target.value);
     },
     input(value) {
-      this.innerValue = value
+      this.innerValue = value;
       if (this.$parentForm) {
-        this.$parentForm.update(this.model, value)
+        this.$parentForm.update(this.model, value);
       } else {
         /**
          * Fires after user input.
@@ -141,19 +141,19 @@ export default {
          *
          * @event input
          */
-        this.$emit('input', value)
-        this.validate(value)
+        this.$emit("input", value);
+        this.validate(value);
       }
     },
     handleFormUpdate(data, errors) {
-      this.innerValue = dotProp.get(data, this.model)
-      this.error = errors ? errors[this.model] : null
+      this.innerValue = dotProp.get(data, this.model);
+      this.error = errors ? errors[this.model] : null;
     },
     validate(value) {
       if (!this.schema) {
-        return
+        return;
       }
-      const validator = new Schema({ input: this.schema })
+      const validator = new Schema({ input: this.schema });
       // Prevent validator from printing to console
       // eslint-disable-next-line
       const warn = console.warn;
@@ -161,19 +161,19 @@ export default {
       console.warn = () => {};
       validator.validate({ input: value }, errors => {
         if (errors) {
-          this.error = errors[0].message
+          this.error = errors[0].message;
         } else {
-          this.error = null
+          this.error = null;
         }
         // eslint-disable-next-line
         console.warn = warn;
-      })
+      });
     },
     handleFocus() {
-      this.focus = true
+      this.focus = true;
     },
     handleBlur() {
-      this.focus = false
+      this.focus = false;
     }
   }
-}
+};

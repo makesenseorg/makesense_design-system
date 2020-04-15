@@ -1,18 +1,23 @@
 #
 # COLOR TOKENS
-#
-# We use HSL in order to keep consistent hues
+# Use these tokens to set a color.
 # For reference, see http://hslpicker.com/
 #
+# To make things a little simpler for your team,
+# utilize both global & local tokens for colors.
+#
 
-#
-# Base Hues
-#
-# Set hues here (these don't set lightness)
-#
 aliases:
+  black:
+    value: "#001123"
+  white:
+    value: "#fff"
+  red:
+    value: "#C62E43"
+  gray_light:
+    value: "#eff2f7"
   neutral:
-    value: "264, 10%"
+    value: "216, 23%"
   green:
     value: "100, 69%"
   orange:
@@ -27,8 +32,30 @@ aliases:
     value: "330, 86%"
   teal:
     value: "174, 80%"
-  red:
-    value: "3, 65%"
+  sahara_sand:
+    value: "#FCF6A0"
+  flame_pea:
+    value: "#F3976B"
+  roman:
+    value: "#E36164"
+  cerise:
+    value: "#9B084F"
+  atlantis:
+    value: "#C1E94E"
+  calypso:
+    value: "#196C84"
+  blue_dianne:
+    value: "#0C3944"
+  silver_tree:
+    value: "#70AF90"
+  zeus:
+    value: "#474136"
+  brick_red:
+    value: "#C62E43"
+  parsley:
+    value: "#24673A"
+  broom:
+    value: "#FFF30D"
 
 props:
   #
@@ -38,6 +65,31 @@ props:
   # Use different lightness variations of the base hues.
   #
   # Light theme: darkest color | Dark theme: lightest color
+  - name: color-sahara-sand
+    value: &color-sahara-sand "{!sahara_sand}"
+  - name: color-flame-pea
+    value: &color-flame-pea "{!flame_pea}"
+  - name: color-roman
+    value: &color-roman "{!roman}"
+  - name: color-cerise
+    value: &color-cerise "{!cerise}"
+  - name: color-atlantis
+    value: &color-atlantis "{!atlantis}"
+  - name: color-calypso
+    value: &color-calypso "{!calypso}"
+  - name: color-blue-dianne
+    value: &color-blue-dianne "{!blue_dianne}"
+  - name: color-silver-tree
+    value: &color-silver-tree "{!silver_tree}"
+  - name: color-zeus
+    value: &color-zeus "{!zeus}"
+  - name: color-brick-red
+    value: &color-brick-red "{!brick_red}"
+  - name: color-parsley
+    value: &color-parsley "{!parsley}"
+  - name: color-broom
+    value: &color-broom "{!broom}"
+  
   - name: color-neutral-0
     value: &color-neutral-0 "hsla({!neutral}, 10%, 1)"
   - name: color-neutral-10
@@ -48,6 +100,7 @@ props:
     value: &color-neutral-30 "hsla({!neutral}, 40%, 1)"
   - name: color-neutral-40
     value: &color-neutral-40 "hsla({!neutral}, 45%, 1)"
+    #color-gray-dark - below
   - name: color-neutral-50
     value: &color-neutral-50 "hsla({!neutral}, 60%, 1)"
   - name: color-neutral-60
@@ -55,9 +108,11 @@ props:
   - name: color-neutral-70
     value: &color-neutral-70 "hsla({!neutral}, 80%, 1)"
   - name: color-neutral-80
+   #color-gray -below
     value: &color-neutral-80 "hsla({!neutral}, 90%, 1)"
   - name: color-neutral-85
     value: &color-neutral-85 "hsla({!neutral}, 94%, 1)"
+    #color-gray-light -below
   - name: color-neutral-90
     value: &color-neutral-90 "hsla({!neutral}, 96%, 1)"
   - name: color-neutral-95
@@ -67,62 +122,72 @@ props:
     value: &color-neutral-100 "hsla({!neutral}, 100%, 1)"
 
   - name: color-primary
-    value: &color-primary "hsla({!teal}, 40%, 1)"
+    value: &color-primary "{!calypso}"
   - name: color-primary-active
-    value: &color-primary-active "hsla({!teal}, 43%, 1)"
+    value: &color-primary-active "#2088a7"
   - name: color-primary-inverse
-    value: &color-primary-inverse "hsla({!teal}, 97%, 1)"
+    value: &color-primary-inverse "{!white}"
 
   - name: color-secondary
-    value: &color-secondary "hsla({!purple}, 45%, 1)"
+    value: &color-secondary "{!broom}"
   - name: color-secondary-active
-    value: &color-secondary-active "hsla({!purple}, 52%, 1)"
+    value: &color-secondary-active "#fff87a"
   - name: color-secondary-inverse
-    value: &color-secondary-inverse "hsla({!purple}, 97%, 1)"
+    value: &color-secondary-inverse "{!black}"
+
+  - name: color-tertiary
+    value: &color-tertiary "{!cerise}"
+  - name: color-tertiary-active
+    value: &color-tertiary-active "#c10b63"
+  - name: color-tertiary-inverse
+    value: &color-tertiary-inverse "{!white}"
 
   - name: color-success
-    value: &color-success "hsla({!green}, 40%, 1)"
+    value: &color-success "#27AE60"
   - name: color-success-active
-    value: &color-success-active "hsla({!green}, 45%, 1)"
+    value: &color-success-active "#2abb67"
   - name: color-success-inverse
-    value: &color-success-inverse "hsla({!green}, 97%, 1)"
+    value: &color-success-inverse "{!white}"
 
   - name: color-danger
-    value: &color-danger "hsla({!red}, 50%, 1)"
+    value: &color-danger "#d93a3a"
   - name: color-danger-active
-    value: &color-danger-active "hsla({!red}, 56%, 1)"
+    value: &color-danger-active "#dd4b4b"
   - name: color-danger-inverse
-    value: &color-danger-inverse "hsla({!red}, 97%, 1)"
+    value: &color-danger-inverse "{!white}"
 
   - name: color-warning
     value: &color-warning "hsla({!orange}, 50%, 1)"
   - name: color-warning-active
     value: &color-warning-active "hsla({!orange}, 56%, 1)"
   - name: color-warning-inverse
-    value: &color-warning-inverse "hsla({!orange}, 97%, 1)"
+    value: &color-warning-inverse "{!white}"
 
   - name: color-yellow
     value: &color-yellow "hsla({!yellow}, 48%, 1)"
   - name: color-yellow-active
     value: &color-yellow-active "hsla({!yellow}, 52%, 1)"
   - name: color-yellow-inverse
-    value: &color-yellow-inverse "hsla({!yellow}, 97%, 1)"
+    value: &color-yellow-inverse "{!white}"
+
+
+##### END OF COLOR CONFIGURATION FOR THEME
 
   # Text Colors
-  - name: text-color-base
-    value: *color-neutral-20
+  - name: color-text
+    value: *color-blue-dianne
     category: text-color
 
-  - name: text-color-soft
-    value: *color-neutral-40
+  - name: color-text-light
+    value: *color-neutral-50
     category: text-color
 
-  - name: text-color-softer
+  - name: color-text-lighter
     value: *color-neutral-60
     category: text-color
 
   - name: text-color-disabled
-    value: *color-neutral-60
+    value: *color-neutral-70
     category: text-color
 
   - name: text-color-inverse
@@ -284,15 +349,15 @@ props:
 
   # Border Colors
   - name: border-color-base
-    value: *color-neutral-60
+    value: *color-neutral-80
     category: border-color
 
   - name: border-color-soft
-    value: *color-neutral-70
+    value: *color-neutral-85
     category: border-color
 
   - name: border-color-softer
-    value: *color-neutral-80
+    value: *color-neutral-90
     category: border-color
 
   - name: border-color-active

@@ -8,38 +8,29 @@
       secondary && `ds-card-secondary`,
       centered && `ds-card-centered`,
       hover && `ds-card-hover`
-  ]">
-    <div
-      class="ds-card-image"
-      v-if="image || $slots.image">
+    ]"
+  >
+    <div class="ds-card-image" v-if="image || $slots.image">
       <!-- @slot Content of the card's image -->
       <slot name="image">
-        <img :src="image" >
+        <img :src="image" />
       </slot>
     </div>
-    <div
-      class="ds-card-icon"
-      v-if="icon">
-      <ds-icon :name="icon"/>
+    <div class="ds-card-icon" v-if="icon">
+      <ds-icon :name="icon" />
     </div>
-    <header
-      class="ds-card-header"
-      v-if="header || $slots.header">
+    <header class="ds-card-header" v-if="header || $slots.header">
       <!-- @slot Content of the card's header -->
       <slot name="header">
-        <ds-heading 
-          :tag="headerTag"
-          size="h3">{{ header }}</ds-heading>
+        <ds-heading :tag="headerTag" size="h3">{{ header }}</ds-heading>
       </slot>
     </header>
     <div class="ds-card-content">
       <slot />
     </div>
-    <footer
-      class="ds-card-footer"
-      v-if="$slots.footer">
+    <footer class="ds-card-footer" v-if="$slots.footer">
       <!-- @slot Content of the card's footer -->
-      <slot name="footer"/>
+      <slot name="footer" />
     </footer>
   </component>
 </template>
@@ -50,14 +41,14 @@
  * @version 1.0.0
  */
 export default {
-  name: 'DsCard',
+  name: "DsCard",
   props: {
     /**
-     * The outtermost html tag
+     * The outtermost html tag test
      */
     tag: {
       type: String,
-      default: 'article'
+      default: "article"
     },
     /**
      * The card's header
@@ -72,9 +63,9 @@ export default {
      */
     headerTag: {
       type: String,
-      default: 'h3',
+      default: "h3",
       validator: value => {
-        return value.match(/(h1|h2|h3|h4|h5|h6)/)
+        return value.match(/(h1|h2|h3|h4|h5|h6)/);
       }
     },
     /**
@@ -120,10 +111,9 @@ export default {
       default: false
     }
   }
-}
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>

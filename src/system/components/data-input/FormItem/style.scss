@@ -1,29 +1,28 @@
 .ds-form-item {
-  position: relative;
-  @include stack-space($space-small);
+	position: relative;
+	@include stack-space($space-s);
 }
 
 .ds-input-error {
-  color: $color-danger;
-  font-size: $font-size-x-small;
-  position: absolute;
-  top: 100%;
+	color: $color-danger;
+	font-size: $font-size-xs;
+	position: absolute;
+	top: 100%;
 }
 
 .ds-input-error-enter-active {
-  transition: opacity $duration-base $ease-out,
-    transform $duration-base $ease-out;
+	transition: opacity $duration-base $ease-out, transform $duration-base $ease-out;
 }
 
 .ds-input-error-enter,
 .ds-input-error-leave-to {
-  opacity: 0;
-  transform: translateY(-2px);
+	opacity: 0;
+	transform: translateY(-2px);
 }
 
 .ds-input-label {
-  padding-bottom: $space-xx-small;
-  color: $text-color-soft;
-  font-size: $font-size-base;
-  display: block;
+	padding-bottom: $space-xxs;
+	color: $color-text-light;
+	font-size: $font-size-m;
+	display: block;
 }

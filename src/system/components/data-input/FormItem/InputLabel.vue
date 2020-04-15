@@ -1,7 +1,5 @@
 <template>
-  <label
-    class="ds-input-label"
-    v-show="!!label">
+  <label class="ds-input-label" v-show="!!label">
     {{ label }}
   </label>
 </template>
@@ -12,7 +10,7 @@
  * @private
  */
 export default {
-  name: 'DsInputLabel',
+  name: "DsInputLabel",
   props: {
     label: {
       type: String,
@@ -20,5 +18,5 @@ export default {
       default: null
     }
   }
-}
+};
 </script>

@@ -1,10 +1,7 @@
 <template>
   <nav
     class="ds-menu"
-    :class="[
-      inverse && 'ds-menu-inverse',
-      navbar && 'ds-menu-navbar'
-    ]"
+    :class="[inverse && 'ds-menu-inverse', navbar && 'ds-menu-navbar']"
   >
     <ul class="ds-menu-list">
       <slot>
@@ -12,14 +9,14 @@
           v-for="(route, index) in routes"
           :route="route"
           :parents="[]"
-          :name="route.name">
+          :name="route.name"
+        >
           <!-- @slot Scoped slot for providing a custom menu item -->
-          <slot
-            :route="route"
-            name="menuitem">
+          <slot :route="route" name="menuitem">
             <ds-menu-item
               :key="route.path ? route.path : index"
-              :route="route" />
+              :route="route"
+            />
           </slot>
         </slot>
       </slot>
@@ -33,11 +30,11 @@
  * @version 1.0.0
  */
 export default {
-  name: 'DsMenu',
+  name: "DsMenu",
   provide() {
     return {
       $parentMenu: this
-    }
+    };
   },
   props: {
     /**
@@ -46,7 +43,7 @@ export default {
     routes: {
       type: Array,
       default() {
-        return null
+        return null;
       }
     },
     /**
@@ -70,10 +67,10 @@ export default {
     linkTag: {
       type: String,
       default() {
-        return this.$router ? 'router-link' : 'a'
+        return this.$router ? "router-link" : "a";
       },
       validator: value => {
-        return value.match(/(router-link|a)/)
+        return value.match(/(router-link|a)/);
       }
     },
     /**
@@ -83,11 +80,11 @@ export default {
       type: Function,
       default(route, parents) {
         if (route.path) {
-          return route.path
+          return route.path;
         }
-        const parseName = this.$options.filters.kebabCase
-        const routeParts = [...parents, route].map(p => parseName(p.name))
-        return '/' + routeParts.join('/')
+        const parseName = this.$options.filters.kebabCase;
+        const routeParts = [...parents, route].map(p => parseName(p.name));
+        return "/" + routeParts.join("/");
       }
     },
     /**
@@ -96,7 +93,7 @@ export default {
     nameParser: {
       type: Function,
       default(route) {
-        return route.name
+        return route.name;
       }
     },
     /**
@@ -105,7 +102,7 @@ export default {
     isExact: {
       type: Function,
       default(url) {
-        return url === '/' || url.path === '/'
+        return url === "/" || url.path === "/";
       }
     }
   },
@@ -117,13 +114,12 @@ export default {
        *
        * @event navigate
        */
-      this.$emit('navigate')
+      this.$emit("navigate");
     }
   }
-}
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>

@@ -2,20 +2,17 @@
   <ds-form-item>
     <div
       class="ds-select-wrap"
-      :class="[
-        isOpen && `ds-select-is-open`
-      ]"
+      :class="[isOpen && `ds-select-is-open`]"
       :tabindex="searchable ? -1 : tabindex"
       v-click-outside="closeAndBlur"
       @keydown.tab="closeAndBlur"
       @keydown.self.down.prevent="pointerNext"
       @keydown.self.up.prevent="pointerPrev"
       @keypress.enter.prevent.stop.self="selectPointerOption"
-      @keyup.esc="close">
-      <div
-        v-if="icon"
-        class="ds-select-icon">
-        <ds-icon :name="icon"/>
+      @keyup.esc="close"
+    >
+      <div v-if="icon" class="ds-select-icon">
+        <ds-icon :name="icon" />
       </div>
       <div
         class="ds-select"
@@ -24,23 +21,22 @@
           icon && `ds-select-has-icon`,
           iconRight && `ds-select-has-icon-right`,
           multiple && `ds-select-multiple`
-      ]">
-        <div
-          v-if="multiple"
-          class="ds-selected-options">
+        ]"
+      >
+        <div v-if="multiple" class="ds-selected-options">
           <div
             class="ds-selected-option"
             v-for="(value, index) in innerValue"
-            :key="value[labelProp] || value">
+            :key="value[labelProp] || value"
+          >
             <!-- @slot Slot to provide a custom selected option display -->
-            <slot
-              name="optionitem"
-              :value="value">
+            <slot name="optionitem" :value="value">
               <ds-chip
                 removable
                 @remove="deselectOption(index)"
                 color="primary"
-                :size="size">
+                :size="size"
+              >
                 {{ value[labelProp] || value }}
               </ds-chip>
             </slot>
@@ -63,21 +59,15 @@
             @keydown.down.prevent="handleKeyDown"
             @keydown.up.prevent="handleKeyUp"
             @keypress.enter.prevent.stop="selectPointerOption"
-            @keyup.esc="close">
+            @keyup.esc="close"
+          />
         </div>
-        <div
-          v-else
-          class="ds-select-value">
+        <div v-else class="ds-select-value">
           <!-- @slot Slot to provide a custom value display -->
-          <slot
-            v-if="innerValue"
-            name="value"
-            :value="innerValue">
+          <slot v-if="innerValue" name="value" :value="innerValue">
             {{ innerValue[labelProp] || innerValue }}
           </slot>
-          <div
-            v-else-if="placeholder"
-            class="ds-select-placeholder">
+          <div v-else-if="placeholder" class="ds-select-placeholder">
             {{ placeholder }}
           </div>
         </div>
@@ -100,22 +90,23 @@
           @keydown.down.prevent="handleKeyDown"
           @keydown.up.prevent="handleKeyUp"
           @keypress.enter.prevent.stop="selectPointerOption"
-          @keyup.esc="close">
+          @keyup.esc="close"
+        />
       </div>
       <div class="ds-select-dropdown">
         <div
           class="ds-select-dropdown-message"
-          v-if="!options || !options.length">
+          v-if="!options || !options.length"
+        >
           {{ noOptionsAvailable }}
         </div>
         <div
           class="ds-select-dropdown-message"
-          v-else-if="!filteredOptions.length">
+          v-else-if="!filteredOptions.length"
+        >
           {{ noOptionsFound }} "{{ searchString }}"
         </div>
-        <ul 
-          class="ds-select-options" 
-          v-else>
+        <ul class="ds-select-options" v-else>
           <li
             class="ds-select-option"
             :class="[
@@ -125,39 +116,36 @@
             v-for="(option, index) in filteredOptions"
             @click="handleSelect(option)"
             @mouseover="setPointer(index)"
-            :key="option[labelProp] || option">
+            :key="option[labelProp] || option"
+          >
             <!-- @slot Slot to provide custom option items -->
-            <slot
-              name="option"
-              :option="option">
+            <slot name="option" :option="option">
               {{ option[labelProp] || option }}
             </slot>
           </li>
         </ul>
       </div>
-      <div
-        v-if="iconRight"
-        class="ds-select-icon-right">
-        <ds-icon :name="iconRight"/>
+      <div v-if="iconRight" class="ds-select-icon-right">
+        <ds-icon :name="iconRight" />
       </div>
     </div>
   </ds-form-item>
 </template>
 
 <script>
-import inputMixin from '../shared/input'
-import multiinputMixin from '../shared/multiinput'
-import ClickOutside from 'vue-click-outside'
-import DsFormItem from '@@/components/data-input/FormItem/FormItem'
-import DsChip from '@@/components/typography/Chip/Chip'
-import DsIcon from '@@/components/typography/Icon/Icon'
+import inputMixin from "../shared/input";
+import multiinputMixin from "../shared/multiinput";
+import ClickOutside from "vue-click-outside";
+import DsFormItem from "@@/components/data-input/FormItem/FormItem";
+import DsChip from "@@/components/typography/Chip/Chip";
+import DsIcon from "@@/components/typography/Icon/Icon";
 
 /**
  * Used for letting the user choose values from a set of options.
  * @version 1.0.0
  */
 export default {
-  name: 'DsSelect',
+  name: "DsSelect",
   mixins: [inputMixin, multiinputMixin],
   components: {
     DsFormItem,
@@ -169,10 +157,10 @@ export default {
   },
   data() {
     return {
-      searchString: '',
+      searchString: "",
       pointer: 0,
       isOpen: false
-    }
+    };
   },
   props: {
     /**
@@ -201,7 +189,7 @@ export default {
      */
     iconRight: {
       type: String,
-      default: 'angle-down'
+      default: "angle-down"
     },
     /**
      * The select options.
@@ -209,7 +197,7 @@ export default {
     options: {
       type: Array,
       default() {
-        return []
+        return [];
       }
     },
     /**
@@ -217,7 +205,7 @@ export default {
      */
     labelProp: {
       type: String,
-      default: 'label'
+      default: "label"
     },
     /**
      * Whether the options are searchable
@@ -231,78 +219,78 @@ export default {
      */
     noOptionsAvailable: {
       type: String,
-      default: 'No options available.'
+      default: "No options available."
     },
     /**
      * Message to show when the search result is empty
      */
     noOptionsFound: {
       type: String,
-      default: 'No options found for:'
+      default: "No options found for:"
     }
   },
   computed: {
     filteredOptions() {
       if (!this.searchString) {
-        return this.options
+        return this.options;
       }
-      const searchParts = this.searchString.split(' ')
+      const searchParts = this.searchString.split(" ");
 
       return this.options.filter(option => {
-        const value = option.value || option
+        const value = option.value || option;
         return searchParts.every(part => {
           if (!part) {
-            return true
+            return true;
           }
-          return value.toLowerCase().includes(part.toLowerCase())
-        })
-      })
+          return value.toLowerCase().includes(part.toLowerCase());
+        });
+      });
     },
     pointerMax() {
-      return this.filteredOptions.length - 1
+      return this.filteredOptions.length - 1;
     }
   },
   watch: {
     pointerMax(max) {
       if (max < this.pointer) {
         this.$nextTick(() => {
-          this.pointer = max
-        })
+          this.pointer = max;
+        });
       }
     }
   },
   methods: {
     handleSelect(options) {
-      this.selectOption(options)
-      this.resetSearch()
+      this.selectOption(options);
+      this.resetSearch();
       if (this.multiple) {
-        this.$refs.search.focus()
-        this.handleFocus()
+        this.$refs.search.focus();
+        this.handleFocus();
       } else {
-        this.close()
+        this.close();
       }
     },
     resetSearch() {
-      this.searchString = ''
+      this.searchString = "";
     },
     openAndFocus() {
-      this.open()
+      this.open();
       if (!this.focus || this.multiple) {
-        this.$refs.search.focus()
-        this.handleFocus()
+        this.$refs.search.focus();
+        this.handleFocus();
       }
     },
     open() {
-      this.resetSearch()
-      this.isOpen = true
+      this.resetSearch();
+      this.isOpen = true;
     },
     close() {
-      this.isOpen = false
+      this.isOpen = false;
     },
     closeAndBlur() {
-      this.close()
-      this.$refs.search.blur()
-      this.handleBlur()
+      this.close();
+      this.$refs.search.blur();
+      this.handleBlur();
     },
     deselectLastOption() {
       if (
@@ -311,48 +299,47 @@ export default {
         this.innerValue.length &&
         !this.searchString.length
       ) {
-        this.deselectOption(this.innerValue.length - 1)
+        this.deselectOption(this.innerValue.length - 1);
       }
     },
     handleKeyUp() {
       if (!this.isOpen) {
-        this.open()
-        return
+        this.open();
+        return;
       }
-      this.pointerPrev()
+      this.pointerPrev();
     },
     handleKeyDown() {
       if (!this.isOpen) {
-        this.open()
-        return
+        this.open();
+        return;
       }
-      this.pointerNext()
+      this.pointerNext();
     },
     setPointer(index) {
-      this.pointer = index
+      this.pointer = index;
     },
     pointerPrev() {
       if (this.pointer === 0) {
-        this.pointer = this.pointerMax
+        this.pointer = this.pointerMax;
       } else {
-        this.pointer--
+        this.pointer--;
       }
     },
     pointerNext() {
       if (this.pointer === this.pointerMax) {
-        this.pointer = 0
+        this.pointer = 0;
       } else {
-        this.pointer++
+        this.pointer++;
       }
     },
     selectPointerOption() {
-      this.handleSelect(this.filteredOptions[this.pointer])
+      this.handleSelect(this.filteredOptions[this.pointer]);
     }
   }
-}
+};
 </script>
 
-<style lang="scss" src="./style.scss">
-</style>
+<style lang="scss" src="./style.scss"></style>
 
 <docs src="./demo.md"></docs>

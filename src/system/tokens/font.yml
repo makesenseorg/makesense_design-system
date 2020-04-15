@@ -4,22 +4,26 @@
 #
 
 props:
-  - name: font-family-heading
-    value: "'LatoWeb', sans-serif"
-    category: "font-family"
-  - name: font-family-text
-    value: "'LatoWeb', sans-serif"
-    category: "font-family"
-  - name: font-family-code
+  - name: font-heading
+    value: "Raleway, Helvetica, Arial, sans-serif"
+  - name: font-text
+    value: "Raleway, Helvetica, Arial, sans-serif"
+  - name: font-code
     value: "inconsolata, monospace"
-    category: "font-family"
-
-  - name: font-weight-regular
-    value: "normal"
-    category: "font-weight"
+  - name: font-weight-extrablack
+    value: "900"
+  - name: font-weight-black
+    value: "800"
+  - name: font-weight-extrabold
+    value: "700"
+  - name: font-weight-semi-bold
+    value: "400" #todelete
   - name: font-weight-bold
-    value: "600"
-    category: "font-weight"
+    value: "400"
+  - name: font-weight-normal
+    value: "300"
+  - name: font-weight-light
+    value: "200"
 global:
   type: ...
   category: font

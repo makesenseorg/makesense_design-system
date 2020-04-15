@@ -1,22 +1,19 @@
 <template>
   <div :class="`${iframe ? 'vuep-iframe' : ''}`">
-    <vuep
-      :value="template"
-      :options="{ theme: 'vueds' }"
-      :iframe="iframe" />
+    <vuep :value="template" :options="{ theme: 'vueds' }" :iframe="iframe" />
   </div>
 </template>
 
 <script>
-import Vuep from 'vuep'
-import 'vuep/dist/vuep.css'
+import Vuep from "vuep";
+import "vuep/dist/vuep.css";
 
 export default {
-  name: 'CodeExample',
+  name: "CodeExample",
   data() {
     return {
       iframe: false
-    }
+    };
   },
   props: {
     code: {
@@ -29,40 +26,40 @@ export default {
   },
   computed: {
     template() {
-      return this.getCode()
+      return this.getCode();
     }
   },
   methods: {
     getCode() {
-      const codeLines = this.code.split('\n')
-      const codeTypeMatch = codeLines[0].trim().match(/^[A-Za-z]+$/g)
+      const codeLines = this.code.split("\n");
+      const codeTypeMatch = codeLines[0].trim().match(/^[A-Za-z]+$/g);
       if (codeTypeMatch) {
-        codeLines.shift()
-        const codeType = codeTypeMatch[0]
-        if (codeType === 'iframe') {
-          this.iframe = true
+        codeLines.shift();
+        const codeType = codeTypeMatch[0];
+        if (codeType === "iframe") {
+          this.iframe = true;
         }
       }
-      while (codeLines[0].trim() === '') {
-        codeLines.shift()
+      while (codeLines[0].trim() === "") {
+        codeLines.shift();
       }
-      while (codeLines[codeLines.length - 1].trim() === '') {
-        codeLines.pop()
+      while (codeLines[codeLines.length - 1].trim() === "") {
+        codeLines.pop();
       }
-      if (codeLines[0].trim() === '<template>') {
-        return codeLines.join('\n')
+      if (codeLines[0].trim() === "<template>") {
+        return codeLines.join("\n");
       }
-      const code = codeLines.map(line => '    ' + line).join('\n')
+      const code = codeLines.map(line => "    " + line).join("\n");
       /* eslint-disable */
       return `<template>
-  <div>
+  <div class="my-component">
 ${code}
   </div>
 </template>
-<script><\/script>`
+<script><\/script>`;
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -83,14 +80,18 @@ ${code}
   width: auto;
   height: auto;
   border-radius: 0;
-  border: $border-size-base solid $border-color-softer;
-  padding: $space-base;
-  margin-bottom: $space-small;
+  border: $border-width-m solid $border-color-softer;
+  padding: $space-m;
+  margin-bottom: $space-s;
   overflow: visible;
 
   .vuep-iframe & {
     padding: 0;
     min-height: 600px;
+  }
+
+  .my-component > * {
+    margin-bottom: $space-base;
   }
 }
 
@@ -99,29 +100,29 @@ $codemirror-background: $background-color-soft;
 $codemirror-primary: $color-primary;
 
 .cm-s-vueds {
-	font-size: 1em;
-	line-height: 1.5em;
-	font-family: $font-family-code;
-	letter-spacing: 0.3px;
-	word-spacing: 1px;
-	background: $codemirror-background;
-	color: $text-color-soft;
-	border: $border-size-base solid $border-color-softer;
+  font-size: 1em;
+  line-height: 1.5em;
+  font-family: $font-code;
+  letter-spacing: 0.3px;
+  word-spacing: 1px;
+  background: $codemirror-background;
+  color: $color-text-light;
+  border: $border-width-m solid $border-color-softer;
 
-	.CodeMirror-lines {
+  .CodeMirror-lines {
     padding: 8px 0;
   }
 
   .CodeMirror-gutters {
     background-color: $codemirror-background;
     border: none;
-    border-right: $border-size-base solid $border-color-softer;
-    padding-right: $space-x-small;
+    border-right: $border-width-m solid $border-color-softer;
+    padding-right: $space-xs;
     z-index: 3;
   }
 
   div.CodeMirror-cursor {
-    border-left: 2px solid $text-color-base;
+    border-left: 2px solid $color-text;
   }
 
   .CodeMirror-activeline-background {
@@ -132,7 +133,7 @@ $codemirror-primary: $color-primary;
   }
   .cm-comment {
     font-style: italic;
-    color: $text-color-softer;
+    color: $color-text-lighter;
   }
   .cm-tag {
     color: $codemirror-primary;
@@ -162,7 +163,7 @@ $codemirror-primary: $color-primary;
     color: $codemirror-primary;
   }
   .CodeMirror-linenumber {
-    color: $text-color-softer;
+    color: $color-text-lighter;
   }
 }
 </style>

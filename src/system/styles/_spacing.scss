@@ -1,0 +1,115 @@
+/* VUE DESIGN SYSTEM SPACING HELPERS
+--------------------------------------------- */
+
+$spacing-ratio: 1.7;
+
+/*
+  INSET-SPACE: For interface containers.
+  INSET-SQUISH-SPACE: For buttons, form elements, cells.
+  STACK-SPACE: For vertically stacked content.
+  INLINE-SPACE: For things displayed inline.
+*/
+
+// Create inset-space
+//
+// @param  {Number} inset-space to set
+@mixin inset-space($value) {
+	padding: $value;
+}
+
+// Create inset-squish-space
+//
+// @param  {Number} inset-squish-space to set
+@mixin inset-squish-space($value) {
+	padding: round($value / $spacing-ratio - 1px) $value round($value / $spacing-ratio);
+}
+
+// Create stack-space
+//
+// @param  {Number} stack-space to set
+@mixin stack-space($value) {
+	margin-bottom: $value;
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+// Create inline-space
+//
+// @param  {Number} inline-space to set
+@mixin inline-space($value) {
+	margin-right: $value;
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+@mixin padding-container {
+	padding-left: $space-m * 2;
+	padding-right: $space-m * 2;
+	padding-top: $space-m;
+	padding-bottom: $space-m;
+
+	@media only screen and (max-width: 767px) {
+		padding-left: $space-m;
+		padding-right: $space-m;
+	}
+}
+
+@mixin padding-container-double {
+	padding-left: $space-m * 3;
+	padding-right: $space-m * 3;
+	padding-top: $space-m * 2;
+	padding-bottom: $space-m * 2;
+
+	@media only screen and (max-width: 767px) {
+		padding-left: $space-m * 2;
+		padding-right: $space-m * 2;
+	}
+}
+
+@mixin padding-button-small {
+	padding: $space-xx-small $space-small;
+
+	@include breakpoint("medium") {
+		padding: $space-x-small $space-base;
+	}
+}
+
+@mixin padding-button {
+	padding: $space-x-small $space-small;
+
+	@include breakpoint("medium") {
+		padding: $space-small $space-large;
+	}
+}
+
+@mixin padding-button-invert {
+	padding: $space-base $space-small;
+}
+
+/**
+Creates a box with ratio of width:height and fills with image or content
+
+// @param  {Number} width of ratio
+// @param  {Number} height of ratio
+// @param  {String} image selector that will be contained inside the ratio box
+
+*/
+@mixin image-ratio($width, $height, $selector: "img") {
+	position: relative;
+	overflow: hidden;
+	padding-top: ($height / $width) * 100%;
+	object-fit: cover;
+
+	#{$selector} {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+}

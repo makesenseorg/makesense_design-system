@@ -1,16 +1,16 @@
 // Get icons
-const context = require.context('./svg', true, /\.svg/)
+const context = require.context("./svg", true, /\.svg/);
 
-const iconNames = []
-const icons = {}
+const iconNames = [];
+const icons = {};
 
 context.keys().forEach(key => {
-  const svg = context(key)
-  const name = key.replace('./', '').replace('.svg', '')
-  icons[name] = svg
-  iconNames.push(name)
-})
+  const svg = context(key);
+  const name = key.replace("./", "").replace(".svg", "");
+  icons[name] = svg;
+  iconNames.push(name);
+});
 
-export { iconNames }
+export { iconNames };
 
-export default icons
+export default icons;
