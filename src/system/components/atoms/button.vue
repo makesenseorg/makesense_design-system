@@ -1,7 +1,7 @@
 <template>
   <component
     :is="tag"
-    :class="`mks-button mks-button--color-${type} mks-button--size-${size}`"
+    :class="`button button--color-${type} button--size-${size}`"
     @click="$emit('click')"
     :type="inputType"
     :disabled="disabled"
@@ -94,7 +94,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.mks-button {
+.button {
   @include cursor-pointer;
   @include border-radius;
   @include button-reset;
