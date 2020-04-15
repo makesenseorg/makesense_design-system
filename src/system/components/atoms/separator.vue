@@ -3,8 +3,12 @@
 </template>
 
 <script>
+/**
+ * Displays a separator with margins
+ * @version 1.0.0
+ */
 export default {
-  name: "Separator"
+  name: "MksSeparator"
 };
 </script>
 
@@ -20,3 +24,8 @@ export default {
   }
 }
 </style>
+<docs>
+```jsx
+<mks-separator />
+````
+</docs>

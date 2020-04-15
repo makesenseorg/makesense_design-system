@@ -9,8 +9,12 @@
 </template>
 
 <script>
+/**
+ * Displays a tab button, emits a click event when clicked.
+ * @version 1.0.0
+ */
 export default {
-  name: "TabButton",
+  name: "MksTabButton",
   props: {
     id: {
       type: String,
@@ -54,3 +58,11 @@ export default {
   }
 }
 </style>
+<docs>
+## States
+
+```jsx
+<mks-tab-button id="active" title="Active" v-bind:active="true"></mks-tab-button>
+<mks-tab-button id="inactive" title="Inactive" v-bind:active="false"></mks-tab-button>
+```
+</docs>
