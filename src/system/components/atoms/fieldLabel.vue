@@ -7,19 +7,17 @@
   >
     <!-- @slot Label of the field -->
     <slot />
-    <Icon :type="icon" v-if="icon" class="field-label__icon" />
+    <mks-icon :type="icon" v-if="icon" class="field-label__icon" />
   </label>
 </template>
 
 <script>
-import Icon from "@@/components/atoms/icon";
 /**
  * The field label is used in the Field component
  * @version 1.0.0
  */
 export default {
   name: "MksFieldLabel",
-  components: { Icon },
   props: {
     /**
      * The name of the targeted field

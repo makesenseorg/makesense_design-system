@@ -103,7 +103,7 @@
         <div v-for="(tag, index) in theValue" :key="index" class="tag">
           <span class="tag__label">{{ tag }}</span>
           <span class="tag__remove" @click="removeTag(tag)">
-            <Icon type="close" class="tag__icon" />
+            <mks-icon type="close" class="tag__icon" />
           </span>
         </div>
       </div>
@@ -132,7 +132,11 @@
       @blur="$emit('blur')"
       @change="$emit('change')"
     />
-    <Icon v-if="type === 'search'" type="search" class="input__search-icon" />
+    <mks-icon
+      v-if="type === 'search'"
+      type="search"
+      class="input__search-icon"
+    />
     <div class="field__description" v-if="description" :class="getCss">
       {{ description }}
     </div>
@@ -141,7 +145,6 @@
 
 <script>
 import { VueEditor } from "vue2-editor";
-import Icon from "@@/components/atoms/icon";
 
 /**
  * The field component can be used in forms. It emits 'blur', 'change' and 'input' events, as a native input would.
@@ -149,7 +152,7 @@ import Icon from "@@/components/atoms/icon";
  */
 export default {
   name: "MksField",
-  components: { Icon, VueEditor },
+  components: { VueEditor },
   props: {
     /**
      * Name of the field for formData
@@ -673,7 +676,7 @@ select {
     <mks-field name="text" type="text" label="Action slot" value="">
       <template v-slot:action>
   Remove
-  <Icon type="close"></Icon>
+  <mks-icon type="close" />
 </template>
     </mks-field>
   ```

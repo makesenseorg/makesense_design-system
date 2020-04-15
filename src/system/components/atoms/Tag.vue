@@ -5,19 +5,17 @@
     @click="onClick"
   >
     {{ formattedLabel }}
-    <Icon v-if="icon" class="tag__icon" :type="icon"></Icon>
+    <mks-icon v-if="icon" class="tag__icon" :type="icon"></mks-icon>
   </div>
 </template>
 
 <script>
-import Icon from "@@/components/atoms/icon";
 /**
  * Tags are used for small informations or taxonomies.
  * @version 1.0.0
  */
 export default {
   name: "MksTag",
-  components: { Icon },
   props: {
     /**
      * Any of the theme colors : "primary",
