@@ -23,7 +23,7 @@ export default {
      * Any of the theme colors : "primary",
             "secondary",
             "tertiary",
-            "shy",
+            "neutral",
             "positive",
             "warning",
             "negative"
@@ -31,14 +31,14 @@ export default {
     color: {
       type: String,
       required: false,
-      default: "shy",
+      default: "neutral",
       validator: function(value) {
         return (
           [
             "primary",
             "secondary",
             "tertiary",
-            "shy",
+            "neutral",
             "positive",
             "warning",
             "negative"
@@ -185,7 +185,7 @@ export default {
     }
   }
 
-  &--color-shy {
+  &--color-neutral {
     background-color: $color-neutral-80;
     border-color: $color-neutral-80;
     color: $color-neutral-20;
@@ -216,7 +216,7 @@ export default {
 <docs>
 ## Colors
   ```jsx
-    <mks-tag label="Shy (default)"></mks-tag>
+    <mks-tag label="Neutral (default)"></mks-tag>
     <br>
     <mks-tag label="Primary" color="primary"></mks-tag>
     <mks-tag label="Secondary" color="secondary"></mks-tag>

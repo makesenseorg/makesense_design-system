@@ -25,7 +25,7 @@
       <div class="file-upload__actions">
         <mks-button
           v-show="!file && !file_image"
-          type="shy"
+          type="neutral"
           @click="addFile()"
           >{{ uploadLabel }}</mks-button
         >

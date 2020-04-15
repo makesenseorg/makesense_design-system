@@ -57,7 +57,7 @@ export default {
      * Color of the button. "primary",
             "secondary",
             "tertiary",
-            "shy",
+            "neutral",
             "positive",
             "warning",
             "negative"
@@ -71,7 +71,7 @@ export default {
             "primary",
             "secondary",
             "tertiary",
-            "shy",
+            "neutral",
             "positive",
             "warning",
             "negative"
@@ -182,7 +182,7 @@ export default {
     }
   }
 
-  &--color-shy {
+  &--color-neutral {
     background-color: $color-neutral-80;
     border-color: $color-neutral-80;
     color: $color-neutral-20;
@@ -211,7 +211,7 @@ button {
     <mks-button>Button default</mks-button>
     <mks-button type="secondary">Button secondary</mks-button>
     <mks-button type="tertiary">Button tertiary</mks-button>
-    <mks-button type="shy">Button shy</mks-button>
+    <mks-button type="neutral">Button neutral</mks-button>
     <br>
     <mks-button type="positive">Button positive</mks-button>
     <mks-button type="warning">Button warning</mks-button>
