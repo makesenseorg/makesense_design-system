@@ -1,10 +1,6 @@
 <template>
   <div :class="['loading', 'loading--' + type, { 'loading--inline': inline }]">
-    <img
-      class="loading__svg"
-      src="@@/assets/img/ui/loading.svg"
-      :width="size"
-    />
+    <svg-loading class="loading__svg" :width="size" />
     <div class="loading__progress" v-if="progress !== -1">
       {{ getProgress() }}%
     </div>
@@ -12,9 +8,21 @@
 </template>
 
 <script>
+import svgLoading from "@@/assets/img/ui/loading.svg";
+/**
+ * Displays a loading indicator
+ * @version 1.0.0
+ */
 export default {
-  name: "Loading",
+  name: "MksLoading",
+  components: {
+    svgLoading
+  },
   props: {
+    /**
+     * height of the zone covered by the loading indicator. Full by default
+     *  "full": whole page, "component": 60vh, "standalone": auto, "simple": just the size of loading as a block element
+     */
     type: {
       type: String,
       default: "full",
@@ -24,14 +32,23 @@ export default {
         );
       }
     },
+    /**
+     * Progress of the loading
+     */
     progress: {
       type: Number,
       default: -1
     },
+    /**
+     * Size of the loading indicator in px
+     */
     size: {
       type: Number,
       default: 50
     },
+    /**
+     * Is it inline ?
+     */
     inline: {
       type: Boolean,
       default: false
@@ -63,14 +80,15 @@ export default {
     height: auto;
   }
 
-  &--inline {
-    display: inline-block;
-  }
-
   &:not(.loading--simple) {
     @include flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &--inline {
+    display: inline-block;
+    vertical-align: middle;
   }
 }
 
@@ -79,3 +97,28 @@ export default {
   @include text-small;
 }
 </style>
+<docs>
+## Default loading - (full)
+
+```jsx
+<mks-loading/>
+```
+
+## Component loading
+
+```jsx
+<mks-loading type="component" />
+```
+
+## Standalone loading
+
+```jsx
+<mks-loading type="standalone" />
+```
+
+## Inline loading
+
+```jsx
+<p>Sending... <mks-loading v-bind:inline="true" type="simple" v-bind:size="30"/></p>
+```
+</docs>

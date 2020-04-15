@@ -43,7 +43,7 @@
         >
       </div>
     </div>
-    <Loading
+    <mks-loading
       v-show="getStatus === 'PENDING'"
       type="standalone"
       :progress="getProgress"
@@ -52,17 +52,12 @@
 </template>
 
 <script>
-import Loading from "@@/components/atoms/loading";
-
 /**
  * Field upload is used to upload a file
  * @version 1.0.0
  */
 export default {
   name: "MksFieldUpload",
-  components: {
-    Loading
-  },
   props: {
     /**
      * Object containing a url property with the existing file url
