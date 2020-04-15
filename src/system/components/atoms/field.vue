@@ -9,7 +9,7 @@
     }"
   >
     <div class="field__header" v-if="label">
-      <FieldLabel
+      <mks-field-label
         v-if="label && label !== undefined"
         class="field__label"
         :css-class="getCss"
@@ -19,7 +19,7 @@
       >
         {{ label }}
         <span class="field__sublabel" v-if="subLabel">{{ subLabel }}</span>
-      </FieldLabel>
+      </mks-field-label>
       <div class="field__action">
         <!-- @slot appears in the field header -->
         <slot name="action"></slot>
@@ -141,7 +141,6 @@
 
 <script>
 import { VueEditor } from "vue2-editor";
-import FieldLabel from "@@/components/atoms/fieldLabel";
 import Icon from "@@/components/atoms/icon";
 
 /**
@@ -150,7 +149,7 @@ import Icon from "@@/components/atoms/icon";
  */
 export default {
   name: "MksField",
-  components: { Icon, FieldLabel, VueEditor },
+  components: { Icon, VueEditor },
   props: {
     /**
      * Name of the field for formData
@@ -395,11 +394,10 @@ export default {
   },
   computed: {
     getCss: function() {
+      // todo : refactor this
       var styles = ["-style-" + this.version, "-light-" + this.light];
       if (this.error) styles.push("-in-error");
       if (this.success) styles.push("-in-success");
-
-      console.log("styles", styles);
 
       return styles;
     },
@@ -555,7 +553,7 @@ textarea,
       display: none;
     }
 
-    .FieldLabel,
+    .field-label,
     .labelCheckbox {
       cursor: pointer;
     }
@@ -569,7 +567,7 @@ textarea,
   }
 
   &--folding-close {
-    .FieldLabel {
+    .field-label {
       margin-bottom: 0px;
     }
   }

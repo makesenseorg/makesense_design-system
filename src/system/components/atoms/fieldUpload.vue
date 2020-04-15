@@ -1,9 +1,9 @@
 <template>
   <div class="file-upload" :class="{ loading: getStatus == 'PENDING' }">
-    <FieldLabel v-if="label && label !== undefined" :css-class="getCss">
+    <mks-field-label v-if="label && label !== undefined" :css-class="getCss">
       {{ label }}
       <span class="field__sublabel" v-if="subLabel">{{ subLabel }}</span>
-    </FieldLabel>
+    </mks-field-label>
     <div class="file-upload__description" v-if="description" :class="getCss">
       {{ description }}
     </div>
@@ -47,14 +47,12 @@
 
 <script>
 import Button from "@@/components/atoms/Button";
-import FieldLabel from "@@/components/atoms/fieldLabel";
 import Loading from "@@/components/atoms/loading";
 
 export default {
   name: "FieldUpload",
   components: {
     Loading,
-    FieldLabel,
     Button
   },
   props: {
