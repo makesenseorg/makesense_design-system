@@ -26,7 +26,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default {
-  name: "Icon",
+  name: "MksIcon",
   components: { FontAwesomeIcon },
   props: {
     type: {

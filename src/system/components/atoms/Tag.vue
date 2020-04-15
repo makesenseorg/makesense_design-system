@@ -75,9 +75,8 @@ export default {
      * Icon displayed on the right of the tag : "close" or "check"
      */
     icon: {
-      type: [String, Boolean],
+      type: String,
       required: false,
-      default: false,
       validator: function(value) {
         return ["close", "check"].indexOf(value) !== -1;
       }
