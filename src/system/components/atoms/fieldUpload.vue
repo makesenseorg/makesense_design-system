@@ -23,17 +23,23 @@
         <strong>{{ file.name }}</strong>
       </div>
       <div class="file-upload__actions">
-        <Button v-show="!file && !file_image" type="shy" @click="addFile()"
-          >Upload image</Button
+        <mks-button
+          v-show="!file && !file_image"
+          type="shy"
+          @click="addFile()"
+          >{{ uploadLabel }}</mks-button
         >
-        <Button v-show="file || file_image" type="black" @click="addFile()"
-          >Edit</Button
+        <mks-button
+          v-show="file || file_image"
+          type="primary"
+          @click="addFile()"
+          >{{ editLabel }}</mks-button
         >
-        <Button
+        <mks-button
           v-show="file || file_image"
           type="negative"
           @click="removeFile()"
-          >Remove</Button
+          >{{ removeLabel }}</mks-button
         >
       </div>
     </div>
@@ -46,35 +52,86 @@
 </template>
 
 <script>
-import Button from "@@/components/atoms/Button";
 import Loading from "@@/components/atoms/loading";
 
+/**
+ * Field upload is used to upload a file
+ * @version 1.0.0
+ */
 export default {
-  name: "FieldUpload",
+  name: "MksFieldUpload",
   components: {
-    Loading,
-    Button
+    Loading
   },
   props: {
-    existing: {},
-    status: {},
+    /**
+     * Object containing a url property with the existing file url
+     */
+    existing: {
+      type: Object
+    },
+    /**
+     * Status of the upload, generally "OK" or "PENDING"
+     */
+    status: {
+      type: [Object, String]
+    },
+    /**
+     * Progress of the upload
+     */
     progress: {},
+    /**
+     * Id of the field
+     */
     id: {
       type: String
     },
+    /**
+     * Label of the field
+     */
     label: {
       type: String
     },
+    /**
+     * Sublabel of the field
+     */
     subLabel: {
       type: String
     },
+    /**
+     * Description of the field
+     */
     description: {
       type: String
+    },
+    /**
+     * Text of the upload button
+     */
+    uploadLabel: {
+      type: String,
+      default: "Upload image"
+    },
+    /**
+     * Text of the edit button
+     */
+    editLabel: {
+      type: String,
+      default: "Edit"
+    },
+    /**
+     * Text of the remove button
+     */
+    removeLabel: {
+      type: String,
+      default: "Remove"
     },
     error: {
       type: Boolean,
       required: false
     },
+    /**
+     * Is the theme light (default true)
+     */
     light: {
       type: String,
       default: "default",
@@ -190,7 +247,7 @@ export default {
 }
 
 .file-upload__actions {
-  .button {
+  .mks-button {
     margin-right: 0.5em;
   }
 }
@@ -206,3 +263,9 @@ export default {
   }
 }
 </style>
+<docs>
+```jsx
+  <mks-field-upload label="Upload field" sub-label="for any type of file" description="description for more indication on file type and sizes allowed"></mks-field-upload>
+```
+
+</docs>
