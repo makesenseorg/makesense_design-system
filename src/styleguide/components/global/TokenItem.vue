@@ -7,12 +7,12 @@
         `token-item${timeGroups.includes(this.token.category) ? ' hover' : ''}`
       "
     >
-      <span v-if="textGroups.includes(this.token.category)">
-        Aa
-      </span>
+      <span v-if="textGroups.includes(this.token.category)">Aa</span>
     </div>
     <div>
       <code>{{ token.value }}</code>
+      <br />
+      <code>{{ computedValue }}</code>
     </div>
   </div>
 </template>
@@ -106,6 +106,12 @@ export default {
           break;
       }
       return styles;
+    },
+    computedValue() {
+      const formatted = this.token.value.replace("var(", "").replace(")", "");
+      return getComputedStyle(document.documentElement).getPropertyValue(
+        formatted
+      );
     }
   }
 };
