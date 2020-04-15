@@ -15,7 +15,7 @@
  * Heading element provides an option to change the level of the heading.
  */
 export default {
-  name: "Heading",
+  name: "MksHeading",
   status: "prototype",
   release: "0.1.0",
   props: {
@@ -102,12 +102,12 @@ h6,
 
 <docs>
   ```jsx
-    <Heading tag="h1">The quick brown fox</Heading>
-    <Heading tag="h2" color="primary">The quick brown fox</Heading>
-    <Heading tag="h3" color="secondary">The quick brown fox</Heading>
-    <Heading tag="h4" color="tertiary">The quick brown fox</Heading>
-    <Heading tag="h5">The quick brown fox</Heading>
-    <Heading tag="h6">The quick brown fox</Heading>
+    <mks-heading tag="h1">The quick brown fox</mks-heading>
+    <mks-heading tag="h2" color="primary">The quick brown fox</mks-heading>
+    <mks-heading tag="h3" color="secondary">The quick brown fox</mks-heading>
+    <mks-heading tag="h4" color="tertiary">The quick brown fox</mks-heading>
+    <mks-heading tag="h5">The quick brown fox</mks-heading>
+    <mks-heading tag="h6">The quick brown fox</mks-heading>
 
   ```
 </docs>
