@@ -1,13 +1,14 @@
 <template>
-  <font-awesome-icon
-    :icon="getIcon"
-    class="icon"
-    :class="['-color-' + color]"
-  />
+  <font-awesome-icon :icon="getIcon" :class="`icon icon--color-${color}`" />
 </template>
 
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+/**
+ * Based on fontAwesomeIcon component
+ * @version 1.0.0
+ */
 import {
   faArrowDown,
   faSort,
@@ -29,13 +30,19 @@ export default {
   name: "MksIcon",
   components: { FontAwesomeIcon },
   props: {
+    /**
+     * Type of icon : "arrowDown", "arrowUp", "arrowRight", "arrowLeft", "close", "search", "share", "check", "sort", "clock", "wallet", "lock", "menu","help":
+     */
     type: {
       type: String,
       default: ""
     },
+    /**
+     * Color of the icon amongs theme colors, inherits from parent by default.
+     */
     color: {
       type: String,
-      default: "default"
+      default: "inherit"
     }
   },
   computed: {
@@ -81,12 +88,32 @@ export default {
 .icon {
   color: inherit;
 
-  &.-neutral {
+  &--color-neutral {
     color: $color-neutral-70;
   }
 
-  &.-color-success {
+  &--color-primary {
+    color: $color-primary;
+  }
+
+  &--color-secondary {
+    color: $color-secondary;
+  }
+
+  &--color-tertiary {
+    color: $color-tertiary;
+  }
+
+  &--color-positive {
     color: $color-success;
+  }
+
+  &--color-warning {
+    color: $color-warning;
+  }
+
+  &--color-negative {
+    color: $color-danger;
   }
 }
 </style>
