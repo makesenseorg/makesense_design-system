@@ -87,6 +87,7 @@ export default {
 <style lang="scss" scoped>
 .icon {
   color: inherit;
+  vertical-align: middle;
 
   &--color-neutral {
     color: $color-neutral-70;
@@ -117,3 +118,41 @@ export default {
   }
 }
 </style>
+<docs>
+## Icon types
+
+```jsx
+<p>
+  <mks-icon type="arrowUp"></mks-icon> 
+  <mks-icon type="arrowDown"></mks-icon> 
+  <mks-icon type="arrowLeft"></mks-icon>
+  <mks-icon type="arrowRight"></mks-icon>
+  <mks-icon type="close"></mks-icon> 
+  <mks-icon type="search"></mks-icon> 
+  <mks-icon type="check"></mks-icon>
+  <mks-icon type="share"></mks-icon>
+  <mks-icon type="sort"></mks-icon>
+  <mks-icon type="clock"></mks-icon>
+  <mks-icon type="wallet"></mks-icon> 
+  <mks-icon type="lock"></mks-icon> 
+  <mks-icon type="menu"></mks-icon>
+  <mks-icon type="help"></mks-icon>
+</p>
+```
+
+## Colors 
+
+Inherits from parent by default 
+
+```jsx
+<p>
+  <mks-icon type="arrowUp" color="neutral"></mks-icon> 
+  <mks-icon type="arrowUp" color="primary"></mks-icon> 
+  <mks-icon type="arrowUp" color="secondary"></mks-icon> 
+  <mks-icon type="arrowUp" color="tertiary"></mks-icon> 
+  <mks-icon type="arrowUp" color="positive"></mks-icon> 
+  <mks-icon type="arrowUp" color="warning"></mks-icon> 
+  <mks-icon type="arrowUp" color="negative"></mks-icon> 
+</p>
+```
+</docs>

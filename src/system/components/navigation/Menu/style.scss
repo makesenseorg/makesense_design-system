@@ -39,7 +39,8 @@ ul.ds-menu-list {
 
 .ds-menu-item-link {
 	@include reset;
-	display: block;
+	display: flex;
+	position: relative;
 	color: $color-text;
 	text-decoration: none;
 	padding: $space-xs $space-s;
@@ -133,13 +134,28 @@ ul.ds-menu-list {
 	}
 }
 
+.ds-menu-item-arrow {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin-left: auto;
+	transition: all .2s ease-out;
+	@include flex-center;
+	padding: 0 $space-s;
+
+	&:hover {
+		background: $color-neutral-90;
+	}
+}
+
 ul.ds-menu-item-submenu {
 	@include reset;
 	list-style: none;
 	padding-left: 0;
 	display: none;
 
-	.router-link-active + & {
+	.ds-menu-item-show-submenu & {
 		display: block;
 	}
 

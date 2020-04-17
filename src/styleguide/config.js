@@ -12,7 +12,7 @@ export default {
     },
     {
       name: "Atoms"
-    }
+    },
     // {
     //   name: "Layout"
     // },
@@ -22,9 +22,9 @@ export default {
     // {
     //   name: "Data Input"
     // },
-    // {
-    //   name: "Data Display"
-    // },
+    {
+      name: "Data Display"
+    }
     // {
     //   name: "Navigation"
     // }
