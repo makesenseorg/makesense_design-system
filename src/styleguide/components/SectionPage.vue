@@ -72,7 +72,6 @@ export default {
   computed: {
     componentsData() {
       return this.components.map(component => {
-        console.log(component);
         return {
           name: component.name,
           description: component.description,
