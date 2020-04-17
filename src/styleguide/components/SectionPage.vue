@@ -9,14 +9,16 @@
           v-if="description"
         />
       </ds-space>
-      <ds-flex gutter="base" :width="{ base: '100%', sm: '50%' }">
-        <component-item
-          v-if="components"
-          v-for="component in components"
-          :key="component.name"
-          :component="component"
-        />
-      </ds-flex>
+      <table cellpadding="0" cellspacing="0" class="ds-table">
+        <tbody>
+          <component-item
+            v-if="components"
+            v-for="component in components"
+            :key="component.name"
+            :component="component"
+          />
+        </tbody>
+      </table>
     </ds-container>
   </div>
 </template>
@@ -65,6 +67,19 @@ export default {
       this.description = mdFile;
     } catch (err) {
       this.description = null;
+    }
+  },
+  computed: {
+    componentsData() {
+      return this.components.map(component => {
+        console.log(component);
+        return {
+          name: component.name,
+          description: component.description,
+          props: component.props ? Object.keys(component.props).join(", ") : "",
+          link: component.name
+        };
+      });
     }
   }
 };

@@ -23,6 +23,14 @@
       <slot>
         {{ name }}
       </slot>
+      <div
+        v-if="hasSubmenu"
+        class="ds-menu-item-arrow"
+        @click.prevent="toggleSubmenu"
+      >
+        <mks-icon v-if="showSubmenu" type="arrowUp"></mks-icon>
+        <mks-icon v-else type="arrowDown"></mks-icon>
+      </div>
     </component>
     <ul class="ds-menu-item-submenu" v-if="hasSubmenu">
       <ds-menu-item
@@ -122,6 +130,9 @@ export default {
     }
   },
   methods: {
+    toggleSubmenu() {
+      this.showSubmenu = !this.showSubmenu;
+    },
     handleMouseOver() {
       if (this.closeMenuTimeout) {
         clearTimeout(this.closeMenuTimeout);

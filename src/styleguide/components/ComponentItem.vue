@@ -1,14 +1,15 @@
 <template>
-  <ds-flex-item>
-    <ds-card :header="name">
-      {{ component.description }}
-      <template slot="footer">
-        <ds-button :path="{ name: component.name }" primary>
-          {{ name }} Details
-        </ds-button>
-      </template>
-    </ds-card>
-  </ds-flex-item>
+  <tr class="component-link" @click="goToComponent">
+    <ds-table-col class="component-name">{{ name }}</ds-table-col>
+    <ds-table-col class="component-description">{{
+      component.description
+    }}</ds-table-col>
+    <ds-table-col
+      ><ds-button :path="{ name: component.name }" primary>
+        View
+      </ds-button></ds-table-col
+    >
+  </tr>
 </template>
 
 <script>
@@ -24,6 +25,21 @@ export default {
     name() {
       return this.$options.filters.componentName(this.component.name);
     }
+  },
+  methods: {
+    goToComponent() {
+      this.$router.push({ name: this.component.name });
+    }
   }
 };
 </script>
+<style lang="scss" scoped>
+.component-link:hover {
+  cursor: pointer;
+  background: $color-neutral-95;
+  transition: all 0.2s ease-out;
+}
+.component-description {
+  color: $color-text-light;
+}
+</style>

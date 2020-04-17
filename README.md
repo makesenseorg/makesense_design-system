@@ -1,16 +1,10 @@
-# CION - Design system boilerplate for Vue.js
+# Makesense design system
 
 CION is a **design system** build primarily for **Vue.js applications**. You can use it as a starting point for building your own design system.
 
 The system utilizes design tokens, a living styleguide with integrated code playgrounds and reusable components for common UI tasks.
 
-Living styleguide demo: https://styleguide.cion.visualjerk.de
-
-Landing page demo: https://cion.visualjerk.de
-
-Integrate it in your application: [Usage](https://cion.visualjerk.de/#usage)
-
-[![Screenshot](./preview/customize.png)](https://github.com/visualjerk/vue-cion-design-system/raw/master/preview/customize.png)
+Living styleguide demo: https://makesense-design-system.netlify.com
 
 ## Project setup
 ```
@@ -47,6 +41,9 @@ yarn build:lib
 ## Helper
 
 ### Serve living styleguide locally
+
+for example to develop on another application with a newer version of the styleguide
+
 ```
 yarn serve
 ```
@@ -56,9 +53,6 @@ yarn serve
 yarn lint
 ```
 
-## Projects that use CION
-
-* Human Connection Styleguide: https://styleguide.human-connection.org/
 
 ## License
 [MIT License](./LICENSE) - Copyright (c) Jörg Bayreuther
