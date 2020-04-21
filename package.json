@@ -1,6 +1,6 @@
 {
-	"name": "makesense-design-system",
-	"version": "1.0.0",
+	"name": "@makesenseorg/design-system",
+	"version": "0.1.0",
 	"private": true,
 	"scripts": {
 		"serve": "http-server ./docs -o -s",
@@ -14,7 +14,7 @@
 		"test:unit": "vue-cli-service test:unit"
 	},
 	"dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+		"@fortawesome/fontawesome-svg-core": "^1.2.25",
 		"@fortawesome/free-solid-svg-icons": "^5.13.0",
 		"@fortawesome/vue-fontawesome": "^0.1.7",
 		"reset-css": "^5.0.1",
@@ -68,8 +68,19 @@
 		"webpack-bundle-analyzer": "^2.13.1",
 		"webpack-merge-and-include-globally": "^2.0.11"
 	},
-	"author": "makesense",
+	"author": "makesense (makesense.org)",
 	"main": "./dist/system.umd.min.js",
-	"files": [ "dist/*", "src/*", "public/*", "*.json", "*.js" ],
-	"license": "MIT"
+	"files": [
+		"dist/*",
+		"src/*",
+		"public/*",
+		"*.json",
+		"*.js"
+	],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/makesenseorg/makesense_design-system.git"
+	},
+	"homepage": "https://makesense-design-system.netlify.com"
 }
