@@ -4,12 +4,43 @@ The makesense design system is build to make makesense design guidelines and Vue
 
 Living styleguide demo: https://makesense-design-system.netlify.com
 
-## Project setup
+## Usage
+
+### Add dependency
+```
+yarn add @makesenseorg/design-system
+```
+
+or 
+```
+ npm i @makesenseorg/design-system
+```
+
+### Use 
+```
+import DesignSystem from '@makesenseorg/design-system'
+import '@makesenseorg/design-system/dist/system.css'
+
+Vue.use(DesignSystem);
+...
+```
+
+### Load theme
+Just below, load the app theme (list of available themes in  `./src/tokens/themes`)
+The default name is `base`
+
+```
+...
+Vue.prototype.$loadTheme('base')
+```
+
+
+## Contributing 
 ```
 yarn install
 ```
 
-## Developing
+### Developing
 
 Compiles and hot-reloads living styleguide
 
@@ -17,9 +48,9 @@ Compiles and hot-reloads living styleguide
 yarn dev
 ```
 
-## Building
+### Building
 
-### Living styleguide
+#### Living styleguide
 
 
 Compiles living styleguide to `./docs`
@@ -28,7 +59,7 @@ Compiles living styleguide to `./docs`
 yarn build
 ```
 
-### Library
+#### Library
 
 Compiles design system as a library to `./dist`
 
@@ -36,9 +67,9 @@ Compiles design system as a library to `./dist`
 yarn build:lib
 ```
 
-## Helper
+### Helper
 
-### Serve living styleguide locally
+#### Serve living styleguide locally
 
 for example to develop on another application with a newer version of the styleguide
 
@@ -46,7 +77,7 @@ for example to develop on another application with a newer version of the styleg
 yarn serve
 ```
 
-### Lints and fixes files
+#### Lints and fixes files
 ```
 yarn lint
 ```
