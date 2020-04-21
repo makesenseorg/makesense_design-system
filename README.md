@@ -1,8 +1,6 @@
 # Makesense design system
 
-CION is a **design system** build primarily for **Vue.js applications**. You can use it as a starting point for building your own design system.
-
-The system utilizes design tokens, a living styleguide with integrated code playgrounds and reusable components for common UI tasks.
+The makesense design system is build to make makesense design guidelines and Vue component available accross our multiple web applications. 
 
 Living styleguide demo: https://makesense-design-system.netlify.com
 
@@ -53,6 +51,16 @@ yarn serve
 yarn lint
 ```
 
+## Semantic versioning rules
+
+Code status | Stage	| Rule | Example version
+First release | New product | Start with 1.0.0 | 1.0.0
+Backward compatible bug fixes |	Patch release |	Increment the third digit | 1.0.1
+Backward compatible new features | Minor release | Increment the middle digit and reset last digit to zero | 1.1.0
+Changes that break backward compatibility |	Major release |	Increment the first digit and reset middle and last digits to zero | 2.0.0
+
+## Thanks
+Thanks to CION design system for providing the design system boilerplate.
 
 ## License
-[MIT License](./LICENSE) - Copyright (c) Jörg Bayreuther
+[MIT License](./LICENSE) - Copyright (c) Makesense
