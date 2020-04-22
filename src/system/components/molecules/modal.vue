@@ -20,11 +20,11 @@
 </template>
 
 <script>
+/**
+ * A modal can be used to display tempory content or make the user do an action. It emits a "close" event.
+ * @version 1.0.0
+ */
 export default {
-  /**
-   * A modal can be used to display tempory content or make the user do an action. It emits a "close" event.
-   * @version 1.0.0
-   */
   name: "MksModal",
   props: {
     /**
