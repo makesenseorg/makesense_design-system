@@ -2,7 +2,7 @@
   <component
     :is="tag"
     :class="`button button--color-${type} button--size-${size}`"
-    @click="$emit('click')"
+    @click="onClick"
     :type="inputType"
     :disabled="disabled"
   >
@@ -88,6 +88,16 @@ export default {
       validator: function(value) {
         return ["default", "small", "full"].indexOf(value) !== -1;
       }
+    }
+  },
+  methods: {
+    onClick() {
+      /**
+       * Fires after click.
+       *
+       * @event click
+       */
+      this.$emit("click");
     }
   }
 };
