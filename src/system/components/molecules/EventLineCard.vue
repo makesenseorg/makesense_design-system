@@ -12,7 +12,14 @@
     <div class="event__content">
       <div class="content__title">
         <h3>{{ title }}</h3>
-        <div>now: {{ now }}</div>
+        <div class="event__metas" v-if="metas">
+          <mks-tag
+            v-for="meta in metas"
+            :label="meta"
+            :key="meta"
+            class="event__meta"
+          />
+        </div>
       </div>
       <div class="content__action" v-if="!past">
         <mks-button size="small" tag="a" target="_blank" :href="link">{{
@@ -76,6 +83,13 @@ export default {
       type: String,
       required: false,
       default: "Participer"
+    },
+    /**
+     * Array of tag labels
+     */
+    metas: {
+      type: Array,
+      required: false
     }
   },
   methods: {
@@ -189,8 +203,8 @@ export default {
   .content__title {
     @include text-body;
     flex: 1 1;
+    align-self: flex-start;
     text-align: left;
-    margin-bottom: $space-s;
     padding-right: $space-m;
 
     h3 {
@@ -205,11 +219,18 @@ export default {
     flex: 0 0 100px;
   }
 }
+
+.event__metas {
+  margin-top: $space-xxs;
+}
+.event__meta {
+  margin-right: $space-xxs;
+}
 </style>
 <docs>
 ## Basic event line item 
 ```jsx
-<mks-event-line-item link="#" title="An event in the future" v-bind:date="$date().add(1, 'd')" cover="https://via.placeholder.com/300" v-bind:duration="60"></mks-event-line-item>
+<mks-event-line-item link="#" title="An event in the future" v-bind:date="$date().add(1, 'd')" cover="https://via.placeholder.com/300" v-bind:duration="60" :metas="['1 heure', 'France']"></mks-event-line-item>
 ```
 
 ## Event currently happening 
