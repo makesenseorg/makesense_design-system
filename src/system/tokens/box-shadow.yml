@@ -8,9 +8,9 @@ props:
   - name: box-shadow-s
     value: "0 0 0 1px rgba(92,106,196,.1)"
   - name: box-shadow-m
-    value: "2px 2px 6px 0 rgba(0, 0, 0, 0.15)"
+    value: "1px 1px 4px 0 rgba(0, 0, 0, 0.1)"
   - name: box-shadow-l
-    value: "2px 4px 10px 0 rgba(0, 0, 0, 0.15)"
+    value: "2px 4px 10px 0 rgba(0, 0, 0, 0.1)"
   - name: box-shadow-elevated
     value: "0 0 0 1px rgba(31, 45, 61, 0.08), 0 2px 2px 0 rgba(31, 45, 61, 0.03)"
   - name: box-shadow-elevated-l

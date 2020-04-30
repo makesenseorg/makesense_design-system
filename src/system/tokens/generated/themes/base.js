@@ -181,8 +181,8 @@ export default {
   "--size-tappable-square": "44px",
   "--size-height-footer": "64px",
   "--box-shadow-s": "0 0 0 1px rgba(92,106,196,.1)",
-  "--box-shadow-m": "2px 2px 6px 0 rgba(0, 0, 0, 0.15)",
-  "--box-shadow-l": "2px 4px 10px 0 rgba(0, 0, 0, 0.15)",
+  "--box-shadow-m": "1px 1px 4px 0 rgba(0, 0, 0, 0.1)",
+  "--box-shadow-l": "2px 4px 10px 0 rgba(0, 0, 0, 0.1)",
   "--box-shadow-elevated":
     "0 0 0 1px rgba(31, 45, 61, 0.08), 0 2px 2px 0 rgba(31, 45, 61, 0.03)",
   "--box-shadow-elevated-l": "0 2px 4px 0 rgba(0, 0, 0, 0.15)",
