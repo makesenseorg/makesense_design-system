@@ -116,6 +116,69 @@
     }
   },
   "props": {
+    "color-primary": {
+      "type": "color",
+      "category": "color",
+      "name": "color-primary",
+      "value": "var(--color-primary)",
+      "originalValue": "{!calypso}"
+    },
+    "color-primary-active": {
+      "type": "color",
+      "category": "color",
+      "name": "color-primary-active",
+      "value": "var(--color-primary-active)",
+      "originalValue": "#2088a7"
+    },
+    "color-primary-inverse": {
+      "type": "color",
+      "category": "color",
+      "name": "color-primary-inverse",
+      "value": "var(--color-primary-inverse)",
+      "originalValue": "{!white}"
+    },
+    "color-secondary": {
+      "type": "color",
+      "category": "color",
+      "name": "color-secondary",
+      "value": "var(--color-secondary)",
+      "originalValue": "{!broom}"
+    },
+    "color-secondary-active": {
+      "type": "color",
+      "category": "color",
+      "name": "color-secondary-active",
+      "value": "var(--color-secondary-active)",
+      "originalValue": "#fff87a"
+    },
+    "color-secondary-inverse": {
+      "type": "color",
+      "category": "color",
+      "name": "color-secondary-inverse",
+      "value": "var(--color-secondary-inverse)",
+      "originalValue": "{!black}"
+    },
+    "color-tertiary": {
+      "type": "color",
+      "category": "color",
+      "name": "color-tertiary",
+      "value": "var(--color-tertiary)",
+      "originalValue": "{!cerise}"
+    },
+    "color-tertiary-active": {
+      "type": "color",
+      "category": "color",
+      "name": "color-tertiary-active",
+      "value": "var(--color-tertiary-active)",
+      "originalValue": "#c10b63"
+    },
+    "color-tertiary-inverse": {
+      "type": "color",
+      "category": "color",
+      "name": "color-tertiary-inverse",
+      "value": "var(--color-tertiary-inverse)",
+      "originalValue": "{!white}"
+    },
     "color-sahara-sand": {
       "type": "color",
       "category": "color",
@@ -290,69 +353,6 @@
       "name": "color-neutral-100",
       "value": "var(--color-neutral-100)",
       "originalValue": "hsla({!neutral}, 100%, 1)"
-    },
-    "color-primary": {
-      "type": "color",
-      "category": "color",
-      "name": "color-primary",
-      "value": "var(--color-primary)",
-      "originalValue": "{!calypso}"
-    },
-    "color-primary-active": {
-      "type": "color",
-      "category": "color",
-      "name": "color-primary-active",
-      "value": "var(--color-primary-active)",
-      "originalValue": "#2088a7"
-    },
-    "color-primary-inverse": {
-      "type": "color",
-      "category": "color",
-      "name": "color-primary-inverse",
-      "value": "var(--color-primary-inverse)",
-      "originalValue": "{!white}"
-    },
-    "color-secondary": {
-      "type": "color",
-      "category": "color",
-      "name": "color-secondary",
-      "value": "var(--color-secondary)",
-      "originalValue": "{!broom}"
-    },
-    "color-secondary-active": {
-      "type": "color",
-      "category": "color",
-      "name": "color-secondary-active",
-      "value": "var(--color-secondary-active)",
-      "originalValue": "#fff87a"
-    },
-    "color-secondary-inverse": {
-      "type": "color",
-      "category": "color",
-      "name": "color-secondary-inverse",
-      "value": "var(--color-secondary-inverse)",
-      "originalValue": "{!black}"
-    },
-    "color-tertiary": {
-      "type": "color",
-      "category": "color",
-      "name": "color-tertiary",
-      "value": "var(--color-tertiary)",
-      "originalValue": "{!cerise}"
-    },
-    "color-tertiary-active": {
-      "type": "color",
-      "category": "color",
-      "name": "color-tertiary-active",
-      "value": "var(--color-tertiary-active)",
-      "originalValue": "#c10b63"
-    },
-    "color-tertiary-inverse": {
-      "type": "color",
-      "category": "color",
-      "name": "color-tertiary-inverse",
-      "value": "var(--color-tertiary-inverse)",
-      "originalValue": "{!white}"
     },
     "color-success": {
       "type": "color",

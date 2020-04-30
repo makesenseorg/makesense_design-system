@@ -65,6 +65,27 @@ props:
   # Use different lightness variations of the base hues.
   #
   # Light theme: darkest color | Dark theme: lightest color
+  - name: color-primary
+    value: &color-primary "{!calypso}"
+  - name: color-primary-active
+    value: &color-primary-active "#2088a7"
+  - name: color-primary-inverse
+    value: &color-primary-inverse "{!white}"
+
+  - name: color-secondary
+    value: &color-secondary "{!broom}"
+  - name: color-secondary-active
+    value: &color-secondary-active "#fff87a"
+  - name: color-secondary-inverse
+    value: &color-secondary-inverse "{!black}"
+
+  - name: color-tertiary
+    value: &color-tertiary "{!cerise}"
+  - name: color-tertiary-active
+    value: &color-tertiary-active "#c10b63"
+  - name: color-tertiary-inverse
+    value: &color-tertiary-inverse "{!white}"
+
   - name: color-sahara-sand
     value: &color-sahara-sand "{!sahara_sand}"
   - name: color-flame-pea
@@ -89,7 +110,7 @@ props:
     value: &color-parsley "{!parsley}"
   - name: color-broom
     value: &color-broom "{!broom}"
-  
+
   - name: color-neutral-0
     value: &color-neutral-0 "hsla({!neutral}, 10%, 1)"
   - name: color-neutral-10
@@ -108,7 +129,7 @@ props:
   - name: color-neutral-70
     value: &color-neutral-70 "hsla({!neutral}, 80%, 1)"
   - name: color-neutral-80
-   #color-gray -below
+    #color-gray -below
     value: &color-neutral-80 "hsla({!neutral}, 90%, 1)"
   - name: color-neutral-85
     value: &color-neutral-85 "hsla({!neutral}, 94%, 1)"
@@ -120,27 +141,6 @@ props:
   # Light theme: lightest color | Dark theme: darkest color
   - name: color-neutral-100
     value: &color-neutral-100 "hsla({!neutral}, 100%, 1)"
-
-  - name: color-primary
-    value: &color-primary "{!calypso}"
-  - name: color-primary-active
-    value: &color-primary-active "#2088a7"
-  - name: color-primary-inverse
-    value: &color-primary-inverse "{!white}"
-
-  - name: color-secondary
-    value: &color-secondary "{!broom}"
-  - name: color-secondary-active
-    value: &color-secondary-active "#fff87a"
-  - name: color-secondary-inverse
-    value: &color-secondary-inverse "{!black}"
-
-  - name: color-tertiary
-    value: &color-tertiary "{!cerise}"
-  - name: color-tertiary-active
-    value: &color-tertiary-active "#c10b63"
-  - name: color-tertiary-inverse
-    value: &color-tertiary-inverse "{!white}"
 
   - name: color-success
     value: &color-success "#27AE60"
@@ -170,8 +170,7 @@ props:
   - name: color-yellow-inverse
     value: &color-yellow-inverse "{!white}"
 
-
-##### END OF COLOR CONFIGURATION FOR THEME
+  ##### END OF COLOR CONFIGURATION FOR THEME
 
   # Text Colors
   - name: color-text
