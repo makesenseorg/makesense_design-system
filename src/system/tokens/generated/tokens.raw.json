@@ -1395,14 +1395,14 @@
       "category": "box-shadow",
       "name": "box-shadow-m",
       "value": "var(--box-shadow-m)",
-      "originalValue": "2px 2px 6px 0 rgba(0, 0, 0, 0.15)"
+      "originalValue": "1px 1px 4px 0 rgba(0, 0, 0, 0.1)"
     },
     "box-shadow-l": {
       "type": "...",
       "category": "box-shadow",
       "name": "box-shadow-l",
       "value": "var(--box-shadow-l)",
-      "originalValue": "2px 4px 10px 0 rgba(0, 0, 0, 0.15)"
+      "originalValue": "2px 4px 10px 0 rgba(0, 0, 0, 0.1)"
     },
     "box-shadow-elevated": {
       "type": "...",

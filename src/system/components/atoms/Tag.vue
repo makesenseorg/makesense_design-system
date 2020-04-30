@@ -115,7 +115,7 @@ export default {
   display: inline-flex;
   align-items: center;
   font-weight: $font-weight-extrabold;
-  padding: 0.5em 0.625em;
+  padding: 0.35em 0.625em;
 
   &--color-primary {
     background-color: $color-primary;

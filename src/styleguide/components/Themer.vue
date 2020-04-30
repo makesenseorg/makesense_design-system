@@ -1,7 +1,7 @@
 <template>
   <div class="themer">
     <ds-select
-      label="Choose theme"
+      label="Choose app theme"
       v-model="theme"
       :options="themes"
       size="small"
