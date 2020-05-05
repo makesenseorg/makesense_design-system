@@ -10,8 +10,16 @@
 @import "../tokens/generated/tokens";
 @import "../tokens/generated/tokens.map";
 
-// styles from spot 
-@import "./styles.scss";
+// styles from spot
+@import "./shared/reset";
+@import "./shared/responsive";
+@import "./shared/type";
+@import "./shared/spacing";
+@import "./shared/border";
+@import "./shared/background";
+@import "./shared/layout";
+@import "./shared/interaction";
+@import "./shared/tooltip";
 
 // Mixins
 @import "./shared/functions";

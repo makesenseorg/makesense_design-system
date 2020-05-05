@@ -1,3 +1,5 @@
+/* RESET MIXINS
+--------------------------------------------- */
 @mixin button-reset {
   font-family: inherit;
   font-size: inherit;
@@ -126,7 +128,7 @@
   perspective-origin: 50% 50%;
   position: static;
   /* May need to alter quotes for different locales (e.g fr) */
-  quotes: "\201C" "\201D" "\2018" "\2019";
+  quotes: "\201C""\201D""\2018""\2019";
   right: auto;
   tab-size: 8;
   table-layout: auto;
