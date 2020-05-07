@@ -109,14 +109,8 @@ export default {
     now() {
       return this.$date().isAfter(this.date) && this.$date().isBefore(this.end);
     },
-    since() {
-      if (this.now) {
-        return;
-      }
-      return false;
-    },
     past() {
-      return this.$date().isAfter(this.$date(this.end));
+      return this.$date().isAfter(this.end);
     },
     elapsedTime() {
       return Math.round((this.$date() - this.$date(this.date)) / 60000);
