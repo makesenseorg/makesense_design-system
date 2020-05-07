@@ -34,9 +34,12 @@
 
 <script>
 import { tokenMap } from "@@/tokens";
+import DsCopyField from "../data-display/CopyField/CopyField";
+import DsTable from "../data-display/Table/Table";
 
 export default {
   name: "DesignTokens",
+  components: { DsCopyField, DsTable },
   computed: {
     tokenMap() {
       return tokenMap;

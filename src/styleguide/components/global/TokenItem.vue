@@ -108,7 +108,10 @@ export default {
       return styles;
     },
     computedValue() {
-      const formatted = this.token.value.replace("var(", "").replace(")", "");
+      const formatted = this.token.value
+        .toString()
+        .replace("var(", "")
+        .replace(")", "");
       return getComputedStyle(document.documentElement).getPropertyValue(
         formatted
       );

@@ -13,8 +13,10 @@
 </template>
 
 <script>
+import DsTableCol from "./data-display/Table/TableCol";
 export default {
   name: "ComponentItem",
+  components: { DsTableCol },
   props: {
     component: {
       type: Object,

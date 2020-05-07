@@ -35,6 +35,7 @@
 
 <script>
 import inputMixin from "../shared/input";
+import DsFormItem from "../FormItem/FormItem";
 
 /**
  * Used for handling basic user input.
@@ -42,6 +43,7 @@ import inputMixin from "../shared/input";
  */
 export default {
   name: "DsInput",
+  components: { DsFormItem },
   mixins: [inputMixin],
   props: {
     /**
@@ -103,5 +105,3 @@ export default {
 </script>
 
 <style lang="scss" src="./style.scss"></style>
-
-<docs src="./demo.md"></docs>

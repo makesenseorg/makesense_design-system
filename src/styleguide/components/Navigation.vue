@@ -20,10 +20,12 @@
 
 <script>
 import Themer from "./Themer";
+import DsInput from "./data-input/Input/Input";
 export default {
   name: "Navigation",
   components: {
-    Themer
+    Themer,
+    DsInput
   },
   data() {
     return {

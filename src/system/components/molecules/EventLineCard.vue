@@ -6,7 +6,7 @@
   >
     <div class="event__hour">
       <span v-if="!now || past">{{ $date(date).format("HH:mm") }}</span>
-      <span v-else>{{ date.from($date()) }}</span>
+      <span v-else>{{ $date(date).from($date()) }}</span>
     </div>
     <img class="event__cover" :src="cover" height="20" width="20" />
     <div class="event__content">

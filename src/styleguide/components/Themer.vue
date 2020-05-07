@@ -11,8 +11,11 @@
 
 <script>
 import { themes } from "@@/tokens";
+import DsSelect from "./data-input/Select/Select";
+
 export default {
   name: "Themer",
+  components: { DsSelect },
   data() {
     return {
       theme: "base",

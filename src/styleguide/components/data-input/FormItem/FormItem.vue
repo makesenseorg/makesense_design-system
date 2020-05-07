@@ -7,13 +7,16 @@
 </template>
 
 <script>
+import DsInputLabel from "./InputLabel";
+import DsInputError from "./InputError";
 /**
  * @version 1.0.0
  * @private
  */
 export default {
   name: "DsFormItem",
-  inject: ["$parentInput"]
+  inject: ["$parentInput"],
+  components: { DsInputLabel, DsInputError }
 };
 </script>
 

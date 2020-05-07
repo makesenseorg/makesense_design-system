@@ -18,6 +18,9 @@ import mark from "markdown-it-mark";
 import katex from "markdown-it-katex";
 import tasklists from "markdown-it-task-lists";
 
+import DsList from "../data-display/List/List";
+import DsListItem from "../data-display/List/ListItem";
+
 export default {
   name: "Markdown",
   props: {
@@ -30,6 +33,7 @@ export default {
       default: null
     }
   },
+  components: { DsList, DsListItem },
   data() {
     return {
       md: new markdownIt()

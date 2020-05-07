@@ -30,9 +30,12 @@
 
 <script>
 import { iconNames } from "@@/icons";
+import DsInput from "../data-input/Input/Input";
+import DsCopyField from "../data-display/CopyField/CopyField";
 
 export default {
   name: "IconList",
+  components: { DsInput, DsCopyField },
   data() {
     return {
       searchString: ""

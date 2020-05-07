@@ -36,6 +36,8 @@
 
 <script>
 import startCase from "lodash/startCase";
+import DsTableCol from "./TableCol";
+import DsTableHeadCol from "./TableHeadCol";
 
 /**
  * Used in combination with the table row to create data tables.
@@ -48,6 +50,7 @@ export default {
       $parentTable: this
     };
   },
+  components: { DsTableCol, DsTableHeadCol },
   props: {
     /**
      * The table's data
@@ -133,5 +136,3 @@ export default {
 </script>
 
 <style lang="scss" src="./style.scss"></style>
-
-<docs src="./demo.md"></docs>

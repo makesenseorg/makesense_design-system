@@ -81,6 +81,7 @@
 </template>
 
 <script>
+import DsTable from "./data-display/Table/Table";
 export default {
   name: "ComponentOptionsDoc",
   props: {
@@ -89,6 +90,7 @@ export default {
       required: true
     }
   },
+  components: { DsTable },
   data() {
     return {
       propFields: {

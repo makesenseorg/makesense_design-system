@@ -30,7 +30,7 @@
 <script>
 import inputMixin from "../shared/input";
 import multiinputMixin from "../shared/multiinput";
-import DsFormItem from "@@/components/data-input/FormItem/FormItem";
+import DsFormItem from "../FormItem/FormItem";
 
 /**
  * Used for letting the user choose one value from a set of options.
@@ -38,10 +38,8 @@ import DsFormItem from "@@/components/data-input/FormItem/FormItem";
  */
 export default {
   name: "DsRadio",
+  components: { DsFormItem },
   mixins: [inputMixin, multiinputMixin],
-  components: {
-    DsFormItem
-  },
   data() {
     return {
       pointer: 0
@@ -114,5 +112,3 @@ export default {
 </script>
 
 <style lang="scss" src="./style.scss"></style>
-
-<docs src="./demo.md"></docs>
