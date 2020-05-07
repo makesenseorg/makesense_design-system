@@ -6,7 +6,10 @@
   >
     <div class="event__hour">
       <span v-if="!now || past">{{ $date(date).format("HH:mm") }}</span>
-      <span v-else>{{ $date(date).from($date()) }}</span>
+      <span v-else
+        >{{ beforeTimeText }} {{ elapsedTime
+        }}<span class="event__hour-space"></span>min(s)</span
+      >
     </div>
     <img class="event__cover" :src="cover" height="20" width="20" />
     <div class="event__content">
@@ -114,6 +117,9 @@ export default {
     },
     past() {
       return this.$date().isAfter(this.$date(this.end));
+    },
+    elapsedTime() {
+      return Math.round((this.$date() - this.$date(this.date)) / 60000);
     }
   }
 };
@@ -178,6 +184,10 @@ export default {
     margin-right: $space-m;
   }
 
+  .event__hour-space {
+    margin-right: $space-xxs;
+  }
+
   &:after {
     content: "";
     position: absolute;
@@ -235,7 +245,7 @@ export default {
 
 ## Event currently happening 
 ```jsx
-<mks-event-line-item link="#" v-bind:date="$date().subtract(12, 'm')" title="A great event about stuff" cover="https://via.placeholder.com/300" v-bind:duration="60"></mks-event-line-item>
+<mks-event-line-item link="#" v-bind:date="$date().subtract(12, 'm')" before-time-text="depuis" title="A great event about stuff" cover="https://via.placeholder.com/300" v-bind:duration="60"></mks-event-line-item>
 ```
 
 ## Past event
