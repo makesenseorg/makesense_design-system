@@ -5,7 +5,7 @@
     :href="href ? href : ''"
     :target="target"
     :class="`card${isElevated ? ' card--elevated' : ' card--flat'}`"
-    @click="onClick"
+    @click.native="onClick"
   >
     <div :class="`card__image card__image--cover-${imageFormat}`">
       <img class="card__cover" :src="image" />
