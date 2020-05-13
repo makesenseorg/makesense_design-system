@@ -11,7 +11,10 @@
         }}<span class="event__hour-space"></span>min(s)</span
       >
     </div>
-    <img class="event__cover" :src="cover" height="20" width="20" />
+    <div class="event__cover">
+      <img class="event__cover-image" :src="cover" />
+    </div>
+
     <div class="event__content">
       <div class="content__title">
         <h3>{{ title }}</h3>
@@ -35,6 +38,9 @@
 
 <script>
 export default {
+  // todo : fix cover width
+  // todo : fix no cover
+  // todo : hours fixed width
   name: "MksEventLineItem",
   props: {
     /**
@@ -120,17 +126,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.event__cover {
-  object-fit: cover;
-  height: 100%;
-  width: 100px;
-  margin-right: $space-m;
-}
-
 .event {
   @include flex;
   box-sizing: border-box;
-  //border: $border-width-m solid $border-color-soft;
   text-decoration: none;
   color: $color-text;
   align-items: center;
@@ -138,15 +136,15 @@ export default {
   height: auto;
   margin-bottom: $space-s;
   padding: $space-s;
-  max-width: 700px;
   transition: all 0.2s ease-out;
+  box-shadow: $box-shadow-m;
 
   @include breakpoint("small") {
-    height: 80px;
+    min-height: 80px;
     margin-bottom: $space-m;
+    box-shadow: none;
 
     &:hover {
-      //border-color: $border-color-base;
       box-shadow: $box-shadow-m;
     }
   }
@@ -161,21 +159,26 @@ export default {
 
   &--past {
     background-color: $background-color-disabled;
+    opacity: 0.7;
+    box-shadow: none;
+    &:hover {
+      box-shadow: none;
+    }
   }
 }
 
 .event__hour {
-  display: none;
+  //display: none;
+  @include flex-center;
+  @include title-xsmall;
+  flex: 0 1 10%;
+  min-height: $space-xxl;
+  text-align: center;
+  position: relative;
+  padding-right: $space-s;
+  margin-right: $space-m;
 
   @include breakpoint("small") {
-    @include flex-center;
-    @include title-small;
-    flex: 0 1 0%;
-    height: 100%;
-    text-align: center;
-    position: relative;
-    padding-right: $space-s;
-    margin-right: $space-m;
   }
 
   .event__hour-space {
@@ -195,19 +198,33 @@ export default {
   }
 }
 
-.event__content {
-  display: block;
+.event__cover {
+  display: none;
 
   @include breakpoint("small") {
-    @include flex;
-    flex-grow: 1;
-    align-items: center;
+    @include image-ratio(16, 9, "img");
+    padding-top: 0; // to overwrite image-ratio
+    height: 58px;
+    width: 100px;
+    margin-right: $space-m;
+  }
+}
+
+.event__content {
+  display: block;
+  @include flex;
+  flex-grow: 1;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @include breakpoint("small") {
+    flex-wrap: nowrap;
   }
 
   .content__title {
     @include text-body;
-    flex: 1 1;
-    align-self: flex-start;
+    flex: 1 1 70%;
+    align-self: center;
     text-align: left;
     padding-right: $space-m;
 
@@ -221,6 +238,7 @@ export default {
 
   .content__action {
     flex: 0 0 100px;
+    margin: $space-xs 0;
   }
 }
 
@@ -245,6 +263,11 @@ export default {
 ## Past event
 ```jsx
 <mks-event-line-item link="#" title="An event in the past" v-bind:date="$date().subtract(2, 'h')" cover="https://via.placeholder.com/300" v-bind:duration="60"></mks-event-line-item>
+```
+
+## A very long title 
+```jsx
+<mks-event-line-item link="#" title="[agir] Comment engager à l'échelle locale autour de la transition écologique grâce à la collaboration entre la collectivité, les citoyen.nes et autres acteurs locaux ? - Témoignage de la Ville de Paris" v-bind:date="$date().add(1, 'd')" cover="https://via.placeholder.com/300" v-bind:duration="60" :metas="['1 heure', 'France']"></mks-event-line-item>
 ```
 
 </docs>
