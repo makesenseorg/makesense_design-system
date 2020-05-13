@@ -48,42 +48,42 @@ export default {
      */
     link: {
       type: String,
-      required: true
+      required: true,
     },
     /**
      * Date string of the event
      */
     date: {
       type: [String, Object],
-      required: true
+      required: true,
     },
     /**
      * Duration of the events in minutes
      */
     duration: {
       type: Number,
-      required: true
+      required: true,
     },
     /**
      * Text isplayed before the time
      */
     beforeTimeText: {
       type: String,
-      required: false
+      required: false,
     },
     /**
      * Title of the event
      */
     title: {
       type: String,
-      required: true
+      required: true,
     },
     /**
      * Url to the cover of the event or placeholder if none
      */
     cover: {
       type: String,
-      required: true
+      required: true,
     },
     /**
      *
@@ -91,22 +91,22 @@ export default {
     callToAction: {
       type: String,
       required: false,
-      default: "Participer"
+      default: "Participer",
     },
     /**
      * Array of tag labels
      */
     metas: {
       type: Array,
-      required: false
-    }
+      required: false,
+    },
   },
   methods: {
     onClick: function() {
       /** Fires on event click
        * @event click */
       this.$emit("click");
-    }
+    },
   },
   computed: {
     end() {
@@ -116,12 +116,12 @@ export default {
       return this.$date().isAfter(this.date) && this.$date().isBefore(this.end);
     },
     past() {
-      return this.$date().isAfter(this.end);
+      return this.duration > 0 && this.$date().isAfter(this.end);
     },
     elapsedTime() {
       return Math.round((this.$date() - this.$date(this.date)) / 60000);
-    }
-  }
+    },
+  },
 };
 </script>
 
