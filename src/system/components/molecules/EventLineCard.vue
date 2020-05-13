@@ -48,42 +48,42 @@ export default {
      */
     link: {
       type: String,
-      required: true,
+      required: true
     },
     /**
      * Date string of the event
      */
     date: {
       type: [String, Object],
-      required: true,
+      required: true
     },
     /**
      * Duration of the events in minutes
      */
     duration: {
       type: Number,
-      required: true,
+      required: true
     },
     /**
      * Text isplayed before the time
      */
     beforeTimeText: {
       type: String,
-      required: false,
+      required: false
     },
     /**
      * Title of the event
      */
     title: {
       type: String,
-      required: true,
+      required: true
     },
     /**
      * Url to the cover of the event or placeholder if none
      */
     cover: {
       type: String,
-      required: true,
+      required: true
     },
     /**
      *
@@ -91,22 +91,22 @@ export default {
     callToAction: {
       type: String,
       required: false,
-      default: "Participer",
+      default: "Participer"
     },
     /**
      * Array of tag labels
      */
     metas: {
       type: Array,
-      required: false,
-    },
+      required: false
+    }
   },
   methods: {
     onClick: function() {
       /** Fires on event click
        * @event click */
       this.$emit("click");
-    },
+    }
   },
   computed: {
     end() {
@@ -120,8 +120,8 @@ export default {
     },
     elapsedTime() {
       return Math.round((this.$date() - this.$date(this.date)) / 60000);
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -171,7 +171,6 @@ export default {
   //display: none;
   @include flex-center;
   @include title-xsmall;
-  flex: 0 1 10%;
   min-height: $space-xxl;
   text-align: center;
   position: relative;
@@ -179,6 +178,7 @@ export default {
   margin-right: $space-m;
 
   @include breakpoint("small") {
+    flex: 0 0 100px;
   }
 
   .event__hour-space {
@@ -203,6 +203,8 @@ export default {
 
   @include breakpoint("small") {
     @include image-ratio(16, 9, "img");
+    display: block;
+    flex: 0 0 auto;
     padding-top: 0; // to overwrite image-ratio
     height: 58px;
     width: 100px;
