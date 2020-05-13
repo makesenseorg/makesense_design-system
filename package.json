@@ -1,6 +1,6 @@
 {
   "name": "@makesenseorg/design-system",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "scripts": {
     "serve": "http-server ./docs -o -s",
     "build": "yarn theo && vue-cli-service build",
@@ -10,7 +10,8 @@
     "build:lib": "yarn theo && cross-env BUILD=library vue-cli-service build --target lib --name system ./src/library.js",
     "theo": "node ./buildtokens.js",
     "theo:onchange": "onchange \"./src/system/tokens/*.yml\" \"./src/system/tokens/themes/**/*.yml\" -- npm run theo",
-    "test:unit": "vue-cli-service test:unit"
+    "test:unit": "vue-cli-service test:unit",
+    "publish": "npm run build:lib && npm publish"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
