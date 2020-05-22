@@ -25,12 +25,14 @@
 </template>
 
 <script>
+import DsMenuItem from "./MenuItem";
 /**
  * Used in combination with the menu item to help the user navigate.
  * @version 1.0.0
  */
 export default {
   name: "DsMenu",
+  components: { DsMenuItem },
   provide() {
     return {
       $parentMenu: this

@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import DsButton from "@@/components/navigation/Button/Button";
+import DsButton from "../../navigation/Button/Button";
 /**
  * A copy field is used to present text that can easily
  * be copied to the users clipboard by clicking on it.

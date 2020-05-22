@@ -15,11 +15,13 @@
 
 <script>
 import Navigation from "./components/Navigation";
+import DsPage from "./components/layout/Page/Page";
 
 export default {
   name: "App",
   components: {
-    Navigation
+    Navigation,
+    DsPage
   }
 };
 </script>

@@ -137,6 +137,7 @@ import inputMixin from "../shared/input";
 import multiinputMixin from "../shared/multiinput";
 import ClickOutside from "vue-click-outside";
 import DsFormItem from "../FormItem/FormItem";
+import DsIcon from "../../typography/Icon/Icon";
 
 /**
  * Used for letting the user choose values from a set of options.
@@ -145,7 +146,7 @@ import DsFormItem from "../FormItem/FormItem";
 export default {
   name: "DsSelect",
   mixins: [inputMixin, multiinputMixin],
-  components: { DsFormItem },
+  components: { DsFormItem, DsIcon },
   directives: {
     ClickOutside
   },

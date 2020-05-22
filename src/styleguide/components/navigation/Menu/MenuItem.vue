@@ -4,8 +4,7 @@
     :class="[
       `ds-menu-item-level-${level}`,
       $parentMenu.inverse && 'ds-menu-item-inverse',
-      $parentMenu.navbar && 'ds-menu-item-navbar',
-      showSubmenu && 'ds-menu-item-show-submenu'
+      $parentMenu.navbar && 'ds-menu-item-navbar'
     ]"
     @mouseover="handleMouseOver"
     @mouseout="handleMouseOut"
@@ -20,19 +19,19 @@
       :is="linkTag"
       ref="link"
     >
-      <slot>
-        {{ name }}
-      </slot>
-      <div
-        v-if="hasSubmenu"
-        class="ds-menu-item-arrow"
-        @click.prevent="toggleSubmenu"
-      >
+      <mks-heading tag="h6" v-if="parents.length === 0">
+        <slot>
+          {{ name }}
+        </slot>
+      </mks-heading>
+      <slot v-else>{{ name }}</slot>
+
+      <div v-if="hasSubmenu" class="ds-menu-item-arrow" @click="toggleSubmenu">
         <mks-icon v-if="showSubmenu" type="arrowUp"></mks-icon>
         <mks-icon v-else type="arrowDown"></mks-icon>
       </div>
     </component>
-    <ul class="ds-menu-item-submenu" v-if="hasSubmenu">
+    <ul class="ds-menu-item-submenu" v-if="hasSubmenu && showSubmenu">
       <ds-menu-item
         v-for="child in route.children"
         :key="child.name"
@@ -155,6 +154,9 @@ export default {
     },
     handleClick(event) {
       const clickedLink = event.target === this.$refs.link.$el;
+      if (this.hasSubmenu) {
+        this.showSubmenu = true;
+      }
       if (
         clickedLink &&
         this.$parentMenu.navbar &&
@@ -165,7 +167,7 @@ export default {
         event.preventDefault();
         event.stopPropagation();
         return;
-      }
+      } else this.$emit("click", event, this.route);
 
       /**
        * Handles click on menu item.
@@ -174,11 +176,10 @@ export default {
        *
        * @event click
        */
-      this.$emit("click", event, this.route);
       this.$parentMenu.handleNavigate();
     },
     handleClickOutside() {
-      this.showSubmenu = false;
+      //this.showSubmenu = false;
     }
   }
 };

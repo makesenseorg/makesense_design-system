@@ -25,6 +25,9 @@
 
 <script>
 import ComponentItem from "./ComponentItem";
+import DsPageTitle from "./layout/PageTitle/PageTitle";
+import DsContainer from "./layout/Container/Container";
+import DsSpace from "./layout/Space/Space";
 
 export default {
   name: "SectionPage",
@@ -39,7 +42,10 @@ export default {
     }
   },
   components: {
-    ComponentItem
+    ComponentItem,
+    DsContainer,
+    DsPageTitle,
+    DsSpace
   },
   data() {
     return {
@@ -57,7 +63,7 @@ export default {
           this.requiredComponents[cFile.name] = cFile;
         } catch (err) {
           // eslint-disable-next-line
-          console.error('could not get required component', err)
+          console.error("could not get required component", err);
         }
       });
     }

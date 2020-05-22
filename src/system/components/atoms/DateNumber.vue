@@ -85,7 +85,7 @@ export default {
 <docs>
 ```jsx
 <mks-date-number>12</mks-date-number>
-<mks-date-number color="secondary" number="23"></mks-date-number>
+<mks-date-number color="secondary" :number="23"></mks-date-number>
 <mks-date-number color="tertiary">31</mks-date-number>
 
 ```

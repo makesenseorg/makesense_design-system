@@ -32,10 +32,11 @@
 import { iconNames } from "@@/icons";
 import DsInput from "../data-input/Input/Input";
 import DsCopyField from "../data-display/CopyField/CopyField";
+import DsIcon from "../typography/Icon/Icon";
 
 export default {
   name: "IconList",
-  components: { DsInput, DsCopyField },
+  components: { DsInput, DsCopyField, DsIcon },
   data() {
     return {
       searchString: ""

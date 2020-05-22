@@ -21,11 +21,13 @@
 <script>
 import Themer from "./Themer";
 import DsInput from "./data-input/Input/Input";
+import DsMenu from "./navigation/Menu/Menu";
 export default {
   name: "Navigation",
   components: {
     Themer,
-    DsInput
+    DsInput,
+    DsMenu
   },
   data() {
     return {

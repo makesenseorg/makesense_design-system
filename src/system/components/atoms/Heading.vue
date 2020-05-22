@@ -51,7 +51,9 @@ export default {
       required: false,
       validator: function(value) {
         return (
-          ["primary", "secondary", "text", "tertiary"].indexOf(value) !== -1
+          ["primary", "secondary", "text", "tertiary", "inherit"].indexOf(
+            value
+          ) !== -1
         );
       }
     }
@@ -64,6 +66,9 @@ export default {
   @include reset;
   color: $color-text;
 
+  &--inherit {
+    color: inherit;
+  }
   &--primary {
     color: $color-primary;
   }

@@ -1,5 +1,9 @@
 <template>
-  <component v-if="parsedComponent" :is="parsedComponent" />
+  <component
+    v-if="parsedComponent"
+    :is="parsedComponent"
+    class="parsed-component"
+  />
 </template>
 
 <script>
@@ -77,51 +81,45 @@ export default {
         $(`h${l}`).each((i, item) => {
           $(item).replaceWith(
             $(
-              '<ds-heading tag="' +
+              '<mks-heading tag="' +
                 `h${l}` +
                 '">' +
                 $(item).html() +
-                "</ds-heading>"
+                "</mks-heading>"
             )
           );
         });
       }
 
       // Replace p-tags
-      $("p").each((i, item) => {
-        // Handle component tags
-        if (
-          $(item).children().length &&
-          Array.from($(item).children()).some(c => c.name.indexOf("-") > -1)
-        ) {
-          $(item).replaceWith($("<div>" + $(item).html() + "</div>"));
-        } else {
-          $(item).replaceWith(
-            $('<ds-text size="large">' + $(item).html() + "</ds-text>")
-          );
-        }
-      });
+      // $("p").each((i, item) => {
+      //   // Handle component tags
+      //   if (
+      //     $(item).children().length &&
+      //     Array.from($(item).children()).some(c => c.name.indexOf("-") > -1)
+      //   ) {
+      //     $(item).replaceWith($("<div>" + $(item).html() + "</div>"));
+      //   } else {
+      //     $(item).replaceWith($('<p size="large">' + $(item).html() + "</p>"));
+      //   }
+      // });
 
-      // Replace ul-tags
-      $("ul").each((i, item) => {
-        $(item).replaceWith(
-          $('<ds-list size="large">' + $(item).html() + "</ds-list>")
-        );
-      });
+      // // Replace ul-tags
+      // $("ul").each((i, item) => {
+      //   $(item).replaceWith($('<ul size="large">' + $(item).html() + "</ul>"));
+      // });
 
-      // Replace ol-tags
-      $("ol").each((i, item) => {
-        $(item).replaceWith(
-          $('<ds-list size="large" ordered>' + $(item).html() + "</ds-list>")
-        );
-      });
+      // // Replace ol-tags
+      // $("ol").each((i, item) => {
+      //   $(item).replaceWith(
+      //     $('<ol size="large" ordered>' + $(item).html() + "</ol>")
+      //   );
+      // });
 
-      // Replace ol-tags
-      $("li").each((i, item) => {
-        $(item).replaceWith(
-          $("<ds-list-item>" + $(item).html() + "</ds-list-item>")
-        );
-      });
+      // // Replace ol-tags
+      // $("li").each((i, item) => {
+      //   $(item).replaceWith($("<li>" + $(item).html() + "</li>"));
+      // });
 
       const componentHtml = $("body").html();
       const template = `<div>${componentHtml}</div>`;
@@ -141,4 +139,17 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.parsed-component {
+  p,
+  ul,
+  ol {
+    margin-bottom: $space-m;
+  }
+
+  .heading,
+  li {
+    margin-bottom: $space-xs;
+  }
+}
+</style>

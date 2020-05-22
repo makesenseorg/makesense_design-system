@@ -1,8 +1,8 @@
 <template>
   <div>
     <ds-space v-if="componentProps">
-      <ds-heading tag="h2"
-        >{{ component.name | componentName }} Props</ds-heading
+      <mks-heading tag="h2"
+        >{{ component.name | componentName }} Props</mks-heading
       >
       <ds-card>
         <ds-table :data="componentProps" :fields="propFields">
@@ -48,8 +48,8 @@
       </ds-card>
     </ds-space>
     <ds-space v-if="componentSlots && componentSlots.length">
-      <ds-heading tag="h2"
-        >{{ component.name | componentName }} Slots</ds-heading
+      <mks-heading tag="h2"
+        >{{ component.name | componentName }} Slots</mks-heading
       >
       <ds-card>
         <ds-table :data="componentSlots" :fields="slotFields">
@@ -63,8 +63,8 @@
       </ds-card>
     </ds-space>
     <ds-space v-if="componentEvents && componentEvents.length">
-      <ds-heading tag="h2"
-        >{{ component.name | componentName }} Events</ds-heading
+      <mks-heading tag="h2"
+        >{{ component.name | componentName }} Events</mks-heading
       >
       <ds-card>
         <ds-table :data="componentEvents" :fields="eventFields">
@@ -82,6 +82,14 @@
 
 <script>
 import DsTable from "./data-display/Table/Table";
+import DsSpace from "./layout/Space/Space";
+import DsText from "./typography/Text/Text";
+import DsHeading from "./typography/Heading/Heading";
+import DsCode from "./typography/Code/Code";
+import DsChip from "./typography/Chip/Chip";
+import DsCard from "./layout/Card/Card";
+import DsTag from "./typography/Tag/Tag";
+
 export default {
   name: "ComponentOptionsDoc",
   props: {
@@ -90,7 +98,16 @@ export default {
       required: true
     }
   },
-  components: { DsTable },
+  components: {
+    DsTable,
+    DsSpace,
+    DsText,
+    DsHeading,
+    DsCode,
+    DsCard,
+    DsChip,
+    DsTag
+  },
   data() {
     return {
       propFields: {

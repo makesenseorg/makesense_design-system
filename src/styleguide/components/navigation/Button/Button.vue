@@ -24,12 +24,14 @@
 </template>
 
 <script>
+import DsIcon from "../../typography/Icon/Icon";
 /**
  * Used to provide actions or navigation.
  * @version 1.0.0
  */
 export default {
   name: "DsButton",
+  components: { DsIcon },
   props: {
     /**
      * The path of this button. Can be a url or a Vue router path object.

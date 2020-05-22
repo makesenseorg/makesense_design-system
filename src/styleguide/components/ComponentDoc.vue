@@ -44,6 +44,12 @@
 <script>
 import CodeExample from "./CodeExample";
 import ComponentOptionsDoc from "./ComponentOptionsDoc";
+import DsPageTitle from "./layout/PageTitle/PageTitle";
+import DsContainer from "./layout/Container/Container";
+import DsSpace from "./layout/Space/Space";
+import DsText from "./typography/Text/Text";
+import DsTag from "./typography/Tag/Tag";
+import DsHeading from "./typography/Heading/Heading";
 
 export default {
   name: "ComponentDoc",
@@ -55,7 +61,13 @@ export default {
   },
   components: {
     CodeExample,
-    ComponentOptionsDoc
+    ComponentOptionsDoc,
+    DsPageTitle,
+    DsContainer,
+    DsSpace,
+    DsText,
+    DsHeading,
+    DsTag
   },
   data() {
     return {

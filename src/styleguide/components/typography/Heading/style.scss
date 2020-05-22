@@ -1,43 +1,43 @@
-.ds-heading {
-	@include reset;
-	@include stack-space($font-space-l, $font-space-xxxxl);
-	font-family: $font-heading;
-	line-height: $line-height-s;
-	letter-spacing: $letter-spacing-small;
-	font-weight: $font-weight-bold;
+.mks-heading {
+  @include reset;
+  @include stack-space($font-space-l, $font-space-xxxxl);
+  font-family: $font-heading;
+  line-height: $line-height-s;
+  letter-spacing: $letter-spacing-small;
+  font-weight: $font-weight-bold;
 }
 
-.ds-heading-primary {
-	color: $text-color-primary;
+.mks-heading-primary {
+  color: $text-color-primary;
 }
 
-.ds-heading-soft {
-	color: $color-text-lighter;
+.mks-heading-soft {
+  color: $color-text-lighter;
 }
 
-.ds-heading-h1 {
-	font-size: $font-size-xxl;
-	@media #{$media-query-large} {
-		font-size: $font-size-xxxl;
-	}
+.mks-heading-h1 {
+  font-size: $font-size-xxl;
+  @media #{$media-query-large} {
+    font-size: $font-size-xxxl;
+  }
 }
 
-.ds-heading-h2 {
-	font-size: $font-size-xxl;
+.mks-heading-h2 {
+  font-size: $font-size-xxl;
 }
 
-.ds-heading-h3 {
-	font-size: $font-size-xl;
+.mks-heading-h3 {
+  font-size: $font-size-xl;
 }
 
-.ds-heading-h4 {
-	font-size: $font-size-l;
+.mks-heading-h4 {
+  font-size: $font-size-l;
 }
 
-.ds-heading-h5 {
-	font-size: $font-size-m;
+.mks-heading-h5 {
+  font-size: $font-size-m;
 }
 
-.ds-heading-h6 {
-	font-size: $font-size-s;
+.mks-heading-h6 {
+  font-size: $font-size-s;
 }

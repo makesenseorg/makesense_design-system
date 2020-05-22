@@ -3,13 +3,13 @@
     <ds-flex gutter="large" :direction="{ lg: 'row-reverse' }">
       <ds-flex-item :width="{ base: '100%', lg: '250px' }">
         <div class="sticky">
-          <ds-heading tag="h4">Categories</ds-heading>
+          <mks-heading tag="h4">Categories</mks-heading>
           <ds-menu :routes="tokenMenu" />
         </div>
       </ds-flex-item>
       <ds-flex-item>
         <ds-space v-for="(group, key) in tokenMap" :key="key">
-          <ds-heading tag="h3" :id="key">{{ key | startCase }}</ds-heading>
+          <mks-heading tag="h3" :id="key">{{ key | startCase }}</mks-heading>
           <ds-table
             :data="group"
             :fields="{ token: { width: '300px' }, example: 'Example' }"
@@ -36,10 +36,23 @@
 import { tokenMap } from "@@/tokens";
 import DsCopyField from "../data-display/CopyField/CopyField";
 import DsTable from "../data-display/Table/Table";
+import DsSpace from "../layout/Space/Space";
+import DsHeading from "../typography/Heading/Heading";
+import DsFlex from "../layout/Flex/Flex";
+import DsFlexItem from "../layout/Flex/FlexItem";
+import DsMenu from "../navigation/Menu/Menu";
 
 export default {
   name: "DesignTokens",
-  components: { DsCopyField, DsTable },
+  components: {
+    DsCopyField,
+    DsTable,
+    DsSpace,
+    DsHeading,
+    DsFlex,
+    DsFlexItem,
+    DsMenu
+  },
   computed: {
     tokenMap() {
       return tokenMap;

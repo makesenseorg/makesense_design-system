@@ -1,11 +1,11 @@
 <template>
   <component
     :is="tag"
-    class="ds-heading"
+    class="mks-heading"
     :class="[
-      `ds-heading-${size || tag}`,
-      primary && `ds-heading-primary`,
-      soft && `ds-heading-soft`
+      `mks-heading-${size || tag}`,
+      primary && `mks-heading-primary`,
+      soft && `mks-heading-soft`
     ]"
   >
     <slot />

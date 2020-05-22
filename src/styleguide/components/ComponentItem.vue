@@ -14,9 +14,10 @@
 
 <script>
 import DsTableCol from "./data-display/Table/TableCol";
+import DsButton from "./navigation/Button/Button";
 export default {
   name: "ComponentItem",
-  components: { DsTableCol },
+  components: { DsTableCol, DsButton },
   props: {
     component: {
       type: Object,
