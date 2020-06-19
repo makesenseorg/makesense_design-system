@@ -91,6 +91,7 @@
       <gmap-autocomplete
         type="text"
         class="field field__input -style-default -light-default"
+        :class="getCss"
         :value="getFormattedAddress"
         @keydown.enter.prevent
         @place_changed="setPlace"
