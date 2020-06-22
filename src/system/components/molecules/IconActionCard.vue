@@ -178,8 +178,8 @@ export default {
   align-items: center;
   margin-left: -$space-m;
   margin-right: -$space-m;
-  margin-bottom: $space-m/2;
-  padding: $space-m/2 $space-m;
+  margin-bottom: $space-xs;
+  padding: $space-xs $space-m;
   transition: all 0.1s ease;
   color: inherit;
   text-decoration: none;
@@ -320,14 +320,14 @@ export default {
   display: block;
   text-overflow: ellipsis;
   line-height: normal;
-  max-height: calc($font-size-normal * 2 * 1.2);
+  max-height: 2.2rem; // magic number : 1rem * 2 lines * 1.2 line-height
 }
 .card__status {
   color: $color-success;
   line-height: 1.2;
 }
 .card__action {
-  margin: $space-m auto $space-m/2;
+  margin: $space-m auto $space-xs;
   width: 100%;
   text-align: center;
 
