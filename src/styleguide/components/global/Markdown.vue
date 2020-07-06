@@ -141,15 +141,50 @@ export default {
 
 <style lang="scss">
 .parsed-component {
+  li {
+    margin-bottom: $space-xs;
+  }
+  .heading {
+    margin-top: $space-l;
+    margin-bottom: $space-s;
+  }
   p,
   ul,
   ol {
     margin-bottom: $space-m;
   }
 
-  .heading,
-  li {
+  ol {
+    list-style: decimal;
+    padding-left: $space-s;
+  }
+
+  pre code {
+    display: block;
+    padding: $space-xs $space-s;
     margin-bottom: $space-xs;
+  }
+  code {
+    background: $color-neutral-90;
+    padding: 2px 5px;
+    display: inline;
+    border-radius: 4px;
+  }
+  table {
+    border-collapse: collapse;
+    margin-bottom: $space-s;
+  }
+  thead {
+    font-weight: bold;
+  }
+  tr {
+    border: 1px solid $color-neutral-90;
+
+    vertical-align: middle;
+  }
+  th,
+  td {
+    padding: $space-xs;
   }
 }
 </style>
