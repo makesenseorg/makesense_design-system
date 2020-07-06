@@ -5,6 +5,12 @@ export default {
       path: "/"
     },
     {
+      name: "Usage"
+    },
+    {
+      name: "Contributing"
+    },
+    {
       name: "Brand Guidelines"
     },
     {

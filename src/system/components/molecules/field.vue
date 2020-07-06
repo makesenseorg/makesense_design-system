@@ -35,7 +35,12 @@
       @blur="$emit('blur')"
       @change="$emit('change')"
     >
-      <option v-for="(item, index) in options" :key="index" :value="item.value">{{ item.label }}</option>
+      <option
+        v-for="(item, index) in options"
+        :key="index"
+        :value="item.value"
+        >{{ item.label }}</option
+      >
     </select>
     <VueEditor
       v-else-if="type === 'editor'"
@@ -64,7 +69,11 @@
       @blur="$emit('blur')"
       @change="$emit('change')"
     ></textarea>
-    <label v-else-if="type === 'checkbox'" class="checkbox__label" :class="getCss">
+    <label
+      v-else-if="type === 'checkbox'"
+      class="checkbox__label"
+      :class="getCss"
+    >
       <input
         type="checkbox"
         :id="name"
@@ -125,8 +134,17 @@
       @blur="$emit('blur')"
       @change="$emit('change')"
     />
-    <mks-icon v-if="type === 'search'" type="search" class="input__search-icon" />
-    <div class="field__description" v-if="description" :class="getCss" v-html="description"></div>
+    <mks-icon
+      v-if="type === 'search'"
+      type="search"
+      class="input__search-icon"
+    />
+    <div
+      class="field__description"
+      v-if="description"
+      :class="getCss"
+      v-html="description"
+    ></div>
   </div>
 </template>
 
