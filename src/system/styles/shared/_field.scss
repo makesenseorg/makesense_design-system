@@ -47,7 +47,7 @@
   &.-style-default {
     padding: 1rem;
     @include border-radius;
-    @include border-shadow;
+    @include border-shadow($border-color-softer);
   }
 
   &.-style-border-bottom {
