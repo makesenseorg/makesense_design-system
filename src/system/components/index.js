@@ -57,6 +57,16 @@ export { componentsMap };
 
 export default {
   install(Vue) {
+    if (
+      process === undefined ||
+      process.server === undefined ||
+      !process.server
+    )
+      Vue.component("client-only", {
+        name: "ClientOnly",
+        template: "<div><slot/></div>"
+      });
+
     components.forEach(c => Vue.component(c.name, c));
   }
 };
