@@ -42,8 +42,9 @@
         >{{ item.label }}</option
       >
     </select>
-    <VueEditor
+    <component
       v-else-if="type === 'editor'"
+      :is="component"
       v-model="theValue"
       class="field__input field--rich-text-editor rte-render"
       :id="name"
@@ -149,15 +150,12 @@
 </template>
 
 <script>
-import { VueEditor } from "vue2-editor";
-
 /**
  * The field component can be used in forms. It emits 'blur', 'change' and 'input' events, as a native input would.
  * @version 1.0.0
  */
 export default {
   name: "MksField",
-  components: { VueEditor },
   props: {
     /**
      * Name of the field for formData
@@ -332,7 +330,8 @@ export default {
   data: function() {
     return {
       theValue: null,
-      foldingOpen: false
+      foldingOpen: false,
+      component: null
     };
   },
   methods: {
@@ -435,6 +434,9 @@ export default {
     this.theValue = this.value;
 
     if (this.foldDefault) this.foldingOpen = true;
+  },
+  mounted() {
+    if (this.type === "editor") this.component = () => import(`./fieldEditor`);
   }
 };
 </script>
