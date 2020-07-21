@@ -1,25 +1,17 @@
 <template>
-  <client-only>
-    <component
-      v-if="component"
-      :is="component"
-      v-model="theValue"
-      :id="name"
-      :ref="reference"
-      :editor-toolbar="editorToolbar"
-      :name="name"
-      :placeholder="placeholder"
-      :class="css"
-      @blur="$emit('blur')"
-      @text-change="$emit('change')"
-    />
-    <textarea
-      slot="placeholder"
-      :id="name"
-      :name="name"
-      v-model="theValue"
-    ></textarea>
-  </client-only>
+  <component
+    v-if="component"
+    :is="component"
+    v-model="theValue"
+    :id="name"
+    :ref="reference"
+    :editor-toolbar="editorToolbar"
+    :name="name"
+    :placeholder="placeholder"
+    :class="css"
+    @blur="$emit('blur')"
+    @text-change="$emit('change')"
+  />
 </template>
 <script>
 /**
@@ -35,18 +27,18 @@ export default {
   props: {
     value: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
-      required: true
+      required: true,
     },
     name: "",
     reference: "",
     editorToolbar: null,
     placeholder: "",
-    css: ""
+    css: "",
   },
   data: () => {
     return {
       theValue: null,
-      component: null
+      component: null,
     };
   },
   created() {
@@ -68,8 +60,8 @@ export default {
     },
     value: function() {
       this.theValue = this.value;
-    }
-  }
+    },
+  },
 };
 </script>
 
