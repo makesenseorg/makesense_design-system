@@ -54,7 +54,7 @@
       :placeholder="placeholder"
       :class="getCss"
       @blur="$emit('blur')"
-      @text-change="$emit('change')"
+      @change="$emit('change')"
     />
     <textarea
       v-else-if="type === 'textarea'"

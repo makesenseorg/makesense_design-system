@@ -23,6 +23,10 @@ export default {
   name: "MksFieldEditor",
   components: { VueEditor },
   props: {
+    value: {
+      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
+      required: true
+    },
     name: "",
     reference: "",
     editorToolbar: null,
@@ -30,7 +34,9 @@ export default {
     css: ""
   },
   data: () => {
-    return {};
+    return {
+      theValue: null
+    };
   },
   created() {
     this.theValue = this.value;
