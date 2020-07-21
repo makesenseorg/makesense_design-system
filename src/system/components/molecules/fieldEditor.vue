@@ -20,7 +20,6 @@
  * @private_no_import
  * @version 1.0.0
  */
-//import { VueEditor } from "vue2-editor";
 
 export default {
   name: "MksFieldEditor",
@@ -47,10 +46,11 @@ export default {
   },
   mounted: function() {
     if (
-      undefined !== process &&
-      (process.server === undefined || !process.server)
+      undefined === process ||
+      process.server === undefined ||
+      !process.server
     )
-      this.component = require("vue2-editor").VueEditor;
+      this.component = null; //require("vue2-editor").VueEditor;
   },
   computed: {},
   methods: {},
