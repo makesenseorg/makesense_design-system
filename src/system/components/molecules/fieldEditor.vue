@@ -1,5 +1,7 @@
 <template>
-  <VueEditor
+  <component
+    v-if="component"
+    :is="component"
     v-model="theValue"
     :id="name"
     :ref="reference"
@@ -18,10 +20,11 @@
  * @private_no_import
  * @version 1.0.0
  */
-import { VueEditor } from "vue2-editor";
+//import { VueEditor } from "vue2-editor";
+
 export default {
   name: "MksFieldEditor",
-  components: { VueEditor },
+  components: {},
   props: {
     value: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
@@ -35,11 +38,19 @@ export default {
   },
   data: () => {
     return {
-      theValue: null
+      theValue: null,
+      component: null
     };
   },
   created() {
     this.theValue = this.value;
+  },
+  mounted: function() {
+    if (
+      undefined !== process &&
+      (process.server === undefined || !process.server)
+    )
+      this.component = require("vue2-editor").VueEditor;
   },
   computed: {},
   methods: {},
