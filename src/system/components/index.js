@@ -20,7 +20,8 @@ context.keys().forEach(key => {
   }
 
   const hidden =
-    meta.tags.access && meta.tags.access[0].description === "private";
+    meta.tags.access &&
+    meta.tags.access[0].description.indexOf("private") !== -1;
 
   if (!hidden) {
     const parent = meta.tags.see ? meta.tags.see[0].description : null;
@@ -36,7 +37,8 @@ context.keys().forEach(key => {
     componentsMap[folder].push(componentsByName[c.name]);
   }
 
-  components.push(c);
+  if (meta.comment.indexOf("private_no_import") !== -1) return;
+  else components.push(c);
 });
 
 // Add child components data to parent
