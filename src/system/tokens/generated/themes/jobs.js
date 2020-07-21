@@ -95,5 +95,13 @@ export default {
   "--border-color-primary": "rgb(12, 57, 68)",
   "--border-color-success": "rgb(39, 174, 96)",
   "--border-color-warning": "rgb(230, 121, 25)",
-  "--border-color-danger": "rgb(217, 58, 58)"
+  "--border-color-danger": "rgb(217, 58, 58)",
+  "--border": "1px solid #eff2f7",
+  "--border-radius-s": "2px",
+  "--border-radius-m": "5px",
+  "--border-radius-l": "10px",
+  "--border-radius-full": "1000px",
+  "--border-radius-base": "2px",
+  "--border-radius-rounded": "5px",
+  "--border-radius-circle": "50%"
 };

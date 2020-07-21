@@ -4,6 +4,7 @@
 
 imports:
   - ./color.yml
+  - ./border-radius.yml
 global:
   type: global
   category: all
