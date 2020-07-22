@@ -44,7 +44,13 @@ const configs = [
     format: "raw.json",
   },
   { src, dist: `${dist}/tokens.json`, transform: "webvars", format: "json" },
-  { src, dist: `${dist}/themes/base.js`, transform: "web", format: "cssvarjs" },
+  {
+    src,
+    dist: `${dist}/themes/base.js`,
+    css: `${dist}/themes/base.css`,
+    transform: "web",
+    format: "cssvarjs",
+  },
 ];
 
 const isDirectory = (source) => lstatSync(source).isDirectory();
