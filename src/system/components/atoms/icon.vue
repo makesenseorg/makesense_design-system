@@ -23,7 +23,8 @@ import {
   faCheck,
   faClock,
   faWallet,
-  faShare
+  faShare,
+  faMapMarkerAlt
 } from "@fortawesome/free-solid-svg-icons";
 
 export default {
@@ -68,6 +69,8 @@ export default {
           return faSort;
         case "clock":
           return faClock;
+        case "mapMarker":
+          return faMapMarkerAlt;
         case "wallet":
           return faWallet;
         case "lock":
@@ -128,6 +131,7 @@ export default {
   <mks-icon type="arrowLeft"></mks-icon>
   <mks-icon type="arrowRight"></mks-icon>
   <mks-icon type="close"></mks-icon> 
+  <mks-icon type="mapMarker"></mks-icon> 
   <mks-icon type="search"></mks-icon> 
   <mks-icon type="check"></mks-icon>
   <mks-icon type="share"></mks-icon>
