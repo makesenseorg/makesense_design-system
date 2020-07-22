@@ -104,4 +104,4 @@ export default {
   "--border-radius-base": "2px",
   "--border-radius-rounded": "5px",
   "--border-radius-circle": "50%"
-}
+};

@@ -183,7 +183,8 @@ export default {
   "--box-shadow-s": "0 0 0 1px rgba(92,106,196,.1)",
   "--box-shadow-m": "1px 1px 4px 0 rgba(0, 0, 0, 0.1)",
   "--box-shadow-l": "2px 4px 10px 0 rgba(0, 0, 0, 0.1)",
-  "--box-shadow-elevated": "0 0 0 1px rgba(31, 45, 61, 0.08), 0 2px 2px 0 rgba(31, 45, 61, 0.03)",
+  "--box-shadow-elevated":
+    "0 0 0 1px rgba(31, 45, 61, 0.08), 0 2px 2px 0 rgba(31, 45, 61, 0.03)",
   "--box-shadow-elevated-l": "0 2px 4px 0 rgba(0, 0, 0, 0.15)",
   "--box-shadow-large": "0 20px 60px 0 rgba(0, 0, 0, .15)",
   "--box-shadow-base": "0px 12px 26px -4px rgba(0, 0, 0, .1)",
@@ -222,4 +223,4 @@ export default {
   "--media-query-medium": "(min-width: 768px)",
   "--media-query-large": "(min-width: 1024px)",
   "--media-query-x-large": "(min-width: 1200px)"
-}
+};
