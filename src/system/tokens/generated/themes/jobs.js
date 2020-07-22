@@ -103,5 +103,15 @@ export default {
   "--border-radius-full": "1000px",
   "--border-radius-base": "2px",
   "--border-radius-rounded": "5px",
-  "--border-radius-circle": "50%"
+  "--border-radius-circle": "50%",
+  "--font-heading": "Raleway, Helvetica, Arial, sans-serif",
+  "--font-text": "Raleway, Helvetica, Arial, sans-serif",
+  "--font-code": "inconsolata, monospace",
+  "--font-weight-extrablack": "900",
+  "--font-weight-black": "800",
+  "--font-weight-extrabold": "700",
+  "--font-weight-semi-bold": "600",
+  "--font-weight-bold": "500",
+  "--font-weight-normal": "400",
+  "--font-weight-light": "300"
 };

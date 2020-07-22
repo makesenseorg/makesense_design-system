@@ -5,6 +5,7 @@
 imports:
   - ./color.yml
   - ./border-radius.yml
+  - ./font.yml
 global:
   type: global
   category: all
