@@ -21,9 +21,9 @@ export default {
       default: "warning",
       validator: function(value) {
         return ["positive", "warning", "negative"].indexOf(value) !== -1;
-      },
-    },
-  },
+      }
+    }
+  }
 };
 </script>
 
