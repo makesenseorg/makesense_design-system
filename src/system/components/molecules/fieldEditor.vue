@@ -10,6 +10,7 @@
     :placeholder="placeholder"
     :class="css"
     @blur="$emit('blur')"
+    @focus="$emit('focus')"
     @text-change="$emit('change')"
   />
 </template>
