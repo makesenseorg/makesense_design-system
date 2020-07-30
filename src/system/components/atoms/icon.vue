@@ -20,6 +20,7 @@ import {
   faArrowLeft,
   faLock,
   faLifeRing,
+  faBuilding,
   faCheck,
   faGlobeEurope,
   faClock,
@@ -71,6 +72,8 @@ export default {
           return faSort;
         case "link":
           return faLink;
+        case "company":
+          return faBuilding;
         case "lang":
           return faGlobeEurope;
         case "clock":
@@ -138,6 +141,9 @@ export default {
   <mks-icon type="arrowRight"></mks-icon>
   <mks-icon type="close"></mks-icon> 
   <mks-icon type="mapMarker"></mks-icon> 
+  <mks-icon type="lang"></mks-icon> 
+  <mks-icon type="link"></mks-icon> 
+  <mks-icon type="company"></mks-icon> 
   <mks-icon type="search"></mks-icon> 
   <mks-icon type="check"></mks-icon>
   <mks-icon type="share"></mks-icon>
