@@ -12,7 +12,7 @@ props:
   - name: border-radius-s
     value: "2px"
   - name: border-radius-m
-    value: "5px"
+    value: "10px"
   - name: border-radius-l
     value: "10px"
   - name: border-radius-full
@@ -21,7 +21,7 @@ props:
   - name: border-radius-base
     value: "2px"
   - name: border-radius-rounded
-    value: "5px"
+    value: "10px"
   - name: border-radius-circle
     value: "50%"
 

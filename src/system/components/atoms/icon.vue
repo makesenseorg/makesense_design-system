@@ -21,7 +21,9 @@ import {
   faLock,
   faLifeRing,
   faCheck,
+  faGlobeEurope,
   faClock,
+  faLink,
   faWallet,
   faShare,
   faMapMarkerAlt
@@ -67,6 +69,10 @@ export default {
           return faCheck;
         case "sort":
           return faSort;
+        case "link":
+          return faLink;
+        case "lang":
+          return faGlobeEurope;
         case "clock":
           return faClock;
         case "mapMarker":
