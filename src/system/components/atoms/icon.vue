@@ -16,6 +16,7 @@ import {
   faSearch,
   faArrowUp,
   faTimes,
+  faTag,
   faArrowRight,
   faArrowLeft,
   faLock,
@@ -80,6 +81,8 @@ export default {
           return faClock;
         case "mapMarker":
           return faMapMarkerAlt;
+        case "tag":
+          return faTag;
         case "wallet":
           return faWallet;
         case "lock":
@@ -143,6 +146,7 @@ export default {
   <mks-icon type="mapMarker"></mks-icon> 
   <mks-icon type="lang"></mks-icon> 
   <mks-icon type="link"></mks-icon> 
+  <mks-icon type="tag"></mks-icon> 
   <mks-icon type="company"></mks-icon> 
   <mks-icon type="search"></mks-icon> 
   <mks-icon type="check"></mks-icon>
