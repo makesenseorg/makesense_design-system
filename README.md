@@ -4,18 +4,92 @@ The makesense design system is build to make makesense design guidelines and Vue
 
 Living styleguide demo: https://makesense-design-system.netlify.com
 
-## Using the design system in a product
+## Using the design system in a Nuxt app
 
 ### 1. Add as a dependency
 
 ```
 yarn add @makesenseorg/design-system
+// or
+npm i @makesenseorg/design-system
 ```
 
-or
+### 2. Create a plugin
+
+Add the plugin in `nuxt.config.js`.
 
 ```
- npm i @makesenseorg/design-system
+plugins: ["~/plugins/design-system"],
+```
+
+Create the file `design-system.js` in `plugins` folder.
+
+```
+import Vue from 'vue'
+import DesignSystem from '@makesenseorg/design-system'
+import '@makesenseorg/design-system/dist/system.css'
+
+Vue.use(DesignSystem);
+...
+```
+
+### 3. Load theme
+
+Just below, load the app theme, to get all the colors related to your app. The theme needs to exist in the design system. (list of available themes in `./src/tokens/themes`)
+The default name is `base`.
+
+```
+...
+if (process.client) {
+  Vue.prototype.$loadTheme('base')
+}
+```
+
+You can also change the theme using `this.$loadTheme(theme_name)` inside a view or a component.
+
+**Warning !**
+It is important to only use `loadTheme` on the client side, as it would throw a `document is not defined` error on the server side.
+
+### 4. Use scss variables and mixins
+
+In order to have access to the design system variables and mixins, you need to import the `shared.scss` file either locally in each component, or once globally in the app.
+
+```
+// locally inside component.vue
+<style lang="scss">
+    @import "@makesenseorg/design-system/dist/shared.scss";
+</style>
+```
+
+In order to load the styles globally, you need to install style resources module
+
+```
+npm install --save-dev @nuxtjs/style-resources
+```
+
+In `nuxt.config.js`, register the module and add the style files
+
+```jsx
+modules: [
+    '@nuxtjs/style-resources',
+]
+styleResources: {
+    scss: [
+      "@makesenseorg/design-system/dist/shared.scss",
+    ],
+  },
+```
+
+You're done! You can now use the components, mixins, scss variables.
+
+## Using the design system in a Vue app
+
+### 1. Add as a dependency
+
+```
+yarn add @makesenseorg/design-system
+// or
+npm i @makesenseorg/design-system
 ```
 
 ### 2. Import in app
@@ -66,6 +140,8 @@ module.exports = {
 };
 
 ```
+
+You're done! You can now use the components, mixins, scss variables.
 
 ## Contributing
 
