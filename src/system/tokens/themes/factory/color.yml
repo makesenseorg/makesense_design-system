@@ -9,9 +9,9 @@
 
 aliases:
   black:
-    value: "#001123"
+    value: "#0C3944"
   white:
-    value: "#fff"
+    value: "#ffffff"
   red:
     value: "#C62E43"
   gray_light:
@@ -64,7 +64,6 @@ aliases:
     value: "#FADE3C"
   jazzberry_jam:
     value: "#9C0951"
-
 props:
   #
   # Color Choices
@@ -74,25 +73,25 @@ props:
   #
   # Light theme: darkest color | Dark theme: lightest color
   - name: color-primary
-    value: &color-primary "{!calypso}"
+    value: &color-primary "{!conifer}"
   - name: color-primary-active
-    value: &color-primary-active "#2088a7"
+    value: &color-primary-active "#b1e21d"
   - name: color-primary-inverse
-    value: &color-primary-inverse "{!white}"
+    value: &color-primary-inverse "{!blue_dianne}"
 
   - name: color-secondary
-    value: &color-secondary "{!broom}"
+    value: &color-secondary "{!mandy}"
   - name: color-secondary-active
-    value: &color-secondary-active "#fff87a"
+    value: &color-secondary-active "#e6474c"
   - name: color-secondary-inverse
-    value: &color-secondary-inverse "{!black}"
+    value: &color-secondary-inverse "{!white}"
 
   - name: color-tertiary
-    value: &color-tertiary "{!cerise}"
+    value: &color-tertiary "{!sunglow}"
   - name: color-tertiary-active
     value: &color-tertiary-active "#c10b63"
   - name: color-tertiary-inverse
-    value: &color-tertiary-inverse "{!white}"
+    value: &color-tertiary-inverse "{!blue_dianne}"
 
   - name: color-sahara-sand
     value: &color-sahara-sand "{!sahara_sand}"
@@ -354,8 +353,8 @@ props:
     value: *color-danger-inverse
     category: background-color
 
-  - name: background-color-input
-    value: *color-neutral-100
+  - name: background-input-base
+    value: *color-neutral-80
     category: background-color
 
   # Border Colors
