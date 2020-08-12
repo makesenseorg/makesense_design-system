@@ -88,6 +88,7 @@ export default {
   "--background-color-danger": "rgb(217, 58, 58)",
   "--background-color-danger-active": "rgb(221, 75, 75)",
   "--background-color-danger-inverse": "rgb(255, 255, 255)",
+  "--background-color-input": "rgb(255, 255, 255)",
   "--border-color-base": "rgb(224, 228, 235)",
   "--border-color-soft": "rgb(236, 239, 243)",
   "--border-color-softer": "rgb(242, 244, 247)",

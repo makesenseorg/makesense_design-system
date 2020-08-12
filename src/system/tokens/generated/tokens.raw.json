@@ -21,6 +21,9 @@
     "cerise": {
       "value": "#9B084F"
     },
+    "conifer": {
+      "value": "#c1e84d"
+    },
     "sahara_sand": {
       "value": "#FCF6A0"
     },
@@ -32,6 +35,9 @@
     },
     "orange": {
       "value": "28, 80%"
+    },
+    "mandy": {
+      "value": "#E95B5F"
     },
     "silver_tree": {
       "value": "#70AF90"
@@ -45,11 +51,17 @@
     "yellow": {
       "value": "48, 100%"
     },
+    "jazzberry_jam": {
+      "value": "#9C0951"
+    },
     "pink": {
       "value": "330, 86%"
     },
     "atlantis": {
       "value": "#C1E94E"
+    },
+    "sunglow": {
+      "value": "#FADE3C"
     },
     "gray_light": {
       "value": "#eff2f7"
@@ -738,6 +750,13 @@
       "name": "background-color-danger-inverse",
       "value": "var(--background-color-danger-inverse)",
       "originalValue": "{!white}"
+    },
+    "background-color-input": {
+      "type": "color",
+      "category": "background-color",
+      "name": "background-color-input",
+      "value": "var(--background-color-input)",
+      "originalValue": "hsla({!neutral}, 100%, 1)"
     },
     "border-color-base": {
       "type": "color",

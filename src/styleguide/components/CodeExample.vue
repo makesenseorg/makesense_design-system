@@ -57,8 +57,8 @@ ${code}
   </div>
 </template>
 <script><\/script>`;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -136,7 +136,7 @@ $codemirror-primary: $color-primary;
     color: $color-text-lighter;
   }
   .cm-tag {
-    color: $codemirror-primary;
+    color: $color-text;
   }
   .cm-attribute {
     color: $text-color-warning;
