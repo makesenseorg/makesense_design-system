@@ -75,7 +75,8 @@ export default {
             "positive",
             "warning",
             "negative",
-            "text"
+            "text",
+            "text-active"
           ].indexOf(value) !== -1
         );
       }

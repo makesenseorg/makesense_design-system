@@ -7,7 +7,7 @@
       <div class="site-header__left">
         <slot name="left"></slot>
       </div>
-      <div class="site-header__logo">{{ logo }}</div>
+      <div class="site-header__logo"><img :src="logo" alt="Logo" /></div>
       <div class="site-header__right">
         <slot name="right"></slot>
       </div>
@@ -33,7 +33,8 @@ export default {
     },
     /* site logo */
     logo: {
-      type: String
+      type: String,
+      default: require("@@/assets/img/brand/makesense-logo.png")
     },
     user: {
       type: String
@@ -42,11 +43,11 @@ export default {
   data() {},
   methods: {
     logout: function() {
-      this.$api.Auth.logout();
-      this.$router.push("home");
+      // this.$api.Auth.logout();
+      // this.$router.push("home");
     },
     openMenu: function() {
-      this.$store.commit("nav/showSidebar");
+      // this.$store.commit("nav/showSidebar");
     }
   }
 };
@@ -56,10 +57,10 @@ export default {
 <docs>
 ```jsx
 
-<site-header>
+<mks-site-header>
   <template v-slot:left>left</template> 
-  <template v-slot:right><mks-app-lang :langs="['fr', 'en', 'es']" active="fr"></mks-app-lang></template>
-</site-header>
+  <template v-slot:right><mks-lang-picker :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker></template>
+</mks-site-header>
 
 ```
 </docs>
