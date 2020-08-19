@@ -4,46 +4,13 @@
       <slot name="top-bar"></slot>
     </div>
     <div class="site-header__bar">
-      <div class="site-header__user">
-        <mks-avatar></mks-avatar>
-        <AthText
-          :utils="[
-            'margin-left-default font-weight-bold font-size-small',
-            {
-              'color-default-reverse':
-                $route.meta.headerTranslucent && !$store.state.app.headerFixed
-            }
-          ]"
-          >{{ user }}</AthText
-        >
-        <div>
-          <AthText
-            tag="span"
-            :utils="[
-              'margin-left-default font-weight-light font-size-xsmall',
-              {
-                'color-default-reverse':
-                  $route.meta.headerTranslucent && !$store.state.app.headerFixed
-              }
-            ]"
-            >{{ __("Pas vous ?") }}</AthText
-          >
-          <mks-button
-            @click="$emit($logout)"
-            variation="link"
-            :utils="[
-              'font-weight-light font-size-xsmall',
-              {
-                'color-default-reverse':
-                  $route.meta.headerTranslucent && !$store.state.app.headerFixed
-              }
-            ]"
-            >{{ __("Déconnexion") }}</mks-button
-          >
-        </div>
+      <div class="site-header__left">
+        <slot name="left"></slot>
       </div>
       <div class="site-header__logo">{{ logo }}</div>
-      <div class="site-header__i18n">FR EN ES</div>
+      <div class="site-header__right">
+        <slot name="right"></slot>
+      </div>
     </div>
 
     <nav class="site-header__menu">
@@ -89,7 +56,10 @@ export default {
 <docs>
 ```jsx
 
-<site-header></site-header>
+<site-header>
+  <template v-slot:left>left</template> 
+  <template v-slot:right><mks-app-lang :langs="['fr', 'en', 'es']" active="fr"></mks-app-lang></template>
+</site-header>
 
 ```
 </docs>
