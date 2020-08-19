@@ -13,14 +13,9 @@
       </div>
     </div>
 
-    <nav class="site-header__menu">
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-      </ul>
-    </nav>
-    <div class="site-header__sidebar-control">---</div>
+    <mks-bean-menu class="site-header__menu" :links="menuLinks"></mks-bean-menu>
+
+    <div class="site-header__sidebar-control">Sidebar control</div>
   </header>
 </template>
 <script>
@@ -38,9 +33,11 @@ export default {
     },
     user: {
       type: String
+    },
+    menuLinks: {
+      type: Array
     }
   },
-  data() {},
   methods: {
     logout: function() {
       // this.$api.Auth.logout();
@@ -57,7 +54,7 @@ export default {
 <docs>
 ```jsx
 
-<mks-site-header>
+<mks-site-header :menu-links="[{label: 'Agenda', to: 'https://google.com'}, {tag: 'router-link', label: 'Jouer', to: { path: '/jouer' }}]">
   <template v-slot:left>left</template> 
   <template v-slot:right><mks-lang-picker :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker></template>
 </mks-site-header>

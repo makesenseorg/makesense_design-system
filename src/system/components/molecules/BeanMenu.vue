@@ -1,7 +1,12 @@
 <template>
   <nav class="bean-menu">
     <mks-horizontal-list tag="ul" class="bean-menu__list">
-      <li class="bean-menu__item" v-for="link in links" :key="link.label">
+      <li
+        class="bean-menu__item"
+        v-for="link in links"
+        :key="link.label"
+        @click="$emit('click', link)"
+      >
         <!--todo: remove link active-->
         <router-link
           v-if="link.tag === 'router-link'"
@@ -27,6 +32,9 @@
   </nav>
 </template>
 <script>
+/**
+ * Menu used in the site header. Can be internal or external links
+ */
 export default {
   name: "MksBeanMenu",
   props: {
@@ -40,6 +48,10 @@ export default {
     }
   }
 };
+/**
+ * Returns the link object that was clicked
+ * @event click
+ */
 </script>
 
 <style lang="scss" scoped>
