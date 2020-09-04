@@ -20,7 +20,7 @@ jobs:
         with:
           diff-search: true
           token: ${{ secrets.GITHUB_TOKEN }}
-          assume-same-version: new
+          assume-same-version: old
       - name: Version is unchanged
         if: steps.check.outputs.changed != 'true'
         run: 'echo "No version change in package.json :/"'
