@@ -8,7 +8,8 @@ jobs:
     name: Check if version changed
     runs-on: ubuntu-latest
     outputs:
-      check: ${{ steps.check.outputs.changed }}
+      changed: ${{ steps.check.outputs.changed }}
+      version: ${{ steps.check.outputs.version }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@master
