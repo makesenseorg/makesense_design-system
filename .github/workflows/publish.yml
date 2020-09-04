@@ -4,7 +4,24 @@ on:
     branches:
       - master
 jobs:
+  build:
+    name: Build 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - name: Set up Node.js
+        uses: actions/setup-node@master
+        with:
+          registry-url: "https://registry.npmjs.org"
+        with:
+          node-version: 10.19.0
+
+      - name: Build
+        run: yarn build:lib
+
   check:
+    needs: build
     name: Check if version changed
     runs-on: ubuntu-latest
     steps:
@@ -13,23 +30,37 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@master
         with:
+          registry-url: "https://registry.npmjs.org"
+        with:
           node-version: 10.19.0
       - name: Check version
         id: check # This will be the reference for getting the outputs.
         uses: EndBug/version-check@v1 # You can choose the version/branch you prefer.
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          file-url: https://www.npmjs.com/package/@makesenseorg/design-system
+          file-url: https://unpkg.com/@makesenseorg/design-system
           static-checking: localIsNew
       - name: Version is unchanged
         if: steps.check.outputs.changed != 'true'
         run: 'echo "No version change in package.json :/"'
+      - name: Version update detected
+        if: steps.check.outputs.changed == 'true'
+        run: 'echo "Version change found! New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'
+
   publish:
     needs: check
     if: needs.check.outputs.changed == 'true'
-    name: Build and publish to npm
+    name: Publish to npm
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - name: Set up Node.js
+        uses: actions/setup-node@master
+        with:
+          registry-url: "https://registry.npmjs.org"
+        with:
+          node-version: 10.19.0
       - name: Create tag
         run: |
           git tag -a v${{needs.job1.outputs.version}}
@@ -40,3 +71,5 @@ jobs:
 
       - name: Publish to npm
         run: yarn publish --non-interactive --new-version ${{needs.job1.outputs.version}}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
