@@ -47,6 +47,8 @@ jobs:
           node-version: 10.19.0
       - name: Create tag
         run: |
+          git config --global user.email "digitale@makesense.org"
+          git config --global user.name "GitHub Action"
           git tag -a v${{needs.job1.outputs.version}}
           git push origin v${{needs.job1.outputs.version}}
 
