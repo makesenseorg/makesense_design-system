@@ -5,7 +5,7 @@ on:
       - master
 jobs:
   build:
-    name: Build 
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -14,7 +14,6 @@ jobs:
         uses: actions/setup-node@master
         with:
           registry-url: "https://registry.npmjs.org"
-        with:
           node-version: 10.19.0
 
       - name: Build
@@ -31,7 +30,6 @@ jobs:
         uses: actions/setup-node@master
         with:
           registry-url: "https://registry.npmjs.org"
-        with:
           node-version: 10.19.0
       - name: Check version
         id: check # This will be the reference for getting the outputs.
