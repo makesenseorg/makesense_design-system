@@ -4,8 +4,8 @@ on:
     branches:
       - master
 jobs:
-  publish:
-    name: Build and publish to npm
+  check:
+    name: Check if version changed
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -14,15 +14,29 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: 10.19.0
+      - name: Check version
+        id: check # This will be the reference for getting the outputs.
+        uses: EndBug/version-check@v1 # You can choose the version/branch you prefer.
+        with:
+          diff-search: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          assume-same-version: new
+      - name: Version is unchanged
+        if: steps.check.outputs.changed != 'true'
+        run: 'echo "No version change in package.json :/"'
+  publish:
+    needs: check
+    if: needs.check.outputs.changed == 'true'
+    name: Build and publish to npm
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create tag
+        run: |
+          git tag -a v${{needs.job1.outputs.version}}
+          git push origin v${{needs.job1.outputs.version}}
+
       - name: Install dependencies
         run: yarn install
-      - name: Publish if version has been updated
-        uses: pascalgn/npm-publish-action@master
-        with: # All of theses inputs are optional
-          tag_name: "v%s"
-          tag_message: "v%s"
-          commit_pattern: '".*"'
-          workspace: "."
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # Setup in the repo settings
+
+      - name: Publish to npm
+        run: yarn publish --non-interactive --new-version ${{needs.job1.outputs.version}}
