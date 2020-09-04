@@ -14,6 +14,8 @@ jobs:
       uses: actions/setup-node@master
       with:
         node-version: 10.19.0
+    - name: Install dependencies
+      run: yarn install
     - name: Publish if version has been updated
       uses: pascalgn/npm-publish-action@master
       with: # All of theses inputs are optional
