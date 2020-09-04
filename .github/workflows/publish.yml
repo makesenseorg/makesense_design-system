@@ -20,7 +20,7 @@ jobs:
         uses: EndBug/version-check@v1 # You can choose the version/branch you prefer.
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          file-url: https://unpkg.com/@makesenseorg/design-system
+          file-url: https://unpkg.com/@makesenseorg/design-system/package.json
           static-checking: localIsNew
       - name: Version is unchanged
         if: steps.check.outputs.changed != 'true'
