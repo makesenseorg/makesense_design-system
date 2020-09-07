@@ -82,13 +82,13 @@ export default {
       }
     },
     /**
-     * Size of the button. "default", "small", "full"
+     * Size of the button. "default", "small", "full", "round"
      */
     size: {
       type: String,
       default: "default",
       validator: function(value) {
-        return ["default", "small", "full"].indexOf(value) !== -1;
+        return ["default", "small", "full", "round"].indexOf(value) !== -1;
       }
     }
   },
@@ -126,6 +126,22 @@ export default {
 
   &--size-full {
     width: 100%;
+    text-align: center;
+  }
+
+  &--size-round {
+    @include title-small;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 1.25rem;
+    user-select: none;
+    border-radius: $border-radius-circle;
+    padding-right: 0;
+    padding-left: 0;
+    width: $space-xxl;
+    height: $space-xxl;
     text-align: center;
   }
 
@@ -255,6 +271,7 @@ button {
 
 ## Sizes
 ```jsx
+    <mks-button size="round"><mks-icon type="menu"></mks-icon></mks-button>
     <mks-button size="small">Button small</mks-button>
     <br>
     <mks-button size="default">Button normal</mks-button>
