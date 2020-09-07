@@ -7,7 +7,9 @@
       <div class="site-header__left">
         <slot name="left"></slot>
       </div>
-      <div class="site-header__logo"><img :src="logo" alt="Logo" /></div>
+      <div class="site-header__logo">
+        <img :src="logo" alt="Logo" />
+      </div>
       <div class="site-header__right">
         <slot name="right"></slot>
       </div>
@@ -56,7 +58,9 @@ export default {
 
 <mks-site-header :menu-links="[{label: 'Agenda', to: 'https://google.com'}, {tag: 'router-link', label: 'Jouer', to: { path: '/jouer' }}]">
   <template v-slot:left>left</template> 
-  <template v-slot:right><mks-lang-picker :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker></template>
+  <template v-slot:right>
+  <mks-lang-picker :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+</template>
 </mks-site-header>
 
 ```
