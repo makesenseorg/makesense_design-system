@@ -444,7 +444,7 @@ export default {
     if (this.foldDefault) this.foldingOpen = true;
   },
   mounted() {
-    if (this.type === "editor") this.component = () => import(`./fieldEditor`);
+    if (this.type === "editor") this.component = () => import(`./FieldEditor`);
   }
 };
 </script>
