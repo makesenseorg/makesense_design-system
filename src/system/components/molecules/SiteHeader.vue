@@ -7,9 +7,12 @@
       <div class="site-header__left">
         <slot name="left"></slot>
       </div>
-      <div class="site-header__logo">
-        <img :src="logo" alt="Logo" />
-      </div>
+      <router-link to="/" class="site-header__main-content">
+        <div class="site-header__logo">
+          <img :src="logo" alt="Logo" />
+        </div>
+      </router-link>
+
       <div class="site-header__right">
         <slot name="right"></slot>
       </div>
@@ -51,7 +54,37 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.site-header {
+  &__bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: space-between;
+    box-shadow: $box-shadow-base;
+    border-bottom: $border-width-m solid $border-color-base;
+    padding: $space-s $space-base $space-s $space-base;
+    z-index: $z-index-page-header;
+  }
+
+  &__logo {
+    max-width: 180px;
+  }
+
+  &__main-content {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    -ms-flex: 1 1 auto;
+  }
+
+  &__extra,
+  &__nav {
+    display: none;
+  }
+}
+</style>
 
 <docs>
 ```jsx
