@@ -7,26 +7,8 @@
         :key="link.label"
         @click="$emit('click', link)"
       >
-        <!--todo: remove link active-->
-        <router-link
-          v-if="link.tag === 'router-link'"
-          :to="link.to"
-          class="bean-menu__link "
-          >{{ link.label }}</router-link
-        >
-        <nuxt-link
-          v-else-if="link.tag === 'nuxt-link'"
-          :to="link.to"
-          class="bean-menu__link"
-          >{{ link.label }}</nuxt-link
-        >
-        <a
-          v-else
-          :href="link.to"
-          class="bean-menu__link link-active"
-          target="_blank"
-          >{{ link.label }}</a
-        >
+        <!--todo: replace by link component-->
+        <mks-link :to="link.to" type="menu" class>{{ link.label }}</mks-link>
       </li>
     </mks-horizontal-list>
   </nav>
@@ -40,7 +22,7 @@ export default {
   props: {
     /**
      ** Array of links.
-     ** Each link must contain {string} label, {string | object} to, {string} tag ('a', 'router-link', 'nuxt-link')
+     ** Each link must contain {string} label, {string | object} to
      */
     links: {
       type: Array,
@@ -63,6 +45,10 @@ export default {
   padding: $space-base $space-x-large;
   border-radius: $border-radius-full;
   z-index: 1;
+}
+
+.bean-menu__item {
+  @include text-large-black;
 }
 
 .bean-menu__link {
@@ -91,6 +77,6 @@ export default {
 <docs>
 
 ```jsx
-<mks-bean-menu :links="[{label: 'Agenda', to: 'https://google.com'}, {tag: 'router-link', label: 'Jouer', to: { path: '/jouer' }}]"></mks-bean-menu>
+<mks-bean-menu v-bind:links="[{label: 'Home', to: '/'}, {label: 'Bean Menu', to: '/molecules/mksbeanmenu'}, {label: 'External', to: 'https://google.com'}]"></mks-bean-menu>
 ```
 </docs>
