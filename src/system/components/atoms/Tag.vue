@@ -76,7 +76,7 @@ export default {
       type: String,
       required: false,
       validator: function(value) {
-        return ["close", "check"].indexOf(value) !== -1;
+        return ["x", "check"].indexOf(value) !== -1;
       }
     },
     /**
