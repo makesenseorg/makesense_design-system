@@ -48,7 +48,7 @@ export default {
 }
 
 .bean-menu__item {
-  @include text-large-black;
+  @include text-body-black;
 }
 
 .bean-menu__link {
