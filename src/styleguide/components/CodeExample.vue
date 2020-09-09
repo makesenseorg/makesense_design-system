@@ -100,7 +100,7 @@ $codemirror-background: $background-color-soft;
 $codemirror-primary: $color-primary;
 
 .cm-s-vueds {
-  font-size: 1em;
+  font-size: $font-size-s;
   line-height: 1.5em;
   font-family: $font-code;
   letter-spacing: 0.3px;
