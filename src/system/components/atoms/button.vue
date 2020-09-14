@@ -1,18 +1,31 @@
 <template>
   <component
     :is="tag"
-    :class="`button button--color-${type} button--size-${size}`"
+    :class="[
+      `button button--color-${type} button--size-${size}`,
+      { 'button--loading': loading }
+    ]"
     @click="onClick"
     :type="inputType"
     :disabled="disabled"
+    ref="container"
+    :style="{
+      minWidth: $slots.loading === undefined ? minWidth + 'px' : 'auto'
+    }"
   >
     <!-- @slot Content of the button-->
     <slot v-if="!loading" />
     <!-- @slot Content of the button when `loading` prop is true -->
-    <slot v-else name="loading">Processing...</slot>
+    <slot v-else name="loading">
+      <mks-loading
+        type="standalone"
+        :inline="true"
+        color="#fff"
+        :size="20"
+      ></mks-loading>
+    </slot>
   </component>
 </template>
-
 <script>
 /**
  * Buttons can be used for any action or inner link.
@@ -90,6 +103,14 @@ export default {
       }
     }
   },
+  data: function() {
+    return {
+      minWidth: 0
+    };
+  },
+  mounted() {
+    this.updateMinWidth();
+  },
   methods: {
     onClick() {
       /**
@@ -98,6 +119,17 @@ export default {
        * @event click
        */
       this.$emit("click");
+    },
+    updateMinWidth() {
+      this.$nextTick(function() {
+        var container = this.$refs.container;
+        this.minWidth = container.offsetWidth;
+      });
+    }
+  },
+  watch: {
+    "$slots.default.text": function() {
+      this.updateMinWidth();
     }
   }
 };
@@ -119,6 +151,7 @@ export default {
   border-style: solid;
   text-decoration: none !important;
   transition: background-color 0.2s, border-color 0.2s;
+  text-align: center;
 
   &:hover {
     background-color: $color-primary-active;
@@ -209,6 +242,10 @@ export default {
     cursor: default;
     pointer-events: none;
   }
+
+  &--loading {
+    opacity: 0.7;
+  }
 }
 
 button {
@@ -243,6 +280,14 @@ button {
     <mks-button v-bind:loading="true">
         Load 
         <template v-slot:loading>Loading...</template>
+    </mks-button>
+    <br>
+    <mks-button v-bind:loading="true">
+        Load 
+    </mks-button>
+    <br>
+    <mks-button v-bind:loading="true" size="small">
+        Load 
     </mks-button>
   ```
 </docs>
