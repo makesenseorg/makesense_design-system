@@ -105,11 +105,29 @@ export default {
   },
   data: function() {
     return {
-      minWidth: 0
+      minWidth: 0,
+      observer: null
     };
   },
   mounted() {
     this.updateMinWidth();
+
+    this.observer = new MutationObserver(
+      function(mutations) {
+        this.updateMinWidth();
+      }.bind(this)
+    );
+
+    this.observer.observe(this.$refs.container, {
+      attributes: true,
+      childList: true,
+      characterData: true,
+      subtree: true
+    });
+  },
+  beforeDestroy: function() {
+    // Clean up
+    this.observer.disconnect();
   },
   methods: {
     onClick() {
@@ -125,11 +143,6 @@ export default {
         var container = this.$refs.container;
         this.minWidth = container.offsetWidth;
       });
-    }
-  },
-  watch: {
-    "$slots.default.text": function() {
-      this.updateMinWidth();
     }
   }
 };
