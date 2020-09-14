@@ -112,11 +112,9 @@ export default {
   mounted() {
     this.updateMinWidth();
 
-    this.observer = new MutationObserver(
-      function(mutations) {
-        this.updateMinWidth();
-      }.bind(this)
-    );
+    this.observer = new MutationObserver(() => {
+      this.updateMinWidth();
+    });
 
     this.observer.observe(this.$refs.container, {
       attributes: true,
