@@ -9,8 +9,6 @@ Living styleguide demo: https://makesense-design-system.netlify.com
 ### 1. Add as a dependency
 
 ```
-yarn add @makesenseorg/design-system
-// or
 npm i @makesenseorg/design-system
 ```
 
@@ -87,8 +85,6 @@ You're done! You can now use the components, mixins, scss variables.
 ### 1. Add as a dependency
 
 ```
-yarn add @makesenseorg/design-system
-// or
 npm i @makesenseorg/design-system
 ```
 
@@ -146,7 +142,7 @@ You're done! You can now use the components, mixins, scss variables.
 ## Contributing
 
 ```
-yarn install
+npm install
 ```
 
 ### Developing
@@ -154,7 +150,7 @@ yarn install
 Compiles and hot-reloads living styleguide
 
 ```
-yarn dev
+npm run dev
 ```
 
 ### Building
@@ -164,7 +160,7 @@ yarn dev
 Compiles living styleguide to `./docs`
 
 ```
-yarn build
+npm run build
 ```
 
 #### Library
@@ -172,7 +168,7 @@ yarn build
 Compiles design system as a library to `./dist`
 
 ```
-yarn build:lib
+npm run build:lib
 ```
 
 ### Helper
@@ -182,13 +178,13 @@ yarn build:lib
 for example to develop on another application with a newer version of the styleguide
 
 ```
-yarn serve
+npm run serve
 ```
 
 #### Lints and fixes files
 
 ```
-yarn lint
+npm run lint
 ```
 
 ### Publishing
@@ -197,11 +193,12 @@ The repo is automatically publish when the version is updated and pushed to mast
 
 ## Semantic versioning rules
 
-| Code status | Stage | Rule | Example version |
-| First release | New product | Start with 1.0.0 | 1.0.0 |
-| Backward compatible bug fixes | Patch release | Increment the third digit | 1.0.1 |
-| Backward compatible new features | Minor release | Increment the middle digit and reset last digit to zero | 1.1.0 |
-| Changes that break backward compatibility | Major release | Increment the first digit and reset middle and last digits to zero | 2.0.0 |
+| Code status                               | Stage         | Rule                                                               | Example version |
+| ----------------------------------------- | ------------- | ------------------------------------------------------------------ | --------------- |
+| First release                             | New product   | Start with 1.0.0                                                   | 1.0.0           |
+| Backward compatible bug fixes             | Patch release | Increment the third digit                                          | 1.0.1           |
+| Backward compatible new features          | Minor release | Increment the middle digit and reset last digit to zero            | 1.1.0           |
+| Changes that break backward compatibility | Major release | Increment the first digit and reset middle and last digits to zero | 2.0.0           |
 
 ## Thanks
 
