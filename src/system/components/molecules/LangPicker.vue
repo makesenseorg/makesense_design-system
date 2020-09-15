@@ -16,24 +16,31 @@
 
 <script>
 /**
- * Returns the langage selected
- *
- * @event select
- * @property {string} langage selected
+ * Displays list of available language and shows current one.
+ * @version 0.2.0
  */
 export default {
   name: "MksLangPicker",
+  release: "0.2.0",
   props: {
+    /** Array of languages */
     langs: {
       type: Array,
       required: true
     },
+    /** Active item */
     active: {
       type: String,
       required: true
     }
   }
 };
+/**
+ * Returns the selected language
+ *
+ * @event select
+ * @property {string} language selected
+ */
 </script>
 
 <style lang="scss" scoped>

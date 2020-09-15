@@ -4,8 +4,13 @@
   </component>
 </template>
 <script>
+/**
+ * Displays items in a horizontal line
+ * @version 0.2.0
+ */
 export default {
   name: "MksHorizontalList",
+  release: "0.2.0",
   props: {
     tag: {
       type: String,
@@ -29,3 +34,16 @@ export default {
   }
 }
 </style>
+<docs>
+
+```jsx
+<mks-horizontal-list>
+  <mks-tag>Tag 1</mks-tag>
+  <mks-tag>Tag 2</mks-tag>
+  <mks-tag>Tag 3</mks-tag>
+</mks-horizontal-list>
+
+```
+
+
+</docs>

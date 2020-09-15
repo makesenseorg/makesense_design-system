@@ -12,10 +12,8 @@
 </template>
 <script>
 /**
- * The link can link to internal or external pages. It automatically detects an external link if it starts with "http", "//" or "www".
- * If it is an internal link, it automatically detects if the app is Vue or Nuxt and uses either <router-link> or <nuxt-link>.
- * If you add a title attribute, it will be inherited.
- * @version 1.0.0
+ * Link to internal pages or external pages
+ * @version 0.2.0
  */
 
 export default {
@@ -26,6 +24,7 @@ export default {
       required: true,
       default: "/"
     },
+    /** For usage in the BeanMenu, adds styling when active link. */
     type: {
       type: String
     }
@@ -60,6 +59,7 @@ export default {
   &.nuxt-link-exact-active {
     @include text-body-black;
     color: $color-primary;
+    border-color: $color-primary;
   }
 
   &--menu {
@@ -91,11 +91,35 @@ export default {
 </style>
 <docs>
 
+## External links 
+
+The component automatically detects an external link if it starts with <code>http</code>, <code>//</code> or <code>www</code>.
+
+If you add a <code>title</code> attribute, it will be inherited.
+
 ```jsx
 
-<mks-link to="https://google.com" title="Search for something">An external link</mks-link><br>
-<mks-link to="/design-tokens">An internal link with string</mks-link><br>
-<mks-link v-bind:to="{ name: 'Usage'}">An internal link with object</mks-link>
+<mks-link to="https://google.com" title="Search for something">An external link</mks-link>
 
+```
+
+
+## Internal links
+
+If it is an internal link, it automatically detects if the app is Vue or Nuxt and uses either <code>&lt;router-link&gt; </code> or <code>&lt;nuxt-link&gt;</code>.
+
+```jsx
+<mks-link to="/design-tokens">An internal link with string</mks-link>
+<br><br>
+<mks-link v-bind:to="{ name: 'Usage'}">An internal link with object</mks-link>
+```
+
+## Active page
+
+If the link is internal and refers to the current page, styling is applied.
+
+```jsx
+<mks-link to="/atoms/mkslink">An active link</mks-link>
+<mks-link to="/atoms/mkslink" type="menu">An active menu link</mks-link>
 ```
 </docs>

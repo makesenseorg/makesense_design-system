@@ -7,10 +7,12 @@
     }"
   >
     <div v-if="$slots['top-bar']" class="site-header__top-bar">
+      <!-- @slot Displays content above the header -->
       <slot name="top-bar"></slot>
     </div>
     <div class="site-header__bar">
       <div class="site-header__extra site-header__extra--left">
+        <!-- @slot Displays content on the left of the bar -->
         <slot name="left"></slot>
       </div>
       <router-link to="/" class="site-header__main-content">
@@ -20,6 +22,7 @@
       </router-link>
 
       <div class="site-header__extra site-header__extra--right">
+        <!-- @slot Displays content on the right of the bar -->
         <slot name="right"></slot>
       </div>
     </div>
@@ -34,44 +37,36 @@
   </header>
 </template>
 <script>
+/**
+ * Site header with menu, sidebar control and top bar slot.
+ */
 export default {
   name: "MksSiteHeader",
+  release: "0.2.0",
   props: {
-    /* header background color */
-    theme: {
-      type: String
-    },
-    /* site logo */
+    /** Site logo */
     logo: {
       type: String,
       default: require("@@/assets/img/brand/makesense-logo.png")
     },
-    user: {
-      type: String
-    },
+    /** Array of links object */
     menuLinks: {
       type: Array
     },
+    /** Display sidebar control */
     sidebar: {
       type: Boolean,
       default: true
     },
+    /** Removes background and positions absolulely to top of container */
     translucent: {
       type: Boolean,
       default: false
     },
+    /** Fixes on top of the viewport */
     fixed: {
       type: Boolean,
       default: false
-    }
-  },
-  methods: {
-    logout: function() {
-      // this.$api.Auth.logout();
-      // this.$router.push("home");
-    },
-    openMenu: function() {
-      // this.$store.commit("nav/showSidebar");
     }
   }
 };
@@ -182,7 +177,12 @@ export default {
 </style>
 
 <docs>
+
 ## Basic site header
+
+The header takes a <code>menu-links</code> prop with an array of links items (<mks-link to="/atoms/mkslink">see link component</mks-link>)
+
+It has three slots : left, right and top-bar.
 
 ```jsx
 
@@ -192,12 +192,23 @@ export default {
 
 ```
 
-## Site header with top bar and custom logo
+## Top bar
+
+```jsx
+<mks-site-header v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" >
+  <mks-alert slot="top-bar" type="positive">An ad or important message can be placed here, the component just needs a background.</mks-alert>
+  <mks-lang-picker slot="right" :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+</mks-site-header>
+
+```
+
+## Custom logo
+
+The logo is makesense logo by default but can be customized with an URL.
 
 ```jsx
 <mks-button v-on:click="$loadTheme('events')" size="small">Match theme to logo</mks-button><br>
 <mks-site-header v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" logo="https://events.makesense.org/static/img/logo.6e3c1fd.svg">
-  <mks-alert slot="top-bar" type="positive">An ad or important message can be placed here, the component just needs a background.</mks-alert>
   <mks-lang-picker slot="right" :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
 </mks-site-header>
 
@@ -205,6 +216,10 @@ export default {
 
 
 ## Translucent header
+
+The header can appear <code>translucent</code> by setting the prop to <code>true</code>. 
+
+It is then positionned absolutely above the content and has no background.
 
 ⚠️ Always use the translucent header wrapped inside an element with relative positioning if you don't want it to the top of the viewport
 
@@ -218,6 +233,8 @@ export default {
 ```
 
 ## Fixed header
+
+The header can be fixed to the top of the viewport (for example on scroll), by setting the <code>fixed</code> attribute to <code>true</code>
 
 <mks-alert type="positive">
 <mks-text weight="bold" align="center">Update the `fixed` attribute to `true` in the template below ⬇</mks-text>

@@ -6,12 +6,13 @@
 </template>
 <script>
 /**
- * A round avatar.
+ * A round avatar. It will display a solid color while image loads or if none is provided.
  * TODO: add elevated, solid color shadows,
- * @version 1.0.0
+ * @version 0.2.0
  */
 export default {
   name: "MksAvatar",
+  release: "0.2.0",
   props: {
     /** Url of the image  */
     image: {
@@ -21,7 +22,10 @@ export default {
     size: {
       type: String,
       required: false,
-      default: "medium"
+      default: "medium",
+      validator: function(value) {
+        return ["small", "medium", "large"].indexOf(value) !== -1;
+      }
     }
   }
 };

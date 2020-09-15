@@ -157,7 +157,7 @@ export default {
 }
 </style>
 <docs>
-## Default icons
+## Feather icons (default)
 List of all available icons : https://feathericons.com/
 
 Some examples :
@@ -187,7 +187,9 @@ Some examples :
 ```
 
 ## Font Awesome icons 
-Font awesome icons are still available. Here are the available ones : 
+Font awesome icons are still available. However you have to specify to use the font-awesome library. 
+
+Only these ones are available as of now : 
 
 ```jsx
 <p>

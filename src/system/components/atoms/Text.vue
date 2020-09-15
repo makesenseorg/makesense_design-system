@@ -12,16 +12,16 @@
 
 <script>
 /**
- * Text are used everywhere in the interface.
- * Text element provides an option to change the type of tag.
+ * For displaying small, normal or large texts.
+ *  @version 0.2.0
  */
 export default {
   name: "MksText",
   status: "prototype",
-  release: "0.1.0",
+  release: "0.2.0",
   props: {
     /**
-     * The tag used for the title, also heading level.
+     * The tag used for the text
      * values:"p",
             "span",
             "div",
@@ -58,7 +58,7 @@ export default {
         );
       }
     },
-    /** normal / bold */
+    /** The weight of the font. Either "normal" or "bold" */
     weight: {
       type: String,
       default: "normal",
