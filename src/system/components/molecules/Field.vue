@@ -55,7 +55,8 @@
       :placeholder="placeholder"
       :class="getCss"
       @focus="$emit('focus')"
-      @blur="$emit('blur')"
+      @blur="onBlur"
+      @selection-change="onSelectionChange"
       @change="$emit('change')"
     />
     <textarea
@@ -373,6 +374,10 @@ export default {
       this.$refs.tagField.value = "";
     },
 
+    onBlur: function() {
+      this.$emit("blur");
+    },
+
     setPlace: function(address) {
       var data = {
         formattedAddress: address.formatted_address,
@@ -435,7 +440,7 @@ export default {
       if (!!this.theValue && this.theValue.formattedAddress !== undefined)
         return this.theValue.formattedAddress;
 
-      return "";
+      return this.theValue;
     }
   },
   created() {

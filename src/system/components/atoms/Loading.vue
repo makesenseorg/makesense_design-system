@@ -1,6 +1,29 @@
 <template>
   <div :class="['loading', 'loading--' + type, { 'loading--inline': inline }]">
-    <svg-loading class="loading__svg" :width="size" />
+    <svg
+      class="loading__svg"
+      :width="size"
+      :height="size"
+      viewBox="-3 -3 44 44"
+      xmlns="http://www.w3.org/2000/svg"
+      :stroke="color"
+    >
+      <g fill="none" fill-rule="evenodd">
+        <g transform="translate(1 1)" :stroke-width="size < 25 ? 5 : 3">
+          <circle stroke-opacity="0.5" cx="18" cy="18" r="18" :stroke="color" />
+          <path d="M36 18c0-9.94-8.06-18-18-18">
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              from="0 18 18"
+              to="360 18 18"
+              dur="1s"
+              repeatCount="indefinite"
+            />
+          </path>
+        </g>
+      </g>
+    </svg>
     <div class="loading__progress" v-if="progress !== -1">
       {{ getProgress() }}%
     </div>
@@ -52,6 +75,13 @@ export default {
     inline: {
       type: Boolean,
       default: false
+    },
+    /**
+     * Color
+     */
+    color: {
+      type: String,
+      default: "#3c4858"
     }
   },
   methods: {
@@ -107,7 +137,7 @@ export default {
 ## Component loading
 
 ```jsx
-<mks-loading type="component" />
+<mks-loading type="component" color="#ff0000" />
 ```
 
 ## Standalone loading

@@ -1,6 +1,6 @@
 {
   "name": "@makesenseorg/design-system",
-  "version": "0.1.42",
+  "version": "0.1.50",
   "scripts": {
     "serve": "http-server ./docs -o -s",
     "build": "yarn theo && vue-cli-service build",
@@ -25,7 +25,8 @@
     "reset-css": "^5.0.1",
     "vue": "^2.5.17",
     "vue-feather": "^1.0.1",
-    "vue2-editor": "^2.10.2"
+    "vue2-editor": "^2.10.2",
+    "vue2-google-maps": "^0.10.7"
   },
   "devDependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
