@@ -1,0 +1,61 @@
+<template>
+  <ul class="app-lang">
+    <li v-for="lang in langs" :key="lang" class="app-lang__item">
+      <mks-button
+        :class="{
+          'app-lang__button': true,
+          'app-lang__button--active': lang === active
+        }"
+        :type="lang === active ? 'text-active' : 'text'"
+        @click="$emit('select', lang)"
+        >{{ lang }}</mks-button
+      >
+    </li>
+  </ul>
+</template>
+
+<script>
+/**
+ * Displays list of available language and shows current one.
+ * @version 0.2.0
+ */
+export default {
+  name: "MksLangPicker",
+  release: "0.2.0",
+  props: {
+    /** Array of languages */
+    langs: {
+      type: Array,
+      required: true
+    },
+    /** Active item */
+    active: {
+      type: String,
+      required: true
+    }
+  }
+};
+/**
+ * Returns the selected language
+ *
+ * @event select
+ * @property {string} language selected
+ */
+</script>
+
+<style lang="scss" scoped>
+.app-lang {
+  display: flex;
+}
+.app-lang__item {
+  margin-right: $space-small;
+}
+</style>
+
+<docs>
+```jsx
+
+<mks-lang-picker :langs="['fr', 'en', 'es']" active="en"></mks-lang-picker>
+
+```
+</docs>

@@ -1,7 +1,7 @@
 ## 1. Add as a dependency
 
 ```
-yarn add @makesenseorg/design-system
+npm i @makesenseorg/design-system
 ```
 
 or

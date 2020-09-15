@@ -21,10 +21,10 @@ export default {
     },
     {
       name: "Molecules"
+    },
+    {
+      name: "Layouts"
     }
-    // {
-    //   name: "Layout"
-    // },
     // {
     //   name: "Typography"
     // },

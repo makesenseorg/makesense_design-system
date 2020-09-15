@@ -2,7 +2,7 @@
   <component
     :is="tag"
     :class="[
-      `button button--color-${type} button--size-${size}`,
+      `button button--type-${type} button--size-${size}`,
       { 'button--loading': loading }
     ]"
     @click="onClick"
@@ -87,19 +87,21 @@ export default {
             "neutral",
             "positive",
             "warning",
-            "negative"
+            "negative",
+            "text",
+            "text-active"
           ].indexOf(value) !== -1
         );
       }
     },
     /**
-     * Color of the button. "default", "small", "full"
+     * Size of the button. "default", "small", "full", "round"
      */
     size: {
       type: String,
       default: "default",
       validator: function(value) {
-        return ["default", "small", "full"].indexOf(value) !== -1;
+        return ["default", "small", "full", "round"].indexOf(value) !== -1;
       }
     }
   },
@@ -154,20 +156,12 @@ export default {
   @include padding-button;
   @include text-body;
   display: inline-block;
-  background-color: $color-primary;
-  color: $color-primary-inverse;
-  border-color: $color-primary;
   font-weight: $font-weight-extrabold; // override text-body
   border-width: $border-width-m;
   border-style: solid;
   text-decoration: none !important;
   transition: background-color 0.2s, border-color 0.2s;
   text-align: center;
-
-  &:hover {
-    background-color: $color-primary-active;
-    border-color: $color-primary-active;
-  }
 
   &--size-small {
     @include border-round;
@@ -179,7 +173,54 @@ export default {
     text-align: center;
   }
 
-  &--color-secondary {
+  &--size-round {
+    @include title-small;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 1.25rem;
+    user-select: none;
+    border-radius: $border-radius-circle;
+    padding-right: 0;
+    padding-left: 0;
+    width: $space-xxl;
+    height: $space-xxl;
+    text-align: center;
+  }
+
+  @mixin type-text {
+    @include text-small;
+    background-color: transparent;
+    text-transform: uppercase;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+
+  &--type-text {
+    @include type-text;
+    font-weight: $font-weight-normal;
+  }
+
+  &--type-text-active {
+    @include type-text;
+    font-weight: $font-weight-black;
+  }
+
+  &--type-primary {
+    background-color: $color-primary;
+    border-color: $color-primary;
+    color: $color-primary-inverse;
+
+    &:hover {
+      background-color: $color-primary-active;
+      border-color: $color-primary-active;
+    }
+  }
+
+  &--type-secondary {
     background-color: $color-secondary;
     border-color: $color-secondary;
     color: $color-secondary-inverse;
@@ -191,7 +232,7 @@ export default {
     }
   }
 
-  &--color-tertiary {
+  &--type-tertiary {
     background-color: $color-tertiary;
     border-color: $color-tertiary;
     color: $color-tertiary-inverse;
@@ -203,7 +244,7 @@ export default {
     }
   }
 
-  &--color-positive {
+  &--type-positive {
     background-color: $color-success;
     border-color: $color-success;
     color: $color-success-inverse;
@@ -214,7 +255,7 @@ export default {
     }
   }
 
-  &--color-warning {
+  &--type-warning {
     background-color: $color-warning;
     border-color: $color-warning;
     color: $color-warning-inverse;
@@ -225,7 +266,7 @@ export default {
     }
   }
 
-  &--color-negative {
+  &--type-negative {
     background-color: $color-danger;
     border-color: $color-danger;
     color: $color-danger-inverse;
@@ -236,7 +277,7 @@ export default {
     }
   }
 
-  &--color-neutral {
+  &--type-neutral {
     background-color: $color-neutral-80;
     border-color: $color-neutral-80;
     color: $color-neutral-20;
@@ -278,6 +319,7 @@ button {
 
 ## Sizes
 ```jsx
+    <mks-button size="round"><mks-icon type="menu"></mks-icon></mks-button>
     <mks-button size="small">Button small</mks-button>
     <br>
     <mks-button size="default">Button normal</mks-button>

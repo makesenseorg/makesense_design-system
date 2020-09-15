@@ -6,7 +6,7 @@
 
 <script>
 /**
- * Le logotype makesense
+ * Logotype of makesense
  * @version 1.0.0
  */
 export default {

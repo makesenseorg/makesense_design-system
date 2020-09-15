@@ -27,8 +27,8 @@
       <slot v-else>{{ name }}</slot>
 
       <div v-if="hasSubmenu" class="ds-menu-item-arrow" @click="toggleSubmenu">
-        <mks-icon v-if="showSubmenu" type="arrowUp"></mks-icon>
-        <mks-icon v-else type="arrowDown"></mks-icon>
+        <mks-icon v-if="showSubmenu" type="arrow-up"></mks-icon>
+        <mks-icon v-else type="arrow-down"></mks-icon>
       </div>
     </component>
     <ul class="ds-menu-item-submenu" v-if="hasSubmenu && showSubmenu">
