@@ -56,6 +56,6 @@ jobs:
         run: npm install
 
       - name: Publish to npm
-        run: npm publish --non-interactive --new-version ${{needs.check.outputs.version}}
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
