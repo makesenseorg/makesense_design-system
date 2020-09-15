@@ -4,7 +4,7 @@
     :class="`tag--color-${color} tag--size-${size} tag--${isCliquable}`"
     @click="onClick"
   >
-    {{ formattedLabel }}
+    <slot>{{ formattedLabel }}</slot>
     <mks-icon v-if="icon" class="tag__icon" :type="icon"></mks-icon>
   </div>
 </template>
@@ -12,7 +12,7 @@
 <script>
 /**
  * Tags are used for small informations or taxonomies.
- * @version 1.0.0
+ * @version 0.1.0
  */
 export default {
   name: "MksTag",
@@ -60,7 +60,7 @@ export default {
      */
     label: {
       type: String,
-      required: true
+      required: false
     },
     /**
      * Should the text be truncated if too long
@@ -76,7 +76,7 @@ export default {
       type: String,
       required: false,
       validator: function(value) {
-        return ["close", "check"].indexOf(value) !== -1;
+        return ["x", "check"].indexOf(value) !== -1;
       }
     },
     /**

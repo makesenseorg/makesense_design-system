@@ -1,16 +1,16 @@
 ## Create your component
 
 1. `git clone https://github.com/makesenseorg/makesense_design-system.git`
-2. `cd makesense_design-system` and `yarn install`
+2. `cd makesense_design-system` and `npm install`
 3. Create a branch `git checkout -b DS-000_my-new-component-name`
 4. Make your changes and commit using descriptive messages, if possible prefixing by JIRA ticket number ie `DS-31: a descriptive message about the component i've just built`
 5. Create a pull request and merge
 
 ## Build and publish the changes
 
-1. Build the component library `yarn build:lib`
+1. Build the component library `npm run build:lib`
 2. Bump the DS version in package.json (see below)
-3. Publish on npm `npm publish`
+3. Merge to master
 
 How to bump the version :
 
@@ -24,4 +24,4 @@ How to bump the version :
 ## Get the changes in the other app
 
 1. Update package.json dependency version
-2. re-install packages `npm install` or `yarn install` depending on project
+2. Re-install packages `npm install` depending on project
