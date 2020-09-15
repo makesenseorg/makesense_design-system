@@ -12,8 +12,8 @@
  */
 export default {
   name: "MksAvatar",
-  /** Url of the image  */
   props: {
+    /** Url of the image  */
     image: {
       type: String
     },
@@ -33,6 +33,7 @@ export default {
   display: inline-block;
   border-radius: $border-radius-full;
   overflow: hidden;
+  background: $background-color-softer;
 
   &--size-small {
     width: 2rem;
@@ -55,7 +56,6 @@ export default {
 }
 .avatar__placeholder {
   display: inline-block;
-  background: $background-color-softer;
   width: 100%;
   height: 100%;
 }
