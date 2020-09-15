@@ -27,9 +27,9 @@
     <mks-bean-menu class="site-header__nav" :links="menuLinks"></mks-bean-menu>
 
     <div v-if="sidebar" class="site-header__sidebar-control">
-      <mks-button size="round" @click="$emit('openSidebar')"
-        ><mks-icon type="menu"></mks-icon
-      ></mks-button>
+      <mks-button size="round" @click="$emit('openSidebar')">
+        <mks-icon type="menu"></mks-icon>
+      </mks-button>
     </div>
   </header>
 </template>
@@ -93,6 +93,17 @@ export default {
     background-color: transparent;
     box-shadow: none;
     border-bottom: none;
+  }
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $background-color-base;
+    box-shadow: $box-shadow-base;
+    animation-duration: 0.4s;
+    animation-name: app-header-slide-in;
   }
 
   &__bar {
@@ -159,6 +170,15 @@ export default {
     transform: translateY(50%);
   }
 }
+
+@keyframes app-header-slide-in {
+  0% {
+    transform: translateY(calc(-100% + 5.5rem * 0.5));
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 </style>
 
 <docs>
@@ -177,7 +197,7 @@ export default {
 ```jsx
 <mks-button v-on:click="$loadTheme('events')" size="small">Match theme to logo</mks-button><br>
 <mks-site-header v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" logo="https://events.makesense.org/static/img/logo.6e3c1fd.svg">
-  <mks-alert slot="top-bar" type="positive">An ad or important message can be placed here, the component juste needs a background.</mks-alert>
+  <mks-alert slot="top-bar" type="positive">An ad or important message can be placed here, the component just needs a background.</mks-alert>
   <mks-lang-picker slot="right" :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
 </mks-site-header>
 
@@ -185,6 +205,8 @@ export default {
 
 
 ## Translucent header
+
+⚠️ Always use the translucent header wrapped inside an element with relative positioning if you don't want it to the top of the viewport
 
 ```jsx
 <div style="position: relative;padding:8rem 0;background:var(--color-secondary);">
@@ -194,4 +216,21 @@ export default {
 </div>
 
 ```
+
+## Fixed header
+
+<mks-alert type="positive">
+<mks-text weight="bold" align="center">Update the `fixed` attribute to `true` in the template below ⬇</mks-text>
+</mks-alert>
+
+```jsx
+
+
+<div style="position: relative;height:8rem;">
+  <mks-site-header v-bind:fixed="false" v-bind:translucent="true" v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" >
+    <mks-lang-picker slot="right" :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+  </mks-site-header>
+</div>
+```
+
 </docs>

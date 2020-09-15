@@ -96,7 +96,7 @@ export default {
      */
     color: {
       type: String,
-      default: "text",
+      default: "inherit",
       required: false,
       validator: function(value) {
         return (
@@ -121,8 +121,10 @@ export default {
 <style lang="scss" scoped>
 .text {
   @include reset;
-  @include text-body;
-  color: $color-text;
+
+  &--color-text {
+    color: text;
+  }
 
   &--color-inherit {
     color: inherit;
@@ -158,6 +160,9 @@ export default {
 
   &--size-small {
     @include text-small;
+  }
+  &--size-normal {
+    @include text-body;
   }
   &--size-large {
     @include text-large;
