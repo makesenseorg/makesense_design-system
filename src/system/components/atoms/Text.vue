@@ -2,7 +2,7 @@
   <component
     :is="tag"
     :class="
-      `text text--color-${color} text--size-${size} text--weight-${weight}`
+      `text text--color-${color} text--size-${size} text--weight-${weight} text--align-${align}`
     "
   >
     <!-- @slot The text passed to the text -->
@@ -64,6 +64,14 @@ export default {
       default: "normal",
       validator: function(value) {
         return ["normal", "bold"].indexOf(value) !== -1;
+      }
+    },
+    /** left / right / center / justify */
+    align: {
+      type: String,
+      default: "left",
+      validator: function(value) {
+        return ["left", "right", "center", "justify"].indexOf(value) !== -1;
       }
     },
     /** small / normal / large */
@@ -154,6 +162,13 @@ export default {
   &--size-large {
     @include text-large;
   }
+
+  $aligns: left, right, center, justify;
+  @each $align in $aligns {
+    &--align-#{$align} {
+      text-align: $align;
+    }
+  }
 }
 .text--size-small.text--weight-bold {
   @include text-small-extrabold;
@@ -189,6 +204,14 @@ export default {
 <br><br>
 <mks-text size="large">The quick brown fox</mks-text><br>
 <mks-text size="large" weight="bold">The quick brown fox</mks-text>
+```
+
+## Alignment
+```jsx
+<mks-text tag="p">Left - The quick brown fox</mks-text>
+<mks-text tag="p" align="center">Center - The quick brown fox</mks-text>
+<mks-text tag="p" align="right">Right - The quick brown fox</mks-text>
+<mks-text tag="p" align="justify">Justify - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</mks-text>
 ```
 
 
