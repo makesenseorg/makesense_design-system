@@ -3,7 +3,11 @@ import VueFeather from "vue-feather";
 
 export default {
   install(Vue) {
-    Vue.use(VueFeather);
+    // prevent error in nuxt js
+    if (typeof document !== "undefined") {
+      Vue.use(VueFeather);
+    }
+
     Vue.mixin({
       methods: {
         $copyToClipboard(content) {
