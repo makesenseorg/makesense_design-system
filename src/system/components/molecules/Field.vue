@@ -36,7 +36,12 @@
       @focus="$emit('focus')"
       @change="$emit('change')"
     >
-      <option v-for="(item, index) in options" :key="index" :value="item.value">{{ item.label }}</option>
+      <option
+        v-for="(item, index) in options"
+        :key="index"
+        :value="item.value"
+        >{{ item.label }}</option
+      >
     </select>
     <component
       v-else-if="type === 'editor'"
@@ -68,7 +73,11 @@
       @blur="$emit('blur')"
       @change="$emit('change')"
     ></textarea>
-    <label v-else-if="type === 'checkbox'" class="checkbox__label" :class="getCss">
+    <label
+      v-else-if="type === 'checkbox'"
+      class="checkbox__label"
+      :class="getCss"
+    >
       <input
         type="checkbox"
         :id="name"
@@ -119,7 +128,7 @@
     </div>
     <input
       v-else
-      class="Field field__input"
+      class="field field__input"
       :id="name"
       :name="name"
       :ref="reference"
@@ -134,8 +143,17 @@
       @focus="$emit('focus')"
       @change="$emit('change')"
     />
-    <mks-icon v-if="type === 'search'" type="search" class="input__search-icon" />
-    <div class="field__description" v-if="description" :class="getCss" v-html="description"></div>
+    <mks-icon
+      v-if="type === 'search'"
+      type="search"
+      class="input__search-icon"
+    />
+    <div
+      class="field__description"
+      v-if="description"
+      :class="getCss"
+      v-html="description"
+    ></div>
   </div>
 </template>
 
@@ -238,7 +256,7 @@ export default {
     type: {
       type: String,
       default: "text",
-      validator: function (value) {
+      validator: function(value) {
         return (
           [
             "text",
@@ -286,14 +304,14 @@ export default {
     editorToolbar: {
       type: Array,
       required: false,
-      default: function () {
+      default: function() {
         return [["bold", "italic", "underline"]];
       },
     },
     version: {
       type: String,
       default: "default",
-      validator: function (value) {
+      validator: function(value) {
         return (
           ["default", "border-bottom", "no-border", "disable"].indexOf(
             value
@@ -304,20 +322,20 @@ export default {
     light: {
       type: String,
       default: "default",
-      validator: function (value) {
+      validator: function(value) {
         return ["default", "onBlack"].indexOf(value) !== -1;
       },
     },
   },
   watch: {
-    theValue: function () {
+    theValue: function() {
       this.$emit("input", this.theValue);
     },
-    value: function () {
+    value: function() {
       this.theValue = this.value;
     },
   },
-  data: function () {
+  data: function() {
     return {
       theValue: null,
       foldingOpen: false,
@@ -325,11 +343,11 @@ export default {
     };
   },
   methods: {
-    onClickLabel: function () {
+    onClickLabel: function() {
       if (this.foldingOpen) this.foldingOpen = false;
       else this.foldingOpen = true;
     },
-    removeTag: function (value) {
+    removeTag: function(value) {
       if (
         this.theValue &&
         this.theValue.length > 0 &&
@@ -337,7 +355,7 @@ export default {
       )
         this.theValue.splice(this.theValue.indexOf(value), 1);
     },
-    addTag: function () {
+    addTag: function() {
       var value = this.$refs.tagField.value;
 
       if (this.valueTest && this.valueTest === "isDomain") {
@@ -355,11 +373,11 @@ export default {
       this.$refs.tagField.value = "";
     },
 
-    onBlur: function () {
+    onBlur: function() {
       this.$emit("blur");
     },
 
-    setPlace: function (address) {
+    setPlace: function(address) {
       var data = {
         formattedAddress: address.formatted_address,
         city: "",
@@ -402,7 +420,7 @@ export default {
     },
   },
   computed: {
-    getCss: function () {
+    getCss: function() {
       // todo : refactor this
       var styles = ["-style-" + this.version, "-light-" + this.light];
       if (this.error) styles.push("-in-error");
@@ -410,14 +428,14 @@ export default {
 
       return styles;
     },
-    getIconLabel: function () {
+    getIconLabel: function() {
       if (!this.fold) return null;
 
       if (this.foldingOpen) return "arrowDown";
       else return "arrowRight";
     },
 
-    getFormattedAddress: function () {
+    getFormattedAddress: function() {
       if (!!this.theValue && this.theValue.formattedAddress !== undefined)
         return this.theValue.formattedAddress;
       else if (
