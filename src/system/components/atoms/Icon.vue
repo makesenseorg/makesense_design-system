@@ -37,7 +37,7 @@ import {
   faLink,
   faWallet,
   faShare,
-  faMapMarkerAlt
+  faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default {
@@ -49,22 +49,22 @@ export default {
      */
     type: {
       type: String,
-      default: ""
+      default: "",
     },
     /**
      * Color of the icon amongs theme colors, inherits from parent by default.
      */
     color: {
       type: String,
-      default: "inherit"
+      default: "inherit",
     },
     /**
      * Which library to use : "font-awesome", "feather"
      */
     library: {
       type: String,
-      default: "feather"
-    }
+      default: "feather",
+    },
   },
   computed: {
     getIcon: function() {
@@ -117,8 +117,8 @@ export default {
         default:
           return faSearch;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -126,6 +126,8 @@ export default {
 .icon {
   color: inherit;
   vertical-align: middle;
+  font-size: inherit;
+  width: 1em;
 
   &--color-neutral {
     color: $color-neutral-70;
