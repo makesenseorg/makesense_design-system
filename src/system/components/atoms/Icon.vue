@@ -4,20 +4,27 @@
     :icon="getFaIcon"
     :class="`icon icon--color-${color}`"
   />
-  <feather
+  <svg
     v-else
-    :type="getIcon"
-    :class="`icon icon--color-${color}`"
-  ></feather>
+    :class="`feather feather-${getIcon}`"
+    xmlns="http://www.w3.org/2000/svg"
+    :width="size"
+    :height="size"
+    :viewBox="`0 0 ${defaultSize} ${defaultSize}`"
+    fill="none"
+    stroke="currentColor"
+    :stroke-width="strokeWidth"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    v-html="path"
+  ></svg>
 </template>
 
 <script>
+// todo : import dynamically (without breaking use in nuxt.js)
+import feather from "feather-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-/**
- * Nice icons to make it more fun ✨
- * @version 1.0.0
- */
 import {
   faArrowDown,
   faSort,
@@ -40,6 +47,10 @@ import {
   faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
+/**
+ * Nice icons to make it more fun ✨
+ * @version 0.1.0
+ */
 export default {
   name: "MksIcon",
   components: { FontAwesomeIcon },
@@ -65,12 +76,33 @@ export default {
       type: String,
       default: "feather",
     },
+    size: {
+      type: String,
+      default: "24",
+    },
+    strokeWidth: {
+      type: String,
+      default: "2",
+    },
+  },
+  data() {
+    return {
+      defaultSize: 24,
+      path: "",
+    };
+  },
+  async created() {
+    if (this.library === "feather") {
+      this.path = feather.icons[this.type];
+    }
   },
   computed: {
     getIcon: function() {
       if (this.type === "close") return "x";
       if (this.type === "arrowUp") return "arrow-up";
       if (this.type === "arrowDown") return "arrow-down";
+      if (this.type === "arrowLeft") return "arrow-left";
+      if (this.type === "arrowRight") return "arrow-right";
       return this.type;
     },
 
