@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: "MksFooter",
+  name: "MksSiteFooter",
   release: "0.3.0",
   props: {
     theme: {
@@ -46,7 +46,7 @@ export default {
 <docs>
 
 ```jsx
-<mks-footer>Made by makesense</mks-footer>
+<mks-site-footer>Made by makesense</mks-site-footer>
 ```
 
 
