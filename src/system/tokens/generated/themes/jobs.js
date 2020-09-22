@@ -1,4 +1,6 @@
 export default {
+  "--color-default": "rgb(255, 255, 255)",
+  "--color-default-inverse": "rgb(12, 57, 68)",
   "--color-primary": "rgb(12, 57, 68)",
   "--color-primary-active": "rgb(12, 57, 68)",
   "--color-primary-inverse": "rgb(255, 255, 255)",

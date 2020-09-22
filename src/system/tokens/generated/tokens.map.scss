@@ -1,5 +1,7 @@
 
 $tokens-map: (
+  'color-default': (var(--color-default)),
+  'color-default-inverse': (var(--color-default-inverse)),
   'color-primary': (var(--color-primary)),
   'color-primary-active': (var(--color-primary-active)),
   'color-primary-inverse': (var(--color-primary-inverse)),

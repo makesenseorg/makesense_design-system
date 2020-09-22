@@ -65,6 +65,11 @@ props:
   # Use different lightness variations of the base hues.
   #
   # Light theme: darkest color | Dark theme: lightest color
+  - name: color-default
+    value: &color-default "{!white}"
+  - name: color-default-inverse
+    value: &color-default-inverse "{!blue_dianne}"
+
   - name: color-primary
     value: &color-primary "{!blue_dianne}"
   - name: color-primary-active

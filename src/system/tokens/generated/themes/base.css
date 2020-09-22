@@ -1,9 +1,11 @@
 :root {
-          --color-primary: rgb(25, 108, 132);
+          --color-default: rgb(12, 57, 68);
+--color-default-inverse: rgb(255, 255, 255);
+--color-primary: rgb(25, 108, 132);
 --color-primary-active: rgb(32, 136, 167);
 --color-primary-inverse: rgb(255, 255, 255);
---color-secondary: rgb(255, 243, 13);
---color-secondary-active: rgb(255, 248, 122);
+--color-secondary: rgb(227, 97, 100);
+--color-secondary-active: rgb(224, 82, 84);
 --color-secondary-inverse: rgb(0, 17, 35);
 --color-tertiary: rgb(155, 8, 79);
 --color-tertiary-active: rgb(193, 11, 99);
@@ -54,7 +56,7 @@
 --text-color-link-active: rgb(32, 136, 167);
 --text-color-primary: rgb(25, 108, 132);
 --text-color-primary-inverse: rgb(255, 255, 255);
---text-color-secondary: rgb(255, 243, 13);
+--text-color-secondary: rgb(227, 97, 100);
 --text-color-secondary-inverse: rgb(0, 17, 35);
 --text-color-success: rgb(39, 174, 96);
 --text-color-success-inverse: rgb(255, 255, 255);
@@ -76,8 +78,8 @@
 --background-color-primary: rgb(25, 108, 132);
 --background-color-primary-active: rgb(32, 136, 167);
 --background-color-primary-inverse: rgb(255, 255, 255);
---background-color-secondary: rgb(255, 243, 13);
---background-color-secondary-active: rgb(255, 248, 122);
+--background-color-secondary: rgb(227, 97, 100);
+--background-color-secondary-active: rgb(224, 82, 84);
 --background-color-secondary-inverse: rgb(0, 17, 35);
 --background-color-success: rgb(39, 174, 96);
 --background-color-success-active: rgb(42, 187, 103);
