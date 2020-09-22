@@ -1570,25 +1570,25 @@
       "value": "var(--z-index-dropdown)",
       "originalValue": "8888"
     },
+    "z-index-page-sidebar": {
+      "type": "number",
+      "category": "z-index",
+      "name": "z-index-page-sidebar",
+      "value": "var(--z-index-page-sidebar)",
+      "originalValue": "2500"
+    },
     "z-index-page-submenu": {
       "type": "number",
       "category": "z-index",
       "name": "z-index-page-submenu",
       "value": "var(--z-index-page-submenu)",
-      "originalValue": "2500"
+      "originalValue": "2000"
     },
     "z-index-page-header": {
       "type": "number",
       "category": "z-index",
       "name": "z-index-page-header",
       "value": "var(--z-index-page-header)",
-      "originalValue": "2000"
-    },
-    "z-index-page-sidebar": {
-      "type": "number",
-      "category": "z-index",
-      "name": "z-index-page-sidebar",
-      "value": "var(--z-index-page-sidebar)",
       "originalValue": "1500"
     },
     "z-index-sticky": {
