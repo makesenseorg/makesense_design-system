@@ -8,7 +8,7 @@
 
 ## Build and publish the changes
 
-1. Build the component library `npm run build:lib`
+1. Build the component library `npm run build:system`
 2. Bump the DS version in package.json (see below)
 3. Merge to master
 

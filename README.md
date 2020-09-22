@@ -168,7 +168,7 @@ npm run build
 Compiles design system as a library to `./dist`
 
 ```
-npm run build:lib
+npm run build:system
 ```
 
 ### Helper

@@ -5,7 +5,7 @@
       field__container: true,
       'field--folding': fold,
       'field--folding-open': foldingOpen,
-      'field--folding-close': !foldingOpen,
+      'field--folding-close': !foldingOpen
     }"
   >
     <div class="field__header" v-if="label">
@@ -170,14 +170,14 @@ export default {
      */
     name: {
       type: String,
-      required: true,
+      required: true
     },
     /**
      * HTML reference
      */
     reference: {
       type: String,
-      required: false,
+      required: false
     },
     /**
      * Disables the field
@@ -185,58 +185,58 @@ export default {
     disable: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     /**
      * Shows the field is successfully filled
      */
     success: {
       type: Boolean,
-      required: false,
+      required: false
     },
     /**
      * Shows the field is not properly filled
      */
     error: {
       type: Boolean,
-      required: false,
+      required: false
     },
     /**
      * Displays a description under the field
      */
     description: {
       type: String,
-      required: false,
+      required: false
     },
     /**
      * If type of field is checkbox, displays this text on its right
      */
     checkboxLabel: {
       type: String,
-      required: false,
+      required: false
     },
     /**
      * Value of the field
      */
     value: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
-      required: true,
+      required: true
     },
     fold: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     foldDefault: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     /**
      * Options of the select type
      */
     options: {
-      type: [Object, Array],
+      type: [Object, Array]
     },
     /**
      * Type of input : "text",
@@ -271,32 +271,32 @@ export default {
             "checkbox",
             "search",
             "tel",
-            "url",
+            "url"
           ].indexOf(value) !== -1
         );
-      },
+      }
     },
     placeholder: {
       type: String,
-      default: "text",
+      default: "text"
     },
     label: {
-      type: String,
+      type: String
     },
     subLabel: {
-      type: String,
+      type: String
     },
     valueTest: {
       type: String,
-      default: null,
+      default: null
     },
     min: {
       type: Number,
-      default: null,
+      default: null
     },
     max: {
       type: Number,
-      default: null,
+      default: null
     },
     /**
      * For vue2-editor
@@ -306,7 +306,7 @@ export default {
       required: false,
       default: function() {
         return [["bold", "italic", "underline"]];
-      },
+      }
     },
     version: {
       type: String,
@@ -317,15 +317,15 @@ export default {
             value
           ) !== -1
         );
-      },
+      }
     },
     light: {
       type: String,
       default: "default",
       validator: function(value) {
         return ["default", "onBlack"].indexOf(value) !== -1;
-      },
-    },
+      }
+    }
   },
   watch: {
     theValue: function() {
@@ -333,13 +333,13 @@ export default {
     },
     value: function() {
       this.theValue = this.value;
-    },
+    }
   },
   data: function() {
     return {
       theValue: null,
       foldingOpen: false,
-      component: null,
+      component: null
     };
   },
   methods: {
@@ -387,7 +387,7 @@ export default {
         region: "",
         zipCode: "",
         lat: address.geometry.location.lat(),
-        lng: address.geometry.location.lng(),
+        lng: address.geometry.location.lng()
       };
 
       if (address.address_components.length > 0) {
@@ -417,7 +417,7 @@ export default {
       }
 
       this.theValue = data;
-    },
+    }
   },
   computed: {
     getCss: function() {
@@ -445,7 +445,7 @@ export default {
         return "";
 
       return this.theValue;
-    },
+    }
   },
   created() {
     this.theValue = this.value;
@@ -454,7 +454,7 @@ export default {
   },
   mounted() {
     if (this.type === "editor") this.component = () => import(`./FieldEditor`);
-  },
+  }
 };
 </script>
 <style lang="scss">

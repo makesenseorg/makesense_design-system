@@ -108,6 +108,7 @@ $codemirror-primary: $color-primary;
   background: $codemirror-background;
   color: $color-text-light;
   border: $border-width-m solid $border-color-softer;
+  user-select: auto;
 
   .CodeMirror-lines {
     padding: 8px 0;
@@ -126,10 +127,10 @@ $codemirror-primary: $color-primary;
   }
 
   .CodeMirror-activeline-background {
-    background: rgba($codemirror-primary, 0.1);
+    background: $background-color-secondary;
   }
   .CodeMirror-selected {
-    background: rgba($codemirror-primary, 0.1);
+    background: $background-color-softest;
   }
   .cm-comment {
     font-style: italic;
