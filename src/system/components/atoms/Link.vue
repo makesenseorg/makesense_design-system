@@ -50,6 +50,7 @@ export default {
 <style lang="scss" scoped>
 .link {
   @include text-body;
+  cursor: pointer;
   text-decoration: none;
   color: inherit;
   border-bottom: $border-width-m solid;
