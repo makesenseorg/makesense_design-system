@@ -128,6 +128,20 @@
     }
   },
   "props": {
+    "color-default": {
+      "type": "color",
+      "category": "color",
+      "name": "color-default",
+      "value": "var(--color-default)",
+      "originalValue": "{!blue_dianne}"
+    },
+    "color-default-inverse": {
+      "type": "color",
+      "category": "color",
+      "name": "color-default-inverse",
+      "value": "var(--color-default-inverse)",
+      "originalValue": "{!white}"
+    },
     "color-primary": {
       "type": "color",
       "category": "color",
@@ -154,14 +168,14 @@
       "category": "color",
       "name": "color-secondary",
       "value": "var(--color-secondary)",
-      "originalValue": "{!broom}"
+      "originalValue": "{!roman}"
     },
     "color-secondary-active": {
       "type": "color",
       "category": "color",
       "name": "color-secondary-active",
       "value": "var(--color-secondary-active)",
-      "originalValue": "#fff87a"
+      "originalValue": "#e05254"
     },
     "color-secondary-inverse": {
       "type": "color",
@@ -518,7 +532,7 @@
       "category": "text-color",
       "name": "text-color-secondary",
       "value": "var(--text-color-secondary)",
-      "originalValue": "{!broom}"
+      "originalValue": "{!roman}"
     },
     "text-color-secondary-inverse": {
       "type": "color",
@@ -672,14 +686,14 @@
       "category": "background-color",
       "name": "background-color-secondary",
       "value": "var(--background-color-secondary)",
-      "originalValue": "{!broom}"
+      "originalValue": "{!roman}"
     },
     "background-color-secondary-active": {
       "type": "color",
       "category": "background-color",
       "name": "background-color-secondary-active",
       "value": "var(--background-color-secondary-active)",
-      "originalValue": "#fff87a"
+      "originalValue": "#e05254"
     },
     "background-color-secondary-inverse": {
       "type": "color",

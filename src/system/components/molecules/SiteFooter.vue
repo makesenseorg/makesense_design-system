@@ -1,17 +1,29 @@
 <template>
-  <footer class="site-footer"></footer>
+  <footer :class="`site-footer site-footer--theme-${theme}`">
+    <slot></slot>
+  </footer>
 </template>
 <script>
 export default {
   name: "MksFooter",
-  release: "0.3.0"
+  release: "0.3.0",
+  props: {
+    theme: {
+      type: String,
+      default: "dark",
+      validator: value => {
+        return value.match(/(light|dark)/);
+      }
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
 .site-footer {
   @include text-small;
   text-align: center;
-  color: $color-secondary;
+  background: $color-default;
+  color: $color-default-inverse;
   border-top: $border-width-m solid $border-color-base;
   padding: {
     top: $space-xxl;
@@ -31,3 +43,11 @@ export default {
   }
 }
 </style>
+<docs>
+
+```jsx
+<mks-footer>Made by makesense</mks-footer>
+```
+
+
+</docs>
