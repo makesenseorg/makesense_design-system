@@ -47,7 +47,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .sidebar {
-  position: absolute;
+  position: fixed;
   z-index: $z-index-page-sidebar;
   overflow: hidden;
   width: 100%;
@@ -151,7 +151,8 @@ Note: the fade in and slide in animation will not show in the preview if you try
 
 ```jsx
 <div style="position:relative;width:100%;height:100%;min-height:500px">
-    <mks-sidebar v-bind:open="true">
+    <!-- position absolute below is only for example to display properly -->
+    <mks-sidebar v-bind:open="true" style="position:absolute;">
         <header slot="header">My sidebar title</header>
         <mks-text tag="p">The rest of my content</mks-text>
         <mks-link to="/">Go home</mks-link>
