@@ -8,7 +8,7 @@
     ]"
     @mouseover="handleMouseOver"
     @mouseout="handleMouseOut"
-    @click.capture="handleClick"
+    @click="handleClick"
     v-click-outside="handleClickOutside"
   >
     <component
@@ -25,9 +25,12 @@
         </slot>
       </mks-heading>
       <slot v-else>{{ name }}</slot>
-
-      <div v-if="hasSubmenu" class="ds-menu-item-arrow" @click="toggleSubmenu">
-        <mks-icon v-if="showSubmenu" type="arrow-up"></mks-icon>
+      <div
+        v-if="hasSubmenu"
+        class="ds-menu-item-arrow"
+        @click.stop.prevent="toggleSubmenu"
+      >
+        <mks-icon v-if="showSubmenu === true" type="arrow-up"></mks-icon>
         <mks-icon v-else type="arrow-down"></mks-icon>
       </div>
     </component>
@@ -130,7 +133,9 @@ export default {
   },
   methods: {
     toggleSubmenu() {
+      console.log("toggleee", this.showSubmenu);
       this.showSubmenu = !this.showSubmenu;
+      console.log("toggledddd", this.showSubmenu);
     },
     handleMouseOver() {
       if (this.closeMenuTimeout) {
@@ -154,8 +159,8 @@ export default {
     },
     handleClick(event) {
       const clickedLink = event.target === this.$refs.link.$el;
-      if (this.hasSubmenu) {
-        this.showSubmenu = true;
+      if (this.hasSubmenu && !this.showSubmenu) {
+        this.toggleSubmenu();
       }
       if (
         clickedLink &&
@@ -163,10 +168,14 @@ export default {
         this.hasSubmenu &&
         !this.showSubmenu
       ) {
+        console.log("here");
         this.showSubmenu = true;
         event.preventDefault();
         event.stopPropagation();
         return;
+      } else if (clickedLink && event.target === window.location.href) {
+        console.log("going to same");
+        this.toggleSubmenu();
       } else this.$emit("click", event, this.route);
 
       /**
@@ -179,7 +188,7 @@ export default {
       this.$parentMenu.handleNavigate();
     },
     handleClickOutside() {
-      //this.showSubmenu = false;
+      this.showSubmenu = false;
     }
   }
 };
