@@ -133,9 +133,7 @@ export default {
   },
   methods: {
     toggleSubmenu() {
-      console.log("toggleee", this.showSubmenu);
       this.showSubmenu = !this.showSubmenu;
-      console.log("toggledddd", this.showSubmenu);
     },
     handleMouseOver() {
       if (this.closeMenuTimeout) {
@@ -168,13 +166,11 @@ export default {
         this.hasSubmenu &&
         !this.showSubmenu
       ) {
-        console.log("here");
         this.showSubmenu = true;
         event.preventDefault();
         event.stopPropagation();
         return;
       } else if (clickedLink && event.target === window.location.href) {
-        console.log("going to same");
         this.toggleSubmenu();
       } else this.$emit("click", event, this.route);
 
