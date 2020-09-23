@@ -3,14 +3,14 @@
     :is="tag"
     :class="[
       `button button--type-${type} button--size-${size}`,
-      { 'button--loading': loading }
+      { 'button--loading': loading },
     ]"
     @click="onClick"
     :type="inputType"
     :disabled="disabled"
     ref="container"
     :style="{
-      minWidth: $slots.loading === undefined ? minWidth + 'px' : 'auto'
+      minWidth: $slots.loading === undefined ? minWidth + 'px' : 'auto',
     }"
   >
     <!-- @slot Content of the button-->
@@ -29,10 +29,11 @@
 <script>
 /**
  * Buttons can be used for any action or inner link.
- * @version 1.0.0
+ * @version 0.3.0
  */
 export default {
   name: "MksButton",
+  release: "0.3.0,
   props: {
     /**
      * Buttons can be replaced by any of these tags : "div", "a", "input", "button", "span"
