@@ -101,7 +101,9 @@ export default {
       type: String,
       default: "default",
       validator: function(value) {
-        return ["default", "small", "full", "round"].indexOf(value) !== -1;
+        return (
+          ["default", "small", "full", "round", "square"].indexOf(value) !== -1
+        );
       }
     }
   },
@@ -179,13 +181,27 @@ export default {
     align-items: center;
     justify-content: center;
     text-align: center;
-    border-radius: 1.25rem;
     user-select: none;
     border-radius: $border-radius-circle;
     padding-right: 0;
     padding-left: 0;
     width: $space-xxl;
     height: $space-xxl;
+    text-align: center;
+  }
+  &--size-square {
+    @include text-body;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    user-select: none;
+    border-radius: $border-radius-m;
+    padding-right: 0;
+    padding-left: 0;
+    width: $space-xl;
+    height: $space-xl;
+    padding: $space-xxs;
     text-align: center;
   }
 
@@ -278,13 +294,12 @@ export default {
   }
 
   &--type-neutral {
-    background-color: $color-neutral-80;
-    border-color: $color-neutral-80;
     color: $color-neutral-20;
+    background-color: $background-color-base;
+    border-color: $background-color-softest;
 
     &:hover {
-      background-color: $color-neutral-100;
-      border-color: $color-neutral-80;
+      background-color: $background-color-softest;
     }
   }
 
