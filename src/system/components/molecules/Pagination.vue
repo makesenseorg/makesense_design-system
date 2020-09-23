@@ -1,7 +1,8 @@
 <template>
-  <mks-horizontal-list tag="nav" class="pagination">
+  <mks-horizontal-list spacing="small" class="pagination">
     <mks-button
-      size="round"
+      size="square"
+      type="neutral"
       :class="{ disabled: current <= 1 ? 'disabled' : null }"
       :disabled="current === 1"
       class="pagination__button pagination__button--prev"
@@ -9,10 +10,10 @@
     >
       <mks-icon type="arrow-left"></mks-icon>
     </mks-button>
-    <mks-horizontal-list tag="ul" class="pagination__list">
+    <mks-horizontal-list tag="ul" spacing="small" class="pagination__list">
       <mks-button
-        size="round"
-        :type="page == current ? 'primary' : 'neutral'"
+        size="square"
+        :type="page == current ? 'secondary' : 'neutral'"
         v-for="(page, index) in pages"
         :key="index"
         :class="{
@@ -31,7 +32,8 @@
       </mks-button>
     </mks-horizontal-list>
     <mks-button
-      size="round"
+      type="neutral"
+      size="square"
       :class="{ disabled: current === total ? 'disabled' : null }"
       :disabled="current === total"
       class="pagination__button pagination__button--next"
