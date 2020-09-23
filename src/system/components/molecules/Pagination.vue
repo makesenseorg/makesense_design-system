@@ -64,9 +64,8 @@ export default {
     max: 7
   }),
   watch: {
-    current(val) {
+    current() {
       this.getPages();
-      this.calculateMinMax(val);
       this.$emit("input", this.current);
       this.$emit("change", this.current);
     },
