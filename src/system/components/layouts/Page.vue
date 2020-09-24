@@ -1,9 +1,14 @@
 <template>
-  <div class="page">
-    <mks-sidebar :open="sidebarOpen" @sidebarOpen="$emit('sidebarOpen')"
-      ><slot name="sidebar"></slot
+  <div class="app">
+    <mks-sidebar :open="sidebarOpen" @close="$emit('closeSidebar')">
+      <slot
+        v-if="$slots['sidebar-header']"
+        name="sidebar-header"
+        slot="header"
+      ></slot>
+      <slot name="sidebar"></slot
     ></mks-sidebar>
-    <div class="app">
+    <div class="page">
       <mks-site-header v-bind="$attrs" v-on="$listeners">
         <slot v-if="$slots['top-bar']" name="top-bar" slot="top-bar"></slot>
         <slot
@@ -17,14 +22,17 @@
           slot="right"
         ></slot>
       </mks-site-header>
-      <slot></slot>
-      <mks-site-footer><slot name="footer"></slot></mks-site-footer>
+      <main><slot></slot></main>
+      <mks-site-footer class="page__footer"
+        ><slot name="footer"></slot
+      ></mks-site-footer>
     </div>
   </div>
 </template>
 <script>
 export default {
   name: "MksPage",
+  inheritAttrs: false,
   props: {
     sidebarOpen: {
       type: Boolean,
@@ -33,6 +41,16 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.page__footer {
+  margin-top: auto;
+}
+</style>
 <docs>
 
 ```jsx
@@ -43,6 +61,7 @@ export default {
   { label: 'Sidebar', to: { path: '/molecules/mkssidebar' } },
   { label: 'Footer', to: { path: '/molecules/mkssitefooter' } },
 ]" logo="https://events.makesense.org/static/img/logo.6e3c1fd.svg">
+  <template v-slot:sidebar-headeer>Sidebar header</template>
   <template v-slot:sidebar>Sidebar content</template>
   <template v-slot:top-bar>Top bar</template>
   <template v-slot:header-left>Left side</template>

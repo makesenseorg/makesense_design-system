@@ -16,7 +16,7 @@
       >
         <mks-icon type="x" size="30"></mks-icon>
       </mks-button>
-      <header class="sidebar__header" v-if="$slots.header">
+      <header class="sidebar__header">
         <slot name="header"></slot>
       </header>
       <main class="sidebar__main-content">
@@ -137,6 +137,7 @@ export default {
     height: 100%;
     opacity: 0;
     transition: all 0.4s;
+    border: none;
   }
 
   &__close-btn {
