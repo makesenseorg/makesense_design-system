@@ -8,13 +8,13 @@
       { label: 'Footer', to: { path: '/molecules/mkssitefooter' } }
     ]"
     logo="https://events.makesense.org/static/img/logo.6e3c1fd.svg"
+    translucent="true"
     :sidebarOpen="sidebarOpen"
     @openSidebar="toggleSidebar"
     @closeSidebar="toggleSidebar"
   >
     <template v-slot:sidebar-header>Sidebar header</template>
     <template v-slot:sidebar>Sidebar content</template>
-    <a slot="top-bar" class="ad" href="#">Some important content</a>
     <template v-slot:header-left>Left side</template>
     <mks-lang-picker
       slot="header-right"

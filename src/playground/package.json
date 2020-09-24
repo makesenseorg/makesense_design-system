@@ -12,5 +12,7 @@
     "@makesenseorg/design-system": "^0.2.3",
     "nuxt": "^2.14.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@nuxtjs/style-resources": "^1.0.0"
+  }
 }

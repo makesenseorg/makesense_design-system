@@ -29,7 +29,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ["@makesenseorg/design-system/dist/shared.scss"],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -47,7 +47,10 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ["@nuxtjs/style-resources"],
+  styleResources: {
+    scss: ["@makesenseorg/design-system/dist/shared.scss"]
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
