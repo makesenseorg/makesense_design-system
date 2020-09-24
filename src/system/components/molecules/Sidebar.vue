@@ -40,6 +40,11 @@ export default {
   },
   methods: {
     close: function() {
+      /**
+       * When users clicked close button or outer layer
+       *
+       * @event close
+       */
       this.$emit("close");
     }
   }
