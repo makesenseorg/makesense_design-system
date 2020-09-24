@@ -70,7 +70,7 @@ In `nuxt.config.js`, register the module and add the style files
 ```jsx
 modules: [
     '@nuxtjs/style-resources',
-]
+],
 styleResources: {
     scss: [
       "@makesenseorg/design-system/dist/shared.scss",
@@ -151,6 +151,16 @@ Compiles and hot-reloads living styleguide
 
 ```
 npm run dev
+```
+
+### Testing new components in a live playground
+
+Compiles design system and uses it in a nuxt app.
+
+Before publishing new components, please test them in this playground app.
+
+```
+npm run playground
 ```
 
 ### Building
