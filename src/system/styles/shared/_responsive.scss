@@ -17,7 +17,4 @@
       }
     }
   }
-
-  // If the key doesn't exist in the map @else {
-  @warn "#{$breakpoint} not found. Available breakpoints are: #{map-keys($breakpoints)}.";
 }
