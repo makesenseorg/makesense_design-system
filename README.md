@@ -156,12 +156,21 @@ npm run dev
 ### Testing new components in a live playground
 
 Compiles design system and uses it in a nuxt app.
-
 Before publishing new components, please test them in this playground app.
+
+The first time you use the playground, run :
+
+```
+npm run install-playground
+```
+
+When you want to test a component in the playground, run :
 
 ```
 npm run playground
 ```
+
+Note: the command takes a while because it needs to build the system first in order to inject it as a dependency in the playground.
 
 ### Building
 

@@ -6,6 +6,7 @@
     "build": "npm run theo && vue-cli-service build",
     "lint": "vue-cli-service lint",
     "dev": "npm-run-all --parallel theo:onchange theo servedev",
+    "install-playground": "cd src/playground && npm install",
     "playground": "npm run build:system && cd src/playground && npm run dev",
     "servedev": "vue-cli-service serve --open",
     "build:system": "npm run theo && cross-env BUILD=library vue-cli-service build --target lib --name system ./src/library.js",
