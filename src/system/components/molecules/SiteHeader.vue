@@ -39,6 +39,9 @@
 <script>
 /**
  * Site header with menu, sidebar control and top bar slot.
+ * When users clicked the sidebar control
+ *
+ * @event openSidebar
  */
 export default {
   name: "MksSiteHeader",

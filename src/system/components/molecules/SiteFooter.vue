@@ -1,21 +1,12 @@
 <template>
-  <footer :class="`site-footer site-footer--theme-${theme}`">
+  <footer :class="`site-footer`">
     <slot></slot>
   </footer>
 </template>
 <script>
 export default {
   name: "MksSiteFooter",
-  release: "0.3.0",
-  props: {
-    theme: {
-      type: String,
-      default: "dark",
-      validator: value => {
-        return value.match(/(light|dark)/);
-      }
-    }
-  }
+  release: "0.3.0"
 };
 </script>
 <style lang="scss" scoped>
