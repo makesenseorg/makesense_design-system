@@ -1,5 +1,6 @@
 <template>
   <component
+    title="lol"
     v-if="component"
     :is="component"
     v-model="theValue"
@@ -8,10 +9,12 @@
     :editor-toolbar="editorToolbar"
     :name="name"
     :placeholder="placeholder"
+    :use-custom-image-handler="editorCustomImageHandler"
     :class="css"
     @blur="$emit('blur')"
     @focus="$emit('focus')"
     @text-change="$emit('change')"
+    @image-added="handleImageAdded"
   />
 </template>
 <script>
@@ -33,6 +36,7 @@ export default {
     name: "",
     reference: "",
     editorToolbar: null,
+    editorCustomImageHandler: false,
     placeholder: "",
     css: ""
   },
@@ -54,7 +58,11 @@ export default {
       this.component = require("vue2-editor").VueEditor;
   },
   computed: {},
-  methods: {},
+  methods: {
+    handleImageAdded: function(file, Editor, cursorLocation, resetUploader) {
+      this.$emit("image-added", file, Editor, cursorLocation, resetUploader);
+    }
+  },
   watch: {
     theValue: function() {
       this.$emit("input", this.theValue);
