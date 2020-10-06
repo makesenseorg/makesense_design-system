@@ -36,12 +36,9 @@
       @focus="$emit('focus')"
       @change="$emit('change')"
     >
-      <option
-        v-for="(item, index) in options"
-        :key="index"
-        :value="item.value"
-        >{{ item.label }}</option
-      >
+      <option v-for="(item, index) in options" :key="index" :value="item.value">
+        {{ item.label }}
+      </option>
     </select>
     <component
       v-else-if="type === 'editor'"
@@ -51,6 +48,8 @@
       :id="name"
       :ref="reference"
       :editor-toolbar="editorToolbar"
+      :editor-custom-image-handler="editorCustomImageHandler"
+      @image-added="editorHandleImageAdded"
       :name="name"
       :placeholder="placeholder"
       :class="getCss"
@@ -305,8 +304,13 @@ export default {
       type: Array,
       required: false,
       default: function() {
-        return [["bold", "italic", "underline"]];
+        return [["bold", "italic", "underline", "image"]];
       }
+    },
+    editorCustomImageHandler: {
+      type: Boolean,
+      required: false,
+      default: true
     },
     version: {
       type: String,
@@ -417,6 +421,20 @@ export default {
       }
 
       this.theValue = data;
+    },
+    editorHandleImageAdded: function(
+      file,
+      Editor,
+      cursorLocation,
+      resetUploader
+    ) {
+      this.$emit(
+        "editor-image-added",
+        file,
+        Editor,
+        cursorLocation,
+        resetUploader
+      );
     }
   },
   computed: {
