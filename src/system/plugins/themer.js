@@ -1,4 +1,4 @@
-import { themeMap } from "@@/tokens";
+import { themeMap } from "../tokens";
 
 let stylesheet = null;
 

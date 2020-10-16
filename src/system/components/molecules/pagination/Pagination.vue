@@ -44,11 +44,11 @@
   </mks-horizontal-list>
 </template>
 <script>
-import MksHorizontalList from "../../layouts/horizontalList/HorizontalList";
+import { MksHorizontalList } from "../../";
 
 export default {
   name: "MksPagination",
-  components: { HorizontalList },
+  components: { MksHorizontalList },
   props: {
     total: {
       type: Number,

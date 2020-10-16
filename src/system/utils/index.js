@@ -1,5 +1,5 @@
 import camelCase from "lodash/camelCase";
-import { tokenMap } from "@@/tokens";
+import { tokenMap } from "../tokens";
 
 const getSpace = space => {
   const spaceName = camelCase(space);

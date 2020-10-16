@@ -53,6 +53,8 @@ Object.keys(componentsByName).forEach(name => {
   componentsByName[component.parent].children.push(component);
 });
 
+console.log(componentsMap);
+debugger; // todo: here
 export { componentsMap };
 
 export default {

@@ -37,7 +37,7 @@
   </header>
 </template>
 <script>
-import MksBeanMenu from "../beanMenu/BeanMenu";
+import { MksBeanMenu } from "../../";
 /**
  * Site header with menu, sidebar control and top bar slot.
  * When users clicked the sidebar control
