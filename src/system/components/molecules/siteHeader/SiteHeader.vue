@@ -37,6 +37,7 @@
   </header>
 </template>
 <script>
+import MksBeanMenu from "../beanMenu/BeanMenu";
 /**
  * Site header with menu, sidebar control and top bar slot.
  * When users clicked the sidebar control
@@ -46,6 +47,7 @@
 export default {
   name: "MksSiteHeader",
   release: "0.2.0",
+  components: { MksBeanMenu },
   props: {
     /** Site logo */
     logo: {

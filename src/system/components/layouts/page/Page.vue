@@ -30,9 +30,15 @@
   </div>
 </template>
 <script>
+// todo: import doesnt work in app because of docs, has to be loaded from dist
+import MksSidebar from "../../molecules/sidebar/Sidebar";
+import MksSiteHeader from "../../molecules/siteHeader/SiteHeader";
+import MksSideFooter from "../../molecules/siteFooter/SiteFooter";
+
 export default {
   name: "MksPage",
   inheritAttrs: false,
+  components: { MksSidebar, MksSiteHeader, MksSideFooter },
   props: {
     sidebarOpen: {
       type: Boolean,

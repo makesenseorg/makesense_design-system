@@ -26,7 +26,10 @@
   </mks-page>
 </template>
 <script>
+import Page from "../../../src/system/components/layouts/page/Page";
+
 export default {
+  components: { MksPage },
   data() {
     return {
       sidebarOpen: false

@@ -1,6 +1,7 @@
 import Vue from "vue";
 
 import System from "@@";
+import SystemComponents from "@@/components";
 import Components from "./components/global";
 import App from "./App.vue";
 import router from "./router";
@@ -9,6 +10,7 @@ import startCase from "lodash/startCase";
 Vue.config.productionTip = false;
 
 Vue.use(System);
+Vue.use(SystemComponents);
 Vue.use(Components);
 
 Vue.filter("componentName", value => {
