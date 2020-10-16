@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for system/components/atoms/Link.vue</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">system/components/atoms</a> Link.vue
+    </h1>
+    <div class='clearfix'>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
+  &lt;component
+    :is="tag"
+    :to="tag !== 'a' ? to : undefined"
+    :href="tag === 'a' ? to : undefined"
+    :target="tag === 'a' ? '_blank' : undefined"
+    :class="{ link: true, 'link--menu': type === 'menu' }"
+  &gt;
+    &lt;!-- @slot Text of the link--&gt;
+    &lt;slot&gt;&lt;/slot&gt;
+  &lt;/component&gt;
+&lt;/template&gt;
+&lt;script&gt;
+/**
+ * Link to internal pages or external pages
+ * @version 0.2.0
+ */
+&nbsp;
+export default {
+  name: "MksLink",
+  props: {
+    to: {
+      type: [String, Object],
+      required: true,
+      default: "/"
+    },
+    /** For usage in the BeanMenu, adds styling when active link. */
+    type: {
+      type: String
+    }
+  },
+  computed: {
+    tag() {
+<span class="cstat-no" title="statement not covered" >      if (</span>
+        typeof this.to === "string" &amp;&amp;
+        (this.to.startsWith("http") ||
+          this.to.startsWith("//") ||
+          this.to.startsWith("www"))
+      ) {
+<span class="cstat-no" title="statement not covered" >        return "a";</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (!this.$nuxt) {</span>
+<span class="cstat-no" title="statement not covered" >        return "router-link";</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return "nuxt-link";</span>
+    }
+  }
+};
+&lt;/script&gt;
+&lt;style lang="scss" scoped&gt;
+.link {
+  @include text-body;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: $border-width-m solid;
+&nbsp;
+  &amp;.exact-active,
+  &amp;.router-link-exact-active,
+  &amp;.nuxt-link-exact-active {
+    @include text-body-black;
+    color: $color-primary;
+    border-color: $color-primary;
+  }
+&nbsp;
+  &amp;--menu {
+    font-size: inherit;
+    font-weight: inherit;
+    border-bottom: none;
+&nbsp;
+    &amp;.exact-active,
+    &amp;.router-link-exact-active,
+    &amp;.nuxt-link-exact-active {
+      font-size: inherit;
+      color: $color-secondary;
+      position: relative;
+&nbsp;
+      &amp;:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border-radius: $border-radius-full;
+        background-color: $color-secondary;
+        width: $space-large;
+        height: 4px;
+        transform: translateY(150%);
+      }
+    }
+  }
+}
+&lt;/style&gt;
+&lt;docs&gt;
+&nbsp;
+## External links 
+&nbsp;
+The component automatically detects an external link if it starts with &lt;code&gt;http&lt;/code&gt;, &lt;code&gt;//&lt;/code&gt; or &lt;code&gt;www&lt;/code&gt;.
+&nbsp;
+If you add a &lt;code&gt;title&lt;/code&gt; attribute, it will be inherited.
+&nbsp;
+```jsx
+&nbsp;
+&lt;mks-link to="https://google.com" title="Search for something"&gt;An external link&lt;/mks-link&gt;
+&nbsp;
+```
+&nbsp;
+&nbsp;
+## Internal links
+&nbsp;
+If it is an internal link, it automatically detects if the app is Vue or Nuxt and uses either &lt;code&gt;&amp;lt;router-link&amp;gt; &lt;/code&gt; or &lt;code&gt;&amp;lt;nuxt-link&amp;gt;&lt;/code&gt;.
+&nbsp;
+```jsx
+&lt;mks-link to="/design-tokens"&gt;An internal link with string&lt;/mks-link&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;mks-link v-bind:to="{ name: 'Usage'}"&gt;An internal link with object&lt;/mks-link&gt;
+```
+&nbsp;
+## Active page
+&nbsp;
+If the link is internal and refers to the current page, styling is applied.
+&nbsp;
+```jsx
+&lt;mks-link to="/atoms/mkslink"&gt;An active link&lt;/mks-link&gt;
+&lt;mks-link to="/atoms/mkslink" type="menu"&gt;An active menu link&lt;/mks-link&gt;
+```
+&lt;/docs&gt;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Oct 16 2020 11:31:55 GMT+0200 (GMT+02:00)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

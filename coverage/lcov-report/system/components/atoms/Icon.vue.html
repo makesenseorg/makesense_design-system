@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for system/components/atoms/Icon.vue</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">system/components/atoms</a> Icon.vue
+    </h1>
+    <div class='clearfix'>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&lt;template&gt;
+  &lt;font-awesome-icon
+    v-if="library === 'font-awesome'"
+    :icon="getFaIcon"
+    :class="`icon icon--color-${color}`"
+  /&gt;
+  &lt;svg
+    v-else
+    :class="`feather feather-${getIcon}`"
+    xmlns="http://www.w3.org/2000/svg"
+    :width="size"
+    :height="size"
+    :viewBox="`0 0 ${defaultSize} ${defaultSize}`"
+    fill="none"
+    stroke="currentColor"
+    :stroke-width="strokeWidth"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    v-html="path"
+  &gt;&lt;/svg&gt;
+&lt;/template&gt;
+&nbsp;
+&lt;script&gt;
+// todo : import dynamically (without breaking use in nuxt.js)
+<span class="cstat-no" title="statement not covered" >import feather from "feather-icons";</span>
+<span class="cstat-no" title="statement not covered" >import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >import {</span>
+  faArrowDown,
+  faSort,
+  faBars,
+  faSearch,
+  faArrowUp,
+  faTimes,
+  faTag,
+  faArrowRight,
+  faArrowLeft,
+  faLock,
+  faLifeRing,
+  faBuilding,
+  faCheck,
+  faGlobeEurope,
+  faClock,
+  faLink,
+  faWallet,
+  faShare,
+  faMapMarkerAlt
+} from "@fortawesome/free-solid-svg-icons";
+&nbsp;
+/**
+ * Nice icons to make it more fun ✨
+ * @version 0.1.0
+ */
+export default {
+  name: "MksIcon",
+  components: { FontAwesomeIcon },
+  props: {
+    /**
+     * Type of icon depending on the library used. Prefer feather when possible
+     */
+    type: {
+      type: String,
+      default: ""
+    },
+    /**
+     * Color of the icon amongs theme colors, inherits from parent by default.
+     */
+    color: {
+      type: String,
+      default: "inherit"
+    },
+    /**
+     * Which library to use : "font-awesome", "feather"
+     */
+    library: {
+      type: String,
+      default: "feather"
+    },
+    size: {
+      type: String,
+      default: "24"
+    },
+    strokeWidth: {
+      type: String,
+      default: "2"
+    }
+  },
+  data() {
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      defaultSize: 24,
+      path: ""
+    };
+  },
+  async created() {
+<span class="cstat-no" title="statement not covered" >    if (this.library === "feather") {</span>
+<span class="cstat-no" title="statement not covered" >      this.path = feather.icons[this.type];</span>
+    }
+  },
+  computed: {
+<span class="fstat-no" title="function not covered" >    getIcon: function() {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.type === "close") return "x";</span>
+<span class="cstat-no" title="statement not covered" >      if (this.type === "arrowUp") return "arrow-up";</span>
+<span class="cstat-no" title="statement not covered" >      if (this.type === "arrowDown") return "arrow-down";</span>
+<span class="cstat-no" title="statement not covered" >      if (this.type === "arrowLeft") return "arrow-left";</span>
+<span class="cstat-no" title="statement not covered" >      if (this.type === "arrowRight") return "arrow-right";</span>
+<span class="cstat-no" title="statement not covered" >      return this.type;</span>
+    },
+&nbsp;
+<span class="fstat-no" title="function not covered" >    getFaIcon: function() {</span>
+<span class="cstat-no" title="statement not covered" >      switch (this.type) {</span>
+        case "arrowDown":
+<span class="cstat-no" title="statement not covered" >          return faArrowDown;</span>
+        case "arrowUp":
+<span class="cstat-no" title="statement not covered" >          return faArrowUp;</span>
+        case "arrowRight":
+<span class="cstat-no" title="statement not covered" >          return faArrowRight;</span>
+        case "arrowLeft":
+<span class="cstat-no" title="statement not covered" >          return faArrowLeft;</span>
+        case "close":
+<span class="cstat-no" title="statement not covered" >          return faTimes;</span>
+        case "search":
+<span class="cstat-no" title="statement not covered" >          return faSearch;</span>
+        case "share":
+<span class="cstat-no" title="statement not covered" >          return faShare;</span>
+        case "check":
+<span class="cstat-no" title="statement not covered" >          return faCheck;</span>
+        case "sort":
+<span class="cstat-no" title="statement not covered" >          return faSort;</span>
+        case "link":
+<span class="cstat-no" title="statement not covered" >          return faLink;</span>
+        case "company":
+<span class="cstat-no" title="statement not covered" >          return faBuilding;</span>
+        case "lang":
+<span class="cstat-no" title="statement not covered" >          return faGlobeEurope;</span>
+        case "clock":
+<span class="cstat-no" title="statement not covered" >          return faClock;</span>
+        case "mapMarker":
+<span class="cstat-no" title="statement not covered" >          return faMapMarkerAlt;</span>
+        case "tag":
+<span class="cstat-no" title="statement not covered" >          return faTag;</span>
+        case "wallet":
+<span class="cstat-no" title="statement not covered" >          return faWallet;</span>
+        case "lock":
+<span class="cstat-no" title="statement not covered" >          return faLock;</span>
+        case "menu":
+<span class="cstat-no" title="statement not covered" >          return faBars;</span>
+        case "help":
+<span class="cstat-no" title="statement not covered" >          return faLifeRing;</span>
+        default:
+<span class="cstat-no" title="statement not covered" >          return faSearch;</span>
+      }
+    }
+  }
+};
+&lt;/script&gt;
+&nbsp;
+&lt;style lang="scss" scoped&gt;
+.icon {
+  color: inherit;
+  vertical-align: middle;
+  font-size: inherit;
+  width: 1em;
+&nbsp;
+  &amp;--color-neutral {
+    color: $color-neutral-70;
+  }
+&nbsp;
+  &amp;--color-primary {
+    color: $color-primary;
+  }
+&nbsp;
+  &amp;--color-secondary {
+    color: $color-secondary;
+  }
+&nbsp;
+  &amp;--color-tertiary {
+    color: $color-tertiary;
+  }
+&nbsp;
+  &amp;--color-positive {
+    color: $color-success;
+  }
+&nbsp;
+  &amp;--color-warning {
+    color: $color-warning;
+  }
+&nbsp;
+  &amp;--color-negative {
+    color: $color-danger;
+  }
+}
+&lt;/style&gt;
+&lt;docs&gt;
+## Feather icons (default)
+List of all available icons : https://feathericons.com/
+&nbsp;
+Some examples :
+&nbsp;
+```jsx
+&lt;p&gt;
+  &lt;mks-icon type="activity"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="alert-triangle"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="arrow-left"&gt;&lt;/mks-icon&gt;
+  &lt;mks-icon type="arrow-left-circle"&gt;&lt;/mks-icon&gt;
+  &lt;mks-icon type="bell"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="check"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="clock"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="eye-off"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="filter"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="heart"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="list"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="lock"&gt;&lt;/mks-icon&gt;
+  &lt;mks-icon type="map-pin"&gt;&lt;/mks-icon&gt;
+  &lt;mks-icon type="menu"&gt;&lt;/mks-icon&gt;
+  &lt;mks-icon type="save"&gt;&lt;/mks-icon&gt;
+  &lt;mks-icon type="star"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="thumbs-up"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="user"&gt;&lt;/mks-icon&gt;
+  &lt;mks-icon type="zoom-in"&gt;&lt;/mks-icon&gt;
+&lt;/p&gt;
+```
+&nbsp;
+## Font Awesome icons 
+Font awesome icons are still available. However you have to specify to use the font-awesome library. 
+&nbsp;
+Only these ones are available as of now : 
+&nbsp;
+```jsx
+&lt;p&gt;
+  &lt;mks-icon type="arrowUp" library="font-awesome"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="arrowDown" library="font-awesome"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="arrowLeft" library="font-awesome"&gt;&lt;/mks-icon&gt;
+  &lt;mks-icon type="arrowRight" library="font-awesome"&gt;&lt;/mks-icon&gt;
+  &lt;mks-icon type="close" library="font-awesome"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="mapMarker" library="font-awesome"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="lang" library="font-awesome"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="link" library="font-awesome"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="tag" library="font-awesome"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="company" library="font-awesome"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="search" library="font-awesome"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="check" library="font-awesome"&gt;&lt;/mks-icon&gt;
+  &lt;mks-icon type="share" library="font-awesome"&gt;&lt;/mks-icon&gt;
+  &lt;mks-icon type="sort"  library="font-awesome"&gt;&lt;/mks-icon&gt;
+  &lt;mks-icon type="clock" library="font-awesome"&gt;&lt;/mks-icon&gt;
+  &lt;mks-icon type="wallet" library="font-awesome"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="lock" library="font-awesome"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="menu" library="font-awesome"&gt;&lt;/mks-icon&gt;
+  &lt;mks-icon type="help" library="font-awesome"&gt;&lt;/mks-icon&gt;
+&lt;/p&gt;
+```
+&nbsp;
+## Colors 
+&nbsp;
+Inherits from parent by default 
+&nbsp;
+```jsx
+&lt;p&gt;
+  &lt;mks-icon type="arrow-up" color="neutral"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="arrow-up" color="primary"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="arrow-up" color="secondary"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="arrow-up" color="tertiary"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="arrow-up" color="positive"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="arrow-up" color="warning"&gt;&lt;/mks-icon&gt; 
+  &lt;mks-icon type="arrow-up" color="negative"&gt;&lt;/mks-icon&gt; 
+&lt;/p&gt;
+```
+&lt;/docs&gt;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Oct 16 2020 11:31:55 GMT+0200 (GMT+02:00)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
