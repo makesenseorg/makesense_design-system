@@ -19,29 +19,9 @@
       <a href="../../index.html">All files</a> / <a href="index.html">system/tokens</a> index.js
     </h1>
     <div class='clearfix'>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">77.78% </span>
-        <span class="quiet">Statements</span>
-        <span class='fraction'>14/18</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
-        <span class="quiet">Branches</span>
-        <span class='fraction'>2/2</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
-        <span class="quiet">Functions</span>
-        <span class='fraction'>1/2</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">77.78% </span>
-        <span class="quiet">Lines</span>
-        <span class='fraction'>14/18</span>
-      </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -75,77 +55,86 @@
 30
 31
 32
-33</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+33
+34
+35
+36</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">354x</span>
-<span class="cline-any cline-yes">354x</span>
-<span class="cline-any cline-yes">354x</span>
-<span class="cline-any cline-yes">354x</span>
-<span class="cline-any cline-yes">44x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">354x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">354x</span>
-<span class="cline-any cline-yes">354x</span>
-<span class="cline-any cline-yes">354x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import camelCase from 'lodash/camelCase'
-import raw from './generated/tokens.raw.json'
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import camelCase from "lodash/camelCase";</span>
+<span class="cstat-no" title="statement not covered" >import raw from "./generated/tokens.raw.json";</span>
 &nbsp;
-const themeContext = require.context('./generated/themes', true, /\.js$/)
-const themes = []
-const themeMap = {}
-themeContext.keys().forEach(<span class="fstat-no" title="function not covered" >ke</span>y =&gt; {
-  const theme = <span class="cstat-no" title="statement not covered" >themeContext(key).default</span>
-  const name = <span class="cstat-no" title="statement not covered" >key.split('.').splice(-2)[0].replace('/', '')</span>
-<span class="cstat-no" title="statement not covered" >  themes.push(name)</span>
-<span class="cstat-no" title="statement not covered" >  themeMap[name] = theme</span>
-})
+const themeContext<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > = require.context("./generated/themes", true, /\.js$/);</span></span></span>
+const themes = <span class="cstat-no" title="statement not covered" >[];</span>
+const themeMap = <span class="cstat-no" title="statement not covered" >{};</span>
+<span class="cstat-no" title="statement not covered" >themeContext.keys().forEach(<span class="fstat-no" title="function not covered" >key</span> =&gt; {</span>
+  const theme = <span class="cstat-no" title="statement not covered" >themeContext(key).default;</span>
+  const name = <span class="cstat-no" title="statement not covered" >key</span>
+    .split(".")
+    .splice(-2)[0]
+    .replace("/", "");
+<span class="cstat-no" title="statement not covered" >  themes.push(name);</span>
+<span class="cstat-no" title="statement not covered" >  themeMap[name] = theme;</span>
+});
 &nbsp;
-const { tokens, tokenMap } = Object.keys(raw.props).reduce(
-  ({ tokens, tokenMap }, key) =&gt; {
-    const token = raw.props[key]
-    const name = camelCase(key)
-    const category = camelCase(token.category)
-    if (!tokenMap[category]) {
-      tokenMap[category] = {}
+const { tokens, tokenMap } = <span class="cstat-no" title="statement not covered" >Object.keys(raw.props).reduce(</span>
+<span class="fstat-no" title="function not covered" >  ({</span> tokens, tokenMap }, key) =&gt; {
+    const token = <span class="cstat-no" title="statement not covered" >raw.props[key];</span>
+    const name = <span class="cstat-no" title="statement not covered" >camelCase(key);</span>
+    const category = <span class="cstat-no" title="statement not covered" >camelCase(token.category);</span>
+<span class="cstat-no" title="statement not covered" >    if (!tokenMap[category]) {</span>
+<span class="cstat-no" title="statement not covered" >      tokenMap[category] = {};</span>
     }
 &nbsp;
-    token.scss = `$${key.replace(/_/g, '-')}`
+<span class="cstat-no" title="statement not covered" >    token.scss = `$${key.replace(/_/g, "-")}`;</span>
 &nbsp;
-    tokens[name] = token.value
-    tokenMap[category][name] = token
-    return { tokens, tokenMap }
+<span class="cstat-no" title="statement not covered" >    tokens[name] = token.value;</span>
+<span class="cstat-no" title="statement not covered" >    tokenMap[category][name] = token;</span>
+<span class="cstat-no" title="statement not covered" >    return { tokens, tokenMap };</span>
   },
   { tokens: {}, tokenMap: {} }
-)
+);
 &nbsp;
-export { tokens, tokenMap, themes, themeMap }
+export { tokens, tokenMap, themes, themeMap };
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jan 22 2019 22:02:51 GMT+0100 (GMT+01:00)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Oct 16 2020 11:31:55 GMT+0200 (GMT+02:00)
 </div>
 </div>
 <script src="../../prettify.js"></script>
