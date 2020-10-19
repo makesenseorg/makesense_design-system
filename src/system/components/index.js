@@ -10,6 +10,7 @@ const contextMeta = require.context(
 const components = [];
 const componentsMap = {};
 const componentsByName = {};
+
 context.keys().forEach(key => {
   const c = context(key).default;
   const meta = contextMeta(key);
@@ -37,8 +38,11 @@ context.keys().forEach(key => {
     componentsMap[folder].push(componentsByName[c.name]);
   }
 
-  if (meta.comment.indexOf("private_no_import") !== -1) return;
-  else components.push(c);
+  if (meta.comment.indexOf("private_no_import") !== -1) {
+    return;
+  } else {
+    components.push(c);
+  }
 });
 
 // Add child components data to parent
@@ -53,11 +57,10 @@ Object.keys(componentsByName).forEach(name => {
   componentsByName[component.parent].children.push(component);
 });
 
-console.log(componentsMap);
 debugger; // todo: here
-export { componentsMap };
 
 export default {
+  ...componentsByName,
   install(Vue) {
     components.forEach(c => Vue.component(c.name, c));
   }

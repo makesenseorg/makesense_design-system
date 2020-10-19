@@ -31,7 +31,7 @@
 </template>
 <script>
 // todo: import doesnt work in app because of docs, has to be loaded from dist
-import { MksSidebar } from "../../";
+import { MksSidebar } from "@@/components";
 import { MksSiteHeader } from "../../";
 import { MksSideFooter } from "../../";
 
