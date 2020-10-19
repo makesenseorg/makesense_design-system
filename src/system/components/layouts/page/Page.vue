@@ -31,9 +31,9 @@
 </template>
 <script>
 // todo: import doesnt work in app because of docs, has to be loaded from dist
-import { MksSidebar } from "@@/components";
-import { MksSiteHeader } from "../../";
-import { MksSiteFooter } from "../../";
+import MksSidebar from "../../molecules/sidebar/Sidebar";
+import MksSiteHeader from "../../molecules/siteHeader/SiteHeader";
+import MksSiteFooter from "../../molecules/siteFooter/SiteFooter";
 
 export default {
   name: "MksPage",

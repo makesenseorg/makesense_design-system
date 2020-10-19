@@ -2,10 +2,8 @@
   <mks-page
     :menu-links="[
       { label: 'Accueil', to: '/' },
-      { label: 'Library', to: '//makesense-design-system.netlify.app' },
-      { label: 'Menu', to: '/molecules/mksbeanmenu' },
-      { label: 'Sidebar', to: { path: '/molecules/mkssidebar' } },
-      { label: 'Footer', to: { path: '/molecules/mkssitefooter' } }
+      { label: 'Test layout', to: '/test' },
+      { label: 'Library', to: '//makesense-design-system.netlify.app' }
     ]"
     logo="https://events.makesense.org/static/img/logo.6e3c1fd.svg"
     :sidebarOpen="sidebarOpen"
@@ -26,10 +24,14 @@
   </mks-page>
 </template>
 <script>
-import { MksPage } from "../../../src/system/components";
+// TODO : problème: ne charge pas le css du composant
+import MksPage from "@makesenseorg/design-system/dist/components/Page/MksPage.umd.min.js";
+import MksPageCss from "@makesenseorg/design-system/dist/components/Page/MksPage.css";
+import MksLangPicker from "@makesenseorg/design-system/dist/components/LangPicker/MksLangPicker.umd.min.js";
+import MksLangPickerCSS from "@makesenseorg/design-system/dist/components/LangPicker/MksLangPicker.css";
 
 export default {
-  //components: { MksPage },
+  components: { MksPage, MksLangPicker },
   data() {
     return {
       sidebarOpen: false

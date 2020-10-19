@@ -17,9 +17,11 @@
  * Menu used in the site header.
  * @version 0.2.0
  */
+import MksHorizontalList from "../../layouts/horizontalList/HorizontalList";
 export default {
   name: "MksBeanMenu",
   release: "0.2.0",
+  components: { MksHorizontalList },
   props: {
     /**
      ** Array of link objects, containing a "label" and a "to". The "to" can be either a normal http URL or a vue router or nuxt router object, with path or name.

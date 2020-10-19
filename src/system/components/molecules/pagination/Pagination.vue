@@ -44,7 +44,7 @@
   </mks-horizontal-list>
 </template>
 <script>
-import { MksHorizontalList } from "../../";
+import MksHorizontalList from "../../layouts/horizontalList/HorizontalList";
 
 export default {
   name: "MksPagination",

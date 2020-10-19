@@ -9,7 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@makesenseorg/design-system": "^0.2.3",
+    "@makesenseorg/design-system": "../..",
     "nuxt": "^2.14.0"
   },
   "devDependencies": {
