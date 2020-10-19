@@ -17,7 +17,7 @@
       </slot>
     </div>
     <div class="ds-card-icon" v-if="icon">
-      <ds-icon :name="icon" />
+      <mks-icon :type="icon" />
     </div>
     <header class="ds-card-header" v-if="header || $slots.header">
       <!-- @slot Content of the card's header -->
@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import DsIcon from "../../typography/Icon/Icon";
+import MksIcon from "@/system/components/atoms/icon/Icon";
 import DsHeading from "../../typography/Heading/Heading";
 /**
  * A card is used to group content in an appealing way.
@@ -44,7 +44,7 @@ import DsHeading from "../../typography/Heading/Heading";
  */
 export default {
   name: "DsCard",
-  components: { DsIcon, DsHeading },
+  components: { MksIcon, DsHeading },
   props: {
     /**
      * The outtermost html tag test
