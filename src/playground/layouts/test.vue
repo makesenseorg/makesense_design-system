@@ -7,6 +7,5 @@
   </div>
 </template>
 <script>
-import { MksLangPicker } from "../../../src/system/components";
 export default {};
 </script>

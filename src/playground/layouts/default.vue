@@ -26,7 +26,7 @@
   </mks-page>
 </template>
 <script>
-//import { MksPage } from "../../../src/system/components";
+import { MksPage } from "../../../src/system/components";
 
 export default {
   //components: { MksPage },

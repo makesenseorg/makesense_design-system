@@ -33,12 +33,12 @@
 // todo: import doesnt work in app because of docs, has to be loaded from dist
 import { MksSidebar } from "@@/components";
 import { MksSiteHeader } from "../../";
-import { MksSideFooter } from "../../";
+import { MksSiteFooter } from "../../";
 
 export default {
   name: "MksPage",
   inheritAttrs: false,
-  components: { MksSidebar, MksSiteHeader, MksSideFooter },
+  components: { MksSidebar, MksSiteHeader, MksSiteFooter },
   props: {
     sidebarOpen: {
       type: Boolean,

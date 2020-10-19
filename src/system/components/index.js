@@ -11,7 +11,7 @@ const components = [];
 const componentsMap = {};
 const componentsByName = {};
 
-context.keys().forEach(key => {
+context.keys().forEach((key) => {
   const c = context(key).default;
   const meta = contextMeta(key);
   const folder = key.split("/")[1];
@@ -31,7 +31,7 @@ context.keys().forEach(key => {
       parent,
       folder,
       name: c.name,
-      component: c
+      component: c,
     };
 
     componentsByName[c.name] = componentData;
@@ -46,7 +46,7 @@ context.keys().forEach(key => {
 });
 
 // Add child components data to parent
-Object.keys(componentsByName).forEach(name => {
+Object.keys(componentsByName).forEach((name) => {
   const component = componentsByName[name];
   if (!component.parent || !componentsByName[component.parent]) {
     return;
@@ -57,11 +57,30 @@ Object.keys(componentsByName).forEach(name => {
   componentsByName[component.parent].children.push(component);
 });
 
-debugger; // todo: here
+export { componentsMap };
 
 export default {
-  ...componentsByName,
   install(Vue) {
-    components.forEach(c => Vue.component(c.name, c));
-  }
+    components.forEach((c) => Vue.component(c.name, c));
+  },
 };
+
+/** Named export for each components in molecules and layouts */
+
+export { default as MksBeanMenu } from "./molecules/beanMenu/BeanMenu";
+export { default as MksCard } from "./molecules/card/Card";
+export { default as MksEventLineCard } from "./molecules/eventLineCard/EventLineCard";
+export { default as MksField } from "./molecules/field/Field";
+export { default as MksFieldEditor } from "./molecules/field/FieldEditor";
+export { default as MksFieldUpload } from "./molecules/field/FieldUpload";
+export { default as MksIconActionCard } from "./molecules/iconActionCard/IconActionCard";
+export { default as MksIconHeader } from "./molecules/iconHeader/IconHeader";
+export { default as MksLangPicker } from "./molecules/langPicker/LangPicker";
+export { default as MksModal } from "./molecules/modal/Modal";
+export { default as MksPagination } from "./molecules/pagination/Pagination";
+export { default as MksSidebar } from "./molecules/sidebar/Sidebar";
+export { default as MksSiteFooter } from "./molecules/siteFooter/SiteFooter";
+export { default as MksSiteHeader } from "./molecules/siteHeader/SiteHeader";
+
+export { default as MksHorizontalList } from "./layouts/horizontalList/HorizontalList";
+export { default as MksPage } from "./layouts/page/Page";
