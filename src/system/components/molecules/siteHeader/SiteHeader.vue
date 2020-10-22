@@ -37,7 +37,7 @@
   </header>
 </template>
 <script>
-import MksBeanMenu from "../../molecules/beanMenu/BeanMenu";
+// import MksBeanMenu from "../../molecules/beanMenu/BeanMenu";
 /**
  * Site header with menu, sidebar control and top bar slot.
  * When users clicked the sidebar control
@@ -47,7 +47,7 @@ import MksBeanMenu from "../../molecules/beanMenu/BeanMenu";
 export default {
   name: "MksSiteHeader",
   release: "0.2.0",
-  components: { MksBeanMenu },
+  // components: { MksBeanMenu },
   props: {
     /** Site logo */
     logo: {
@@ -222,7 +222,7 @@ The logo is makesense logo by default but can be customized with an URL.
 
 ## Translucent header
 
-The header can appear <code>translucent</code> by setting the prop to <code>true</code>. 
+The header can appear <code>translucent</code> by setting the prop to <code>true</code>.
 
 It is then positionned absolutely above the content and has no background.
 

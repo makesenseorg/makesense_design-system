@@ -25,11 +25,10 @@
 </template>
 <script>
 // TODO : problème: ne charge pas le css du composant
-import MksPage from "@makesenseorg/design-system/dist/components/Page/MksPage.umd.min.js";
-import MksPageCss from "@makesenseorg/design-system/dist/components/Page/MksPage.css";
-import MksLangPicker from "@makesenseorg/design-system/dist/components/LangPicker/MksLangPicker.umd.min.js";
-import MksLangPickerCSS from "@makesenseorg/design-system/dist/components/LangPicker/MksLangPicker.css";
-
+import {
+  MksPage,
+  MksLangPicker
+} from "@makesenseorg/design-system/dist/components";
 export default {
   components: { MksPage, MksLangPicker },
   data() {
