@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateNumber.vue matches snapshot 1`] = `
+<div
+  class="date date--color-primary"
+>
+  <div
+    class="date__number"
+  >
+    
+      1234
+    
+  </div>
+</div>
+`;
+
+exports[`DateNumber.vue matches snapshot with slot 1`] = `
+<div
+  class="date date--color-primary"
+>
+  <div
+    class="date__number"
+  >
+    <div>
+      2000
+    </div>
+  </div>
+</div>
+`;
