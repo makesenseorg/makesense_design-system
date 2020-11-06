@@ -28,8 +28,8 @@ export default {
     light: {
       type: Boolean,
       required: false,
-      default: false
-    }
+      default: false,
+    },
     /**
      * The icon to use (any icon available in the icon component)
      */
