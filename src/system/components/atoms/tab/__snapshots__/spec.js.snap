@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tab.vue matches snapshot 1`] = `
+<div
+  class="tab-button tab-button--active"
+>
+  
+  test-id
+
+</div>
+`;
