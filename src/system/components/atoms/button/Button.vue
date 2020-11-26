@@ -3,14 +3,14 @@
     :is="tag"
     :class="[
       `button button--type-${type} button--size-${size}`,
-      { 'button--loading': loading }
+      { 'button--loading': loading },
     ]"
     @click="onClick"
     :type="inputType"
     :disabled="disabled"
     ref="container"
     :style="{
-      minWidth: $slots.loading === undefined ? minWidth + 'px' : 'auto'
+      minWidth: $slots.loading === undefined ? minWidth + 'px' : 'auto',
     }"
   >
     <!-- @slot Content of the button-->
@@ -43,21 +43,21 @@ export default {
       default: "div",
       validator: function(value) {
         return ["div", "a", "input", "button", "span"].indexOf(value) !== -1;
-      }
+      },
     },
     /**
      * If loading is set to true, the button will display the loading slot or "Processing..."
      */
     loading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * If disabled is set to true, the button will be disabled
      */
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     /**
      * Can set the input type, in case of button tag (ex: "submit")
@@ -65,7 +65,7 @@ export default {
     inputType: {
       type: String,
       required: false,
-      default: ""
+      default: "",
     },
     /**
      * Color of the button. "primary",
@@ -90,10 +90,10 @@ export default {
             "warning",
             "negative",
             "text",
-            "text-active"
+            "text-active",
           ].indexOf(value) !== -1
         );
-      }
+      },
     },
     /**
      * Size of the button. "default", "small", "full", "round"
@@ -105,13 +105,13 @@ export default {
         return (
           ["default", "small", "full", "round", "square"].indexOf(value) !== -1
         );
-      }
-    }
+      },
+    },
   },
   data: function() {
     return {
       minWidth: 0,
-      observer: null
+      observer: null,
     };
   },
   mounted() {
@@ -125,7 +125,7 @@ export default {
       attributes: true,
       childList: true,
       characterData: true,
-      subtree: true
+      subtree: true,
     });
   },
   beforeDestroy: function() {
@@ -144,10 +144,10 @@ export default {
     updateMinWidth() {
       this.$nextTick(function() {
         var container = this.$refs.container;
-        this.minWidth = container.offsetWidth;
+        if (container !== undefined) this.minWidth = container.offsetWidth;
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
