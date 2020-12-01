@@ -18,24 +18,24 @@ export default {
   props: {
     id: {
       type: String,
-      required: true
+      required: true,
     },
     title: {
       type: String,
       required: true,
-      default: "TabButtonTitle"
+      default: "TabButtonTitle",
     },
     active: {
       type: Boolean,
       required: true,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
     onClick: function() {
       this.$emit("click", this.id);
-    }
-  }
+    },
+  },
 };
 </script>
 
