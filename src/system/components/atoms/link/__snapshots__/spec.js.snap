@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link.vue matches snapshot 1`] = `
+<a
+  class="link"
+  href="http://google.com"
+  target="_blank"
+/>
+`;
