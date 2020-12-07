@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button.vue matches snapshot 1`] = `
+<div
+  class="button button--type-primary button--size-default"
+  style="min-width: 0px;"
+  type=""
+/>
+`;

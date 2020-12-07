@@ -1,7 +1,6 @@
 <template>
   <label
-    class="field-label"
-    :class="cssClass"
+    :class="{ 'field-label': true, 'field-label--light': light }"
     :for="targetName"
     @click="onClickLabel()"
   >
@@ -24,14 +23,12 @@ export default {
      */
     targetName: {
       type: String,
-      required: false
+      required: false,
     },
-    /**
-     * The css class from the field component
-     */
-    cssClass: {
-      type: [String, Array, Object],
-      required: false
+    light: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
     /**
      * The icon to use (any icon available in the icon component)
@@ -39,15 +36,15 @@ export default {
     icon: {
       type: String,
       required: false,
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {},
   methods: {
     onClickLabel: function() {
       this.$emit("click");
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -60,7 +57,7 @@ label,
   margin-bottom: 0.4em;
   font-weight: $font-weight-extrabold;
 
-  &.-light-onBlack {
+  &--light {
     color: $color-neutral-100;
   }
 

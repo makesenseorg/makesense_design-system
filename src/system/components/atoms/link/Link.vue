@@ -21,8 +21,7 @@ export default {
   props: {
     to: {
       type: [String, Object],
-      required: true,
-      default: "/"
+      required: true
     },
     /** For usage in the BeanMenu, adds styling when active link. */
     type: {

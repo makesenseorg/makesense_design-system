@@ -25,10 +25,10 @@ export default {
      */
     tag: {
       type: [Boolean, String],
-      required: false,
+      required: true,
       validator: function(value) {
         return ["h1", "h2", "h3", "h4", "h5", "h6"].indexOf(value) !== -1;
-      }
+      },
     },
     /**
      * The class name to apply on the title.
@@ -39,7 +39,7 @@ export default {
       required: false,
       validator: function(value) {
         return ["h1", "h2", "h3", "h4", "h5", "h6"].indexOf(value) !== -1;
-      }
+      },
     },
     /**
      * The color of the title.
@@ -55,9 +55,9 @@ export default {
             value
           ) !== -1
         );
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 
