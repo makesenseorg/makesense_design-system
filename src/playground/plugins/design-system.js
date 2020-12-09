@@ -4,4 +4,6 @@ import "@makesenseorg/design-system/dist/system.css";
 
 Vue.use(DesignSystem);
 
-Vue.prototype.$loadTheme("events");
+// if (process.client) {
+//     Vue.prototype.$loadTheme("events");
+//   }
