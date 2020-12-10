@@ -20,17 +20,20 @@
       active="fr"
     ></mks-lang-picker>
     <Nuxt></Nuxt>
-    <template v-slot:footer>Made by makesense !</template>
+    <template v-slot:footer>
+      <mks-field name="field" type="editor" value="bonjour à tous"/>
+    </template>
   </mks-page>
 </template>
 <script>
 // TODO : problème: ne charge pas le css du composant
 import {
   MksPage,
-  MksLangPicker
+  MksLangPicker,
+  MksField
 } from "@makesenseorg/design-system/dist/components";
 export default {
-  components: { MksPage, MksLangPicker },
+  components: { MksPage, MksLangPicker, MksField },
   data() {
     return {
       sidebarOpen: false

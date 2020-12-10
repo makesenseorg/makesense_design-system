@@ -17,7 +17,7 @@
     "test:unit": "vue-cli-service test:unit",
     "prepack": "npm run build:system"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/vue-fontawesome": "^0.1.7",
