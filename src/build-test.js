@@ -7,7 +7,7 @@ const ncp = require("ncp");
 
 // crée le dossier dist/components s'il n'existe pas
 fsPromise
-  .mkdir("../dist/components")
+  .mkdir("../dist/components", { recursive: true })
   .catch(err => {
     if (err.code !== "EEXIST") {
       throw err;
