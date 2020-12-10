@@ -19,7 +19,7 @@ export default {
     number: {
       require: true,
       type: Number,
-      default: 1,
+      default: 1
     },
     /**
      * Either 'primary', 'secondary', or 'tertiary'
@@ -28,11 +28,11 @@ export default {
       require: false,
       default: "primary",
       type: String,
-      validator: (value) => {
+      validator: value => {
         return value.match(/(primary|secondary|tertiary)/);
-      },
-    },
-  },
+      }
+    }
+  }
 };
 </script>
 

@@ -23,12 +23,12 @@ export default {
      */
     targetName: {
       type: String,
-      required: false,
+      required: false
     },
     light: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     /**
      * The icon to use (any icon available in the icon component)
@@ -36,15 +36,15 @@ export default {
     icon: {
       type: String,
       required: false,
-      default: null,
-    },
+      default: null
+    }
   },
   computed: {},
   methods: {
     onClickLabel: function() {
       this.$emit("click");
-    },
-  },
+    }
+  }
 };
 </script>
 

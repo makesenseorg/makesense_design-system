@@ -99,6 +99,5 @@
     "type": "git",
     "url": "https://github.com/makesenseorg/makesense_design-system.git"
   },
-  "homepage": "https://makesense-design-system.netlify.com",
-  "sideEffects": false
+  "homepage": "https://makesense-design-system.netlify.com"
 }

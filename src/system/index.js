@@ -1,7 +1,7 @@
 import plugins from "./plugins";
 //import components from "./components";
 import atoms from "./components/atoms";
-import "./styles/main.scss";
+import "@@/styles/main.scss";
 
 // to remove
 import dayjs from "dayjs";
