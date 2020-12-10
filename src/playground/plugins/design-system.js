@@ -6,4 +6,4 @@ Vue.use(DesignSystem);
 
 // if (process.client) {
 //     Vue.prototype.$loadTheme("events");
-//   }
+// }
