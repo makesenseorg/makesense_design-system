@@ -3,14 +3,14 @@
     :is="tag"
     :class="[
       `button button--type-${type} button--size-${size}`,
-      { 'button--loading': loading },
+      { 'button--loading': loading }
     ]"
     @click="onClick"
     :type="inputType"
     :disabled="disabled"
     ref="container"
     :style="{
-      minWidth: $slots.loading === undefined ? minWidth + 'px' : 'auto',
+      minWidth: $slots.loading === undefined ? minWidth + 'px' : 'auto'
     }"
   >
     <!-- @slot Content of the button-->
@@ -43,21 +43,21 @@ export default {
       default: "div",
       validator: function(value) {
         return ["div", "a", "input", "button", "span"].indexOf(value) !== -1;
-      },
+      }
     },
     /**
      * If loading is set to true, the button will display the loading slot or "Processing..."
      */
     loading: {
       type: Boolean,
-      default: false,
+      default: false
     },
     /**
      * If disabled is set to true, the button will be disabled
      */
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     /**
      * Can set the input type, in case of button tag (ex: "submit")
@@ -65,7 +65,7 @@ export default {
     inputType: {
       type: String,
       required: false,
-      default: "",
+      default: ""
     },
     /**
      * Color of the button. "primary",
@@ -90,10 +90,10 @@ export default {
             "warning",
             "negative",
             "text",
-            "text-active",
+            "text-active"
           ].indexOf(value) !== -1
         );
-      },
+      }
     },
     /**
      * Size of the button. "default", "small", "full", "round"
@@ -105,13 +105,13 @@ export default {
         return (
           ["default", "small", "full", "round", "square"].indexOf(value) !== -1
         );
-      },
-    },
+      }
+    }
   },
   data: function() {
     return {
       minWidth: 0,
-      observer: null,
+      observer: null
     };
   },
   mounted() {
@@ -125,7 +125,7 @@ export default {
       attributes: true,
       childList: true,
       characterData: true,
-      subtree: true,
+      subtree: true
     });
   },
   beforeDestroy: function() {
@@ -146,8 +146,8 @@ export default {
         var container = this.$refs.container;
         if (container !== undefined) this.minWidth = container.offsetWidth;
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -165,6 +165,14 @@ export default {
   text-decoration: none !important;
   transition: background-color 0.2s, border-color 0.2s;
   text-align: center;
+
+  &:focus {
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
+      $background-color-primary 0px 0px 0px 5px,
+      rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
+    outline: none !important;
+    transition: box-shadow 0.2s ease 0s !important;
+  }
 
   &--size-small {
     @include border-round;
@@ -247,6 +255,12 @@ export default {
       background-color: $color-secondary-active;
       border-color: $color-secondary-active;
     }
+
+    &:focus {
+      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
+        $color-secondary 0px 0px 0px 5px,
+        rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
+    }
   }
 
   &--type-tertiary {
@@ -259,6 +273,12 @@ export default {
       background-color: $color-tertiary-active;
       border-color: $color-tertiary-active;
     }
+
+    &:focus {
+      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
+        $color-tertiary 0px 0px 0px 5px,
+        rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
+    }
   }
 
   &--type-positive {
@@ -269,6 +289,11 @@ export default {
     &:hover {
       background-color: $color-success-active;
       border-color: $color-success-active;
+    }
+
+    &:focus {
+      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
+        $color-success 0px 0px 0px 5px, rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
     }
   }
 
@@ -281,6 +306,12 @@ export default {
       background-color: $color-warning-active;
       border-color: $color-warning-active;
     }
+
+    &:focus {
+      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
+        $color-warning-active 0px 0px 0px 5px,
+        rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
+    }
   }
 
   &--type-negative {
@@ -292,6 +323,12 @@ export default {
       background-color: $color-danger-active;
       border-color: $color-danger-active;
     }
+
+    &:focus {
+      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
+        $color-danger-active 0px 0px 0px 5px,
+        rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
+    }
   }
 
   &--type-neutral {
@@ -301,6 +338,12 @@ export default {
 
     &:hover {
       background-color: $background-color-softest;
+    }
+
+    &:focus {
+      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
+        $background-color-softest 0px 0px 0px 5px,
+        rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
     }
   }
 
@@ -323,10 +366,10 @@ button {
 <docs>
 ## Colors
   ```jsx
-    <mks-button>Button default</mks-button>
-    <mks-button type="secondary">Button secondary</mks-button>
-    <mks-button type="tertiary">Button tertiary</mks-button>
-    <mks-button type="neutral">Button neutral</mks-button>
+    <mks-button tag="button">Button default</mks-button>
+    <mks-button tag="button" type="secondary">Button secondary</mks-button>
+    <mks-button tag="button" type="tertiary">Button tertiary</mks-button>
+    <mks-button tag="button" type="neutral">Button neutral</mks-button>
     <br>
     <mks-button type="positive">Button positive</mks-button>
     <mks-button type="warning">Button warning</mks-button>
