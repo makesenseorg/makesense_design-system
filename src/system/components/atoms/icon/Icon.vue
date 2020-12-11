@@ -1,11 +1,12 @@
 <template>
-  <font-awesome-icon
-    v-if="library === 'font-awesome'"
-    :icon="getFaIcon"
+  <component
+    :is="component"
+    v-if="library === 'font-awesome' && component"
+    :icon="faIcon"
     :class="`icon icon--color-${color}`"
   />
   <svg
-    v-else
+    v-else-if="library === 'feather'"
     :class="`feather feather-${getIcon}`"
     xmlns="http://www.w3.org/2000/svg"
     :width="size"
@@ -18,42 +19,16 @@
     stroke-linejoin="round"
     v-html="path"
   ></svg>
+  <span v-else></span>
 </template>
 
 <script>
-// todo : import dynamically (without breaking use in nuxt.js)
-import feather from "feather-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
-import {
-  faArrowDown,
-  faSort,
-  faBars,
-  faSearch,
-  faArrowUp,
-  faTimes,
-  faTag,
-  faArrowRight,
-  faArrowLeft,
-  faLock,
-  faLifeRing,
-  faBuilding,
-  faCheck,
-  faGlobeEurope,
-  faClock,
-  faLink,
-  faWallet,
-  faShare,
-  faMapMarkerAlt
-} from "@fortawesome/free-solid-svg-icons";
-
 /**
  * Nice icons to make it more fun ✨
  * @version 0.1.0
  */
 export default {
   name: "MksIcon",
-  components: { FontAwesomeIcon },
   props: {
     /**
      * Type of icon depending on the library used. Prefer feather when possible
@@ -88,12 +63,22 @@ export default {
   data() {
     return {
       defaultSize: 24,
-      path: ""
+      path: "",
+      component: null,
+      faIcon: null
     };
   },
   async created() {
     if (this.library === "feather") {
-      this.path = feather.icons[this.type];
+      import("feather-icons").then(feather => {
+        this.path = feather.icons[this.type];
+      });
+    } else if (this.library === "font-awesome") {
+      // here import fontawesome
+      this.component = () =>
+        import(/* webpackChunkName: "fa" */ `@fortawesome/vue-fontawesome`)
+          .FontAwesomeIcon;
+      console.log("this.component", this.component);
     }
   },
   computed: {
@@ -104,50 +89,113 @@ export default {
       if (this.type === "arrowLeft") return "arrow-left";
       if (this.type === "arrowRight") return "arrow-right";
       return this.type;
-    },
-
+    }
+  },
+  mounted() {
+    this.faIcon = this.getFaIcon();
+  },
+  methods: {
     getFaIcon: function() {
       switch (this.type) {
         case "arrowDown":
-          return faArrowDown;
+          return import(
+            /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faArrowDown.js`
+          );
         case "arrowUp":
-          return faArrowUp;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faArrowUp.js`
+            );
         case "arrowRight":
-          return faArrowRight;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faArrowRight.js`
+            );
         case "arrowLeft":
-          return faArrowLeft;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faArrowLeft.js`
+            );
         case "close":
-          return faTimes;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faTimes.js`
+            );
         case "search":
-          return faSearch;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faSearch.js`
+            );
         case "share":
-          return faShare;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faShare.js`
+            );
         case "check":
-          return faCheck;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faCheck.js`
+            );
         case "sort":
-          return faSort;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faSort.js`
+            );
         case "link":
-          return faLink;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faLink.js`
+            );
         case "company":
-          return faBuilding;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faBuilding.js`
+            );
         case "lang":
-          return faGlobeEurope;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faGlobeEurope.js`
+            );
         case "clock":
-          return faClock;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faClock.js`
+            );
         case "mapMarker":
-          return faMapMarkerAlt;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faMapMarkerAlt.js`
+            );
         case "tag":
-          return faTag;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faTag.js`
+            );
         case "wallet":
-          return faWallet;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faWallet.js`
+            );
         case "lock":
-          return faLock;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faLock.js`
+            );
         case "menu":
-          return faBars;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faBars.js`
+            );
         case "help":
-          return faLifeRing;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faLifeRing`
+            );
         default:
-          return faSearch;
+          return () =>
+            import(
+              /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/faSearch.js`
+            );
       }
     }
   }
