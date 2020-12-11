@@ -37,7 +37,7 @@ module.exports = {
 				? [
 						new BundleAnalyzerPlugin({
 							analyzerMode: 'static',
-							openAnalyzer: false
+							openAnalyzer: true
 						}),
 						new MergeIntoSingleFilePlugin({
 							files: {
