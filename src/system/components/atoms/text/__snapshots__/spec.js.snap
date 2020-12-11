@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text.vue matches snapshot 1`] = `
+<span
+  class="text text--color-inherit text--size-normal text--weight-normal text--align-left"
+>
+  Lorem ipsum dolor sit amet
+</span>
+`;
