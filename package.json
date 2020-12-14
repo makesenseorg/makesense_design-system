@@ -17,7 +17,7 @@
     "test:unit": "vue-cli-service test:unit",
     "prepack": "npm run build:system"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/vue-fontawesome": "^0.1.7",
@@ -43,6 +43,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
     "babel-plugin-transform-require-context": "^0.0.3",
+    "babel-polyfill": "^6.26.0",
     "chalk": "^4.1.0",
     "cheerio": "^1.0.0-rc.2",
     "child_process": "^1.0.2",
