@@ -166,6 +166,14 @@ export default {
   transition: background-color 0.2s, border-color 0.2s;
   text-align: center;
 
+  &:focus {
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
+      $background-color-primary 0px 0px 0px 5px,
+      rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
+    outline: none !important;
+    transition: box-shadow 0.2s ease 0s !important;
+  }
+
   &--size-small {
     @include border-round;
     @include padding-button-small;
@@ -247,6 +255,12 @@ export default {
       background-color: $color-secondary-active;
       border-color: $color-secondary-active;
     }
+
+    &:focus {
+      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
+        $color-secondary 0px 0px 0px 5px,
+        rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
+    }
   }
 
   &--type-tertiary {
@@ -259,6 +273,12 @@ export default {
       background-color: $color-tertiary-active;
       border-color: $color-tertiary-active;
     }
+
+    &:focus {
+      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
+        $color-tertiary 0px 0px 0px 5px,
+        rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
+    }
   }
 
   &--type-positive {
@@ -269,6 +289,11 @@ export default {
     &:hover {
       background-color: $color-success-active;
       border-color: $color-success-active;
+    }
+
+    &:focus {
+      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
+        $color-success 0px 0px 0px 5px, rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
     }
   }
 
@@ -281,6 +306,12 @@ export default {
       background-color: $color-warning-active;
       border-color: $color-warning-active;
     }
+
+    &:focus {
+      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
+        $color-warning-active 0px 0px 0px 5px,
+        rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
+    }
   }
 
   &--type-negative {
@@ -292,6 +323,12 @@ export default {
       background-color: $color-danger-active;
       border-color: $color-danger-active;
     }
+
+    &:focus {
+      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
+        $color-danger-active 0px 0px 0px 5px,
+        rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
+    }
   }
 
   &--type-neutral {
@@ -301,6 +338,12 @@ export default {
 
     &:hover {
       background-color: $background-color-softest;
+    }
+
+    &:focus {
+      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
+        $background-color-softest 0px 0px 0px 5px,
+        rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
     }
   }
 
@@ -323,10 +366,10 @@ button {
 <docs>
 ## Colors
   ```jsx
-    <mks-button>Button default</mks-button>
-    <mks-button type="secondary">Button secondary</mks-button>
-    <mks-button type="tertiary">Button tertiary</mks-button>
-    <mks-button type="neutral">Button neutral</mks-button>
+    <mks-button tag="button">Button default</mks-button>
+    <mks-button tag="button" type="secondary">Button secondary</mks-button>
+    <mks-button tag="button" type="tertiary">Button tertiary</mks-button>
+    <mks-button tag="button" type="neutral">Button neutral</mks-button>
     <br>
     <mks-button type="positive">Button positive</mks-button>
     <mks-button type="warning">Button warning</mks-button>
