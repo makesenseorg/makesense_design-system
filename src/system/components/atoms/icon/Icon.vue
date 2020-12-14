@@ -77,7 +77,10 @@ export default {
         /* webpackChunkName: "fa" */ `@fortawesome/vue-fontawesome`
       );
       const iconDef = await import(
-        /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/${this.faName}.js`
+        /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/fa${this.faName.replace(
+          /^fa/,
+          ""
+        )}.js`
       );
       this.component = vueFa.FontAwesomeIcon;
       this.faIcon = iconDef[this.faName];
