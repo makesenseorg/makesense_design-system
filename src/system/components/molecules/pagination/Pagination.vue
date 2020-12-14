@@ -44,11 +44,8 @@
   </mks-horizontal-list>
 </template>
 <script>
-// import MksHorizontalList from "../../layouts/horizontalList/HorizontalList";
-
 export default {
   name: "MksPagination",
-  // components: { MksHorizontalList },
   props: {
     total: {
       type: Number,

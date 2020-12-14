@@ -24,7 +24,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ["@makesenseorg/design-system/dist/shared.scss", "@makesenseorg/design-system/dist/system.css"],
+  css: ["@makesenseorg/design-system/dist/system.css"],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
