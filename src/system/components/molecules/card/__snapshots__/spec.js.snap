@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card.vue matches snapshot 1`] = `
+<div
+  class="card card--flat"
+  href=""
+  to=""
+>
+  <div
+    class="card__image card__image--cover-default"
+  >
+    <img
+      class="card__cover"
+      src="https://placeholder.com/"
+    />
+     
+    <!---->
+     
+    <!---->
+  </div>
+   
+  <div
+    class="card__content"
+  >
+    <div
+      class="card__meta"
+    >
+      <div
+        class="card__title-wrapper"
+      >
+        <div
+          class="card__title"
+        />
+         
+      </div>
+       
+      <div
+        class="card__subtitle card__subtitle--undefined"
+      />
+    </div>
+     
+    <div
+      class="card__description"
+    />
+  </div>
+   
+  <!---->
+</div>
+`;
