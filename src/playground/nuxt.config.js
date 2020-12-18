@@ -1,10 +1,5 @@
 export default {
   /*
-   ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
-   */
-  mode: "universal",
-  /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
    */
@@ -29,25 +24,25 @@ export default {
   /*
    ** Global CSS
    */
-  css: ["@makesenseorg/design-system/dist/shared.scss"],
+  css: ["@makesenseorg/design-system/dist/system.css"],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [{ src: "~/plugins/design-system-local" }],
+  plugins: [{ src: "~/plugins/design-system" }],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
    */
   components: true,
   /*
-   ** Nuxt.js dev-modules
-   */
-  buildModules: [],
-  /*
    ** Nuxt.js modules
    */
-  modules: ["@nuxtjs/style-resources"],
+  modules: [],
+  /*
+   ** Nuxt.js dev-modules
+   */
+  buildModules: ["@nuxtjs/style-resources"],
   styleResources: {
     scss: ["@makesenseorg/design-system/dist/shared.scss"]
   },
@@ -55,5 +50,8 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {}
+  build: {
+    analyze: true,
+    transpile: ["@makesenseorg/design-system"]
+  }
 };

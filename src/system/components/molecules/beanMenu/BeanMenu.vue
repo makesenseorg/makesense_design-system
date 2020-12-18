@@ -86,7 +86,7 @@ The link object takes a <code>label</code> and a <code>to</code> property.
 
 For more information on the link object,  <mks-link to="/atoms/mkslink">see Link component</mks-link>
 
-## Example 
+## Example
 
 ```jsx
 <mks-bean-menu v-bind:links="[{label: 'Home', to: '/'}, {label: 'Bean Menu', to: '/molecules/mksbeanmenu'}, {label: 'External', to: 'https://google.com'}]"></mks-bean-menu>

@@ -49,7 +49,7 @@ export default {
      */
     icon: {
       type: String,
-      default: "angle-right"
+      default: "chevron-right"
     }
   }
 };

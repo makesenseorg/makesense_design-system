@@ -6,6 +6,8 @@
       { label: 'Library', to: '//makesense-design-system.netlify.app' }
     ]"
     logo="https://events.makesense.org/static/img/logo.6e3c1fd.svg"
+    :translucent="true"
+    :fixed="true"
     :sidebarOpen="sidebarOpen"
     @openSidebar="toggleSidebar"
     @closeSidebar="toggleSidebar"
@@ -20,20 +22,18 @@
       active="fr"
     ></mks-lang-picker>
     <Nuxt></Nuxt>
-    <template v-slot:footer>
-      <mks-field name="field" type="editor" value="bonjour à tous"/>
-    </template>
+    <template v-slot:footer>Made by makesense !</template>
   </mks-page>
 </template>
 <script>
 // TODO : problème: ne charge pas le css du composant
 import {
   MksPage,
-  MksLangPicker,
-  MksField
+  MksLangPicker
 } from "@makesenseorg/design-system/dist/components";
+
 export default {
-  components: { MksPage, MksLangPicker, MksField },
+  components: { MksPage, MksLangPicker },
   data() {
     return {
       sidebarOpen: false

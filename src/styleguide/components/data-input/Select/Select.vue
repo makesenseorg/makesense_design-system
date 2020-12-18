@@ -12,7 +12,7 @@
       @keyup.esc="close"
     >
       <div v-if="icon" class="ds-select-icon">
-        <ds-icon :name="icon" />
+        <mks-icon :type="icon" />
       </div>
       <div
         class="ds-select"
@@ -126,7 +126,7 @@
         </ul>
       </div>
       <div v-if="iconRight" class="ds-select-icon-right">
-        <ds-icon :name="iconRight" />
+        <mks-icon :type="iconRight" />
       </div>
     </div>
   </ds-form-item>
@@ -137,7 +137,7 @@ import inputMixin from "../shared/input";
 import multiinputMixin from "../shared/multiinput";
 import ClickOutside from "vue-click-outside";
 import DsFormItem from "../FormItem/FormItem";
-import DsIcon from "../../typography/Icon/Icon";
+import MksIcon from "@/system/components/atoms/icon/Icon";
 
 /**
  * Used for letting the user choose values from a set of options.
@@ -146,7 +146,7 @@ import DsIcon from "../../typography/Icon/Icon";
 export default {
   name: "DsSelect",
   mixins: [inputMixin, multiinputMixin],
-  components: { DsFormItem, DsIcon },
+  components: { DsFormItem, MksIcon },
   directives: {
     ClickOutside
   },
@@ -184,7 +184,7 @@ export default {
      */
     iconRight: {
       type: String,
-      default: "angle-down"
+      default: "chevron-down"
     },
     /**
      * The select options.

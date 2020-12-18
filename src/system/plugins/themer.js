@@ -1,4 +1,5 @@
-import { themeMap } from "@@/tokens";
+/* eslint-disable */
+import { themeMap } from "../tokens";
 
 let stylesheet = null;
 

@@ -2,7 +2,7 @@
   <li class="ds-list-item">
     <span class="ds-list-item-prefix">
       <span v-if="!$parentList.ordered" class="ds-list-item-icon">
-        <ds-icon :type="icon" />
+        <mks-icon :type="icon" />
       </span>
     </span>
     <span class="ds-list-item-content">
@@ -12,14 +12,14 @@
 </template>
 
 <script>
-import DsIcon from "../../typography/Icon/Icon";
+import MksIcon from "@/system/components/atoms/icon/Icon";
 /**
  * @version 1.0.0
  * @see DsList
  */
 export default {
   name: "DsListItem",
-  components: { DsIcon },
+  components: { MksIcon },
   inject: {
     $parentList: {
       default: null
@@ -32,7 +32,7 @@ export default {
     icon: {
       type: String,
       default() {
-        return this.$parentList ? this.$parentList.icon : "angle-right";
+        return this.$parentList ? this.$parentList.icon : "chevron-right";
       }
     }
   }

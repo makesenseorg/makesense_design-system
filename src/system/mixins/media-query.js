@@ -1,4 +1,4 @@
-import { tokenMap } from "@@/tokens";
+import { tokenMap } from "../tokens";
 
 const windowSize = {
   width: null,

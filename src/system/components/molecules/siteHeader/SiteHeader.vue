@@ -220,7 +220,7 @@ The logo is makesense logo by default but can be customized with an URL.
 
 ## Translucent header
 
-The header can appear <code>translucent</code> by setting the prop to <code>true</code>. 
+The header can appear <code>translucent</code> by setting the prop to <code>true</code>.
 
 It is then positionned absolutely above the content and has no background.
 

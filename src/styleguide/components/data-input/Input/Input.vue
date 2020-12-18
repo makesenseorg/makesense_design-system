@@ -2,7 +2,7 @@
   <ds-form-item>
     <div class="ds-input-wrap">
       <div v-if="icon" class="ds-input-icon">
-        <ds-icon :name="icon" />
+        <mks-icon :type="icon" />
       </div>
       <component
         class="ds-input"
@@ -27,7 +27,7 @@
         v-html="type === 'textarea' ? innerValue : null"
       />
       <div v-if="iconRight" class="ds-input-icon-right">
-        <ds-icon :name="iconRight" />
+        <mks-icon :type="iconRight" />
       </div>
     </div>
   </ds-form-item>
@@ -36,7 +36,7 @@
 <script>
 import inputMixin from "../shared/input";
 import DsFormItem from "../FormItem/FormItem";
-import DsIcon from "../../typography/Icon/Icon";
+import MksIcon from "@/system/components/atoms/icon/Icon";
 
 /**
  * Used for handling basic user input.
@@ -44,7 +44,7 @@ import DsIcon from "../../typography/Icon/Icon";
  */
 export default {
   name: "DsInput",
-  components: { DsFormItem, DsIcon },
+  components: { DsFormItem, MksIcon },
   mixins: [inputMixin],
   props: {
     /**

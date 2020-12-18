@@ -15,23 +15,23 @@
     v-bind="bindings"
     :is="linkTag"
   >
-    <ds-icon v-if="icon" :name="icon" />
+    <mks-icon v-if="icon" :name="icon" />
     <span class="ds-button-text" v-if="$slots.default">
       <slot />
     </span>
-    <ds-icon v-if="iconRight" :name="iconRight" />
+    <mks-icon v-if="iconRight" :type="iconRight" />
   </component>
 </template>
 
 <script>
-import DsIcon from "../../typography/Icon/Icon";
+import MksIcon from "@/system/components/atoms/icon/Icon";
 /**
  * Used to provide actions or navigation.
  * @version 1.0.0
  */
 export default {
   name: "DsButton",
-  components: { DsIcon },
+  components: { MksIcon },
   props: {
     /**
      * The path of this button. Can be a url or a Vue router path object.

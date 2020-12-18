@@ -5,7 +5,7 @@
     @click="onClick"
   >
     <div class="event__hour">
-      <span v-if="!now || past">{{ $date(date).format("HH:mm") }}</span>
+      <span v-if="!now || past">{{ formattedDate }}</span>
       <span v-else
         >{{ beforeTimeText }} {{ elapsedTime
         }}<span class="event__hour-space"></span>min(s)</span
@@ -37,6 +37,10 @@
 </template>
 
 <script>
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import "dayjs/locale/fr";
+
 export default {
   // todo : fix cover width
   // todo : fix no cover
@@ -110,17 +114,24 @@ export default {
   },
   computed: {
     end() {
-      return this.$date(this.date).add(this.duration, "m");
+      return dayjs(this.date).add(this.duration, "m");
     },
     now() {
-      return this.$date().isAfter(this.date) && this.$date().isBefore(this.end);
+      return dayjs().isAfter(this.date) && dayjs().isBefore(this.end);
     },
     past() {
-      return this.duration > 0 && this.$date().isAfter(this.end);
+      return this.duration > 0 && dayjs().isAfter(this.end);
     },
     elapsedTime() {
-      return Math.round((this.$date() - this.$date(this.date)) / 60000);
+      return Math.round((dayjs() - dayjs(this.date)) / 60000);
+    },
+    formattedDate() {
+      return dayjs(this.date).format("HH:mm");
     }
+  },
+  created() {
+    dayjs.locale("fr");
+    dayjs.extend(relativeTime);
   }
 };
 </script>
@@ -254,7 +265,7 @@ export default {
 <docs>
 ## Basic event line item 
 ```jsx
-<mks-event-line-item link="#" title="An event in the future" v-bind:date="$date().add(1, 'd')" cover="https://via.placeholder.com/300" v-bind:duration="60" :metas="['1 heure', 'France']"></mks-event-line-item>
+<mks-event-line-item link="#" title="An event in the future" v-bind:date="$date().add(1, 'd')" cover="https://via.placeholder.com/300" v-bind:duration="60" v-bind:metas="['1 heure', 'France']"></mks-event-line-item>
 ```
 
 ## Event currently happening 

@@ -39,7 +39,7 @@ import svgLoading from "@@/assets/img/ui/loading.svg";
 export default {
   name: "MksLoading",
   components: {
-    svgLoading,
+    svgLoading
   },
   props: {
     /**
@@ -53,42 +53,42 @@ export default {
         return (
           ["full", "component", "standalone", "simple"].indexOf(value) !== -1
         );
-      },
+      }
     },
     /**
      * Progress of the loading
      */
     progress: {
       type: Number,
-      default: -1,
+      default: -1
     },
     /**
      * Size of the loading indicator in px
      */
     size: {
       type: Number,
-      default: 50,
+      default: 50
     },
     /**
      * Is it inline ?
      */
     inline: {
       type: Boolean,
-      default: false,
+      default: false
     },
     /**
      * Color
      */
     color: {
       type: String,
-      default: "#3c4858",
-    },
+      default: "#3c4858"
+    }
   },
   methods: {
     getProgress: function() {
       return Math.floor(this.progress);
-    },
-  },
+    }
+  }
 };
 </script>
 

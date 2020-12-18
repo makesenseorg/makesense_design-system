@@ -1,59 +1,33 @@
 <template>
-  <font-awesome-icon
-    v-if="library === 'font-awesome'"
-    :icon="getFaIcon"
+  <component
+    :is="component"
+    v-if="library === 'font-awesome' && component"
+    :icon="faIcon"
     :class="`icon icon--color-${color}`"
   />
   <svg
-    v-else
-    :class="`feather feather-${getIcon}`"
+    v-else-if="library === 'feather'"
+    :class="`feather feather-${getIcon} feather--color-${color}`"
     xmlns="http://www.w3.org/2000/svg"
     :width="size"
     :height="size"
     :viewBox="`0 0 ${defaultSize} ${defaultSize}`"
     fill="none"
-    stroke="currentColor"
     :stroke-width="strokeWidth"
     stroke-linecap="round"
     stroke-linejoin="round"
     v-html="path"
   ></svg>
+  <span v-else></span>
 </template>
 
 <script>
-// todo : import dynamically (without breaking use in nuxt.js)
-import feather from "feather-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
-import {
-  faArrowDown,
-  faSort,
-  faBars,
-  faSearch,
-  faArrowUp,
-  faTimes,
-  faTag,
-  faArrowRight,
-  faArrowLeft,
-  faLock,
-  faLifeRing,
-  faBuilding,
-  faCheck,
-  faGlobeEurope,
-  faClock,
-  faLink,
-  faWallet,
-  faShare,
-  faMapMarkerAlt
-} from "@fortawesome/free-solid-svg-icons";
-
 /**
  * Nice icons to make it more fun ✨
  * @version 0.1.0
  */
 export default {
   name: "MksIcon",
-  components: { FontAwesomeIcon },
   props: {
     /**
      * Type of icon depending on the library used. Prefer feather when possible
@@ -88,12 +62,28 @@ export default {
   data() {
     return {
       defaultSize: 24,
-      path: ""
+      path: "",
+      component: null,
+      faIcon: null
     };
   },
   async created() {
     if (this.library === "feather") {
-      this.path = feather.icons[this.type];
+      import("feather-icons").then(feather => {
+        this.path = feather.icons[this.type];
+      });
+    } else if (this.library === "font-awesome") {
+      const vueFa = await import(
+        /* webpackChunkName: "fa" */ `@fortawesome/vue-fontawesome`
+      );
+      const iconDef = await import(
+        /* webpackChunkName: "fa" */ `@fortawesome/free-solid-svg-icons/fa${this.faName.replace(
+          /^fa/,
+          ""
+        )}.js`
+      );
+      this.component = vueFa.FontAwesomeIcon;
+      this.faIcon = iconDef[this.faName];
     }
   },
   computed: {
@@ -105,50 +95,15 @@ export default {
       if (this.type === "arrowRight") return "arrow-right";
       return this.type;
     },
+    faName() {
+      if (this.type === "close") return "faTimes";
+      if (this.type === "company") return "faBuilding";
+      if (this.type === "lang") return "faGlobeEurope";
+      if (this.type === "mapMarker") return "faMapMarkerAlt";
+      if (this.type === "menu") return "faBars";
+      if (this.type === "help") return "faLifeRing";
 
-    getFaIcon: function() {
-      switch (this.type) {
-        case "arrowDown":
-          return faArrowDown;
-        case "arrowUp":
-          return faArrowUp;
-        case "arrowRight":
-          return faArrowRight;
-        case "arrowLeft":
-          return faArrowLeft;
-        case "close":
-          return faTimes;
-        case "search":
-          return faSearch;
-        case "share":
-          return faShare;
-        case "check":
-          return faCheck;
-        case "sort":
-          return faSort;
-        case "link":
-          return faLink;
-        case "company":
-          return faBuilding;
-        case "lang":
-          return faGlobeEurope;
-        case "clock":
-          return faClock;
-        case "mapMarker":
-          return faMapMarkerAlt;
-        case "tag":
-          return faTag;
-        case "wallet":
-          return faWallet;
-        case "lock":
-          return faLock;
-        case "menu":
-          return faBars;
-        case "help":
-          return faLifeRing;
-        default:
-          return faSearch;
-      }
+      return `fa${this.type.charAt(0).toUpperCase() + this.type.slice(1)}`;
     }
   }
 };
@@ -189,10 +144,43 @@ export default {
     color: $color-danger;
   }
 }
+
+.feather {
+  stroke: currentColor;
+  vertical-align: middle;
+
+  &--color-neutral {
+    stroke: $color-neutral-70;
+  }
+
+  &--color-primary {
+    stroke: $color-primary;
+  }
+
+  &--color-secondary {
+    stroke: $color-secondary;
+  }
+
+  &--color-tertiary {
+    stroke: $color-tertiary;
+  }
+
+  &--color-positive {
+    stroke: $color-success;
+  }
+
+  &--color-warning {
+    stroke: $color-warning;
+  }
+
+  &--color-negative {
+    stroke: $color-danger;
+  }
+}
 </style>
 <docs>
 ## Feather icons (default)
-List of all available icons : https://feathericons.com/
+[List of 286 available icons](https://feathericons.com/)
 
 Some examples :
 
@@ -223,20 +211,29 @@ Some examples :
 ## Font Awesome icons 
 Font awesome icons are still available. However you have to specify to use the font-awesome library. 
 
-Only these ones are available as of now : 
+[List of 1001 available icons](https://fontawesome.com/icons?d=gallery&s=solid&m=free)
+
+The first line of icons has an alias for easier use. If not, you can just specify as type the name of the icon as camelCase.
+Exemple, for <code>address-book</code> type will be <code>adressBook</code>
 
 ```jsx
 <p>
+  <mks-icon type="close" library="font-awesome"></mks-icon> 
+  <mks-icon type="mapMarker" library="font-awesome"></mks-icon> 
+  <mks-icon type="lang" library="font-awesome"></mks-icon> 
+  <mks-icon type="company" library="font-awesome"></mks-icon> 
+  <mks-icon type="menu" library="font-awesome"></mks-icon>
+  <mks-icon type="help" library="font-awesome"></mks-icon>
+  <br />
+  <br />
+  <mks-icon type="addressBook" library="font-awesome"></mks-icon>
+  <mks-icon type="adjust" library="font-awesome"></mks-icon>
   <mks-icon type="arrowUp" library="font-awesome"></mks-icon> 
   <mks-icon type="arrowDown" library="font-awesome"></mks-icon> 
   <mks-icon type="arrowLeft" library="font-awesome"></mks-icon>
   <mks-icon type="arrowRight" library="font-awesome"></mks-icon>
-  <mks-icon type="close" library="font-awesome"></mks-icon> 
-  <mks-icon type="mapMarker" library="font-awesome"></mks-icon> 
-  <mks-icon type="lang" library="font-awesome"></mks-icon> 
   <mks-icon type="link" library="font-awesome"></mks-icon> 
-  <mks-icon type="tag" library="font-awesome"></mks-icon> 
-  <mks-icon type="company" library="font-awesome"></mks-icon> 
+  <mks-icon type="tag" library="font-awesome"></mks-icon>
   <mks-icon type="search" library="font-awesome"></mks-icon> 
   <mks-icon type="check" library="font-awesome"></mks-icon>
   <mks-icon type="share" library="font-awesome"></mks-icon>
@@ -244,8 +241,7 @@ Only these ones are available as of now :
   <mks-icon type="clock" library="font-awesome"></mks-icon>
   <mks-icon type="wallet" library="font-awesome"></mks-icon> 
   <mks-icon type="lock" library="font-awesome"></mks-icon> 
-  <mks-icon type="menu" library="font-awesome"></mks-icon>
-  <mks-icon type="help" library="font-awesome"></mks-icon>
+ 
 </p>
 ```
 
@@ -255,13 +251,23 @@ Inherits from parent by default
 
 ```jsx
 <p>
-  <mks-icon type="arrow-up" color="neutral"></mks-icon> 
-  <mks-icon type="arrow-up" color="primary"></mks-icon> 
-  <mks-icon type="arrow-up" color="secondary"></mks-icon> 
-  <mks-icon type="arrow-up" color="tertiary"></mks-icon> 
-  <mks-icon type="arrow-up" color="positive"></mks-icon> 
-  <mks-icon type="arrow-up" color="warning"></mks-icon> 
-  <mks-icon type="arrow-up" color="negative"></mks-icon> 
+  <mks-text tag="p">Feather</mks-text>
+  <mks-icon color="neutral" type="arrow-up"></mks-icon> 
+  <mks-icon color="primary" type="arrow-up"></mks-icon> 
+  <mks-icon color="secondary" type="arrow-up"></mks-icon> 
+  <mks-icon color="tertiary" type="arrow-up"></mks-icon> 
+  <mks-icon color="positive" type="arrow-up"></mks-icon> 
+  <mks-icon color="warning" type="arrow-up"></mks-icon> 
+  <mks-icon color="negative" type="arrow-up"></mks-icon> 
+  <br/><br/>
+  <mks-text tag="p">Font awesome</mks-text>
+  <mks-icon color="neutral" type="arrowUp" library="font-awesome"></mks-icon> 
+  <mks-icon color="primary" type="arrowUp" library="font-awesome"></mks-icon> 
+  <mks-icon color="secondary" type="arrowUp" library="font-awesome"></mks-icon> 
+  <mks-icon color="tertiary" type="arrowUp" library="font-awesome"></mks-icon> 
+  <mks-icon color="positive" type="arrowUp" library="font-awesome"></mks-icon> 
+  <mks-icon color="warning" type="arrowUp" library="font-awesome" ></mks-icon> 
+  <mks-icon color="negative" type="arrowUp" library="font-awesome" ></mks-icon> 
 </p>
 ```
 </docs>

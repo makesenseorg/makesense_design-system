@@ -10,6 +10,7 @@ const contextMeta = require.context(
 const components = [];
 const componentsMap = {};
 const componentsByName = {};
+
 context.keys().forEach(key => {
   const c = context(key).default;
   const meta = contextMeta(key);
@@ -37,8 +38,11 @@ context.keys().forEach(key => {
     componentsMap[folder].push(componentsByName[c.name]);
   }
 
-  if (meta.comment.indexOf("private_no_import") !== -1) return;
-  else components.push(c);
+  if (meta.comment.indexOf("private_no_import") !== -1) {
+    return;
+  } else {
+    components.push(c);
+  }
 });
 
 // Add child components data to parent
@@ -60,3 +64,23 @@ export default {
     components.forEach(c => Vue.component(c.name, c));
   }
 };
+
+/** Named export for each components in molecules and layouts */
+
+export { default as MksBeanMenu } from "./molecules/beanMenu/BeanMenu";
+export { default as MksCard } from "./molecules/card/Card";
+export { default as MksEventLineCard } from "./molecules/eventLineCard/EventLineCard";
+export { default as MksField } from "./molecules/field/Field";
+export { default as MksFieldEditor } from "./molecules/field/FieldEditor";
+export { default as MksFieldUpload } from "./molecules/field/FieldUpload";
+export { default as MksIconActionCard } from "./molecules/iconActionCard/IconActionCard";
+export { default as MksIconHeader } from "./molecules/iconHeader/IconHeader";
+export { default as MksLangPicker } from "./molecules/langPicker/LangPicker";
+export { default as MksModal } from "./molecules/modal/Modal";
+export { default as MksPagination } from "./molecules/pagination/Pagination";
+export { default as MksSidebar } from "./molecules/sidebar/Sidebar";
+export { default as MksSiteFooter } from "./molecules/siteFooter/SiteFooter";
+export { default as MksSiteHeader } from "./molecules/siteHeader/SiteHeader";
+
+export { default as MksHorizontalList } from "./layouts/horizontalList/HorizontalList";
+export { default as MksPage } from "./layouts/page/Page";
