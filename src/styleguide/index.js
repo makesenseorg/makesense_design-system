@@ -3,6 +3,7 @@ import Vue from "vue";
 import System from "@@";
 import SystemComponents from "@@/components";
 import Components from "./components/global";
+import "@@/styles/main.scss";
 import App from "./App.vue";
 import router from "./router";
 import startCase from "lodash/startCase";
