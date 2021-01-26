@@ -1,50 +1,48 @@
 <template>
-  <div>
+  <div
+    :is="actionLink ? 'router-link' : 'div'"
+    :class="[
+      'card',
+      sizeSmall ? 'card--size-small' : '',
+      fixedBorder ? 'card--fixed-border' : 'card--moving-border',
+      actionLink ? 'card--cliquable' : '',
+      theme ? `card--theme-${theme}` : ''
+    ]"
+    :to="actionLink"
+  >
+    <mks-icon v-if="icon" :type="icon" class="card__icon" />
+    <div v-else :class="roundedImage ? 'card__rounded-image' : ''">
+      <img
+        v-if="image"
+        :class="roundedImage ? '' : 'card__image'"
+        :src="image"
+        :alt="`Logo`"
+      />
+    </div>
+    <div class="card__content">
+      <p class="card__name" v-html="name"></p>
+      <p class="card__status" v-if="status && showButton">{{ status }}</p>
+      <p :class="`card__description `" v-if="description">
+        {{ description }}
+      </p>
+    </div>
     <div
-      :is="actionLink ? 'router-link' : 'div'"
-      :class="[
-        'card',
-        sizeSmall ? 'card--size-small' : '',
-        fixedBorder ? 'card--fixed-border' : 'card--moving-border',
-        actionLink ? 'card--cliquable' : '',
-        theme ? `card--theme-${theme}` : ''
-      ]"
-      :to="actionLink"
+      v-if="showButton"
+      :class="hideButtonOnMobile ? 'card__action-responsive' : 'card__action'"
     >
-      <mks-icon v-if="icon" :type="icon" class="card__icon" />
-      <div v-else :class="roundedImage ? 'card__rounded-image' : ''">
-        <img
-          v-if="image"
-          :class="roundedImage ? '' : 'card__image'"
-          :src="image"
-          :alt="`Logo`"
-        />
-      </div>
-      <div class="card__content">
-        <p class="card__name" v-html="name"></p>
-        <p class="card__status" v-if="status && showButton">{{ status }}</p>
-        <p :class="`card__description `" v-if="description">
-          {{ description }}
-        </p>
-      </div>
-      <div
-        v-if="showButton"
-        :class="hideButtonOnMobile ? 'card__action-responsive' : 'card__action'"
+      <mks-button
+        @click.native="onClick"
+        :type="buttonType"
+        size="small"
+        :disabled="loadingState === 'PENDING'"
+        :loading="loadingState === 'PENDING'"
       >
-        <mks-button
-          @click="onClick"
-          :type="buttonType"
-          size="small"
-          :disabled="loadingState === 'PENDING'"
-          :loading="loadingState === 'PENDING'"
-        >
-          {{ buttonLabel }}
-          <template v-slot:loading>Chargement...</template>
-        </mks-button>
-      </div>
-      <div v-else-if="status" class="card__action card__status">
-        {{ status }}
-      </div>
+        {{ buttonLabel }}
+        <template v-slot:loading>Chargement...</template>
+      </mks-button>
+    </div>
+    <div v-else-if="status" class="card__action card__status">
+      {{ status }}
     </div>
   </div>
 </template>
