@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconActionCard.vue matches snapshot 1`] = `
+<div
+  class="card card--moving-border"
+>
+  <div
+    class=""
+  >
+    <!---->
+  </div>
+   
+  <div
+    class="card__content"
+  >
+    <p
+      class="card__name"
+    >
+      Pas de nom
+    </p>
+     
+    <!---->
+     
+    <!---->
+  </div>
+   
+  <!---->
+</div>
+`;
