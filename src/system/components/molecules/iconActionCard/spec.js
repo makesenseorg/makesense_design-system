@@ -34,7 +34,7 @@ describe("IconActionCard.vue", () => {
   it("makes card cliquable", () => {
     const wrapper = shallowMount(Comp, {
       propsData: {
-        actionLink: true
+        actionLink: {name: "home"}
       },
     });
     expect(wrapper.element.tagName).toBe("ROUTER-LINK");
@@ -100,13 +100,36 @@ describe("IconActionCard.vue", () => {
     expect(div.exists()).toBeTruthy();
   });
 
-    // test prop roundedImage
-    // test prop name
-    // test prop descrption
-    // test prop status
-    // test prop statusType
-    // test prophide button onmobile
-    // test prop button type
+  it("displays name", () => {
+    const wrapper = shallowMount(Comp, {
+      propsData: {
+        name: '<strong>Bonjour</strong>'
+      }
+    });
 
-  
+    const div = wrapper.find('.card__name')
+    expect(div.text()).toBe("Bonjour");
+  });
+
+  it("displays description", () => {
+    const wrapper = shallowMount(Comp, {
+      propsData: {
+        description: 'Bonjour'
+      }
+    });
+
+    const div = wrapper.find('.card__description')
+    expect(div.text()).toBe("Bonjour");
+  });
+
+  it("displays status", () => {
+    const wrapper = shallowMount(Comp, {
+      propsData: {
+        status: 'Bonjour'
+      }
+    });
+
+    const div = wrapper.find('.card__status')
+    expect(div.text()).toBe("Bonjour");
+  });
 });
