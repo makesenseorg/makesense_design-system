@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BeanMenu.vue matches snapshot 1`] = `
+<nav
+  class="bean-menu"
+>
+  <mks-horizontal-list-stub
+    class="bean-menu__list"
+    spacing="default"
+    tag="ul"
+  >
+    <li
+      class="bean-menu__item"
+    >
+      <mks-link-stub
+        to="https://example.com"
+        type="menu"
+      >
+        link 1
+      </mks-link-stub>
+    </li>
+    <li
+      class="bean-menu__item"
+    >
+      <mks-link-stub
+        to="https://example2.com"
+        type="menu"
+      >
+        link 2
+      </mks-link-stub>
+    </li>
+  </mks-horizontal-list-stub>
+</nav>
+`;
