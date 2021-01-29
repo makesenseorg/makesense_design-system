@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventLineCard.vue matches snapshot 1`] = `
+<div
+  class="event"
+  target="_blank"
+>
+  <div
+    class="event__hour"
+  >
+    <span>
+      Invalid Date
+    </span>
+  </div>
+   
+  <div
+    class="event__cover"
+  >
+    <img
+      class="event__cover-image"
+      src="https://placeholder.com/"
+    />
+  </div>
+   
+  <div
+    class="event__content"
+  >
+    <div
+      class="content__title"
+    >
+      <h3>
+        The title
+      </h3>
+       
+      <div
+        class="event__metas"
+      >
+        <mks-tag-stub
+          class="event__meta"
+          color="neutral"
+          label="tag1"
+          size="medium"
+          trunc="true"
+        />
+        <mks-tag-stub
+          class="event__meta"
+          color="neutral"
+          label="tag2"
+          size="medium"
+          trunc="true"
+        />
+      </div>
+    </div>
+     
+    <div
+      class="content__action"
+    >
+      <mks-button-stub
+        href="https://example.com/"
+        inputtype=""
+        size="small"
+        tag="a"
+        target="_blank"
+        type="primary"
+      >
+        Participer
+      </mks-button-stub>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EventLineCard.vue matches snapshot past version 1`] = `
+<div
+  class="event"
+  target="_blank"
+>
+  <div
+    class="event__hour"
+  >
+    <span>
+      Invalid Date
+    </span>
+  </div>
+   
+  <div
+    class="event__cover"
+  >
+    <img
+      class="event__cover-image"
+      src="https://placeholder.com/"
+    />
+  </div>
+   
+  <div
+    class="event__content"
+  >
+    <div
+      class="content__title"
+    >
+      <h3>
+        The title
+      </h3>
+       
+      <!---->
+    </div>
+     
+    <div
+      class="content__action"
+    >
+      <mks-button-stub
+        href="https://example.com/"
+        inputtype=""
+        size="small"
+        tag="a"
+        target="_blank"
+        type="primary"
+      >
+        Participer
+      </mks-button-stub>
+    </div>
+  </div>
+</div>
+`;
