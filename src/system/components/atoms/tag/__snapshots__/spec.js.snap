@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag.vue matches snapshot 1`] = `
+<div
+  class="tag tag--color-neutral tag--size-medium tag--not-cliquable"
+>
+  My Label 
+  <!---->
+</div>
+`;
+
+exports[`Tag.vue matches snapshot with an icon 1`] = `
+<div
+  class="tag tag--color-neutral tag--size-medium tag--not-cliquable"
+>
+  My Label 
+  <mks-icon-stub
+    class="tag__icon"
+    color="inherit"
+    library="feather"
+    size="24"
+    strokewidth="2"
+    type="x"
+  />
+</div>
+`;
+
+exports[`Tag.vue matches snapshot without label 1`] = `
+<div
+  class="tag tag--color-neutral tag--size-medium tag--not-cliquable"
+>
+  -No label- 
+  <!---->
+</div>
+`;
