@@ -5,17 +5,6 @@ import Button from "../../atoms/button/Button.vue";
 const localVue = createLocalVue();
 localVue.component("MksButton", Button);
 
-
-// const mutationObserverMock = jest.fn(function MutationObserver(callback) {
-//     this.observe = jest.fn();
-//     this.disconnect = jest.fn();
-//     // Optionally add a trigger() method to manually trigger a change
-//     this.trigger = (mockedMutationsList) => {
-//         callback(mockedMutationsList, this);
-//     };
-// });
-// global.MutationObserver = mutationObserverMock;
-
 describe("Card.vue", () => {
   it("matches snapshot", () => {
     const wrapper = shallowMount(Comp, {
