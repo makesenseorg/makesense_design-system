@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidebar.vue matches snapshot 1`] = `
+<aside
+  class="sidebar"
+>
+  <button
+    class="sidebar__close-layer"
+  />
+   
+  <div
+    class="sidebar__inner"
+  >
+    <mks-button-stub
+      class="sidebar__close-btn"
+      inputtype=""
+      size="round"
+      tag="button"
+      type="secondary"
+    >
+      <mks-icon-stub
+        color="inherit"
+        library="feather"
+        size="30"
+        strokewidth="2"
+        type="x"
+      />
+    </mks-button-stub>
+     
+    <header
+      class="sidebar__header"
+    />
+     
+    <main
+      class="sidebar__main-content"
+    />
+  </div>
+</aside>
+`;
