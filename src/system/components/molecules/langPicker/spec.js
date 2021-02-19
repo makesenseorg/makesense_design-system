@@ -30,7 +30,7 @@ describe("langPicker.vue", () => {
     const button = wrapper.find(".app-lang__button--active");
     expect(button.exists()).toBe(true);
 
-    button.trigger("click");
+    button.vm.$emit("click");
     await wrapper.vm.$nextTick();
 
     expect(wrapper.emitted("select")).toBeTruthy();
