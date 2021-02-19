@@ -7,59 +7,30 @@ localVue.component("MksHeading", Heading);
 
 describe("IconHeader.vue", () => {
   it("matches snapshot", () => {
-    const wrapper = shallowMount(Comp, { localVue });
-    expect(wrapper.element).toMatchSnapshot();
-  });
-
-  /*
-  it("opens", () => {
     const wrapper = shallowMount(Comp, {
       localVue,
       propsData: {
-        open: true,
+        image: "https://via.placeholder.com/500",
+        alt: "Alt text",
+        title: "Title",
+        titleTag: "h1",
+        description: "Description",
+        descriptionType: "light",
       },
     });
-    expect(wrapper.classes()).toContain("sidebar--opened");
+    expect(wrapper.element).toMatchSnapshot();
   });
 
-  it("displays header slot content", () => {
+  it("matches snapshot without description", () => {
     const wrapper = shallowMount(Comp, {
       localVue,
-      slots: {
-        header: "abc",
+      propsData: {
+        image: "https://via.placeholder.com/500",
+        alt: "Alt text",
+        title: "Title",
+        titleTag: "h1",
       },
     });
-
-    const div = wrapper.find(".sidebar__header");
-    expect(div.text()).toBe("abc");
+    expect(wrapper.element).toMatchSnapshot();
   });
-
-  it("displays default slot content", () => {
-    const wrapper = shallowMount(Comp, {
-      localVue,
-      slots: {
-        default: "abc",
-      },
-    });
-
-    const div = wrapper.find(".sidebar__main-content");
-    expect(div.text()).toBe("abc");
-  });
-
-  it("emits click event", async () => {
-    const wrapper = shallowMount(Comp, {
-      localVue,
-      props: {
-        open: true,
-      },
-    });
-
-    const button = wrapper.find(".sidebar__close-layer");
-    expect(button.exists()).toBe(true);
-
-    button.trigger("click");
-    await wrapper.vm.$nextTick();
-
-    expect(wrapper.emitted("close")).toBeTruthy();
-  });*/
 });
