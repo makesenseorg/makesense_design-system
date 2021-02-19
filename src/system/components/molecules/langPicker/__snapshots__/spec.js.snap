@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`langPicker.vue matches snapshot 1`] = `
+<ul
+  class="app-lang"
+>
+  <li
+    class="app-lang__item"
+  >
+    <mks-button-stub
+      class="app-lang__button app-lang__button--active"
+      inputtype=""
+      size="default"
+      tag="div"
+      type="text-active"
+    >
+      French
+    </mks-button-stub>
+  </li>
+  <li
+    class="app-lang__item"
+  >
+    <mks-button-stub
+      class="app-lang__button"
+      inputtype=""
+      size="default"
+      tag="div"
+      type="text"
+    >
+      English
+    </mks-button-stub>
+  </li>
+</ul>
+`;
