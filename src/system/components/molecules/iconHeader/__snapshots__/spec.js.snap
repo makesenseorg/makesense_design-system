@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconHeader.vue matches snapshot 1`] = `
+<header
+  class="icon-header"
+>
+  <img
+    class="icon-header__illustration"
+  />
+   
+  <mks-heading-stub
+    class="icon-header__title"
+    color="text"
+    tag="h2"
+  />
+   
+  <!---->
+   
+</header>
+`;
