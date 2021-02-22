@@ -102,7 +102,7 @@ export default {
 }
 </style>
 <docs>
-## Icons by feather
+## Icons
 [List of 286 available icons](https://feathericons.com/)
 
 Some examples :
