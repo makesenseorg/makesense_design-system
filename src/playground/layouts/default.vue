@@ -12,7 +12,7 @@
   >
     <template v-slot:sidebar-header>Sidebar header</template>
     <template v-slot:sidebar>Sidebar content</template>
-    <a slot="top-bar" class="ad" href="#">Some important content</a>
+    <a slot="top-bar" class="ad" href="#"><mks-icon type="clock"/>Some important content !!!</a>
     <template v-slot:header-left>Left side</template>
     <mks-lang-picker
       slot="header-right"
@@ -32,6 +32,7 @@ import {
   MksLangPicker,
   MksField
 } from "@makesenseorg/design-system/dist/components";
+
 export default {
   components: { MksPage, MksLangPicker, MksField },
   data() {

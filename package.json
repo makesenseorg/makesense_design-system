@@ -103,6 +103,8 @@
   },
   "homepage": "https://makesense-design-system.netlify.com",
   "sideEffects": [
-    "*.scss", "*.css", "**.vue"
+    "*.scss",
+    "*.css",
+    "**.vue"
   ]
 }

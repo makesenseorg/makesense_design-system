@@ -38,6 +38,7 @@
       consequences, or one who avoids a pain that produces no resultant
       pleasure?"</mks-text
     >
+    <mks-icon type="clock"></mks-icon>
   </div>
 </template>
 
