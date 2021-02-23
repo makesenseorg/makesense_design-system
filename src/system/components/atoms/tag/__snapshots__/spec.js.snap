@@ -17,7 +17,6 @@ exports[`Tag.vue matches snapshot with an icon 1`] = `
   <mks-icon-stub
     class="tag__icon"
     color="inherit"
-    library="feather"
     size="24"
     strokewidth="2"
     type="x"
