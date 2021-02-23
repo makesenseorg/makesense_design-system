@@ -1,6 +1,6 @@
 <template>
   <svg
-    :class="`feather feather-${getIcon} feather--color-${color}`"
+    :class="`icon icon-${getIcon} icon--color-${color}`"
     xmlns="http://www.w3.org/2000/svg"
     :width="size"
     :height="size"
@@ -27,14 +27,28 @@ export default {
      */
     type: {
       type: String,
-      default: ""
+      required: true
     },
     /**
      * Color of the icon amongs theme colors, inherits from parent by default.
      */
     color: {
       type: String,
-      default: "inherit"
+      default: "inherit",
+      validator: function(value) {
+        return (
+          [
+            "inherit",
+            "primary",
+            "secondary",
+            "tertiary",
+            "neutral",
+            "positive",
+            "warning",
+            "negative"
+          ].indexOf(value) !== -1
+        );
+      }
     },
     size: {
       type: String,
@@ -68,7 +82,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.feather {
+.icon {
   stroke: currentColor;
   vertical-align: middle;
 

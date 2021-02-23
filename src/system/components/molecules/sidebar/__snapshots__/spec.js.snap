@@ -20,7 +20,6 @@ exports[`Sidebar.vue matches snapshot 1`] = `
     >
       <mks-icon-stub
         color="inherit"
-        library="feather"
         size="30"
         strokewidth="2"
         type="x"
