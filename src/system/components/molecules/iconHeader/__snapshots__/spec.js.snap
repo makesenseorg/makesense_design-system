@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconHeader.vue matches snapshot 1`] = `
+<header
+  class="icon-header"
+>
+  <img
+    alt="Alt text"
+    class="icon-header__illustration"
+    src="https://via.placeholder.com/500"
+  />
+   
+  <mks-heading-stub
+    class="icon-header__title"
+    color="text"
+    tag="h1"
+  >
+    Title
+  </mks-heading-stub>
+   
+  <p
+    class="icon-header__description icon-header__description--light"
+  >
+    Description
+  </p>
+   
+</header>
+`;
+
+exports[`IconHeader.vue matches snapshot without description 1`] = `
+<header
+  class="icon-header"
+>
+  <img
+    alt="Alt text"
+    class="icon-header__illustration"
+    src="https://via.placeholder.com/500"
+  />
+   
+  <mks-heading-stub
+    class="icon-header__title"
+    color="text"
+    tag="h1"
+  >
+    Title
+  </mks-heading-stub>
+   
+  <!---->
+   
+</header>
+`;
