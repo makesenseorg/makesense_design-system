@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SiteHeader.vue matches snapshot 1`] = `
+<header
+  class="site-header"
+>
+  <!---->
+   
+  <div
+    class="site-header__bar"
+  >
+    <div
+      class="site-header__extra site-header__extra--left"
+    />
+     
+    <router-link
+      class="site-header__main-content"
+      to="/"
+    >
+      <div
+        class="site-header__logo"
+      >
+        <img
+          alt="Logo"
+          src=""
+        />
+      </div>
+    </router-link>
+     
+    <div
+      class="site-header__extra site-header__extra--right"
+    />
+  </div>
+   
+  <mks-bean-menu-stub
+    class="site-header__nav"
+  />
+   
+  <div
+    class="site-header__sidebar-control"
+  >
+    <mks-button-stub
+      inputtype=""
+      size="round"
+      tag="div"
+      type="primary"
+    >
+      <mks-icon-stub
+        color="inherit"
+        size="24"
+        strokewidth="2"
+        type="menu"
+      />
+    </mks-button-stub>
+  </div>
+</header>
+`;
