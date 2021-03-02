@@ -1,5 +1,5 @@
 <template>
-  <div :class="`date date--color-${color}`">
+  <div :class="`date date--color-${color}`" aria-label="Date">
     <div class="date__number">
       <!-- @slot you can replace the number by another component-->
       <slot>
