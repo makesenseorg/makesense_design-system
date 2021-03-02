@@ -1,7 +1,7 @@
 <template>
   <div :class="`avatar avatar--size-${size}`">
     <img v-if="image" :src="image" class="avatar__image" alt="avatar" />
-    <span v-else class="avatar__placeholder"></span>
+    <span v-else class="avatar__placeholder" aria-hidden="true"></span>
   </div>
 </template>
 <script>
