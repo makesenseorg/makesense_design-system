@@ -1,5 +1,5 @@
 <template>
-  <div :class="type ? `alert alert--${type}` : 'alert'">
+  <div :class="type ? `alert alert--${type}` : 'alert'" role="alert">
     <!-- @slot Content of the slot-->
     <slot />
   </div>
