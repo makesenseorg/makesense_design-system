@@ -2,10 +2,16 @@
   <div
     class="tag"
     :class="`tag--color-${color} tag--size-${size} tag--${isCliquable}`"
+    :role="isCliquable ? 'button' : undefined"
     @click="onClick"
   >
     <slot>{{ formattedLabel }}</slot>
-    <mks-icon v-if="icon" class="tag__icon" :type="icon"></mks-icon>
+    <mks-icon
+      v-if="icon"
+      class="tag__icon"
+      :type="icon"
+      :alt="iconAlt"
+    ></mks-icon>
   </div>
 </template>
 
@@ -73,6 +79,16 @@ export default {
      * Icon displayed on the right of the tag : "close" or "check"
      */
     icon: {
+      type: String,
+      required: false,
+      validator: function(value) {
+        return ["x", "check"].indexOf(value) !== -1;
+      }
+    },
+    /**
+     * Icon description
+     */
+    iconAlt: {
       type: String,
       required: false,
       validator: function(value) {
