@@ -1,6 +1,7 @@
 <template>
   <svg
     :class="`icon icon-${getIcon} icon--color-${color}`"
+    role="img"
     xmlns="http://www.w3.org/2000/svg"
     :width="size"
     :height="size"
@@ -28,6 +29,13 @@ export default {
     type: {
       type: String,
       required: true
+    },
+    /**
+     * Description of the icon for screen readers
+     */
+    alt: {
+      type: String,
+      required: false
     },
     /**
      * Color of the icon amongs theme colors, inherits from parent by default.
@@ -66,7 +74,9 @@ export default {
     };
   },
   async created() {
-    this.path = feather.icons[this.type];
+    this.path = `<title id="${this.type}">${this.alt}</title>${
+      feather.icons[this.type]
+    }`;
   },
   computed: {
     getIcon: function() {
@@ -123,11 +133,11 @@ Some examples :
 
 ```jsx
 <p>
-  <mks-icon type="activity"></mks-icon> 
-  <mks-icon type="alert-triangle"></mks-icon> 
-  <mks-icon type="arrow-left"></mks-icon>
-  <mks-icon type="arrow-left-circle"></mks-icon>
-  <mks-icon type="bell"></mks-icon> 
+  <mks-icon type="activity" alt="Activités"></mks-icon> 
+  <mks-icon type="alert-triangle" alt="Attention, il fait froid!"></mks-icon> 
+  <mks-icon type="arrow-left" alt="A gauche"></mks-icon>
+  <mks-icon type="arrow-left-circle" alt="Retourner"></mks-icon>
+  <mks-icon type="bell" alt="Notifications"></mks-icon> 
   <mks-icon type="check"></mks-icon> 
   <mks-icon type="clock"></mks-icon> 
   <mks-icon type="eye-off"></mks-icon> 
