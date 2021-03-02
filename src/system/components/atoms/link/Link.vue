@@ -1,10 +1,11 @@
 <template>
   <component
     :is="tag"
-    :to="tag !== 'a' ? to : undefined"
-    :href="tag === 'a' ? to : undefined"
-    :target="tag === 'a' ? '_blank' : undefined"
+    :to="!external ? to : undefined"
+    :href="external ? to : undefined"
+    :target="external ? '_blank' : undefined"
     :class="{ link: true, 'link--menu': type === 'menu' }"
+    :title="`${title}${external ? ' (Lien externe)' : ''}`"
   >
     <!-- @slot Text of the link-->
     <slot></slot>
@@ -26,16 +27,23 @@ export default {
     /** For usage in the BeanMenu, adds styling when active link. */
     type: {
       type: String
+    },
+    /** For accessibility purposes */
+    title: {
+      type: String
     }
   },
   computed: {
-    tag() {
-      if (
+    external() {
+      return (
         typeof this.to === "string" &&
         (this.to.startsWith("http") ||
           this.to.startsWith("//") ||
           this.to.startsWith("www"))
-      ) {
+      );
+    },
+    tag() {
+      if (this.external) {
         return "a";
       }
       if (!this.$nuxt) {
@@ -62,6 +70,10 @@ export default {
     border-color: $color-primary;
   }
 
+  &:focus {
+    @include focus($color-primary);
+  }
+
   &--menu {
     font-size: inherit;
     font-weight: inherit;
@@ -73,6 +85,10 @@ export default {
       font-size: inherit;
       color: $color-secondary;
       position: relative;
+
+      &:focus {
+        @include focus($color-secondary);
+      }
 
       &:after {
         content: "";
