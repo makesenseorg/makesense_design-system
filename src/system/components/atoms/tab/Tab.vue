@@ -1,8 +1,12 @@
 <template>
   <div
     class="tab-button"
-    @click="onClick"
     :class="{ 'tab-button--active': active }"
+    role="button"
+    tabindex="0"
+    :aria-expanded="active"
+    :aria-controls="id"
+    @click="onClick"
   >
     {{ title }}
   </div>
