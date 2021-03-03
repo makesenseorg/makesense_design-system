@@ -1,0 +1,10 @@
+/* ACCESSIBILITY MIXINS
+--------------------------------------------- */
+
+@mixin focus($color) {
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
+      $color 0px 0px 0px 5px,
+      rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
+    outline: none !important;
+    transition: box-shadow 0.2s ease 0s !important;
+}

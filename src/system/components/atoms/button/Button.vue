@@ -5,13 +5,15 @@
       `button button--type-${type} button--size-${size}`,
       { 'button--loading': loading }
     ]"
-    @click="onClick"
+    role="button"
+    tabindex="0"
     :type="inputType"
     :disabled="disabled"
     ref="container"
     :style="{
       minWidth: $slots.loading === undefined ? minWidth + 'px' : 'auto'
     }"
+    @click="onClick"
   >
     <!-- @slot Content of the button-->
     <slot v-if="!loading" />
@@ -167,11 +169,7 @@ export default {
   text-align: center;
 
   &:focus {
-    box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
-      $background-color-primary 0px 0px 0px 5px,
-      rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
-    outline: none !important;
-    transition: box-shadow 0.2s ease 0s !important;
+    @include focus($background-color-primary);
   }
 
   &--size-small {
@@ -257,9 +255,7 @@ export default {
     }
 
     &:focus {
-      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
-        $color-secondary 0px 0px 0px 5px,
-        rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
+      @include focus($color-secondary);
     }
   }
 
@@ -275,9 +271,7 @@ export default {
     }
 
     &:focus {
-      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
-        $color-tertiary 0px 0px 0px 5px,
-        rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
+      @include focus($color-tertiary);
     }
   }
 
@@ -292,8 +286,7 @@ export default {
     }
 
     &:focus {
-      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
-        $color-success 0px 0px 0px 5px, rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
+      @include focus($color-success);
     }
   }
 
@@ -308,9 +301,7 @@ export default {
     }
 
     &:focus {
-      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
-        $color-warning-active 0px 0px 0px 5px,
-        rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
+      @include focus($color-warning-active);
     }
   }
 
@@ -325,9 +316,7 @@ export default {
     }
 
     &:focus {
-      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
-        $color-danger-active 0px 0px 0px 5px,
-        rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
+      @include focus($color-danger-active);
     }
   }
 
@@ -341,9 +330,7 @@ export default {
     }
 
     &:focus {
-      box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px,
-        $background-color-softest 0px 0px 0px 5px,
-        rgba(255, 255, 255, 0.5) 0px 0px 0px 6px !important;
+      @include focus($background-color-softest);
     }
   }
 

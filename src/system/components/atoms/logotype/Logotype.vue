@@ -1,6 +1,10 @@
 <template>
   <span class="logotype">
-    <img src="@@/assets/img/brand/makesense-logo.png" class="logotype__image" />
+    <img
+      src="@@/assets/img/brand/makesense-logo.png"
+      class="logotype__image"
+      alt="Logo makesense"
+    />
   </span>
 </template>
 

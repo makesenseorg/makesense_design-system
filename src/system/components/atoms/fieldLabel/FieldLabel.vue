@@ -6,7 +6,12 @@
   >
     <!-- @slot Label of the field -->
     <slot />
-    <mks-icon :type="icon" v-if="icon" class="field-label__icon" />
+    <mks-icon
+      :type="icon"
+      v-if="icon"
+      :alt="iconAlt"
+      class="field-label__icon"
+    />
   </label>
 </template>
 
@@ -37,6 +42,13 @@ export default {
       type: String,
       required: false,
       default: null
+    },
+    /**
+     * Icon description for screen readers (ex: Describe the action)
+     */
+    iconAlt: {
+      type: String,
+      required: false
     }
   },
   computed: {},

@@ -16,8 +16,9 @@
     <template v-slot:header-left>Left side</template>
     <mks-lang-picker
       slot="header-right"
-      :langs="['fr', 'en', 'es']"
-      active="fr"
+      :langs="locales"
+      :active="locale"
+      @select="$MKSsetLocale($event)"
     ></mks-lang-picker>
     <Nuxt></Nuxt>
     <template v-slot:footer>
@@ -39,6 +40,14 @@ export default {
     return {
       sidebarOpen: false
     };
+  },
+  computed: {
+    locale() {
+      return this.$MKScurrentLocale;
+    },
+    locales() {
+      return this.$MKSlocales;
+    }
   },
   methods: {
     toggleSidebar() {

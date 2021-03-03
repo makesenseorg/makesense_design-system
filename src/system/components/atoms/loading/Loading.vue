@@ -8,6 +8,7 @@
       xmlns="http://www.w3.org/2000/svg"
       :stroke="color"
     >
+      <title>{{ $MKSlocale["loading"] }}</title>
       <g fill="none" fill-rule="evenodd">
         <g transform="translate(1 1)" :stroke-width="size < 25 ? 5 : 3">
           <circle stroke-opacity="0.5" cx="18" cy="18" r="18" :stroke="color" />

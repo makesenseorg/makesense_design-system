@@ -162,7 +162,7 @@ export default {
   pre code {
     display: block;
     padding: $space-xs $space-s;
-    margin-bottom: $space-xs;
+    margin-bottom: $space-s;
   }
   code {
     background: $color-neutral-90;
