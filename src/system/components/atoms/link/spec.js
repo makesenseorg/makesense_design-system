@@ -1,9 +1,13 @@
 import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Comp from "./Link.vue";
 
+const $MKSlocale = { externalLink: 'lien externe'};
+
+
 describe("Link.vue", () => {
   it("matches snapshot", () => {
     const wrapper = shallowMount(Comp, {
+        mocks: { $MKSlocale },
         propsData: {
           to: "http://google.com"
         },
@@ -13,6 +17,7 @@ describe("Link.vue", () => {
 
   it("sets wrapper tag to a if link is external", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         to: "http://google.com",
       },
@@ -22,6 +27,7 @@ describe("Link.vue", () => {
 
   it("sets wrapper tag to router-link if link is internal in VUE", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       stubs: ['router-link'],
       propsData: {
         to: "/home",
@@ -33,7 +39,8 @@ describe("Link.vue", () => {
   it("sets wrapper tag to nuxt-link if link is internal in NUXT", () => {
     const wrapper = shallowMount(Comp, {
       mocks: {
-        $nuxt: true
+        $nuxt: true,
+        $MKSlocale
       },
       stubs: ['nuxt-link'],
       propsData: {
@@ -46,6 +53,7 @@ describe("Link.vue", () => {
 
   it("sets class with menu modifier", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         type: "menu",
         to: "http://google.com",
@@ -56,6 +64,7 @@ describe("Link.vue", () => {
 
   it("sets target blank if link is external", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         to: "http://google.com",
       },
@@ -66,6 +75,7 @@ describe("Link.vue", () => {
   // test slot
   it("displays slot content", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         to: "http://google.com",
       },

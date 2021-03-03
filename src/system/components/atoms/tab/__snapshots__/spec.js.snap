@@ -2,7 +2,11 @@
 
 exports[`Tab.vue matches snapshot 1`] = `
 <div
+  aria-controls="test-id"
+  aria-expanded="true"
   class="tab-button tab-button--active"
+  role="button"
+  tabindex="0"
 >
   
   test-id

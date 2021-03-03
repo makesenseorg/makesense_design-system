@@ -12,6 +12,10 @@ exports[`Loading.vue matches snapshot 1`] = `
     width="50"
     xmlns="http://www.w3.org/2000/svg"
   >
+    <title>
+      chargement...
+    </title>
+     
     <g
       fill="none"
       fill-rule="evenodd"
