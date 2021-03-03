@@ -5,5 +5,6 @@ exports[`Link.vue matches snapshot 1`] = `
   class="link"
   href="http://google.com"
   target="_blank"
+  title=" (lien externe)"
 />
 `;
