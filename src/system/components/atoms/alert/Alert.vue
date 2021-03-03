@@ -1,5 +1,5 @@
 <template>
-  <div :class="type ? `alert alert--${type}` : 'alert'" role="alert">
+  <div :class="type ? `alert alert--${type}` : 'alert'" :role="role">
     <!-- @slot Content of the slot-->
     <slot />
   </div>
@@ -21,6 +21,16 @@ export default {
       default: "warning",
       validator: function(value) {
         return ["positive", "warning", "negative"].indexOf(value) !== -1;
+      }
+    },
+    /**
+     * Accessibility role for the alert. Use the ARIA role="alert" to inform assistive technologies of a time-sensitive and important message that is not interactive. If the message is interactive, use the role="alertdialog" instead
+     */
+    role: {
+      type: String,
+      default: "region",
+      validator: function(value) {
+        return ["region", "alert", "alertdialog", "status"].indexOf(value) !== -1;
       }
     }
   }
