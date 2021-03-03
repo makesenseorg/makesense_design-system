@@ -74,7 +74,7 @@ export default {
     };
   },
   async created() {
-    this.path = `<title id="${this.type}">${this.alt}</title>${
+    this.path = `<title id="${this.type}">${this.alt || ""}</title>${
       feather.icons[this.type]
     }`;
   },

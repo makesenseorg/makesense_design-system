@@ -18,7 +18,7 @@ export default {
       current: "fr",
     });
     Vue.prototype.$MKSaddLocale = (name, locale) => {
-      localeObservable.locales[name] = locale;
+      Vue.set(localeObservable.locales, name, locale);
     };
     Vue.prototype.$MKSsetLocale = (locale) => {
       localeObservable.current = locale;

@@ -32,6 +32,7 @@ will display <mks-text weight="bold">{{ $MKSallLocales['en']['loading'] }}</mks-
 ## Add a new locale
 
 Your app needs to use an unavailable locale ? No problem !  
+<mks-icon type="alert-triangle"></mks-icon> Don't forget to provide translations for all strings (visible in `/system/plugins/i18n.js`)
 
 Add it as follows :
 ```
