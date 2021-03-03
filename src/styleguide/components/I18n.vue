@@ -1,6 +1,8 @@
 <template>
   <div class="i18n">
+    <mks-text size="small" color="light">Lang of accessibility texts</mks-text>
     <MksLangPicker
+      v-if="locales.length > 0"
       :active="locale"
       :langs="locales"
       @select="$MKSsetLocale($event)"
@@ -28,6 +30,6 @@ export default {
 <style lang="scss" scoped>
 .i18n {
   padding: 0 $space-s;
-  margin-bottom: $space-m;
+  margin-top: $space-m;
 }
 </style>

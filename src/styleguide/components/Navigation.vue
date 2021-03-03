@@ -15,16 +15,19 @@
       :name-parser="nameParser"
       :is-exact="isExact"
     />
+    <i18n />
   </div>
 </template>
 
 <script>
 import Themer from "./Themer";
+import I18n from "./I18n";
 import DsInput from "./data-input/Input/Input";
 import DsMenu from "./navigation/Menu/Menu";
 export default {
   name: "Navigation",
   components: {
+    I18n,
     Themer,
     DsInput,
     DsMenu

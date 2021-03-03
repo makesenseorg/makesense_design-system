@@ -25,7 +25,7 @@ export default {
     };
     Vue.mixin({
       computed: {
-        $MKSavailableLocales() {
+        $MKSlocales() {
             return Object.keys(localeObservable.locales);
         },
         $MKScurrentLocale() {
