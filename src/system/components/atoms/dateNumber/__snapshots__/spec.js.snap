@@ -2,6 +2,7 @@
 
 exports[`DateNumber.vue matches snapshot 1`] = `
 <div
+  aria-label="Date"
   class="date date--color-primary"
 >
   <div
@@ -16,6 +17,7 @@ exports[`DateNumber.vue matches snapshot 1`] = `
 
 exports[`DateNumber.vue matches snapshot with slot 1`] = `
 <div
+  aria-label="Date"
   class="date date--color-primary"
 >
   <div

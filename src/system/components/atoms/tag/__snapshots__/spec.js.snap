@@ -3,6 +3,7 @@
 exports[`Tag.vue matches snapshot 1`] = `
 <div
   class="tag tag--color-neutral tag--size-medium tag--not-cliquable"
+  role="button"
 >
   My Label 
   <!---->
@@ -12,6 +13,7 @@ exports[`Tag.vue matches snapshot 1`] = `
 exports[`Tag.vue matches snapshot with an icon 1`] = `
 <div
   class="tag tag--color-neutral tag--size-medium tag--not-cliquable"
+  role="button"
 >
   My Label 
   <mks-icon-stub
@@ -27,6 +29,7 @@ exports[`Tag.vue matches snapshot with an icon 1`] = `
 exports[`Tag.vue matches snapshot without label 1`] = `
 <div
   class="tag tag--color-neutral tag--size-medium tag--not-cliquable"
+  role="button"
 >
   -No label- 
   <!---->

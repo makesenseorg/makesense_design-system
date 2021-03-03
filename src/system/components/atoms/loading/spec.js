@@ -1,9 +1,12 @@
 import { shallowMount } from "@vue/test-utils";
 import Comp from "./Loading.vue";
 
+const $MKSlocale = { loading: 'chargement...'};
+
 describe("Loading.vue", () => {
   it("matches snapshot", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {},
     });
     expect(wrapper.element).toMatchSnapshot();
@@ -11,6 +14,7 @@ describe("Loading.vue", () => {
 
   it("sets type modifier", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         type: "full",
       },
@@ -20,6 +24,7 @@ describe("Loading.vue", () => {
 
   it("sets inline modifier", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         inline: true,
       },
@@ -29,6 +34,7 @@ describe("Loading.vue", () => {
 
   it("sets color modifier on svg icon", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         color: "#ffffff",
       },
@@ -38,6 +44,7 @@ describe("Loading.vue", () => {
 
   it("sets color modifier on svg icon circle", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         color: "#ffffff",
       },
@@ -49,6 +56,7 @@ describe("Loading.vue", () => {
 
   it("sets size width modifier", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         size: 60,
       },
@@ -58,6 +66,7 @@ describe("Loading.vue", () => {
 
   it("sets size height modifier", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         size: 60,
       },
@@ -67,6 +76,7 @@ describe("Loading.vue", () => {
 
   it("display progress container", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         progress: 50,
       },
@@ -77,6 +87,7 @@ describe("Loading.vue", () => {
 
   it("display progress number", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         progress: 50,
       },

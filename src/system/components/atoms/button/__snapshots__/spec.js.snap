@@ -3,7 +3,9 @@
 exports[`Button.vue matches snapshot 1`] = `
 <div
   class="button button--type-primary button--size-default"
+  role="button"
   style="min-width: 0px;"
+  tabindex="0"
   type=""
 />
 `;

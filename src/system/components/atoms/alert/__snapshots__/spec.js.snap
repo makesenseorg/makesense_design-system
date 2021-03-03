@@ -3,5 +3,6 @@
 exports[`Alert.vue matches snapshot 1`] = `
 <div
   class="alert alert--warning"
+  role="region"
 />
 `;

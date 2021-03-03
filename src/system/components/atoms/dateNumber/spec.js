@@ -2,9 +2,12 @@
 import { shallowMount } from "@vue/test-utils";
 import Comp from "./DateNumber.vue";
 
+const $MKSlocale = { date: 'Date'};
+
 describe("DateNumber.vue", () => {
   it("matches snapshot", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         number: 1234,
       },
@@ -14,6 +17,7 @@ describe("DateNumber.vue", () => {
 
   it("has primary as default color class", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         number: 1234,
       },
@@ -23,6 +27,7 @@ describe("DateNumber.vue", () => {
 
   it("sets class with color modifier", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         number: 1234,
         color: "secondary",
@@ -33,6 +38,7 @@ describe("DateNumber.vue", () => {
 
   it("matches snapshot with slot", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       slots: {
         default: "<div>2000</div>",
       },
