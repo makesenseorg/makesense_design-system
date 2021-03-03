@@ -1,6 +1,6 @@
 {
   "name": "@makesenseorg/design-system",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "scripts": {
     "serve": "http-server ./docs -o -s",
     "build": "npm run theo && vue-cli-service build",
