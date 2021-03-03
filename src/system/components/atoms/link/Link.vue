@@ -5,7 +5,7 @@
     :href="external ? to : undefined"
     :target="external ? '_blank' : undefined"
     :class="{ link: true, 'link--menu': type === 'menu' }"
-    :title="`${title}${external ? ' (Lien externe)' : ''}`"
+    :title="`${title}${external ? ` (${$MKSlocale['externalLink']})` : ''}`"
   >
     <!-- @slot Text of the link-->
     <slot></slot>
