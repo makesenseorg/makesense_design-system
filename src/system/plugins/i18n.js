@@ -28,6 +28,9 @@ export default {
         $MKSlocales() {
             return Object.keys(localeObservable.locales);
         },
+        $MKSallLocales() {
+          return localeObservable.locales;
+        },
         $MKScurrentLocale() {
             return localeObservable.current;
         },

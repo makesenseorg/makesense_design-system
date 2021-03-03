@@ -30,7 +30,9 @@ export default {
       type: String,
       default: "region",
       validator: function(value) {
-        return ["region", "alert", "alertdialog", "status"].indexOf(value) !== -1;
+        return (
+          ["region", "alert", "alertdialog", "status"].indexOf(value) !== -1
+        );
       }
     }
   }

@@ -8,13 +8,13 @@ export default {
       name: "Usage"
     },
     {
-      name: "Contributing"
-    },
-    {
       name: "Brand Guidelines"
     },
     {
       name: "Design Tokens"
+    },
+    {
+      name: "Internationalization"
     },
     {
       name: "Atoms"
@@ -24,6 +24,9 @@ export default {
     },
     {
       name: "Layouts"
+    },
+    {
+      name: "Contributing"
     }
     // {
     //   name: "Typography"
