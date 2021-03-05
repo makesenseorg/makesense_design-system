@@ -67,9 +67,11 @@ export default {
       type: Number
     }
   },
-  data: () => ({
-    current: 0
-  }),
+  data() {
+    return {
+      current: this.value
+    };
+  },
   computed: {
     pages() {
       const list = [];
@@ -100,9 +102,6 @@ export default {
       const pageNum = val < 1 ? 1 : val <= this.total ? val : this.total;
       this.goTo(pageNum);
     }
-  },
-  async mounted() {
-    this.current = this.value;
   },
   methods: {
     goTo(page) {
