@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination.vue matches snapshot 1`] = `
+<mks-horizontal-list-stub
+  class="pagination"
+  spacing="small"
+  tag="div"
+>
+  <mks-button-stub
+    class="pagination__button pagination__button--prev"
+    inputtype=""
+    size="square"
+    tag="div"
+    type="neutral"
+  >
+    <mks-icon-stub
+      color="inherit"
+      library="feather"
+      size="24"
+      strokewidth="2"
+      type="arrow-left"
+    />
+  </mks-button-stub>
+   
+  <mks-horizontal-list-stub
+    class="pagination__list"
+    spacing="small"
+    tag="ul"
+  >
+    <mks-button-stub
+      class="pagination__item"
+      inputtype=""
+      size="square"
+      tag="div"
+      type="neutral"
+    >
+      <span>
+        
+        1
+      
+      </span>
+       
+      <div
+        class="effect"
+      />
+    </mks-button-stub>
+    <mks-button-stub
+      class="pagination__item"
+      inputtype=""
+      size="square"
+      tag="div"
+      type="neutral"
+    >
+      <span>
+        
+        2
+      
+      </span>
+       
+      <div
+        class="effect"
+      />
+    </mks-button-stub>
+    <mks-button-stub
+      class="pagination__item"
+      inputtype=""
+      size="square"
+      tag="div"
+      type="neutral"
+    >
+      <span>
+        
+        3
+      
+      </span>
+       
+      <div
+        class="effect"
+      />
+    </mks-button-stub>
+    <mks-button-stub
+      class="pagination__item"
+      inputtype=""
+      size="square"
+      tag="div"
+      type="neutral"
+    >
+      <span>
+        
+        4
+      
+      </span>
+       
+      <div
+        class="effect"
+      />
+    </mks-button-stub>
+    <mks-button-stub
+      class="pagination__item pagination__item--current"
+      inputtype=""
+      size="square"
+      tag="div"
+      type="secondary"
+    >
+      <span>
+        
+        5
+      
+      </span>
+       
+      <div
+        class="effect"
+      />
+    </mks-button-stub>
+    <mks-button-stub
+      class="pagination__item"
+      inputtype=""
+      size="square"
+      tag="div"
+      type="neutral"
+    >
+      <span>
+        
+        6
+      
+      </span>
+       
+      <div
+        class="effect"
+      />
+    </mks-button-stub>
+    <mks-button-stub
+      class="pagination__item"
+      inputtype=""
+      size="square"
+      tag="div"
+      type="neutral"
+    >
+      <span>
+        
+        7
+      
+      </span>
+       
+      <div
+        class="effect"
+      />
+    </mks-button-stub>
+    <mks-button-stub
+      class="pagination__item"
+      inputtype=""
+      size="square"
+      tag="div"
+      type="neutral"
+    >
+      <span>
+        
+        8
+      
+      </span>
+       
+      <div
+        class="effect"
+      />
+    </mks-button-stub>
+    <mks-button-stub
+      class="pagination__item"
+      inputtype=""
+      size="square"
+      tag="div"
+      type="neutral"
+    >
+      <span>
+        
+        9
+      
+      </span>
+       
+      <div
+        class="effect"
+      />
+    </mks-button-stub>
+    <mks-button-stub
+      class="pagination__item"
+      inputtype=""
+      size="square"
+      tag="div"
+      type="neutral"
+    >
+      <span>
+        
+        10
+      
+      </span>
+       
+      <div
+        class="effect"
+      />
+    </mks-button-stub>
+  </mks-horizontal-list-stub>
+   
+  <mks-button-stub
+    class="pagination__button pagination__button--next"
+    inputtype=""
+    size="square"
+    tag="div"
+    type="neutral"
+  >
+    <mks-icon-stub
+      color="inherit"
+      library="feather"
+      size="24"
+      strokewidth="2"
+      type="arrow-right"
+    />
+  </mks-button-stub>
+</mks-horizontal-list-stub>
+`;
