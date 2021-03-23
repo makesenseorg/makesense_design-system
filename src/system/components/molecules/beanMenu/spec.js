@@ -3,6 +3,7 @@ import Comp from "./BeanMenu.vue";
 import HorizontalList from "../../layouts/horizontalList/HorizontalList.vue";
 import Link from "../../atoms/link/Link.vue";
 
+const $MKSlocale = { currentPage: 'Current page:'};
 const localVue = createLocalVue();
 localVue.component("MksHorizontalList", HorizontalList);
 localVue.component("MksLink", Link);
@@ -11,6 +12,12 @@ describe("BeanMenu.vue", () => {
   it("matches snapshot", () => {
     const wrapper = shallowMount(Comp, {
       localVue,
+      mocks: {
+        $route: {
+          path: '/test'
+        },
+        $MKSlocale,
+      },
       propsData: {
         links: [
           {

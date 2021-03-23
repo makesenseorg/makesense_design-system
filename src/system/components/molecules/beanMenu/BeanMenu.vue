@@ -1,5 +1,5 @@
 <template>
-  <nav class="bean-menu">
+  <nav class="bean-menu" aria-label="Menu">
     <mks-horizontal-list tag="ul" class="bean-menu__list">
       <li
         class="bean-menu__item"
@@ -7,6 +7,9 @@
         :key="link.label"
         @click="$emit('click', link)"
       >
+        <VisuallyHidden v-if="link.to === $route.path"
+          >{{ $MKSlocale["currentPage"] }}
+        </VisuallyHidden>
         <mks-link :to="link.to" type="menu" class>{{ link.label }}</mks-link>
       </li>
     </mks-horizontal-list>

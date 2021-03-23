@@ -7,12 +7,14 @@ export default {
         fr: {
             date: 'Date du calendrier',
             externalLink: 'Lien externe',
-            loading: 'Chargement...'
+            loading: 'Chargement...',
+            currentPage: 'Page actuelle:'
         },
         en: {
             date: 'Calendar date',
             externalLink: 'External link',
-            loading: 'Loading...'
+            loading: 'Loading...',
+            currentPage: 'Current page:'
         },
       },
       current: "fr",
