@@ -29,6 +29,8 @@ export default {
             nextPage: 'Page suivante',
             goToPage: 'Aller à la page ',
             currentPage: 'Actuellement sur la page ',
+            secondaryNav: 'Navigation secondaire',
+            close: 'Fermer',
         },
         en: {
             date: 'Calendar date',
@@ -53,6 +55,8 @@ export default {
             nextPage: 'Next page',
             goToPage: 'Go to page ',
             currentPage: 'Currently on page ',
+            secondaryNav: 'Secondary navigation',
+            close: 'Close',
         },
       },
       current: "fr",
