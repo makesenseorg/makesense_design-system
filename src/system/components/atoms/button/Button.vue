@@ -5,7 +5,7 @@
       `button button--type-${type} button--size-${size}`,
       { 'button--loading': loading }
     ]"
-    role="button"
+    :role="role"
     tabindex="0"
     :type="inputType"
     :disabled="disabled"
@@ -108,6 +108,13 @@ export default {
           ["default", "small", "full", "round", "square"].indexOf(value) !== -1
         );
       }
+    },
+    /**
+     * Size of the button. "default", "small", "full", "round"
+     */
+    role: {
+      type: String,
+      default: "button"
     }
   },
   data: function() {

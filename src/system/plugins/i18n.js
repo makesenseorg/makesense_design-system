@@ -24,6 +24,7 @@ export default {
             edit: 'Modifier',
             choose: 'Choisir',
             remove: 'Supprimer',
+            langpicker: 'Choix de la langue'
         },
         en: {
             date: 'Calendar date',
@@ -43,6 +44,7 @@ export default {
             edit: 'Edit',
             choose: 'Choose',
             remove: 'Remove',
+            langpicker: 'Language picker'
         },
       },
       current: "fr",
