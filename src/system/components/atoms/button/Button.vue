@@ -14,6 +14,7 @@
       minWidth: $slots.loading === undefined ? minWidth + 'px' : 'auto'
     }"
     @click="onClick"
+    @keyup.enter="onClick"
   >
     <!-- @slot Content of the button-->
     <slot v-if="!loading" />
@@ -42,7 +43,7 @@ export default {
      */
     tag: {
       type: String,
-      default: "div",
+      default: "button",
       validator: function(value) {
         return ["div", "a", "input", "button", "span"].indexOf(value) !== -1;
       }

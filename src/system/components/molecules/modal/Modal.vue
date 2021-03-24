@@ -1,14 +1,38 @@
 <template>
-  <transition name="modal" duration="300">
-    <div :class="`modal modal--size-${size}`" v-if="active && isMounted">
+  <transition
+    name="modal"
+    duration="300"
+    aria-modal="true"
+    :aria-labelledby="`modal-title-${uniqueId}`"
+  >
+    <div
+      :class="`modal modal--size-${size}`"
+      :ref="`modal-${uniqueId}`"
+      v-if="active && isMounted"
+      tabindex="0"
+      @keydown.esc="onClose"
+    >
       <header class="modal__menu">
-        <mks-heading tag="h3" class="modal__title">{{ title }}</mks-heading>
+        <mks-heading
+          tag="h3"
+          tabindex="0"
+          class="modal__title"
+          :id="`modal-title-${uniqueId}`"
+          :ref="`modal-title-${uniqueId}`"
+          >{{ title }}</mks-heading
+        >
         <div class="modal__tools">
           <!-- @slot In the modal menu, allows to display tools or context. -->
           <slot name="tools"></slot>
         </div>
         <div class="modal__close">
-          <mks-button tag="div" @click="onClose">Close</mks-button>
+          <mks-button
+            tabindex="0"
+            :ref="`modal-close-${uniqueId}`"
+            tag="button"
+            @click="onClose"
+            >Close</mks-button
+          >
         </div>
       </header>
       <main class="modal__main">
@@ -55,11 +79,23 @@ export default {
   },
   data: function() {
     return {
-      isMounted: false
+      isMounted: false,
+      uniqueId: Math.random()
+        .toString(36)
+        .substr(2, 9)
     };
   },
   mounted() {
     this.isMounted = true;
+  },
+  watch: {
+    active() {
+      if (this.active && this.isMounted) {
+        this.$nextTick(() => {
+          this.$refs[`modal-title-${this.uniqueId}`].$el.focus();
+        });
+      }
+    }
   },
   methods: {
     onClose: function() {
@@ -155,21 +191,21 @@ export default {
 }
 </style>
 <docs>
-```
+```jsx
 <template>
     <div>
-        <mks-button @click="toggleModal('small')">Open small modal</mks-button>
-        <mks-modal v-bind:active="modalActive === 'small'" title="small modal" size="small" @close="toggleModal(null)">
+        <mks-button v-on:click="toggleModal('small')">Open small modal</mks-button>
+        <mks-modal v-bind:active="modalActive === 'small'" title="small modal" size="small" v-on:close="toggleModal(null)">
             I take the space of the content
         </mks-modal>
 
-        <mks-button @click="toggleModal('medium')">Open medium modal</mks-button>
-        <mks-modal v-bind:active="modalActive === 'medium'" title="medium modal" size="medium" @close="toggleModal(null)">
+        <mks-button v-on:click="toggleModal('medium')">Open medium modal</mks-button>
+        <mks-modal v-bind:active="modalActive === 'medium'" title="medium modal" size="medium" v-on:close="toggleModal(null)">
             I'm a medium modal
         </mks-modal>
 
-        <mks-button @click="toggleModal('full')">Open full modal</mks-button>
-        <mks-modal v-bind:active="modalActive === 'full'" title="full modal" size="full" @close="toggleModal(null)">
+        <mks-button v-on:click="toggleModal('full')">Open full modal</mks-button>
+        <mks-modal v-bind:active="modalActive === 'full'" title="full modal" size="full" v-on:close="toggleModal(null)">
             I take the whole screen !
         </mks-modal>
     </div>
