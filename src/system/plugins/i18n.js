@@ -11,6 +11,7 @@ export default {
             currentPage: 'Page actuelle:',
             event: 'Évènement',
             pastEvent: 'Évènement terminé',
+            search: 'Rechercher',
         },
         en: {
             date: 'Calendar date',
@@ -19,6 +20,7 @@ export default {
             currentPage: 'Current page:',
             event: 'Event',
             pastEvent: 'Past event',
+            search: 'Search',
         },
       },
       current: "fr",
