@@ -2,6 +2,8 @@
 
 exports[`IconActionCard.vue matches snapshot 1`] = `
 <div
+  aria-describedby="iac-description-id-override"
+  aria-labelledby="iac-title-id-override"
   class="card card--moving-border"
 >
   <div
@@ -15,6 +17,7 @@ exports[`IconActionCard.vue matches snapshot 1`] = `
   >
     <p
       class="card__name"
+      id="iac-title-id-override"
     >
       Pas de nom
     </p>
