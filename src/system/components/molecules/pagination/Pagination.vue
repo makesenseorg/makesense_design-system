@@ -58,10 +58,11 @@ export default {
     },
     pad: {
       type: Number,
-      default: 2
+      default: 1
     },
     padEnd: {
-      type: Number
+      type: Number,
+      default: 0
     },
     padAround: {
       type: Number
