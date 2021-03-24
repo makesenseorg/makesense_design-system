@@ -21,7 +21,7 @@ describe("Pagination.vue", () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
-  it("pads 2 pages by default", async () => {
+  it("pads 1 pages by default", async () => {
     const wrapper = shallowMount(Comp, {
       localVue,
       propsData: {
@@ -30,7 +30,7 @@ describe("Pagination.vue", () => {
       }
     });
     expect(wrapper.text().replace(/\s+/g, ",")).toBe(
-      "1,2,3,...,48,49,50,51,52,...,98,99,100"
+      "1,...,49,50,51,...,100"
     );
   });
 
@@ -44,7 +44,7 @@ describe("Pagination.vue", () => {
       }
     });
     expect(wrapper.text().replace(/\s+/g, ",")).toBe(
-      "1,2,...,49,50,51,...,99,100"
+      "1,...,49,50,51,...,100"
     );
   });
 
@@ -58,7 +58,7 @@ describe("Pagination.vue", () => {
       }
     });
     expect(wrapper.text().replace(/\s+/g, ",")).toBe(
-      "1,2,...,48,49,50,51,52,...,99,100"
+      "1,2,...,49,50,51,...,99,100"
     );
   });
 
@@ -68,11 +68,11 @@ describe("Pagination.vue", () => {
       propsData: {
         total: 100,
         value: 50,
-        padAround: 1
+        padAround: 2
       }
     });
     expect(wrapper.text().replace(/\s+/g, ",")).toBe(
-      "1,2,3,...,49,50,51,...,98,99,100"
+      "1,...,48,49,50,51,52,...,100"
     );
   });
 
@@ -81,23 +81,11 @@ describe("Pagination.vue", () => {
       localVue,
       propsData: {
         total: 100,
-        value: 5,
+        value: 4,
         pad: 1
       }
     });
-    expect(wrapper.text().replace(/\s+/g, ",")).toBe("1,2,3,4,5,6,...,99,100");
-  });
-
-  it("changes the current page on click", async () => {
-    const wrapper = shallowMount(Comp, {
-      localVue,
-      propsData: {
-        total: 100,
-        value: 5,
-        pad: 1
-      }
-    });
-    expect(wrapper.text().replace(/\s+/g, ",")).toBe("1,2,3,4,5,6,...,99,100");
+    expect(wrapper.text().replace(/\s+/g, ",")).toBe("1,2,3,4,5,...,100");
   });
 
   it("goes to the previous page when clicked", async () => {
