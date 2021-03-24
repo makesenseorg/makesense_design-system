@@ -24,7 +24,11 @@ export default {
             edit: 'Modifier',
             choose: 'Choisir',
             remove: 'Supprimer',
-            langpicker: 'Choix de la langue'
+            langpicker: 'Choix de la langue',
+            previousPage: 'Page précédente',
+            nextPage: 'Page suivante',
+            goToPage: 'Aller à la page ',
+            currentPage: 'Actuellement sur la page ',
         },
         en: {
             date: 'Calendar date',
@@ -44,7 +48,11 @@ export default {
             edit: 'Edit',
             choose: 'Choose',
             remove: 'Remove',
-            langpicker: 'Language picker'
+            langpicker: 'Language picker',
+            previousPage: 'Previous page',
+            nextPage: 'Next page',
+            goToPage: 'Go to page ',
+            currentPage: 'Currently on page ',
         },
       },
       current: "fr",
