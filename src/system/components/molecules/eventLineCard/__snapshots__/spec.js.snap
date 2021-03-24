@@ -66,6 +66,7 @@ exports[`EventLineCard.vue matches snapshot 1`] = `
       <mks-button-stub
         href="https://example.com/"
         inputtype=""
+        role="button"
         size="small"
         tag="a"
         target="_blank"
@@ -132,6 +133,7 @@ exports[`EventLineCard.vue matches snapshot past version 1`] = `
       <mks-button-stub
         href="https://example.com/"
         inputtype=""
+        role="button"
         size="small"
         tag="a"
         target="_blank"

@@ -14,6 +14,7 @@ exports[`Sidebar.vue matches snapshot 1`] = `
     <mks-button-stub
       class="sidebar__close-btn"
       inputtype=""
+      role="button"
       size="round"
       tag="button"
       type="secondary"

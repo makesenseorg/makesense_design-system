@@ -41,6 +41,7 @@ exports[`SiteHeader.vue matches snapshot 1`] = `
   >
     <mks-button-stub
       inputtype=""
+      role="button"
       size="round"
       tag="div"
       type="primary"
