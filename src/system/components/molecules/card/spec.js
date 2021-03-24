@@ -8,6 +8,11 @@ localVue.component("MksButton", Button);
 describe("Card.vue", () => {
   it("matches snapshot", () => {
     const wrapper = shallowMount(Comp, {
+      data() {
+        return {
+          uniqueId: 'id-override'
+        }
+      },
         propsData: {
             image: 'https://placeholder.com/'
         }

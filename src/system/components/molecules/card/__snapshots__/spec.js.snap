@@ -2,8 +2,8 @@
 
 exports[`Card.vue matches snapshot 1`] = `
 <div
-  aria-describedby="description-9hg1hyiz1"
-  aria-labelledby="title-9hg1hyiz1"
+  aria-describedby="description-id-override"
+  aria-labelledby="title-id-override"
   class="card card--flat"
   href=""
   to=""
@@ -32,7 +32,7 @@ exports[`Card.vue matches snapshot 1`] = `
       >
         <div
           class="card__title"
-          id="title-9hg1hyiz1"
+          id="title-id-override"
         />
          
       </div>
@@ -44,7 +44,7 @@ exports[`Card.vue matches snapshot 1`] = `
      
     <div
       class="card__description"
-      id="description-9hg1hyiz1"
+      id="description-id-override"
     />
   </div>
    
