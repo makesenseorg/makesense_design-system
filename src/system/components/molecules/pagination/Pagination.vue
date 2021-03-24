@@ -55,98 +55,69 @@ export default {
       type: Number,
       required: true,
       default: 1
+    },
+    pad: {
+      type: Number,
+      default: 1
+    },
+    padEnd: {
+      type: Number,
+      default: 0
+    },
+    padAround: {
+      type: Number
     }
   },
-  data: () => ({
-    pages: [],
-    current: 0,
-    go: 0,
-    prevRange: "",
-    nextRange: "",
-    max: 7
-  }),
+  data() {
+    return {
+      current: this.value
+    };
+  },
+  computed: {
+    pages() {
+      const list = [];
+      for (let i = 1; i <= this.total; i++) {
+        if (this.showItem(i)) {
+          list.push(i);
+        } else if (this.showItem(i - 1) && this.showItem(i + 1)) {
+          list.push(i);
+        } else if (list[list.length - 1] !== "...") {
+          list.push("...");
+        }
+      }
+      return list;
+    },
+    padEndValue() {
+      return this.padEnd === undefined ? this.pad : this.padEnd;
+    },
+    padAroundValue() {
+      return this.padAround === undefined ? this.pad : this.padAround;
+    }
+  },
   watch: {
     current() {
-      this.getPages();
       this.$emit("input", this.current);
       this.$emit("change", this.current);
-    },
-    total() {
-      this.getPages();
-    },
-    max() {
-      this.getPages();
     },
     value(val) {
       const pageNum = val < 1 ? 1 : val <= this.total ? val : this.total;
       this.goTo(pageNum);
     }
   },
-
-  async mounted() {
-    this.current = this.go = this.value;
-    this.getPages();
-  },
-
   methods: {
     goTo(page) {
-      if (page === "...") {
-        return;
-      }
-      if (typeof page.target === "undefined") {
+      if (page !== "...") {
         this.current = page;
-      } else {
-        const value = parseInt(page.target.value, 10);
-        this.go = value < 1 ? 1 : value <= this.total ? value : this.total;
-        this.current = this.go;
       }
     },
-    getPages() {
-      if (this.total <= this.max) {
-        let pages = this.setPages(1, this.total);
-        this.pages = pages;
-      }
-      const even = this.max % 2 === 0 ? 1 : 0;
-      if (this.total < 6) {
-        this.prevRange = Math.floor(this.max / (this.max / 2));
-      } else {
-        this.prevRange = Math.floor(this.max / 2);
-      }
-      this.nextRange = this.total - this.prevRange + 1 + even;
-
-      if (this.current >= this.prevRange && this.current <= this.nextRange) {
-        const start = this.current - this.prevRange + 2;
-        const end = this.current + this.prevRange - 2 - even;
-
-        if (this.current == this.prevRange) {
-          this.pages = [...this.setPages(1, end), "...", this.total];
-        } else if (this.current == this.nextRange) {
-          this.pages = [1, "...", ...this.setPages(start, this.total)];
-        } else {
-          this.pages = [
-            1,
-            "...",
-            ...this.setPages(start, end),
-            "...",
-            this.total
-          ];
-        }
-      } else if (this.total < this.max) {
-        this.pages = [...this.setPages(1, this.total)];
-      } else {
-        this.pages = [
-          ...this.setPages(1, this.prevRange),
-          "...",
-          ...this.setPages(this.nextRange, this.total)
-        ];
-      }
-    },
-    setPages(start, end) {
-      const setPages = [];
-      for (start > 0 ? start : 1; start <= end; start++) {
-        setPages.push(start);
-      }
-      return setPages;
+    showItem(i) {
+      return (
+        i === 1 ||
+        i <= 1 + this.padEndValue ||
+        i === this.total ||
+        i >= this.total - this.padEndValue ||
+        Math.abs(i - this.current) <= this.padAroundValue
+      );
     },
     nextPage() {
       if (this.current < this.total) {
