@@ -4,6 +4,10 @@ import Comp from "./EventLineCard.vue";
 import Button from "../../atoms/button/Button.vue";
 import Tag from "../../atoms/tag/Tag.vue";
 
+const $MKSlocale = { 
+  event: 'Évènement',
+  pastEvent: 'Évènement terminé',
+};
 const localVue = createLocalVue();
 localVue.component("MksButton", Button);
 localVue.component("MksTag", Tag);
@@ -12,6 +16,12 @@ describe("EventLineCard.vue", () => {
   it("matches snapshot", () => {
     const wrapper = shallowMount(Comp, {
       localVue,
+      mocks: { $MKSlocale },
+      data() {
+        return {
+          uniqueId: 'id-override'
+        }
+      },
       propsData: {
         link: "https://example.com/",
         date: "26/01/1986",
@@ -27,6 +37,12 @@ describe("EventLineCard.vue", () => {
   it("matches snapshot past version", () => {
     const wrapper = shallowMount(Comp, {
       localVue,
+      mocks: { $MKSlocale },
+      data() {
+        return {
+          uniqueId: 'id-override'
+        }
+      },
       propsData: {
         link: "https://example.com/",
         date: new Date(new Date("26/01/1986").getTime()).toString(),
@@ -41,6 +57,7 @@ describe("EventLineCard.vue", () => {
   it("emits click event", async () => {
     const wrapper = shallowMount(Comp, {
       localVue,
+      mocks: { $MKSlocale },
       propsData: {
         link: "https://example.com/",
         date: "26/01/1986",
@@ -59,6 +76,7 @@ describe("EventLineCard.vue", () => {
   it("displays now modifier", () => {
     const wrapper = shallowMount(Comp, {
       localVue,
+      mocks: { $MKSlocale },
       propsData: {
         link: "https://example.com/",
         date: new Date(Date.now() - 1200).toString(),
@@ -74,6 +92,7 @@ describe("EventLineCard.vue", () => {
   it("displays past modifier", () => {
     const wrapper = shallowMount(Comp, {
       localVue,
+      mocks: { $MKSlocale },
       propsData: {
         link: "https://example.com/",
         date: new Date(Date.now() - 10000000).toString(),
@@ -89,6 +108,7 @@ describe("EventLineCard.vue", () => {
   it("displays button label content", () => {
     const wrapper = shallowMount(Comp, {
       localVue,
+      mocks: { $MKSlocale },
       propsData: {
         link: "https://example.com/",
         date: new Date(Date.now() - 1200).toString(),
@@ -101,6 +121,6 @@ describe("EventLineCard.vue", () => {
 
     const button = wrapper.findComponent(Button);
     expect(button.exists()).toBe(true);
-    expect(button.text()).toBe("abc");
+    expect(button.text()).toContain("abc");
   });
 });

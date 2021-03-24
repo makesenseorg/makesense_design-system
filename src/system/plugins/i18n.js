@@ -8,13 +8,17 @@ export default {
             date: 'Date du calendrier',
             externalLink: 'Lien externe',
             loading: 'Chargement...',
-            currentPage: 'Page actuelle:'
+            currentPage: 'Page actuelle:',
+            event: 'Évènement',
+            pastEvent: 'Évènement terminé',
         },
         en: {
             date: 'Calendar date',
             externalLink: 'External link',
             loading: 'Loading...',
-            currentPage: 'Current page:'
+            currentPage: 'Current page:',
+            event: 'Event',
+            pastEvent: 'Past event',
         },
       },
       current: "fr",
