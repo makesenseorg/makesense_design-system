@@ -1,5 +1,7 @@
 /* eslint-disable */
 
+// use in component as this.$MKSlocale['date']; 
+
 export default {
   install(Vue) {
     const localeObservable = Vue.observable({
@@ -12,6 +14,13 @@ export default {
             event: 'Évènement',
             pastEvent: 'Évènement terminé',
             search: 'Rechercher',
+            toggleBold: 'Gras',
+            toggleItalic: 'Italique',
+            toggleUnderline: 'Souligner',
+            toggleBlockquote: 'Bloc de citation',
+            toggleOrderedList: 'Liste ordonnée',
+            toggleBulletedList: 'Liste à points',
+            addImage: 'Image',
         },
         en: {
             date: 'Calendar date',
@@ -21,6 +30,13 @@ export default {
             event: 'Event',
             pastEvent: 'Past event',
             search: 'Search',
+            toggleBold: 'Toggle bold',
+            toggleItalic: 'Toggle italic',
+            toggleUnderline: 'Toggle underline',
+            toggleBlockquote: 'Toggle blockquote',
+            toggleOrderedList: 'Toggle ordered list',
+            toggleBulletedList: 'Toggle bullet list',
+            addImage: 'Add image',
         },
       },
       current: "fr",
