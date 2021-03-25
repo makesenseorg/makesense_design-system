@@ -7,6 +7,7 @@
     role="navigation"
     :aria-label="$MKSlocale['secondaryNav']"
     tabindex="0"
+    id="site-sidebar"
     @keydown.esc="close"
   >
     <button

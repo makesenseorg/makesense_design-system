@@ -31,6 +31,8 @@ export default {
             currentPage: 'Actuellement sur la page ',
             secondaryNav: 'Navigation secondaire',
             close: 'Fermer',
+            home: 'Retour à la page d\'accueil',
+            openSidebar: 'Ouvrir le menu latéral'
         },
         en: {
             date: 'Calendar date',
@@ -57,6 +59,8 @@ export default {
             currentPage: 'Currently on page ',
             secondaryNav: 'Secondary navigation',
             close: 'Close',
+            home: 'Back to homepage',
+            openSidebar: 'Open sidebar'
         },
       },
       current: "fr",

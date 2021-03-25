@@ -2,9 +2,13 @@
 
 exports[`Sidebar.vue matches snapshot 1`] = `
 <aside
+  aria-label="Secondary navigation"
   class="sidebar"
+  role="navigation"
+  tabindex="0"
 >
   <button
+    aria-label="Close"
     class="sidebar__close-layer"
   />
    
@@ -16,10 +20,12 @@ exports[`Sidebar.vue matches snapshot 1`] = `
       inputtype=""
       role="button"
       size="round"
+      tabindex="0"
       tag="button"
       type="secondary"
     >
       <mks-icon-stub
+        alt="Close"
         color="inherit"
         size="30"
         strokewidth="2"
