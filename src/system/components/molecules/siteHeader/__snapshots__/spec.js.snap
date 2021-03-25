@@ -43,7 +43,7 @@ exports[`SiteHeader.vue matches snapshot 1`] = `
       inputtype=""
       role="button"
       size="round"
-      tag="div"
+      tag="button"
       type="primary"
     >
       <mks-icon-stub

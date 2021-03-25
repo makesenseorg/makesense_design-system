@@ -2,23 +2,31 @@
 
 exports[`Pagination.vue matches snapshot 1`] = `
 <mks-horizontal-list-stub
+  aria-label="Pagination"
   class="pagination"
+  role="navigation"
   spacing="small"
-  tag="div"
+  tag="nav"
 >
   <mks-button-stub
     class="pagination__button pagination__button--prev"
     inputtype=""
+    role="button"
     size="square"
-    tag="div"
+    tag="button"
     type="neutral"
   >
     <mks-icon-stub
+      aria-hidden=""
       color="inherit"
       size="24"
       strokewidth="2"
       type="arrow-left"
     />
+     
+    <mks-visually-hidden-stub>
+      Previous page
+    </mks-visually-hidden-stub>
   </mks-button-stub>
    
   <mks-horizontal-list-stub
@@ -29,10 +37,15 @@ exports[`Pagination.vue matches snapshot 1`] = `
     <mks-button-stub
       class="pagination__item"
       inputtype=""
+      role="button"
       size="square"
-      tag="div"
+      tag="button"
       type="neutral"
     >
+      <mks-visually-hidden-stub>
+        Go to page 
+      </mks-visually-hidden-stub>
+       
       <span>
         
         1
@@ -40,6 +53,7 @@ exports[`Pagination.vue matches snapshot 1`] = `
       </span>
        
       <div
+        aria-hidden=""
         class="effect"
       />
     </mks-button-stub>
@@ -47,10 +61,15 @@ exports[`Pagination.vue matches snapshot 1`] = `
       class="pagination__item pagination__item--ellipsis"
       disabled="true"
       inputtype=""
+      role="button"
       size="square"
-      tag="div"
+      tag="button"
       type="neutral"
     >
+      <mks-visually-hidden-stub>
+        Go to page 
+      </mks-visually-hidden-stub>
+       
       <span>
         
         ...
@@ -58,16 +77,22 @@ exports[`Pagination.vue matches snapshot 1`] = `
       </span>
        
       <div
+        aria-hidden=""
         class="effect"
       />
     </mks-button-stub>
     <mks-button-stub
       class="pagination__item"
       inputtype=""
+      role="button"
       size="square"
-      tag="div"
+      tag="button"
       type="neutral"
     >
+      <mks-visually-hidden-stub>
+        Go to page 
+      </mks-visually-hidden-stub>
+       
       <span>
         
         4
@@ -75,16 +100,23 @@ exports[`Pagination.vue matches snapshot 1`] = `
       </span>
        
       <div
+        aria-hidden=""
         class="effect"
       />
     </mks-button-stub>
     <mks-button-stub
+      aria-current="true"
       class="pagination__item pagination__item--current"
       inputtype=""
+      role="button"
       size="square"
-      tag="div"
+      tag="button"
       type="secondary"
     >
+      <mks-visually-hidden-stub>
+        Currently on page 
+      </mks-visually-hidden-stub>
+       
       <span>
         
         5
@@ -92,16 +124,22 @@ exports[`Pagination.vue matches snapshot 1`] = `
       </span>
        
       <div
+        aria-hidden=""
         class="effect"
       />
     </mks-button-stub>
     <mks-button-stub
       class="pagination__item"
       inputtype=""
+      role="button"
       size="square"
-      tag="div"
+      tag="button"
       type="neutral"
     >
+      <mks-visually-hidden-stub>
+        Go to page 
+      </mks-visually-hidden-stub>
+       
       <span>
         
         6
@@ -109,6 +147,7 @@ exports[`Pagination.vue matches snapshot 1`] = `
       </span>
        
       <div
+        aria-hidden=""
         class="effect"
       />
     </mks-button-stub>
@@ -116,10 +155,15 @@ exports[`Pagination.vue matches snapshot 1`] = `
       class="pagination__item pagination__item--ellipsis"
       disabled="true"
       inputtype=""
+      role="button"
       size="square"
-      tag="div"
+      tag="button"
       type="neutral"
     >
+      <mks-visually-hidden-stub>
+        Go to page 
+      </mks-visually-hidden-stub>
+       
       <span>
         
         ...
@@ -127,16 +171,22 @@ exports[`Pagination.vue matches snapshot 1`] = `
       </span>
        
       <div
+        aria-hidden=""
         class="effect"
       />
     </mks-button-stub>
     <mks-button-stub
       class="pagination__item"
       inputtype=""
+      role="button"
       size="square"
-      tag="div"
+      tag="button"
       type="neutral"
     >
+      <mks-visually-hidden-stub>
+        Go to page 
+      </mks-visually-hidden-stub>
+       
       <span>
         
         10
@@ -144,6 +194,7 @@ exports[`Pagination.vue matches snapshot 1`] = `
       </span>
        
       <div
+        aria-hidden=""
         class="effect"
       />
     </mks-button-stub>
@@ -152,16 +203,22 @@ exports[`Pagination.vue matches snapshot 1`] = `
   <mks-button-stub
     class="pagination__button pagination__button--next"
     inputtype=""
+    role="button"
     size="square"
-    tag="div"
+    tag="button"
     type="neutral"
   >
     <mks-icon-stub
+      aria-hidden=""
       color="inherit"
       size="24"
       strokewidth="2"
       type="arrow-right"
     />
+     
+    <mks-visually-hidden-stub>
+      Next page
+    </mks-visually-hidden-stub>
   </mks-button-stub>
 </mks-horizontal-list-stub>
 `;
