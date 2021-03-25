@@ -72,9 +72,9 @@ exports[`EventLineCard.vue matches snapshot 1`] = `
         target="_blank"
         type="primary"
       >
-        <mks-visually-hidden>
+        <mks-visually-hidden-stub>
           Évènement: The title
-        </mks-visually-hidden>
+        </mks-visually-hidden-stub>
         
         Participer
       
@@ -139,9 +139,9 @@ exports[`EventLineCard.vue matches snapshot past version 1`] = `
         target="_blank"
         type="primary"
       >
-        <mks-visually-hidden>
+        <mks-visually-hidden-stub>
           Évènement: The title
-        </mks-visually-hidden>
+        </mks-visually-hidden-stub>
         
         Participer
       

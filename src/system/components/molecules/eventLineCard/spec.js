@@ -3,6 +3,7 @@ import Comp from "./EventLineCard.vue";
 
 import Button from "../../atoms/button/Button.vue";
 import Tag from "../../atoms/tag/Tag.vue";
+import VisuallyHidden from "../../atoms/visuallyHidden/VisuallyHidden.vue";
 
 const $MKSlocale = { 
   event: 'Évènement',
@@ -11,6 +12,7 @@ const $MKSlocale = {
 const localVue = createLocalVue();
 localVue.component("MksButton", Button);
 localVue.component("MksTag", Tag);
+localVue.component("MksVisuallyHidden", VisuallyHidden);
 
 describe("EventLineCard.vue", () => {
   it("matches snapshot", () => {

@@ -4,6 +4,7 @@ exports[`Sidebar.vue matches snapshot 1`] = `
 <aside
   aria-label="Secondary navigation"
   class="sidebar"
+  id="site-sidebar"
   role="navigation"
   tabindex="0"
 >
