@@ -1,0 +1,12 @@
+// add a bean as a pseudo element
+
+.mks-bean-b {
+  :before {
+    @include bean;
+  }
+}
+.mks-bean-a {
+  :after {
+    @include bean;
+  }
+}

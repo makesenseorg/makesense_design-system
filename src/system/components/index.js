@@ -67,7 +67,7 @@ export default {
 
 /** Named export for each components in molecules and layouts */
 
-export { default as MksBeanMenu } from "./molecules/beanMenu/BeanMenu";
+export { default as MksNavigation } from "./molecules/navigation/Navigation";
 export { default as MksCard } from "./molecules/card/Card";
 export { default as MksEventLineCard } from "./molecules/eventLineCard/EventLineCard";
 export { default as MksField } from "./molecules/field/Field";

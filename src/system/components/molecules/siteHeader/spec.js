@@ -2,12 +2,12 @@ import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Comp from "./SiteHeader.vue";
 import Button from "../../atoms/button/Button.vue";
 import Icon from "../../atoms/icon/Icon.vue";
-import BeanMenu from "../../molecules/beanMenu/BeanMenu.vue";
+import Navigation from "../../molecules/navigation/Navigation.vue";
 
 const localVue = createLocalVue();
 localVue.component("MksButton", Button);
 localVue.component("MksIcon", Icon);
-localVue.component("MksBeanMenu", BeanMenu);
+localVue.component("MksNavigation", Navigation);
 
 describe("SiteHeader.vue", () => {
   it("matches snapshot", () => {
@@ -15,16 +15,6 @@ describe("SiteHeader.vue", () => {
       localVue
     });
     expect(wrapper.element).toMatchSnapshot();
-  });
-
-  it("sets the translucent class", () => {
-    const wrapper = shallowMount(Comp, {
-      localVue,
-      propsData: {
-        translucent: true
-      }
-    });
-    expect(wrapper.classes()).toContain("site-header--translucent");
   });
 
   it("sets the fixed class", () => {

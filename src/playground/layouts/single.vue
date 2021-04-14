@@ -3,7 +3,7 @@
     :menu-links="[
       { label: 'Accueil', to: '/' },
       { label: 'Library', to: '//makesense-design-system.netlify.app' },
-      { label: 'Menu', to: '/molecules/mksbeanmenu' },
+      { label: 'Menu', to: '/molecules/mksnavigation' },
       { label: 'Sidebar', to: { path: '/molecules/mkssidebar' } },
       { label: 'Footer', to: { path: '/molecules/mkssitefooter' } }
     ]"

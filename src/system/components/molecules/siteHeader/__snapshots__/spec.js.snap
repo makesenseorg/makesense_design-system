@@ -7,6 +7,16 @@ exports[`SiteHeader.vue matches snapshot 1`] = `
   <!---->
    
   <div
+    class="site-header__top-bar"
+  >
+    <mks-link
+      to="https://makesense.org"
+    >
+      Retourner au site makesense
+    </mks-link>
+  </div>
+   
+  <div
     class="site-header__bar"
   >
     <div
@@ -32,7 +42,7 @@ exports[`SiteHeader.vue matches snapshot 1`] = `
     />
   </div>
    
-  <mks-bean-menu-stub
+  <mks-bean-menu
     class="site-header__nav"
   />
    

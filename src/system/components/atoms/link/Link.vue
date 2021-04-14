@@ -26,7 +26,7 @@ export default {
       type: [String, Object],
       required: true
     },
-    /** For usage in the BeanMenu, adds styling when active link. */
+    /** For usage in the Navigation, adds styling when active link. */
     type: {
       type: String
     },
@@ -58,7 +58,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .link {
-  @include text-body;
+  font-size: inherit;
+  font-weight: inherit;
   cursor: pointer;
   text-decoration: none;
   color: inherit;
@@ -67,7 +68,6 @@ export default {
   &.exact-active,
   &.router-link-exact-active,
   &.nuxt-link-exact-active {
-    @include text-body-black;
     color: $color-primary;
     border-color: $color-primary;
   }
@@ -81,6 +81,10 @@ export default {
     font-weight: inherit;
     border-bottom: none;
 
+    &:hover {
+      opacity: $opacity-hover;
+    }
+
     &.exact-active,
     &.router-link-exact-active,
     &.nuxt-link-exact-active {
@@ -90,18 +94,6 @@ export default {
 
       &:focus {
         @include focus($color-secondary);
-      }
-
-      &:after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        border-radius: $border-radius-full;
-        background-color: $color-secondary;
-        width: $space-large;
-        height: 4px;
-        transform: translateY(150%);
       }
     }
   }

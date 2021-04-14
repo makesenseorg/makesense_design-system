@@ -4,6 +4,8 @@
 #
 
 props:
+  - name: opacity-hover
+    value: "0.8"
   - name: opacity-soft
     value: "0.65"
   - name: opacity-disabled

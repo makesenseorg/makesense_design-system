@@ -2,13 +2,18 @@
   <header
     :class="{
       'site-header': true,
-      'site-header--translucent': translucent,
       'site-header--fixed': fixed
     }"
   >
     <div v-if="$slots['top-bar']" class="site-header__top-bar">
       <!-- @slot Displays content above the header -->
       <slot name="top-bar"></slot>
+    </div>
+    <div class="site-header__top-bar">
+      <!-- @slot Displays content above the header -->
+      <mks-link to="https://makesense.org"
+        >Retourner au site makesense</mks-link
+      >
     </div>
     <div class="site-header__bar">
       <div class="site-header__extra site-header__extra--left">
