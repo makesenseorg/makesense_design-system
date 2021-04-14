@@ -9,35 +9,34 @@
       <!-- @slot Displays content above the header -->
       <slot name="top-bar"></slot>
     </div>
-    <div class="site-header__top-bar">
+    <div
+      class="site-header__main-bar"
+      v-if="$slots['main-bar'] || secondaryMenuLinks"
+    >
+      <mks-navigation
+        theme="neutral"
+        :links="secondaryMenuLinks"
+        v-if="secondaryMenuLinks"
+      />
       <!-- @slot Displays content above the header -->
-      <mks-link to="https://makesense.org"
-        >Retourner au site makesense</mks-link
-      >
+      <slot name="main-bar"></slot>
     </div>
     <div class="site-header__bar">
-      <div class="site-header__extra site-header__extra--left">
-        <!-- @slot Displays content on the left of the bar -->
-        <slot name="left"></slot>
+      <mks-link to="/" type="menu" class="site-header__logo">
+        <img :src="logo" alt="Logo" />
+      </mks-link>
+
+      <mks-navigation
+        class="site-header__nav"
+        theme="secondary"
+        :links="menuLinks"
+      ></mks-navigation>
+
+      <div v-if="sidebar" class="site-header__sidebar-control">
+        <mks-button type="text" @click="$emit('openSidebar')">
+          <mks-icon type="menu"></mks-icon>
+        </mks-button>
       </div>
-      <router-link to="/" class="site-header__main-content">
-        <div class="site-header__logo">
-          <img :src="logo" alt="Logo" />
-        </div>
-      </router-link>
-
-      <div class="site-header__extra site-header__extra--right">
-        <!-- @slot Displays content on the right of the bar -->
-        <slot name="right"></slot>
-      </div>
-    </div>
-
-    <mks-bean-menu class="site-header__nav" :links="menuLinks"></mks-bean-menu>
-
-    <div v-if="sidebar" class="site-header__sidebar-control">
-      <mks-button size="round" @click="$emit('openSidebar')">
-        <mks-icon type="menu"></mks-icon>
-      </mks-button>
     </div>
   </header>
 </template>
@@ -88,16 +87,6 @@ export default {
   z-index: $z-index-page-header;
   transition: background-color 0.25s;
 
-  &--translucent {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: transparent;
-    box-shadow: none;
-    border-bottom: none;
-  }
-
   &--fixed {
     position: fixed;
     top: 0;
@@ -107,6 +96,23 @@ export default {
     box-shadow: $box-shadow-base;
     animation-duration: 0.4s;
     animation-name: app-header-slide-in;
+  }
+
+  &__main-bar {
+    position: relative;
+    background: $background-color-softer;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: space-between;
+    color: $color-text-light;
+
+    padding: $space-s $space-base $space-s $space-base;
+
+    @include breakpoint("small") {
+      padding-top: $space-xs;
+      padding-bottom: $space-xs;
+    }
   }
 
   &__bar {
@@ -125,7 +131,11 @@ export default {
   }
 
   &__logo {
-    max-width: 180px;
+    height: $space-m;
+    width: auto;
+    img {
+      max-height: 100%;
+    }
   }
 
   &__main-content {
@@ -157,20 +167,13 @@ export default {
     display: none;
 
     @include breakpoint("small") {
-      display: flex;
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      z-index: 1;
-      transform: translate(-50%, 50%);
+      display: block;
     }
   }
 
   &__sidebar-control {
-    position: absolute;
-    bottom: 0;
-    right: $space-m;
-    transform: translateY(50%);
+    justify-content: flex-end;
+    padding-left: $space-m;
   }
 }
 
@@ -194,8 +197,13 @@ It has three slots : left, right and top-bar.
 
 ```jsx
 
-<mks-site-header v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" >
-  <mks-lang-picker slot="right" :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+<mks-site-header 
+  v-bind:menu-links="[{label: 'Citoyens', to: '/molecules/mkssiteheader'},{label: 'Entrepreneurs', to: 'https://google.com'}, {label: 'Organisations', to: { path: '/jouer' }}]" 
+  v-bind:secondary-menu-links="[{label: 'Jobs', to:'/'},{label: 'Agenda', to:'/'},{label: 'Nous rejoindre', to:'/'},{label: 'Newsletter', to:'/'}]">
+  <template slot="main-bar">
+    <mks-lang-picker v-bind:langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+  </template>
+  
 </mks-site-header>
 
 ```
@@ -219,24 +227,6 @@ The logo is makesense logo by default but can be customized with an URL.
 <mks-site-header v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" logo="https://events.makesense.org/static/img/logo.6e3c1fd.svg">
   <mks-lang-picker slot="right" :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
 </mks-site-header>
-
-```
-
-
-## Translucent header
-
-The header can appear <code>translucent</code> by setting the prop to <code>true</code>.
-
-It is then positionned absolutely above the content and has no background.
-
-⚠️ Always use the translucent header wrapped inside an element with relative positioning if you don't want it to the top of the viewport
-
-```jsx
-<div style="position: relative;padding:8rem 0;background:var(--color-secondary);">
-  <mks-site-header v-bind:translucent="true" v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" >
-    <mks-lang-picker slot="right" :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
-  </mks-site-header>
-</div>
 
 ```
 

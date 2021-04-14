@@ -1,10 +1,5 @@
 <template>
-  <nav
-    :class="
-      `navigation navigation--sep-${separator} navigation--theme-${theme}`
-    "
-    :style="vars"
-  >
+  <nav :class="`navigation navigation--theme-${theme}`">
     <mks-horizontal-list tag="ul" class="navigation__list">
       <li
         class="navigation__item"
@@ -47,13 +42,6 @@ export default {
       validator: value => {
         return value.match(/(main|secondary)/);
       }
-    }
-  },
-  computed: {
-    vars() {
-      return {
-        "--bean-color": this.theme
-      };
     }
   }
 };
