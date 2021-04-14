@@ -38,6 +38,14 @@
   }
 }
 
+@mixin push-right {
+  margin-left: auto;
+}
+
+@mixin push-left {
+  margin-right: auto;
+}
+
 @mixin view {
   width: 100%;
   min-height: 100%;

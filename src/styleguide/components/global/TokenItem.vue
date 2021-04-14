@@ -13,6 +13,8 @@
       <code>{{ token.value }}</code>
       <br />
       <code>{{ computedValue }}</code>
+      <br />
+      <code v-if="hexValue">{{ hexValue }}</code>
     </div>
   </div>
 </template>
@@ -114,6 +116,35 @@ export default {
         .replace(")", "");
       return getComputedStyle(document.documentElement).getPropertyValue(
         formatted
+      );
+    },
+    hexValue() {
+      if (
+        this.token.category !== "text-color" &&
+        this.token.category !== "border-color" &&
+        this.token.category !== "color" &&
+        this.token.category !== "background-color"
+      )
+        return;
+
+      return this.rgbToHex(
+        this.computedValue
+          .replace("rgb(", "")
+          .replace(")", "")
+          .split(", ")
+      );
+    }
+  },
+  methods: {
+    rgbToHex(rgb) {
+      return (
+        "#" +
+        rgb
+          .map(x => {
+            const hex = parseInt(x, 10).toString(16);
+            return hex.length === 1 ? "0" + hex : hex;
+          })
+          .join("")
       );
     }
   }

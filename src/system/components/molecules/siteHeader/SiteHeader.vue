@@ -9,15 +9,7 @@
       <!-- @slot Displays content above the header -->
       <slot name="top-bar"></slot>
     </div>
-    <div
-      class="site-header__main-bar"
-      v-if="$slots['main-bar'] || secondaryMenuLinks"
-    >
-      <mks-navigation
-        theme="neutral"
-        :links="secondaryMenuLinks"
-        v-if="secondaryMenuLinks"
-      />
+    <div class="site-header__main-bar" v-if="$slots['main-bar']">
       <!-- @slot Displays content above the header -->
       <slot name="main-bar"></slot>
     </div>
@@ -28,7 +20,7 @@
 
       <mks-navigation
         class="site-header__nav"
-        theme="secondary"
+        theme="primary"
         :links="menuLinks"
       ></mks-navigation>
 
@@ -106,6 +98,7 @@ export default {
     flex-shrink: 0;
     justify-content: space-between;
     color: $color-text-light;
+    @include text-small-black;
 
     padding: $space-s $space-base $space-s $space-base;
 
@@ -168,6 +161,7 @@ export default {
 
     @include breakpoint("small") {
       display: block;
+      @include push-right;
     }
   }
 
@@ -198,9 +192,11 @@ It has three slots : left, right and top-bar.
 ```jsx
 
 <mks-site-header 
-  v-bind:menu-links="[{label: 'Citoyens', to: '/molecules/mkssiteheader'},{label: 'Entrepreneurs', to: 'https://google.com'}, {label: 'Organisations', to: { path: '/jouer' }}]" 
-  v-bind:secondary-menu-links="[{label: 'Jobs', to:'/'},{label: 'Agenda', to:'/'},{label: 'Nous rejoindre', to:'/'},{label: 'Newsletter', to:'/'}]">
+  v-bind:menu-links="[{label: 'Citoyens', to: '/molecules/mkssiteheader'},{label: 'Entrepreneurs', to: 'https://makesense.org'}, {label: 'Organisations', to: 'https://makesense.org'}]">
   <template slot="main-bar">
+    <mks-list theme="primary">
+      <mks-link type="menu" to="https://makesense.org">Retourner au site makesense</mks-link>
+    </mks-list>
     <mks-lang-picker v-bind:langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
   </template>
   
@@ -211,9 +207,16 @@ It has three slots : left, right and top-bar.
 ## Top bar
 
 ```jsx
-<mks-site-header v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" >
+<mks-site-header 
+  v-bind:menu-links="[{label: 'Citoyens', to: '/molecules/mkssiteheader'},{label: 'Entrepreneurs', to: 'https://makesense.org'}, {label: 'Organisations', to: 'https://makesense.org'}]">
   <mks-alert slot="top-bar" type="positive">An ad or important message can be placed here, the component just needs a background.</mks-alert>
-  <mks-lang-picker slot="right" :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+  <template slot="main-bar">
+    <mks-list theme="primary">
+      <mks-link type="menu" to="https://makesense.org">Retourner au site makesense</mks-link>
+    </mks-list>
+    <mks-lang-picker v-bind:langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+  </template>
+  
 </mks-site-header>
 
 ```
@@ -223,7 +226,7 @@ It has three slots : left, right and top-bar.
 The logo is makesense logo by default but can be customized with an URL.
 
 ```jsx
-<mks-button v-on:click="$loadTheme('events')" size="small">Match theme to logo</mks-button><br>
+<mks-button v-on:click="$loadTheme('events')" size="small">Try with events theme</mks-button><br>
 <mks-site-header v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" logo="https://events.makesense.org/static/img/logo.6e3c1fd.svg">
   <mks-lang-picker slot="right" :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
 </mks-site-header>

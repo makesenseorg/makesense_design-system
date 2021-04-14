@@ -2,3 +2,11 @@
 .rte-render {
   @include rte-render;
 }
+
+.push-left {
+  @include push-left;
+}
+
+.push-right {
+  @include push-right;
+}

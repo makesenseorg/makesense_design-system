@@ -19,7 +19,7 @@
       :is="linkTag"
       ref="link"
     >
-      <mks-heading tag="h6" v-if="parents.length === 0">
+      <mks-heading class="menu-item" tag="h6" v-if="parents.length === 0">
         <slot>
           {{ name }}
         </slot>
@@ -189,3 +189,8 @@ export default {
   }
 };
 </script>
+<style>
+.menu-item {
+  margin: 0 !important;
+}
+</style>

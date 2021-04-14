@@ -85,17 +85,17 @@ export default {
       opacity: $opacity-hover;
     }
 
-    &.exact-active,
-    &.router-link-exact-active,
-    &.nuxt-link-exact-active {
-      font-size: inherit;
-      color: $color-secondary;
-      position: relative;
+    // &.exact-active,
+    // &.router-link-exact-active,
+    // &.nuxt-link-exact-active {
+    //   font-size: inherit;
+    //   color: $color-secondary;
+    //   position: relative;
 
-      &:focus {
-        @include focus($color-secondary);
-      }
-    }
+    //   &:focus {
+    //     @include focus($color-secondary);
+    //   }
+    // }
   }
 }
 </style>
