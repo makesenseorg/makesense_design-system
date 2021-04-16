@@ -12,9 +12,9 @@
     <div>
       <code>{{ token.value }}</code>
       <br />
-      <code>{{ computedValue }}</code>
+      <code>* {{ computedValue }} *</code>
       <br />
-      <code v-if="hexValue">{{ hexValue }}</code>
+      <code v-if="hexValue">* {{ hexValue }} *</code>
     </div>
   </div>
 </template>
