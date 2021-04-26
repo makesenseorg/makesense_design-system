@@ -9,25 +9,29 @@
       <!-- @slot Displays content above the header -->
       <slot name="top-bar"></slot>
     </div>
-    <div class="site-header__main-bar" v-if="$slots['main-bar']">
+    <div class="site-header__main-bar-container" v-if="$slots['main-bar']">
       <!-- @slot Displays content above the header -->
-      <slot name="main-bar"></slot>
+      <div class="site-header__main-bar">
+        <slot name="main-bar"></slot>
+      </div>
     </div>
-    <div class="site-header__bar">
-      <mks-link to="/" type="menu" class="site-header__logo">
-        <img :src="logo" alt="Logo" />
-      </mks-link>
+    <div class="site-header__bar-container">
+      <div class="site-header__bar">
+        <mks-link to="/" type="menu" class="site-header__logo">
+          <img :src="logo" alt="Logo" />
+        </mks-link>
 
-      <mks-navigation
-        class="site-header__nav"
-        theme="primary"
-        :links="menuLinks"
-      ></mks-navigation>
+        <mks-navigation
+          class="site-header__nav"
+          theme="primary"
+          :links="menuLinks"
+        ></mks-navigation>
 
-      <div v-if="sidebar" class="site-header__sidebar-control">
-        <mks-button type="text" @click="$emit('openSidebar')">
-          <mks-icon type="menu"></mks-icon>
-        </mks-button>
+        <div v-if="sidebar" class="site-header__sidebar-control">
+          <mks-button type="text" @click="$emit('openSidebar')">
+            <mks-icon type="menu"></mks-icon>
+          </mks-button>
+        </div>
       </div>
     </div>
   </header>
@@ -57,11 +61,6 @@ export default {
       type: Boolean,
       default: true
     },
-    /** Removes background and positions absolulely to top of container */
-    translucent: {
-      type: Boolean,
-      default: false
-    },
     /** Fixes on top of the viewport */
     fixed: {
       type: Boolean,
@@ -81,6 +80,7 @@ export default {
 
   &--fixed {
     position: fixed;
+    z-index: $z-index-page-header;
     top: 0;
     left: 0;
     width: 100%;
@@ -90,21 +90,34 @@ export default {
     animation-name: app-header-slide-in;
   }
 
-  &__main-bar {
+  &__main-bar-container {
+    @include text-small-black;
     position: relative;
     background: $background-color-softer;
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    justify-content: space-between;
     color: $color-text-light;
-    @include text-small-black;
-
     padding: $space-s $space-base $space-s $space-base;
 
     @include breakpoint("small") {
       padding-top: $space-xs;
       padding-bottom: $space-xs;
+    }
+  }
+
+  &__main-bar {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  &__bar-container {
+    padding: $space-s $space-base $space-s $space-base;
+
+    @include breakpoint("small") {
+      padding-top: $space-l;
+      padding-bottom: $space-l;
     }
   }
 
@@ -114,18 +127,14 @@ export default {
     align-items: center;
     flex-shrink: 0;
     justify-content: space-between;
-
-    padding: $space-s $space-base $space-s $space-base;
-
-    @include breakpoint("small") {
-      padding-top: $space-l;
-      padding-bottom: $space-l;
-    }
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
   &__logo {
-    height: $space-m;
-    width: auto;
+    width: 8.75rem;
+    max-height: $space-m;
+    //width: auto;
     img {
       max-height: 100%;
     }
@@ -168,6 +177,10 @@ export default {
   &__sidebar-control {
     justify-content: flex-end;
     padding-left: $space-m;
+  }
+
+  &__container {
+    max-width: 1100px;
   }
 }
 
@@ -228,7 +241,12 @@ The logo is makesense logo by default but can be customized with an URL.
 ```jsx
 <mks-button v-on:click="$loadTheme('events')" size="small">Try with events theme</mks-button><br>
 <mks-site-header v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" logo="https://events.makesense.org/static/img/logo.6e3c1fd.svg">
-  <mks-lang-picker slot="right" :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+  <template slot="main-bar">
+    <mks-list theme="primary">
+      <mks-link type="menu" to="https://makesense.org">Retourner au site makesense</mks-link>
+    </mks-list>
+    <mks-lang-picker v-bind:langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+  </template>
 </mks-site-header>
 
 ```
@@ -246,7 +264,12 @@ The header can be fixed to the top of the viewport (for example on scroll), by s
 
 <div style="position: relative;height:8rem;">
   <mks-site-header v-bind:fixed="false" v-bind:translucent="true" v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" >
-    <mks-lang-picker slot="right" :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+    <template slot="main-bar">
+      <mks-list theme="primary">
+        <mks-link type="menu" to="https://makesense.org">Retourner au site makesense</mks-link>
+      </mks-list>
+      <mks-lang-picker v-bind:langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+    </template>
   </mks-site-header>
 </div>
 ```
