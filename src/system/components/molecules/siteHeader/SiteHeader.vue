@@ -38,8 +38,8 @@
 </template>
 <script>
 /**
- * Site header with menu, sidebar control and top bar slot.
- * When users clicked the sidebar control
+ * Site header with menu, sidebar control, main bar and top bar slot.
+ * When users clicked the sidebar control, emits openSidebar
  *
  * @event openSidebar
  */
@@ -200,7 +200,8 @@ export default {
 
 The header takes a <code>menu-links</code> prop with an array of links items (<mks-link to="/atoms/mkslink">see link component</mks-link>)
 
-It has three slots : left, right and top-bar.
+It has two slots : top-bar and main-bar.
+The main bar slot is used as a reminder of the global makesense products and redirects to the main site, or other makesense sites.
 
 ```jsx
 
@@ -219,6 +220,8 @@ It has three slots : left, right and top-bar.
 
 ## Top bar
 
+The top bar slot is used for site-wide informations.
+
 ```jsx
 <mks-site-header 
   v-bind:menu-links="[{label: 'Citoyens', to: '/molecules/mkssiteheader'},{label: 'Entrepreneurs', to: 'https://makesense.org'}, {label: 'Organisations', to: 'https://makesense.org'}]">
@@ -236,10 +239,10 @@ It has three slots : left, right and top-bar.
 
 ## Custom logo
 
-The logo is makesense logo by default but can be customized with an URL.
+The logo is makesense logo by default but can be customized with any logo.
 
 ```jsx
-<mks-button v-on:click="$loadTheme('events')" size="small">Try with events theme</mks-button><br>
+<mks-button v-on:click="$loadTheme('events')" size="small">Try with _events theme</mks-button><br>
 <mks-site-header v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" logo="https://events.makesense.org/static/img/logo.6e3c1fd.svg">
   <template slot="main-bar">
     <mks-list theme="primary">
