@@ -1,9 +1,13 @@
-import { shallowMount, createLocalVue } from "@vue/test-utils";
+import { shallowMount, createLocalVue, RouterLinkStub } from "@vue/test-utils";
 import Comp from "./SiteHeader.vue";
 import Button from "../../atoms/button/Button.vue";
 import Icon from "../../atoms/icon/Icon.vue";
 import BeanMenu from "../../molecules/beanMenu/BeanMenu.vue";
 
+const $MKSlocale = {
+  home: 'Retour à la page d\'accueil',
+  openSidebar: 'Ouvrir le menu latéral'
+}
 const localVue = createLocalVue();
 localVue.component("MksButton", Button);
 localVue.component("MksIcon", Icon);
@@ -12,7 +16,9 @@ localVue.component("MksBeanMenu", BeanMenu);
 describe("SiteHeader.vue", () => {
   it("matches snapshot", () => {
     const wrapper = shallowMount(Comp, {
-      localVue
+      localVue,
+      stubs: ['router-link'],
+      mocks: { $MKSlocale },
     });
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -20,6 +26,8 @@ describe("SiteHeader.vue", () => {
   it("sets the translucent class", () => {
     const wrapper = shallowMount(Comp, {
       localVue,
+      stubs: ['router-link'],
+      mocks: { $MKSlocale },
       propsData: {
         translucent: true
       }
@@ -30,6 +38,8 @@ describe("SiteHeader.vue", () => {
   it("sets the fixed class", () => {
     const wrapper = shallowMount(Comp, {
       localVue,
+      stubs: ['router-link'],
+      mocks: { $MKSlocale },
       propsData: {
         fixed: true
       }
@@ -40,6 +50,8 @@ describe("SiteHeader.vue", () => {
   it("disables the sidebar", () => {
     const wrapper = shallowMount(Comp, {
       localVue,
+      stubs: ['router-link'],
+      mocks: { $MKSlocale },
       propsData: {
         sidebar: false
       }
@@ -51,6 +63,8 @@ describe("SiteHeader.vue", () => {
   it("sets the logo", () => {
     const wrapper = shallowMount(Comp, {
       localVue,
+      stubs: ['router-link'],
+      mocks: { $MKSlocale },
       propsData: {
         logo: "https://makesense.org/logo.png"
       }

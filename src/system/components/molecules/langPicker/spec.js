@@ -5,11 +5,15 @@ import Button from "../../atoms/button/Button.vue";
 
 const localVue = createLocalVue();
 localVue.component("MksButton", Button);
+const $MKSlocale = {
+  langpicker: 'a'
+}
 
 describe("langPicker.vue", () => {
   it("matches snapshot", () => {
     const wrapper = shallowMount(Comp, {
       localVue,
+      mocks: { $MKSlocale },
       propsData: {
         langs: ["French", "English"],
         active: "French",
@@ -21,6 +25,7 @@ describe("langPicker.vue", () => {
   it("emits select lang event", async () => {
     const wrapper = shallowMount(Comp, {
       localVue,
+      mocks: { $MKSlocale },
       propsData: {
         langs: ["French", "English"],
         active: "French",
@@ -39,6 +44,7 @@ describe("langPicker.vue", () => {
   it("displays active lang modifier", () => {
     const wrapper = shallowMount(Comp, {
       localVue,
+      mocks: { $MKSlocale },
       propsData: {
         langs: ["French", "English"],
         active: "French",

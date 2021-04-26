@@ -1,12 +1,15 @@
 <template>
-  <ul class="app-lang">
+  <ul class="app-lang" :aria-label="$MKSlocale['langpicker']" role="listbox">
     <li v-for="lang in langs" :key="lang" class="app-lang__item">
       <mks-button
+        tag="button"
         :class="{
           'app-lang__button': true,
           'app-lang__button--active': lang === active
         }"
         :type="lang === active ? 'text-active' : 'text'"
+        :aria-selected="lang === active ? true : false"
+        role="option"
         @click="$emit('select', lang)"
         >{{ lang }}</mks-button
       >

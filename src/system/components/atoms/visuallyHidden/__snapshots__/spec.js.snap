@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VisuallyHidden.vue matches snapshot 1`] = `
+<div
+  class="visually-hidden"
+>
+  Lorem ipsum dolor sit amet
+</div>
+`;

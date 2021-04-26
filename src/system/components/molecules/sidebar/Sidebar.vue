@@ -4,17 +4,27 @@
       sidebar: true,
       'sidebar--opened': open
     }"
+    role="navigation"
+    :aria-label="$MKSlocale['secondaryNav']"
+    tabindex="0"
+    id="site-sidebar"
+    @keydown.esc="close"
   >
-    <button class="sidebar__close-layer" @click="close"></button>
+    <button
+      class="sidebar__close-layer"
+      @click="close"
+      :aria-label="$MKSlocale['close']"
+    ></button>
     <div class="sidebar__inner">
       <mks-button
+        tabindex="0"
         tag="button"
         size="round"
         type="secondary"
         class="sidebar__close-btn"
         @click="close"
       >
-        <mks-icon type="x" size="30"></mks-icon>
+        <mks-icon type="x" size="30" :alt="$MKSlocale['close']"></mks-icon>
       </mks-button>
       <header class="sidebar__header">
         <slot name="header"></slot>

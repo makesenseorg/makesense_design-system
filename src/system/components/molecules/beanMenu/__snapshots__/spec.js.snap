@@ -2,6 +2,7 @@
 
 exports[`BeanMenu.vue matches snapshot 1`] = `
 <nav
+  aria-label="Menu"
   class="bean-menu"
 >
   <mks-horizontal-list-stub
@@ -12,6 +13,8 @@ exports[`BeanMenu.vue matches snapshot 1`] = `
     <li
       class="bean-menu__item"
     >
+      <!---->
+       
       <mks-link-stub
         to="https://example.com"
         type="menu"
@@ -22,6 +25,8 @@ exports[`BeanMenu.vue matches snapshot 1`] = `
     <li
       class="bean-menu__item"
     >
+      <!---->
+       
       <mks-link-stub
         to="https://example2.com"
         type="menu"

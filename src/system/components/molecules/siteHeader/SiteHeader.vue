@@ -15,9 +15,13 @@
         <!-- @slot Displays content on the left of the bar -->
         <slot name="left"></slot>
       </div>
-      <router-link to="/" class="site-header__main-content">
+      <router-link
+        to="/"
+        class="site-header__main-content"
+        :aria-label="$MKSlocale['home']"
+      >
         <div class="site-header__logo">
-          <img :src="logo" alt="Logo" />
+          <img :src="logo" alt="Site Logo" aria-hidden="true" />
         </div>
       </router-link>
 
@@ -27,10 +31,18 @@
       </div>
     </div>
 
-    <mks-bean-menu class="site-header__nav" :links="menuLinks"></mks-bean-menu>
+    <mks-bean-menu v-if="menuLinks" class="site-header__nav" :links="menuLinks"></mks-bean-menu>
 
-    <div v-if="sidebar" class="site-header__sidebar-control">
-      <mks-button size="round" @click="$emit('openSidebar')">
+    <div
+      v-if="sidebar"
+      class="site-header__sidebar-control"
+      aria-controls="site-sidebar"
+    >
+      <mks-button
+        size="round"
+        @click="$emit('openSidebar')"
+        :aria-label="$MKSlocale['openSidebar']"
+      >
         <mks-icon type="menu"></mks-icon>
       </mks-button>
     </div>
