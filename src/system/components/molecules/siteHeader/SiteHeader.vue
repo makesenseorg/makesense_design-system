@@ -17,8 +17,8 @@
     </div>
     <div class="site-header__bar-container">
       <div class="site-header__bar">
-        <mks-link to="/" type="menu" class="site-header__logo">
-          <img :src="logo" alt="Logo" />
+        <mks-link to="/" type="menu" class="site-header__logo" :aria-label="$MKSlocale['home']">
+          <img :src="logo" alt="Site Logo" aria-hidden="true" />
         </mks-link>
 
         <mks-navigation
@@ -28,7 +28,7 @@
         ></mks-navigation>
 
         <div v-if="sidebar" class="site-header__sidebar-control">
-          <mks-button type="text" @click="$emit('openSidebar')">
+          <mks-button type="text" @click="$emit('openSidebar')" aria-controls="site-sidebar" :aria-label="$MKSlocale['openSidebar']">
             <mks-icon type="menu"></mks-icon>
           </mks-button>
         </div>

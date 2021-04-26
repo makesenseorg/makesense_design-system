@@ -1,5 +1,11 @@
 <template>
-  <mks-horizontal-list spacing="small" class="pagination">
+  <mks-horizontal-list
+    tag="nav"
+    spacing="small"
+    class="pagination"
+    role="navigation"
+    aria-label="Pagination"
+  >
     <mks-button
       size="square"
       type="neutral"
@@ -8,7 +14,10 @@
       class="pagination__button pagination__button--prev"
       @click="prevPage"
     >
-      <mks-icon type="arrow-left"></mks-icon>
+      <mks-icon type="arrow-left" aria-hidden></mks-icon>
+      <mks-visually-hidden>{{
+        $MKSlocale["previousPage"]
+      }}</mks-visually-hidden>
     </mks-button>
     <mks-horizontal-list tag="ul" spacing="small" class="pagination__list">
       <mks-button
@@ -22,13 +31,20 @@
           'pagination__item--ellipsis': page == '...'
         }"
         :disabled="page == '...'"
+        :aria-current="page == current"
         @click="goTo(page)"
       >
+        <mks-visually-hidden v-if="page == current">{{
+          $MKSlocale["currentPage"]
+        }}</mks-visually-hidden>
+        <mks-visually-hidden v-else>{{
+          $MKSlocale["goToPage"]
+        }}</mks-visually-hidden>
         <span>
           {{ page }}
         </span>
 
-        <div class="effect"></div>
+        <div class="effect" aria-hidden></div>
       </mks-button>
     </mks-horizontal-list>
     <mks-button
@@ -39,7 +55,8 @@
       class="pagination__button pagination__button--next"
       @click="nextPage"
     >
-      <mks-icon type="arrow-right"></mks-icon>
+      <mks-icon type="arrow-right" aria-hidden></mks-icon>
+      <mks-visually-hidden>{{ $MKSlocale["nextPage"] }}</mks-visually-hidden>
     </mks-button>
   </mks-horizontal-list>
 </template>

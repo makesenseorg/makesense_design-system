@@ -2,16 +2,20 @@
 
 exports[`langPicker.vue matches snapshot 1`] = `
 <ul
+  aria-label="a"
   class="app-lang"
+  role="listbox"
 >
   <li
     class="app-lang__item"
   >
     <mks-button-stub
+      aria-selected="true"
       class="app-lang__button app-lang__button--active"
       inputtype=""
+      role="option"
       size="default"
-      tag="div"
+      tag="button"
       type="text-active"
     >
       French
@@ -23,8 +27,9 @@ exports[`langPicker.vue matches snapshot 1`] = `
     <mks-button-stub
       class="app-lang__button"
       inputtype=""
+      role="option"
       size="default"
-      tag="div"
+      tag="button"
       type="text"
     >
       English

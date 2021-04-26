@@ -7,6 +7,8 @@
     :class="`card${isElevated ? ' card--elevated' : ' card--flat'}`"
     @click="onClick"
     @click.native="onClick"
+    :aria-labelledby="`title-${uniqueId}`"
+    :aria-describedby="`description-${uniqueId}`"
   >
     <div :class="`card__image card__image--cover-${imageFormat}`">
       <img class="card__cover" :src="image" />
@@ -16,7 +18,7 @@
     <div class="card__content">
       <div class="card__meta">
         <div class="card__title-wrapper">
-          <div class="card__title">
+          <div :id="`title-${uniqueId}`" class="card__title">
             <!-- @slot The title of the card -->
             <slot name="title"></slot>
           </div>
@@ -28,7 +30,7 @@
           v-html="subtitle"
         ></div>
       </div>
-      <div class="card__description">
+      <div :id="`description-${uniqueId}`" class="card__description">
         <!-- @slot Textual content -->
         <slot name="description"></slot>
       </div>
@@ -44,6 +46,14 @@
  */
 export default {
   name: "MksCard",
+  data() {
+    return {
+      // used for accessibility labels
+      uniqueId: Math.random()
+        .toString(36)
+        .substr(2, 9)
+    };
+  },
   props: {
     /**
      * Tag to use for the card container : "router-link", "a", or "div"

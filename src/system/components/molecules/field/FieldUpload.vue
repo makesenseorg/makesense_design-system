@@ -1,6 +1,10 @@
 <template>
   <div class="file-upload" :class="{ loading: getStatus == 'PENDING' }">
-    <mks-field-label v-if="label && label !== undefined" :css-class="getCss">
+    <mks-field-label
+      v-if="label && label !== undefined"
+      :css-class="getCss"
+      :target-name="id || 'selecter'"
+    >
       {{ label }}
       <span class="field__sublabel" v-if="subLabel">{{ subLabel }}</span>
     </mks-field-label>
@@ -10,14 +14,14 @@
     <div v-show="getStatus !== 'PENDING'">
       <input
         type="file"
-        id="selecter"
-        ref="selecter"
-        name="selecter"
+        :id="id || 'selecter'"
+        :ref="id || 'selecter'"
+        :name="id || 'selecter'"
         @change="handleFileUpload()"
         @blur="$emit('blur')"
       />
       <div class="file-upload__selected-file" v-if="file_image">
-        <img :src="file_image" />
+        <img :src="file_image" :alt="file.name" />
       </div>
       <div class="file-upload__selected-file" v-else-if="file">
         <strong>{{ file.name }}</strong>
@@ -25,21 +29,24 @@
       <div class="file-upload__actions">
         <mks-button
           v-show="!file && !file_image"
+          tag="button"
           type="neutral"
           @click="addFile()"
-          >{{ uploadLabel }}</mks-button
+          >{{ uploadLabelTranslated }}</mks-button
         >
         <mks-button
           v-show="file || file_image"
+          tag="button"
           type="primary"
           @click="addFile()"
-          >{{ editLabel }}</mks-button
+          >{{ editLabelTranslated }}</mks-button
         >
         <mks-button
           v-show="file || file_image"
+          tag="button"
           type="negative"
           @click="removeFile()"
-          >{{ removeLabel }}</mks-button
+          >{{ removeLabelTranslated }}</mks-button
         >
       </div>
     </div>
@@ -103,22 +110,19 @@ export default {
      * Text of the upload button
      */
     uploadLabel: {
-      type: String,
-      default: "Upload image"
+      type: String
     },
     /**
      * Text of the edit button
      */
     editLabel: {
-      type: String,
-      default: "Edit"
+      type: String
     },
     /**
      * Text of the remove button
      */
     removeLabel: {
-      type: String,
-      default: "Remove"
+      type: String
     },
     error: {
       type: Boolean,
@@ -147,6 +151,15 @@ export default {
     else if (typeof this.existing === "string") this.file_image = this.existing;
   },
   computed: {
+    editLabelTranslated() {
+      return this.editLabel ? this.editLabel : this.$MKSlocale["edit"];
+    },
+    removeLabelTranslated() {
+      return this.removeLabel ? this.removeLabel : this.$MKSlocale["remove"];
+    },
+    uploadLabelTranslated() {
+      return this.uploadLabel ? this.uploadLabel : this.$MKSlocale["choose"];
+    },
     getCss: function() {
       var styles = ["-light-" + this.light];
       if (this.error) styles.push("-in-error");

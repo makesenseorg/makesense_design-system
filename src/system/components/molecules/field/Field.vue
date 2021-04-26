@@ -7,11 +7,13 @@
       'field--folding-open': foldingOpen,
       'field--folding-close': !foldingOpen
     }"
+    :role="type === 'search' ? 'search' : undefined"
   >
     <div class="field__header" v-if="label">
       <mks-field-label
         v-if="label && label !== undefined"
         class="field__label"
+        :id="`label-${name}`"
         :css-class="getCss"
         :target-name="type !== 'checkbox' ? name : ''"
         :icon="getIconLabel"
@@ -86,6 +88,7 @@
       v-else-if="type === 'checkbox'"
       class="checkbox__label"
       :class="getCss"
+      :aria-labelledby="`label-${name}`"
     >
       <input
         type="checkbox"
@@ -154,9 +157,13 @@
     />
     <mks-icon
       v-if="type === 'search'"
+      aria-hidden="true"
       type="search"
       class="input__search-icon"
     />
+    <mks-visually-hidden v-if="type === 'search'">{{
+      $MKSlocale["search"]
+    }}</mks-visually-hidden>
     <div
       class="field__description"
       v-if="description"
@@ -658,6 +665,8 @@ select {
 <docs>
 
 ## Type of fields
+For accessibility purposes, indicate required fields by using <code>mks-visually-hidden</code> component, if using a * for regular devices.
+
   ```jsx
     <mks-field name="text" type="text" label="Text" placeholder="Placeholder" value=""></mks-field>
     <mks-field name="number" type="number" label="Number" placeholder="Placeholder" value=""></mks-field>
@@ -669,6 +678,7 @@ select {
   ```
 
 ## Additional texts
+
 ```jsx
     <mks-field name="text" type="text" label="Sublabel" sub-label="with sublabel" value=""></mks-field>
     <mks-field name="text" type="text" label="Description" description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. " value=""></mks-field>
