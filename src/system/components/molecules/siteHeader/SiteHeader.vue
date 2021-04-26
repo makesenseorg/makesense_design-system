@@ -118,8 +118,8 @@ export default {
     padding: $space-s $space-base $space-s $space-base;
 
     @include breakpoint("small") {
-      padding-top: $space-s;
-      padding-bottom: $space-xl;
+      padding-top: $space-l;
+      padding-bottom: $space-l;
     }
   }
 
