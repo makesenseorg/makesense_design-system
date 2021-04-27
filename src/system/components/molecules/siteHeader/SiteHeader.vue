@@ -31,7 +31,11 @@
       </div>
     </div>
 
-    <mks-bean-menu v-if="menuLinks" class="site-header__nav" :links="menuLinks"></mks-bean-menu>
+    <mks-bean-menu
+      v-if="menuLinks"
+      class="site-header__nav"
+      :links="menuLinks"
+    ></mks-bean-menu>
 
     <div
       v-if="sidebar"
