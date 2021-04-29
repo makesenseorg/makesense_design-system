@@ -55,3 +55,66 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+// GRID system 
+@mixin grid-base {
+  display: grid;
+  grid-gap: var(--grid-gap, 0);
+}
+
+@mixin grid {
+  @include grid-base;
+  --grid-cols: #{$grid-columns};
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+
+  > * {
+    grid-column: span var(--span, #{$grid-columns}) / span var(--span, #{$grid-columns});
+  }
+}
+
+@mixin set-col($size: 'auto') {
+  $sizemap: (
+    'auto': 0, 
+    "xs": 8rem, 
+    "sm": 10rem, 
+    "md": 15rem, 
+    "lg": 20rem, 
+    "xl": 25rem
+  ) !default;
+  --col-min-width: #{map-get($sizemap, $size)};
+}
+
+@mixin grid-auto($size: '0') {
+  @include grid-base;
+  --col-min-width: 0;
+  grid-template-columns: repeat(auto-fit, minmax(var(--col-min-width), 1fr));
+}
+
+@mixin set-gap($size: 'none') {
+  $gapmap: (
+    'none': 0,
+    'xxxs': var(--space-xxxs, 0.25rem), 
+    "xxs": var(--space-xxs, 0.375rem), 
+    "xs": var(--space-xs, 0.5rem), 
+    "sm": var(--space-sm, 0.75rem), 
+    "md": var(--space-md, 1.25rem), 
+    "lg": var(--space-lg, 2rem), 
+    "xl": var(--space-xl, 3.25rem),
+    "xxl": var(--space-xxl, 5.25rem),
+    "xxxl": var(--space-xxxl, 8.5rem)
+  ) !default;
+
+  --grid-gap: #{map-get($gapmap, $size)};
+}
+
+@mixin col($col: 12) {
+  --span: #{$col};
+}
+
+@mixin col-start($col: 1) {
+  grid-column-start: $col;
+}
+
+@mixin col-end($col: 1) {
+  grid-column-end: $col;
+}

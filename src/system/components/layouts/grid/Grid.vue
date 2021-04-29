@@ -29,7 +29,7 @@ export default {
 </style>
 <docs>
 
-⚠️ **Note**: Component `mks-grid-system` is not meant to be used in apps, it's only meant as an example in this documentation.
+⚠️ **Note**: <mks-text weight="bold">Component `mks-grid-system` is only meant as an example in this documentation and should not be used in apps</mks-text>.
 
 ## The stack
 The grid system is composed of a container element with the class `mks-grid` and children elements. 
@@ -84,6 +84,25 @@ The items will not wrap as the screen gets smaller. See section #responsive for 
 </mks-grid-system>
 ```
 
+## Placing elements on the grid
+There are two utility classes that allow a more specific placement and use of white space in the grid.
+
+`mks-col-start-{column-number}` dictates on which column the element will start.
+
+`mks-col-end-{column-number}` dictates on which column the element will end.
+```jsx
+<mks-grid-system class="mks-grid mks-grid-gap-xs">
+    <div class="example-child mks-col-1">1</div><div class="example-child mks-col-1">2</div><div class="example-child mks-col-1">3</div><div class="example-child mks-col-1">4</div><div class="example-child mks-col-1">5</div><div class="example-child mks-col-1">6</div><div class="example-child mks-col-1">7</div><div class="example-child mks-col-1">8</div><div class="example-child mks-col-1">9</div><div class="example-child mks-col-1">10</div><div class="example-child mks-col-1">11</div><div class="example-child mks-col-1">12</div>
+    <div class="example-child mks-col-10 mks-col-start-2">mks-col-start-2</div>
+    <div class="example-child mks-col-3 mks-col-start-1">mks-col-start-1</div>
+    <div class="example-child mks-col-3 mks-col-end-8">mks-col-end-8</div>
+    <div class="example-child mks-col-3 mks-col-end-12">mks-col-end-12</div>
+    <div class="example-child mks-col-6 mks-col-end-12">mks-col-end-12</div>
+    <div class="example-child mks-col-2 mks-col-start">mks-col-start</div>
+    <div class="example-child mks-col-2 mks-col-end">mks-col-end</div>
+</mks-grid-system>
+```
+
 ## Automatic grids
 The class `mks-grid-auto-cols` can replace the class `mks-grid` to display all children in one row, similarly to flexbox.
 
@@ -117,11 +136,51 @@ They will not wrap.
     <div class="example-child">6</div>
 </mks-grid-system>
 ```
-## Col-start and col-end
-// todo
 
 ## Responsive
-// todo
+For a more flexible grid when elements can wrap when they become smaller, we can use the following utility classes : 
+`mks-grid-auto-{size}`, where each element has a minimum width. With this system, you can create a responsive grid with equal sized items very easily. 
+
+⚠️ You should not use `mks-col-${amount}` when using an auto sized grid.
+
+You can play with the size of the window to see it in action.
+
+<code>.mks-grid-auto-xs { --col-min-width: 8rem; }</code>
+
+<code>.mks-grid-auto-sm { --col-min-width: 10rem; }</code>
+
+<code>.mks-grid-auto-md { --col-min-width: 15rem; }</code>
+
+<code>.mks-grid-auto-lg { --col-min-width: 20rem; }</code>
+
+<code>.mks-grid-auto-xl { --col-min-width: 25rem; }</code>
+
+```jsx
+<mks-grid-system class="mks-grid-auto-md mks-grid-gap-xs">
+    <div class="example-child">1</div>
+    <div class="example-child">2</div>
+    <div class="example-child">3</div>
+    <div class="example-child">4</div>
+    <div class="example-child">5</div>
+    <div class="example-child">6</div>
+    <div class="example-child">7</div>
+    <div class="example-child">8</div>
+</mks-grid-system>
+```
+
+## Responsive modifiers
+You can add responsive modifiers, by appending `@{breakpoint}`, to `mks-grid-auto-{size}`, `mks-col-{amount}`, `mks-col-start-{col}` and `mks-col-end-{col}` classes to define a different behavior depending on screen sizes.
+
+`mks-col-6 mks-col-3@md` means that an element would take 6 column on smallest screens, and when the window reaches `md` breakpoint and up, the element would take 3 columns.
+
+```jsx
+<mks-grid-system class="mks-grid mks-grid-gap-xs">
+    <div class="example-child mks-col-6 mks-col-3@md">1</div>
+    <div class="example-child mks-col-6 mks-col-3@md">2</div>
+    <div class="example-child mks-col-6 mks-col-3@md">3</div>
+    <div class="example-child mks-col-6 mks-col-3@md">4</div>
+</mks-grid-system>
+```
 
 ## Grid gaps
 
