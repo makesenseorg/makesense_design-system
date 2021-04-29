@@ -240,4 +240,58 @@ You can a utility class `mks-grid-gap-{size}` on the container element to get sm
 </mks-grid-system>
 ```
 
+## Mixins 
+You can use this system with scss mixins instead of utility classes for better readability in the template.
+
+- `.mks-grid` -> `@include grid`
+- `.mks-grid-auto-{size}` -> `@include grid-auto($size: 'auto')` where $size is `'auto'`, `'xs'`, `'sm'`, `'md'`, `'lg'` or `'xl'`
+- `.mks-grid-gap-{size}` -> `@include set-gap($size: 'none')` where $size can be `'xxxs'`, `'xxs'`, `'xs'`, `'sm'`, `'md'`, `'lg'`, `'xl'`, `'xxl'` or `'xxxl'`.
+- `.mks-col-{amount}` -> `@include col($amount: 12)` where $amount is a number between 1 and 12
+- `.mks-col-start` and `.mks-col-start-{amount}` -> `@include col-start($amount: 12)` where $amount is a number between 1 and 12
+- `.mks-col-end` and `.mks-col-end-{amount}` -> `@include col-end($amount: 12)` where $amount is a number between 1 and 12
+
+
+## "Real" world example
+```jsx
+<div class="page mks-grid">
+    <mks-site-header class="mks-col-12"></mks-site-header>
+    <main class="mks-col-12 mks-col-8@md">
+        <mks-heading tag="h1" color="primary" class="mks-col-12">Hello world! </mks-heading>
+        <div class="mks-grid-auto-md mks-grid-gap-md">
+            <mks-card image="https://via.placeholder.com/500">
+                <template v-slot:title>Basic card</template>
+                <template v-slot:title-meta><mks-tag label="Type of content"></mks-tag></template>
+                <template v-slot:description>Lorem ipsum dolor sit amet, quis nostrud exercitatiure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</template>
+            </mks-card>
+            <mks-card image="https://via.placeholder.com/500" subtitle="This is a subtitle" subtitle-type="light">
+                <template v-slot:title>Basic card</template>
+                <template v-slot:title-meta><mks-tag label="Type of content"></mks-tag></template>
+                <template v-slot:description>Lorem ipsum dolor sit amet, Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</template>
+            </mks-card>
+            <mks-card image="https://via.placeholder.com/500" subtitle="This is a subtitle" subtitle-type="light">
+                <template v-slot:title>Basic card</template>
+                <template v-slot:title-meta><mks-tag label="Type of content"></mks-tag></template>
+                <template v-slot:description>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</template>
+            </mks-card>
+            <mks-card image="https://via.placeholder.com/500" subtitle="This is a subtitle" subtitle-type="light">
+                <template v-slot:title>Basic card</template>
+                <template v-slot:title-meta><mks-tag label="Type of content"></mks-tag></template>
+                <template v-slot:description>bore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</template>
+            </mks-card>
+        </div>
+    </main>
+    <aside class="mks-col-12 mks-col-4@md">
+        <mks-heading tag="h2" color="secondary">Sidebar</mks-heading>
+        <mks-alert type="positive">This is an alert </mks-alert>
+        <div class="mks-grid mks-grid-gap-xs">
+            <mks-text class="mks-col-12">Hello !</mks-text>
+            <mks-button type="primary" class="mks-col-6">Accept</mks-button>
+            <mks-button type="neutral" class="mks-col-6">Refuse </mks-button>
+        </div>
+    </aside>
+    <mks-footer></mks-footer>
+</div>
+
+````
+
 </docs>

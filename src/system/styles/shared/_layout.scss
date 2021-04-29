@@ -84,8 +84,11 @@
   --col-min-width: #{map-get($sizemap, $size)};
 }
 
-@mixin grid-auto($size: '0') {
+@mixin grid-auto($size: 'auto') {
   @include grid-base;
+  @if ($size != 'auto') {
+    @include set-col($size);
+  }
   --col-min-width: 0;
   grid-template-columns: repeat(auto-fit, minmax(var(--col-min-width), 1fr));
 }
@@ -107,14 +110,14 @@
   --grid-gap: #{map-get($gapmap, $size)};
 }
 
-@mixin col($col: 12) {
-  --span: #{$col};
+@mixin col($amount: 12) {
+  --span: #{$amount};
 }
 
-@mixin col-start($col: 1) {
-  grid-column-start: $col;
+@mixin col-start($amount: 1) {
+  grid-column-start: $amount;
 }
 
-@mixin col-end($col: 1) {
-  grid-column-end: $col;
+@mixin col-end($amount: 1) {
+  grid-column-end: $amount;
 }
