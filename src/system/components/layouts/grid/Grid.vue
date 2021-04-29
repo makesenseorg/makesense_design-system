@@ -104,7 +104,7 @@ There are two utility classes that allow a more specific placement and use of wh
 ```
 
 ## Automatic grids
-The class `mks-grid-auto-cols` can replace the class `mks-grid` to display all children in one row, similarly to flexbox.
+The class `mks-grid-auto` can replace the class `mks-grid` to display all children in one row, similarly to flexbox.
 
 All columns will have the same size (that of the biggest child) and fill the entire container width. 
 
