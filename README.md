@@ -1,6 +1,7 @@
 # Makesense design system
 
 [![NPM](https://nodei.co/npm/@makesenseorg/design-system.png?mini=true)](https://www.npmjs.com/package/@makesenseorg/design-system)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/413839d8-2c04-4e51-a7ed-6dd785639cc1/deploy-status)](https://app.netlify.com/sites/makesense-design-system/deploys)
 
 The makesense design system is build to make makesense design guidelines and Vue component available accross our multiple web applications.
 
