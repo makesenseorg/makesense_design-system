@@ -87,6 +87,8 @@ props:
     value: "{!x-small}px"
   - name: space-xxs
     value: "{!xx-small}px"
+  - name: space-sxxs
+    value: "{!xxx-small}px"
 
 global:
   type: number

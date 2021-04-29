@@ -56,88 +56,68 @@
   margin-right: auto;
 }
 
-//  GRID
-
-@mixin grid-layout {
+// GRID system 
+@mixin grid-base {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: $space-m $space-m;
+  grid-gap: var(--grid-gap, 0);
 }
 
-@mixin grid-layout-item-v2 {
-  grid-column: 1/13;
-}
+@mixin grid {
+  @include grid-base;
+  --grid-cols: #{$grid-columns};
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
 
-@mixin grid-layout-item-1-8 {
-  grid-column: 1/13;
-
-  @include breakpoint("small") {
-    grid-column: 1/8;
+  > * {
+    grid-column: span var(--span, #{$grid-columns}) / span var(--span, #{$grid-columns});
   }
 }
 
-@mixin grid-layout-item-6 {
-  grid-column: 1/13;
-
-  @include breakpoint("small") {
-    grid-column: 6;
-  }
+@mixin set-col($size: 'auto') {
+  $sizemap: (
+    'auto': 0, 
+    "xs": 8rem, 
+    "sm": 10rem, 
+    "md": 15rem, 
+    "lg": 20rem, 
+    "xl": 25rem
+  ) !default;
+  --col-min-width: #{map-get($sizemap, $size)};
 }
 
-@mixin grid-layout-item-7-13 {
-  grid-column: 1/13;
-
-  @include breakpoint("small") {
-    grid-column: 7/13;
+@mixin grid-auto($size: 'auto') {
+  @include grid-base;
+  @if ($size != 'auto') {
+    @include set-col($size);
   }
+  --col-min-width: 0;
+  grid-template-columns: repeat(auto-fit, minmax(var(--col-min-width), 1fr));
 }
 
-@mixin grid-layout-item-1-9 {
-  grid-column: 1/13;
+@mixin set-gap($size: 'none') {
+  $gapmap: (
+    'none': 0,
+    'xxxs': var(--space-xxxs, 0.25rem), 
+    "xxs": var(--space-xxs, 0.375rem), 
+    "xs": var(--space-xs, 0.5rem), 
+    "sm": var(--space-sm, 0.75rem), 
+    "md": var(--space-md, 1.25rem), 
+    "lg": var(--space-lg, 2rem), 
+    "xl": var(--space-xl, 3.25rem),
+    "xxl": var(--space-xxl, 5.25rem),
+    "xxxl": var(--space-xxxl, 8.5rem)
+  ) !default;
 
-  @include breakpoint("small") {
-    grid-column: 1/9;
-  }
+  --grid-gap: #{map-get($gapmap, $size)};
 }
 
-@mixin grid-layout-item-9-13 {
-  grid-column: 1/13;
-
-  @include breakpoint("small") {
-    grid-column: 9/13;
-  }
+@mixin col($amount: 12) {
+  --span: #{$amount};
 }
 
-@mixin grid-layout-item-1-4 {
-  grid-column: 1/13;
-
-  @include breakpoint("small") {
-    grid-column: 1/8;
-  }
+@mixin col-start($amount: 1) {
+  grid-column-start: $amount;
 }
 
-@mixin grid($fit: auto-fill) {
-  display: grid;
-  grid-template-columns: repeat($fit, minmax(250px, 1fr));
-  grid-gap: 1rem;
-}
-
-@mixin grid-medium($fit: auto-fill) {
-  display: grid;
-  grid-template-columns: repeat($fit, minmax(275px, 1fr));
-  grid-gap: 1rem;
-
-  @include breakpoint("medium") {
-    grid-template-columns: repeat($fit, minmax(300px, 1fr));
-  }
-}
-
-@mixin grid-large($fit: auto-fill) {
-  display: grid;
-  grid-template-columns: repeat($fit, minmax(300px, 1fr));
-  grid-gap: 1rem;
-
-  @include breakpoint("medium") {
-    grid-template-columns: repeat($fit, minmax(350px, 1fr));
-  }
+@mixin col-end($amount: 1) {
+  grid-column-end: $amount;
 }

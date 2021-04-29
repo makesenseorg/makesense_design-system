@@ -1,0 +1,89 @@
+// ⚡️ Flash Grid based on https://github.com/CodyHouse/flashgrid
+$grid-columns: 12 !default;
+
+.mks-grid, [class*="mks-grid-auto"] {
+  @include grid-base;
+}
+
+.mks-grid {
+  @include grid;
+}
+
+.mks-grid-auto-xs, .mks-grid-auto-sm, .mks-grid-auto-md, .mks-grid-auto-lg, .mks-grid-auto-xl { // auto-sized grid
+  @include grid-auto;
+}
+
+$colsizes: (
+  "xs",
+  "sm",
+  "md",
+  "lg",
+  "xl"
+);
+
+@each $name in $colsizes {
+  .mks-grid-auto-#{$name} {
+    @include set-col($name);
+  }
+}
+
+.mks-grid-auto { // cols = same size
+  @include grid-auto;
+}
+
+$gapsizes: (
+  "xxxs",
+  "xxs",
+  "xs",
+  "sm",
+  "md",
+  "lg",
+  "xl",
+  "xxl",
+  "xxxl"
+);
+
+@each $name in $gapsizes {
+  .mks-grid-gap-#{$name} {
+    @include set-gap($name);
+  }
+}
+
+@for $i from 1 through $grid-columns {
+  .mks-col-#{$i} { @include col($i) }
+  .mks-col-start-#{$i} { @include col-start($i) }
+  .mks-col-end-#{$i} { @include col-end($i+1); }
+}
+
+.mks-col-start { @include col-start(1) }
+.mks-col-end   { @include col-end(-1) }
+
+
+$grid-breakpoints: (
+  "xsmall": "xs",
+  "small": "sm",
+  "medium": "md",
+  "large": "lg",
+  "xlarge": "xl"
+);
+
+@each $bp, $modifier in $grid-breakpoints {
+  @include breakpoint($bp) {
+    @each $name in $colsizes {
+      .mks-grid-auto-#{$name}\@#{$modifier} {
+        @include set-col($name);
+      }
+    }
+  
+    .mks-grid-auto\@#{$modifier} { @include grid-auto }
+    
+    @for $i from 1 through $grid-columns {
+      .mks-col-#{$i}\@#{$modifier} { @include col($i) }
+      .mks-col-start-#{$i}\@#{$modifier} { @include col-start($i) }
+      .mks-col-end-#{$i}\@#{$modifier} { @include col-end($i+1); }
+    }
+  
+    .mks-col-start\@#{$modifier} { @include col-start(1) }
+    .mks-col-end\@#{$modifier}   { @include col-end(-1) }
+  }
+}
