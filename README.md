@@ -61,7 +61,7 @@ You can also change the theme using `this.$loadTheme(theme_name)` inside a view 
 ### 4. Import the styles and variables <a name="vue-4"></a>
 
 In order to have access to the design system variables and mixins, you need to import the `shared.scss` file.
-Note: You might need to run `npm install node-sass@4.14.1 sass-loader#7.1.0`
+Note: You might need to run `npm install node-sass@4.14.1 sass-loader@7.1.0`
 
 ```js
 // globally inside vue.config.js
@@ -154,6 +154,7 @@ You can also change the theme using `this.$loadTheme(theme_name)` inside a view 
 
 In order to have access to the design system variables and mixins, you need to import the `shared.scss` file either locally in each component, or once globally in the app.
 The `system.css` file is a global file providing reset classes, fonts, and basic styling.
+Note: You might need to run `npm install node-sass@4.14.1 sass-loader@7.1.0`
 
 #### 1. Install style-ressources <a name="nuxt-4-1"></a>
 
