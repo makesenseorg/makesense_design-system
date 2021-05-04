@@ -4,7 +4,9 @@
       <slot />
     </div>
     <div class="ds-copy-field-link">
-      <ds-button @click="copy" icon="copy" color="soft" ghost />
+      <mks-button @click="copy" type="text" size="small">
+        <mks-icon type="copy"></mks-icon>
+      </mks-button>
     </div>
     <transition name="ds-copy-field-message">
       <div v-show="showMessage" class="ds-copy-field-message">

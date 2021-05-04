@@ -1,0 +1,9 @@
+@mixin bean($color: currentColor, $margin-right: $space-s) {
+    display: inline-block;
+    content: "";
+    height: $space-xxs;
+    width: $space-xs;
+    background: $color;
+    margin-right: $margin-right;
+    @include border-round;
+}

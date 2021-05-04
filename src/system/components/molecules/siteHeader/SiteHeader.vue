@@ -2,7 +2,6 @@
   <header
     :class="{
       'site-header': true,
-      'site-header--translucent': translucent,
       'site-header--fixed': fixed
     }"
   >
@@ -10,45 +9,39 @@
       <!-- @slot Displays content above the header -->
       <slot name="top-bar"></slot>
     </div>
-    <div class="site-header__bar">
-      <div class="site-header__extra site-header__extra--left">
-        <!-- @slot Displays content on the left of the bar -->
-        <slot name="left"></slot>
-      </div>
-      <router-link
-        to="/"
-        class="site-header__main-content"
-        :aria-label="$MKSlocale['home']"
-      >
-        <div class="site-header__logo">
-          <img :src="logo" alt="Site Logo" aria-hidden="true" />
-        </div>
-      </router-link>
-
-      <div class="site-header__extra site-header__extra--right">
-        <!-- @slot Displays content on the right of the bar -->
-        <slot name="right"></slot>
+    <div class="site-header__main-bar-container" v-if="$slots['main-bar']">
+      <!-- @slot Displays content above the header -->
+      <div class="site-header__main-bar">
+        <slot name="main-bar"></slot>
       </div>
     </div>
+    <div class="site-header__bar-container">
+      <div class="site-header__bar">
+        <mks-link
+          to="/"
+          type="menu"
+          class="site-header__logo"
+          :aria-label="$MKSlocale['home']"
+        >
+          <img :src="logo" alt="Logo" aria-hidden="true" />
+        </mks-link>
 
-    <mks-bean-menu
-      v-if="menuLinks"
-      class="site-header__nav"
-      :links="menuLinks"
-    ></mks-bean-menu>
+        <mks-navigation
+          class="site-header__nav"
+          theme="primary"
+          :links="menuLinks"
+        ></mks-navigation>
 
-    <div
-      v-if="sidebar"
-      class="site-header__sidebar-control"
-      aria-controls="site-sidebar"
-    >
-      <mks-button
-        size="round"
-        @click="$emit('openSidebar')"
-        :aria-label="$MKSlocale['openSidebar']"
-      >
-        <mks-icon type="menu"></mks-icon>
-      </mks-button>
+        <div v-if="sidebar" class="site-header__sidebar-control">
+          <mks-button
+            type="text"
+            @click="$emit('openSidebar')"
+            :aria-label="$MKSlocale['openSidebar']"
+          >
+            <mks-icon type="menu"></mks-icon>
+          </mks-button>
+        </div>
+      </div>
     </div>
   </header>
 </template>
@@ -77,11 +70,6 @@ export default {
       type: Boolean,
       default: true
     },
-    /** Removes background and positions absolulely to top of container */
-    translucent: {
-      type: Boolean,
-      default: false
-    },
     /** Fixes on top of the viewport */
     fixed: {
       type: Boolean,
@@ -99,18 +87,9 @@ export default {
   z-index: $z-index-page-header;
   transition: background-color 0.25s;
 
-  &--translucent {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: transparent;
-    box-shadow: none;
-    border-bottom: none;
-  }
-
   &--fixed {
     position: fixed;
+    z-index: $z-index-page-header;
     top: 0;
     left: 0;
     width: 100%;
@@ -120,23 +99,54 @@ export default {
     animation-name: app-header-slide-in;
   }
 
+  &__main-bar-container {
+    @include text-small-black;
+    position: relative;
+    background: $background-color-softer;
+    color: $color-text-light;
+    padding: $space-s $space-base $space-s $space-base;
+
+    @include breakpoint("small") {
+      padding-top: $space-xs;
+      padding-bottom: $space-xs;
+    }
+  }
+
+  &__main-bar {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  &__bar-container {
+    padding: $space-s $space-base $space-s $space-base;
+
+    @include breakpoint("small") {
+      padding-top: $space-l;
+      padding-bottom: $space-l;
+    }
+  }
+
   &__bar {
     position: relative;
     display: flex;
     align-items: center;
     flex-shrink: 0;
     justify-content: space-between;
-
-    padding: $space-s $space-base $space-s $space-base;
-
-    @include breakpoint("small") {
-      padding-top: $space-s;
-      padding-bottom: $space-xl;
-    }
+    max-width: 1100px;
+    margin: 0 auto;
   }
 
   &__logo {
-    max-width: 180px;
+    width: 8.75rem;
+    max-height: $space-m;
+    //width: auto;
+    img {
+      max-height: 100%;
+    }
   }
 
   &__main-content {
@@ -168,20 +178,18 @@ export default {
     display: none;
 
     @include breakpoint("small") {
-      display: flex;
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      z-index: 1;
-      transform: translate(-50%, 50%);
+      display: block;
+      @include push-right;
     }
   }
 
   &__sidebar-control {
-    position: absolute;
-    bottom: 0;
-    right: $space-m;
-    transform: translateY(50%);
+    justify-content: flex-end;
+    padding-left: $space-m;
+  }
+
+  &__container {
+    max-width: 1100px;
   }
 }
 
@@ -205,8 +213,15 @@ It has three slots : left, right and top-bar.
 
 ```jsx
 
-<mks-site-header v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" >
-  <mks-lang-picker slot="right" :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+<mks-site-header 
+  v-bind:menu-links="[{label: 'Citoyens', to: '/molecules/mkssiteheader'},{label: 'Entrepreneurs', to: 'https://makesense.org'}, {label: 'Organisations', to: 'https://makesense.org'}]">
+  <template slot="main-bar">
+    <mks-list theme="primary">
+      <mks-link type="menu" to="https://makesense.org">Retourner au site makesense</mks-link>
+    </mks-list>
+    <mks-lang-picker v-bind:langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+  </template>
+  
 </mks-site-header>
 
 ```
@@ -214,9 +229,16 @@ It has three slots : left, right and top-bar.
 ## Top bar
 
 ```jsx
-<mks-site-header v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" >
+<mks-site-header 
+  v-bind:menu-links="[{label: 'Citoyens', to: '/molecules/mkssiteheader'},{label: 'Entrepreneurs', to: 'https://makesense.org'}, {label: 'Organisations', to: 'https://makesense.org'}]">
   <mks-alert slot="top-bar" type="positive">An ad or important message can be placed here, the component just needs a background.</mks-alert>
-  <mks-lang-picker slot="right" :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+  <template slot="main-bar">
+    <mks-list theme="primary">
+      <mks-link type="menu" to="https://makesense.org">Retourner au site makesense</mks-link>
+    </mks-list>
+    <mks-lang-picker v-bind:langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+  </template>
+  
 </mks-site-header>
 
 ```
@@ -226,28 +248,15 @@ It has three slots : left, right and top-bar.
 The logo is makesense logo by default but can be customized with an URL.
 
 ```jsx
-<mks-button v-on:click="$loadTheme('events')" size="small">Match theme to logo</mks-button><br>
+<mks-button v-on:click="$loadTheme('events')" size="small">Try with events theme</mks-button><br>
 <mks-site-header v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" logo="https://events.makesense.org/static/img/logo.6e3c1fd.svg">
-  <mks-lang-picker slot="right" :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+  <template slot="main-bar">
+    <mks-list theme="primary">
+      <mks-link type="menu" to="https://makesense.org">Retourner au site makesense</mks-link>
+    </mks-list>
+    <mks-lang-picker v-bind:langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+  </template>
 </mks-site-header>
-
-```
-
-
-## Translucent header
-
-The header can appear <code>translucent</code> by setting the prop to <code>true</code>.
-
-It is then positionned absolutely above the content and has no background.
-
-⚠️ Always use the translucent header wrapped inside an element with relative positioning if you don't want it to the top of the viewport
-
-```jsx
-<div style="position: relative;padding:8rem 0;background:var(--color-secondary);">
-  <mks-site-header v-bind:translucent="true" v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" >
-    <mks-lang-picker slot="right" :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
-  </mks-site-header>
-</div>
 
 ```
 
@@ -264,7 +273,12 @@ The header can be fixed to the top of the viewport (for example on scroll), by s
 
 <div style="position: relative;height:8rem;">
   <mks-site-header v-bind:fixed="false" v-bind:translucent="true" v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" >
-    <mks-lang-picker slot="right" :langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+    <template slot="main-bar">
+      <mks-list theme="primary">
+        <mks-link type="menu" to="https://makesense.org">Retourner au site makesense</mks-link>
+      </mks-list>
+      <mks-lang-picker v-bind:langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
+    </template>
   </mks-site-header>
 </div>
 ```

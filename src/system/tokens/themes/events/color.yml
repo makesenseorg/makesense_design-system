@@ -73,23 +73,23 @@ props:
   #
   # Light theme: darkest color | Dark theme: lightest color
   - name: color-primary
-    value: &color-primary "{!sahara_sand}"
+    value: &color-primary "{!roman}"
   - name: color-primary-active
-    value: &color-primary-active "#faf27a"
+    value: &color-primary-active "#e05254"
   - name: color-primary-inverse
-    value: &color-primary-inverse "{!blue_dianne}"
+    value: &color-primary-inverse "{!white}"
 
   - name: color-secondary
-    value: &color-secondary "{!roman}"
+    value: &color-secondary "{!broom}"
   - name: color-secondary-active
-    value: &color-secondary-active "#e05254"
+    value: &color-secondary-active "#F4E804"
   - name: color-secondary-inverse
-    value: &color-secondary-inverse "{!white}"
+    value: &color-secondary-inverse "{!blue_dianne}"
 
   - name: color-tertiary
-    value: &color-tertiary "{!flame_pea}"
+    value: &color-tertiary "{!parsley}"
   - name: color-tertiary-active
-    value: &color-tertiary-active "#f28a5a"
+    value: &color-tertiary-active "#1C582F"
   - name: color-tertiary-inverse
     value: &color-tertiary-inverse "{!white}"
 

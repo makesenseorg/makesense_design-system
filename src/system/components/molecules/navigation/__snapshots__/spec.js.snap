@@ -1,20 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BeanMenu.vue matches snapshot 1`] = `
+exports[`Navigation.vue matches snapshot 1`] = `
 <nav
-  aria-label="Menu"
-  class="bean-menu"
+  class="navigation navigation--theme-primary"
 >
   <mks-horizontal-list-stub
-    class="bean-menu__list"
+    class="navigation__list"
     spacing="default"
     tag="ul"
   >
     <li
-      class="bean-menu__item"
+      class="navigation__item"
     >
-      <!---->
-       
       <mks-link-stub
         to="https://example.com"
         type="menu"
@@ -23,10 +20,8 @@ exports[`BeanMenu.vue matches snapshot 1`] = `
       </mks-link-stub>
     </li>
     <li
-      class="bean-menu__item"
+      class="navigation__item"
     >
-      <!---->
-       
       <mks-link-stub
         to="https://example2.com"
         type="menu"

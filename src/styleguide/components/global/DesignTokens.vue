@@ -74,4 +74,7 @@ export default {
   position: sticky;
   top: 50px;
 }
+.sticky-menu-item {
+  margin: 0;
+}
 </style>

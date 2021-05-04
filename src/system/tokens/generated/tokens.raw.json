@@ -1185,6 +1185,13 @@
       "value": "var(--letter-spacing-x-small)",
       "originalValue": "-0.015em"
     },
+    "opacity-hover": {
+      "type": "number",
+      "category": "opacity",
+      "name": "opacity-hover",
+      "value": "var(--opacity-hover)",
+      "originalValue": "0.8"
+    },
     "opacity-soft": {
       "type": "number",
       "category": "opacity",
@@ -1380,6 +1387,13 @@
       "name": "space-xxs",
       "value": "var(--space-xxs)",
       "originalValue": "{!xx-small}px"
+    },
+    "space-sxxs": {
+      "type": "number",
+      "category": "space",
+      "name": "space-sxxs",
+      "value": "var(--space-sxxs)",
+      "originalValue": "{!xxx-small}px"
     },
     "size-height-base": {
       "type": "number",

@@ -57,7 +57,7 @@ export default {
 <mks-page :menu-links="[
   { label: 'Accueil', to: '/layouts/mkslayoutpage' },
   { label: 'Header', to: '/molecules/mkssiteheader' },
-  { label: 'Menu', to: '/molecules/mksbeanmenu' },
+  { label: 'Menu', to: '/molecules/mksnavigation' },
   { label: 'Sidebar', to: { path: '/molecules/mkssidebar' } },
   { label: 'Footer', to: { path: '/molecules/mkssitefooter' } },
 ]" logo="https://events.makesense.org/static/img/logo.6e3c1fd.svg">
