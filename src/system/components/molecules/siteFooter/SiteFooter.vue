@@ -1,5 +1,5 @@
 <template>
-  <footer :class="`site-footer`">
+  <footer :class="`site-footer`" role="contentinfo">
     <slot></slot>
   </footer>
 </template>

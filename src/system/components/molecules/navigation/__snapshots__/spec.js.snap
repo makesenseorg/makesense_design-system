@@ -2,7 +2,7 @@
 
 exports[`Navigation.vue matches snapshot 1`] = `
 <nav
-  class="navigation navigation--sep-undefined navigation--theme-primary"
+  class="navigation navigation--theme-primary"
 >
   <mks-horizontal-list-stub
     class="navigation__list"

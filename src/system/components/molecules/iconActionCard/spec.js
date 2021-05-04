@@ -7,14 +7,24 @@ const localVue = createLocalVue();
 localVue.component("MksButton", Button);
 localVue.component("MksIcon", Icon);
 
+const $MKSlocale = { loading: 'loading' };
+
 describe("IconActionCard.vue", () => {
   it("matches snapshot", () => {
-    const wrapper = shallowMount(Comp);
+    const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
+      data() {
+        return {
+          uniqueId: 'id-override'
+        }
+      },
+    });
     expect(wrapper.element).toMatchSnapshot();
   });
 
   it("sets size small class", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         sizeSmall: true
       },
@@ -24,6 +34,7 @@ describe("IconActionCard.vue", () => {
 
   it("sets fixed border class", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         fixedBorder: true
       },
@@ -33,6 +44,7 @@ describe("IconActionCard.vue", () => {
 
   it("makes card cliquable", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         actionLink: {name: "home"}
       },
@@ -42,6 +54,7 @@ describe("IconActionCard.vue", () => {
 
   it("sets specified theme", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         theme: 'primary'
       },
@@ -51,6 +64,7 @@ describe("IconActionCard.vue", () => {
 
   it("sets button label", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       localVue,
       propsData: {
         buttonLabel: 'click'
@@ -64,10 +78,11 @@ describe("IconActionCard.vue", () => {
 
   it("emits click event", async () => {
     const wrapper = shallowMount(Comp, {
-        localVue,
-        propsData: {
-            buttonLabel: 'click'
-        }
+      mocks: { $MKSlocale },
+      localVue,
+      propsData: {
+          buttonLabel: 'click'
+      }
     });
 
     const button = wrapper.findComponent(Button);
@@ -80,6 +95,7 @@ describe("IconActionCard.vue", () => {
   it("displays icon", () => {
     const wrapper = shallowMount(Comp, {
       localVue,
+      mocks: { $MKSlocale },
       propsData: {
         icon: 'clock'
       },
@@ -91,6 +107,7 @@ describe("IconActionCard.vue", () => {
 
   it("displays image", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         image: 'https://via.placeholder.com/500'
       }
@@ -102,6 +119,7 @@ describe("IconActionCard.vue", () => {
 
   it("displays name", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         name: '<strong>Bonjour</strong>'
       }
@@ -113,6 +131,7 @@ describe("IconActionCard.vue", () => {
 
   it("displays description", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         description: 'Bonjour'
       }
@@ -124,6 +143,7 @@ describe("IconActionCard.vue", () => {
 
   it("displays status", () => {
     const wrapper = shallowMount(Comp, {
+      mocks: { $MKSlocale },
       propsData: {
         status: 'Bonjour'
       }

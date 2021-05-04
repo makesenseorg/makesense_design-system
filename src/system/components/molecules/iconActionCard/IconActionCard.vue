@@ -9,6 +9,8 @@
       theme ? `card--theme-${theme}` : ''
     ]"
     :to="actionLink"
+    :aria-labelledby="`iac-title-${uniqueId}`"
+    :aria-describedby="`iac-description-${uniqueId}`"
   >
     <mks-icon v-if="icon" :type="icon" class="card__icon" />
     <div v-else :class="roundedImage ? 'card__rounded-image' : ''">
@@ -20,9 +22,13 @@
       />
     </div>
     <div class="card__content">
-      <p class="card__name" v-html="name"></p>
+      <p class="card__name" :id="`iac-title-${uniqueId}`" v-html="name"></p>
       <p class="card__status" v-if="status && showButton">{{ status }}</p>
-      <p :class="`card__description `" v-if="description">
+      <p
+        :class="`card__description `"
+        :id="`iac-description-${uniqueId}`"
+        v-if="description"
+      >
         {{ description }}
       </p>
     </div>
@@ -38,7 +44,7 @@
         :loading="loadingState === 'PENDING'"
       >
         {{ buttonLabel }}
-        <template v-slot:loading>Chargement...</template>
+        <template v-slot:loading>{{ $MKSlocale["loading"] }}</template>
       </mks-button>
     </div>
     <div v-else-if="status" class="card__action card__status">
@@ -152,7 +158,10 @@ export default {
   },
   data() {
     return {
-      loadingState: null
+      loadingState: null,
+      uniqueId: Math.random()
+        .toString(36)
+        .substr(2, 9)
     };
   },
   computed: {

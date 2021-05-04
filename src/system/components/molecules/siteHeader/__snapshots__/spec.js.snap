@@ -6,62 +6,53 @@ exports[`SiteHeader.vue matches snapshot 1`] = `
 >
   <!---->
    
-  <div
-    class="site-header__top-bar"
-  >
-    <mks-link
-      to="https://makesense.org"
-    >
-      Retourner au site makesense
-    </mks-link>
-  </div>
+  <!---->
    
   <div
-    class="site-header__bar"
+    class="site-header__bar-container"
   >
     <div
-      class="site-header__extra site-header__extra--left"
-    />
-     
-    <router-link
-      class="site-header__main-content"
-      to="/"
+      class="site-header__bar"
     >
-      <div
+      <mks-link
+        aria-label="Retour à la page d'accueil"
         class="site-header__logo"
+        to="/"
+        type="menu"
       >
         <img
           alt="Logo"
+          aria-hidden="true"
           src=""
         />
-      </div>
-    </router-link>
-     
-    <div
-      class="site-header__extra site-header__extra--right"
-    />
-  </div>
-   
-  <mks-bean-menu
-    class="site-header__nav"
-  />
-   
-  <div
-    class="site-header__sidebar-control"
-  >
-    <mks-button-stub
-      inputtype=""
-      size="round"
-      tag="div"
-      type="primary"
-    >
-      <mks-icon-stub
-        color="inherit"
-        size="24"
-        strokewidth="2"
-        type="menu"
+      </mks-link>
+       
+      <mks-navigation-stub
+        class="site-header__nav"
+        theme="primary"
+        type="main"
       />
-    </mks-button-stub>
+       
+      <div
+        class="site-header__sidebar-control"
+      >
+        <mks-button-stub
+          aria-label="Ouvrir le menu latéral"
+          inputtype=""
+          role="button"
+          size="default"
+          tag="button"
+          type="text"
+        >
+          <mks-icon-stub
+            color="inherit"
+            size="24"
+            strokewidth="2"
+            type="menu"
+          />
+        </mks-button-stub>
+      </div>
+    </div>
   </div>
 </header>
 `;

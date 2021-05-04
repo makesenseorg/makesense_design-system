@@ -3,9 +3,12 @@
     :class="['event', { 'event--now': now }, { 'event--past': past }]"
     target="_blank"
     @click="onClick"
+    :aria-labelledby="`event-${uniqueId}`"
   >
     <div class="event__hour">
-      <span v-if="!now || past">{{ formattedDate }}</span>
+      <time v-if="!now || past" :datetime="formattedDate">{{
+        formattedDate
+      }}</time>
       <span v-else
         >{{ beforeTimeText }} {{ elapsedTime
         }}<span class="event__hour-space"></span>min(s)</span
@@ -17,7 +20,12 @@
 
     <div class="event__content">
       <div class="content__title">
-        <h3>{{ title }}</h3>
+        <h3 :id="`event-${uniqueId}`">
+          <mks-visually-hidden v-if="past">{{
+            $MKSlocale["past-event"]
+          }}</mks-visually-hidden>
+          {{ title }}
+        </h3>
         <div class="event__metas" v-if="metas">
           <mks-tag
             v-for="meta in metas"
@@ -28,9 +36,12 @@
         </div>
       </div>
       <div class="content__action" v-if="!past">
-        <mks-button size="small" tag="a" target="_blank" :href="link">{{
-          callToAction
-        }}</mks-button>
+        <mks-button size="small" tag="a" target="_blank" :href="link">
+          <mks-visually-hidden
+            >{{ $MKSlocale["event"] }}: {{ title }}</mks-visually-hidden
+          >
+          {{ callToAction }}
+        </mks-button>
       </div>
     </div>
   </div>
@@ -104,6 +115,14 @@ export default {
       type: Array,
       required: false
     }
+  },
+  data() {
+    return {
+      // used for accessibility labels
+      uniqueId: Math.random()
+        .toString(36)
+        .substr(2, 9)
+    };
   },
   methods: {
     onClick: function() {

@@ -2,15 +2,18 @@
 
 exports[`EventLineCard.vue matches snapshot 1`] = `
 <div
+  aria-labelledby="event-id-override"
   class="event"
   target="_blank"
 >
   <div
     class="event__hour"
   >
-    <span>
+    <time
+      datetime="Invalid Date"
+    >
       Invalid Date
-    </span>
+    </time>
   </div>
    
   <div
@@ -28,8 +31,13 @@ exports[`EventLineCard.vue matches snapshot 1`] = `
     <div
       class="content__title"
     >
-      <h3>
+      <h3
+        id="event-id-override"
+      >
+        <!---->
+        
         The title
+      
       </h3>
        
       <div
@@ -58,12 +66,18 @@ exports[`EventLineCard.vue matches snapshot 1`] = `
       <mks-button-stub
         href="https://example.com/"
         inputtype=""
+        role="button"
         size="small"
         tag="a"
         target="_blank"
         type="primary"
       >
+        <mks-visually-hidden-stub>
+          Évènement: The title
+        </mks-visually-hidden-stub>
+        
         Participer
+      
       </mks-button-stub>
     </div>
   </div>
@@ -72,15 +86,18 @@ exports[`EventLineCard.vue matches snapshot 1`] = `
 
 exports[`EventLineCard.vue matches snapshot past version 1`] = `
 <div
+  aria-labelledby="event-id-override"
   class="event"
   target="_blank"
 >
   <div
     class="event__hour"
   >
-    <span>
+    <time
+      datetime="Invalid Date"
+    >
       Invalid Date
-    </span>
+    </time>
   </div>
    
   <div
@@ -98,8 +115,13 @@ exports[`EventLineCard.vue matches snapshot past version 1`] = `
     <div
       class="content__title"
     >
-      <h3>
+      <h3
+        id="event-id-override"
+      >
+        <!---->
+        
         The title
+      
       </h3>
        
       <!---->
@@ -111,12 +133,18 @@ exports[`EventLineCard.vue matches snapshot past version 1`] = `
       <mks-button-stub
         href="https://example.com/"
         inputtype=""
+        role="button"
         size="small"
         tag="a"
         target="_blank"
         type="primary"
       >
+        <mks-visually-hidden-stub>
+          Évènement: The title
+        </mks-visually-hidden-stub>
+        
         Participer
+      
       </mks-button-stub>
     </div>
   </div>

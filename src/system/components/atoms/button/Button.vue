@@ -5,7 +5,7 @@
       `button button--type-${type} button--size-${size}`,
       { 'button--loading': loading }
     ]"
-    role="button"
+    :role="role"
     tabindex="0"
     :type="inputType"
     :disabled="disabled"
@@ -14,6 +14,7 @@
       minWidth: $slots.loading === undefined ? minWidth + 'px' : 'auto'
     }"
     @click="onClick"
+    @keyup.enter="onClick"
   >
     <!-- @slot Content of the button-->
     <slot v-if="!loading" />
@@ -42,7 +43,7 @@ export default {
      */
     tag: {
       type: String,
-      default: "div",
+      default: "button",
       validator: function(value) {
         return ["div", "a", "input", "button", "span"].indexOf(value) !== -1;
       }
@@ -108,6 +109,13 @@ export default {
           ["default", "small", "full", "round", "square"].indexOf(value) !== -1
         );
       }
+    },
+    /**
+     * Size of the button. "default", "small", "full", "round"
+     */
+    role: {
+      type: String,
+      default: "button"
     }
   },
   data: function() {

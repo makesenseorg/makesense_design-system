@@ -6,25 +6,105 @@
 The makesense design system is build to make makesense design guidelines and Vue component available accross our multiple web applications.
 
 Living styleguide demo: https://makesense-design-system.netlify.com
-
 ## Table of contents
-1. [Use in a Nuxt app](#nuxt)
-    1. [Add as a dependency](#nuxt-1)
-    2. [Create a plugin](#nuxt-2)
-    3. [Change the theme colors](#nuxt-3)
-    4. [Import the styles and variables](#nuxt-4)
-    5. [Usage](#nuxt-5)
-2. [Use in a Vue app](#vue)
+1. [Use in a Vue app](#vue)
     1. [Install dependency](#vue-1)
     2. [Import in the app](#vue-2)
     3. [Change the theme colors](#vue-3)
     4. [Import the styles and variables](#vue-4)
     5. [Usage](#vue-5)
+2. [Use in a Nuxt app](#nuxt)
+    1. [Add as a dependency](#nuxt-1)
+    2. [Create a plugin](#nuxt-2)
+    3. [Change the theme colors](#nuxt-3)
+    4. [Import the styles and variables](#nuxt-4)
+    5. [Usage](#nuxt-5)
 3. [Contributing](#contributing)
     1. [Developing](#developing)
     2. [Testing](#testing)
     2. [Building](#building)
     2. [Publishing](#publishing)
+
+
+## Use in a Vue app <a name="vue"></a>
+
+### 1. Install dependency <a name="vue-1"></a>
+
+```
+npm i @makesenseorg/design-system
+```
+
+### 2. Import in the app <a name="vue-2"></a>
+
+Import the design system in the app entry file (usually `index.js` or `main.js`)
+
+```js
+import DesignSystem from '@makesenseorg/design-system'
+import '@makesenseorg/design-system/dist/system.css'
+
+Vue.use(DesignSystem);
+...
+```
+
+### 3. Change the theme colors <a name="vue-3"></a>
+
+Just below, load the app theme, to get all the colors related to your app. The theme needs to exist in the design system. (list of available themes in `./src/tokens/themes`)
+The default name is `base`.
+
+```js
+...
+Vue.prototype.$loadTheme('base')
+```
+
+You can also change the theme using `this.$loadTheme(theme_name)` inside a view or a component.
+
+### 4. Import the styles and variables <a name="vue-4"></a>
+
+In order to have access to the design system variables and mixins, you need to import the `shared.scss` file.
+Note: You might need to run `npm install node-sass@4.14.1 sass-loader#7.1.0`
+
+```js
+// globally inside vue.config.js
+module.exports = {
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `@import "@makesenseorg/design-system/dist/shared.scss";`,
+      },
+    },
+  },
+};
+```
+
+✨ **You're done! You can now use the components, mixins, scss variables.** ✨
+
+### 5. Usage <a name="vue-5"></a>
+
+In your App or in your app components, use the design system components like so : 
+
+```vue
+<template>
+    <div class="my-app">
+        <mks-heading tag="h1">Hello world !</mks-heading>
+    </div>
+<template/>
+
+<script>
+import MksHeading from "@makesenseorg/design-system/dist/components/Heading.vue";
+
+export default {
+  name: "App",
+  components: { MksHeading }
+}
+</script>
+
+<style lang="scss">
+.my-app {
+  background: $color-primary;
+}
+</style>
+```
+
 
 ## Use in a Nuxt app  <a name="nuxt"></a>
 
@@ -101,102 +181,27 @@ styleResources: {
 
 ✨ **You're done! You can now use the components, mixins, scss variables.** ✨
 
-### 5. Usage <a name="vue-5"></a>
+### 5. Usage <a name="nuxt-5"></a>
 
 In your App or in your app components, use the design system components like so : 
+You can use atoms directly without importing them. However for layouts and molecules, you need to manually import and register the component
 
 ```vue
 <template>
     <div class="my-app">
+        <!-- example with an atom -->
         <mks-heading tag="h1">Hello world !</mks-heading>
+        <!-- example with a molecule -->
+        <mks-site-footer>Made by makesense</mks-site-footer>
     </div>
 <template/>
 
 <script>
-import MksHeading from "@makesenseorg/design-system/dist/components/Heading.vue";
+import MksSiteFooter from "@makesenseorg/design-system/dist/components/SiteFooter.vue";
 
 export default {
   name: "App",
-  components: { MksHeading }
-}
-</script>
-
-<style lang="scss">
-.my-app {
-  background: $color-primary;
-}
-</style>
-```
-
-## Use in a Vue app <a name="vue"></a>
-
-### 1. Install dependency <a name="vue-1"></a>
-
-```
-npm i @makesenseorg/design-system
-```
-
-### 2. Import in the app <a name="vue-2"></a>
-
-Import the design system in the app entry file (usually `index.js` or `main.js`)
-
-```js
-import DesignSystem from '@makesenseorg/design-system'
-import '@makesenseorg/design-system/dist/system.css'
-
-Vue.use(DesignSystem);
-...
-```
-
-### 3. Change the theme colors <a name="vue-3"></a>
-
-Just below, load the app theme, to get all the colors related to your app. The theme needs to exist in the design system. (list of available themes in `./src/tokens/themes`)
-The default name is `base`.
-
-```js
-...
-Vue.prototype.$loadTheme('base')
-```
-
-You can also change the theme using `this.$loadTheme(theme_name)` inside a view or a component.
-
-### 4. Import the styles and variables <a name="vue-4"></a>
-
-In order to have access to the design system variables and mixins, you need to import the `shared.scss` file.
-
-```js
-// globally inside vue.config.js
-module.exports = {
-  css: {
-    loaderOptions: {
-      sass: {
-        data: `@import "@makesenseorg/design-system/dist/shared.scss";`,
-      },
-    },
-  },
-};
-
-```
-
-✨ **You're done! You can now use the components, mixins, scss variables.** ✨
-
-### 5. Usage <a name="vue-5"></a>
-
-In your App or in your app components, use the design system components like so : 
-
-```vue
-<template>
-    <div class="my-app">
-        <mks-heading tag="h1">Hello world !</mks-heading>
-    </div>
-<template/>
-
-<script>
-import MksHeading from "@makesenseorg/design-system/dist/components/Heading.vue";
-
-export default {
-  name: "App",
-  components: { MksHeading }
+  components: { MksSiteFooter }
 }
 </script>
 
