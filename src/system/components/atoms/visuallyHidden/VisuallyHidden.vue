@@ -14,7 +14,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
