@@ -38,7 +38,8 @@ $themes: (
   .list--theme-#{$name} {
     & > * {
       list-style-type: none;
-      @include flex-center;
+      @include flex;
+      align-items: center;
       &:before {
         @include bean($color: $variable, $margin-right: $space-xxs);
       }

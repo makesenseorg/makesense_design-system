@@ -104,10 +104,10 @@ export default {
       //   }
       // });
 
-      // // Replace ul-tags
-      // $("ul").each((i, item) => {
-      //   $(item).replaceWith($('<ul size="large">' + $(item).html() + "</ul>"));
-      // });
+      // Replace ul-tags
+      $("ul").each((i, item) => {
+        $(item).replaceWith($("<mks-list>" + $(item).html() + "</mks-list>"));
+      });
 
       // // Replace ol-tags
       // $("ol").each((i, item) => {
