@@ -2,6 +2,7 @@ import { shallowMount, createLocalVue, RouterLinkStub } from "@vue/test-utils";
 import Comp from "./SiteHeader.vue";
 import Button from "../../atoms/button/Button.vue";
 import Icon from "../../atoms/icon/Icon.vue";
+import Link from "../../atoms/link/Link.vue";
 import Navigation from "../../molecules/navigation/Navigation.vue";
 
 const $MKSlocale = {
@@ -11,6 +12,7 @@ const $MKSlocale = {
 const localVue = createLocalVue();
 localVue.component("MksButton", Button);
 localVue.component("MksIcon", Icon);
+localVue.component("MksLink", Link);
 localVue.component("MksNavigation", Navigation);
 
 describe("SiteHeader.vue", () => {
@@ -19,6 +21,9 @@ describe("SiteHeader.vue", () => {
       localVue,
       stubs: ['router-link'],
       mocks: { $MKSlocale },
+      propsData: {
+        menuLinks: []
+      }
     });
     expect(wrapper.element).toMatchSnapshot();
   });
@@ -29,7 +34,8 @@ describe("SiteHeader.vue", () => {
       stubs: ['router-link'],
       mocks: { $MKSlocale },
       propsData: {
-        fixed: true
+        fixed: true,
+        menuLinks: []
       }
     });
     expect(wrapper.classes()).toContain("site-header--fixed");
@@ -41,7 +47,8 @@ describe("SiteHeader.vue", () => {
       stubs: ['router-link'],
       mocks: { $MKSlocale },
       propsData: {
-        sidebar: false
+        sidebar: false,
+        menuLinks: []
       }
     });
     const sidebarControl = wrapper.find(".site-header__sidebar-control");
@@ -54,7 +61,8 @@ describe("SiteHeader.vue", () => {
       stubs: ['router-link'],
       mocks: { $MKSlocale },
       propsData: {
-        logo: "https://makesense.org/logo.png"
+        logo: "https://makesense.org/logo.png",
+        menuLinks: []
       }
     });
     const logoImg = wrapper.find(".site-header__logo img");

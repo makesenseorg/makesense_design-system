@@ -82,5 +82,5 @@ export { default as MksSidebar } from "./molecules/sidebar/Sidebar";
 export { default as MksSiteFooter } from "./molecules/siteFooter/SiteFooter";
 export { default as MksSiteHeader } from "./molecules/siteHeader/SiteHeader";
 
+export { default as MksApp } from "./layouts/app/App";
 export { default as MksHorizontalList } from "./layouts/horizontalList/HorizontalList";
-export { default as MksPage } from "./layouts/page/Page";

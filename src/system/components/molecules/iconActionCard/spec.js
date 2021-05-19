@@ -48,8 +48,9 @@ describe("IconActionCard.vue", () => {
       propsData: {
         actionLink: {name: "home"}
       },
+      stubs: ['router-link']
     });
-    expect(wrapper.element.tagName).toBe("ROUTER-LINK");
+    expect(wrapper.element.tagName).toBe("ROUTER-LINK-STUB");
   });
 
   it("sets specified theme", () => {
