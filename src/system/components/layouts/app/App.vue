@@ -17,7 +17,9 @@
   </div>
 </template>
 <script>
-/** Wrapper component for your app. Easily create a layout that spans the whole height of the page with a sticky header and footer. */
+/** Wrapper component for your app. Easily create a layout that spans the whole height of the page with a sticky header and footer. 
+ * @version 1.3.0
+*/
 export default {
   name: "MksApp",
   inheritAttrs: false
