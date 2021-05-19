@@ -14,7 +14,7 @@ exports[`SiteHeader.vue matches snapshot 1`] = `
     <div
       class="site-header__bar"
     >
-      <mks-link
+      <mks-link-stub
         aria-label="Retour à la page d'accueil"
         class="site-header__logo"
         to="/"
@@ -25,10 +25,11 @@ exports[`SiteHeader.vue matches snapshot 1`] = `
           aria-hidden="true"
           src=""
         />
-      </mks-link>
+      </mks-link-stub>
        
       <mks-navigation-stub
         class="site-header__nav"
+        links=""
         theme="primary"
         type="main"
       />
