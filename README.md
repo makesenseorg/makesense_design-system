@@ -6,7 +6,7 @@
 The makesense design system is build to make makesense design guidelines and Vue component available accross our multiple web applications.
 
 Living styleguide demo: https://makesense-design-system.netlify.com
-## Table of contents
+## Table of content
 1. [Use in a Vue app](#vue)
     1. [Install dependency](#vue-1)
     2. [Import in the app](#vue-2)
@@ -15,8 +15,8 @@ Living styleguide demo: https://makesense-design-system.netlify.com
     5. [Usage](#vue-5)
 2. [Use in a Nuxt app](#nuxt)
     1. [Add as a dependency](#nuxt-1)
-    2. [Create a plugin](#nuxt-2)
-    3. [Change the theme colors](#nuxt-3)
+    2. [Create a plugin](#c-2)
+    3. [Change the theme colors on client side](#nuxt-3)
     4. [Import the styles and variables](#nuxt-4)
     5. [Usage](#nuxt-5)
 3. [Contributing](#contributing)
@@ -128,14 +128,17 @@ Create the file `design-system.js` in `plugins` folder.
 import Vue from 'vue'
 import DesignSystem from '@makesenseorg/design-system'
 import '@makesenseorg/design-system/dist/system.css'
+import "@makesenseorg/design-system/src/system/tokens/generated/themes/base.css";
+// adding the theme color "jobs" by importing the css to make it available on first load from server
+import "@makesenseorg/design-system/src/system/tokens/generated/themes/jobs.css";
 
 Vue.use(DesignSystem);
-...
 ```
 
-### 3. Change the theme colors <a name="nuxt-3"></a>
+### 3. Change the theme colors on client side <a name="nuxt-3"></a>
 
-Just below, load the app theme, to get all the colors related to your app. The theme needs to exist in the design system. (list of available themes in `./src/tokens/themes`)
+If you need to change the theme on the fly, for exemple after a user interaction, you can use the function `loadTheme`. 
+The theme needs to exist in the design system. (list of available themes in `./src/tokens/themes`)
 The default name is `base`.
 
 ```js
