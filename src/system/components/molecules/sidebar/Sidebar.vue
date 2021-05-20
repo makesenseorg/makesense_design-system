@@ -24,11 +24,13 @@
         class="sidebar__close-btn"
         @click="close"
       >
-        <mks-icon type="x" size="30" :alt="$MKSlocale['close']"></mks-icon>
+        <mks-icon
+          type="x"
+          size="30"
+          stroke-width="4"
+          :alt="$MKSlocale['close']"
+        ></mks-icon>
       </mks-button>
-      <header class="sidebar__header">
-        <slot name="header"></slot>
-      </header>
       <main class="sidebar__main-content">
         <slot></slot>
       </main>
@@ -92,10 +94,17 @@ export default {
     width: 30rem;
     height: 100%;
     max-width: 100%;
-    background-color: $background-color-base;
+    max-height: calc(100% - 3.75rem);
+    background-color: $color-primary;
+    color: $color-primary-inverse;
     -webkit-overflow-scrolling: touch;
     transform: translateX(100%);
     transition: all 0.4s;
+    border-bottom-left-radius: $border-radius-xl;
+
+    @include breakpoint("medium") {
+      border-bottom-left-radius: $border-radius-xxl;
+    }
   }
 
   &__header {
@@ -152,9 +161,11 @@ export default {
 
   &__close-btn {
     position: absolute;
-    top: 0;
+    top: $space-m;
     right: 0;
     z-index: 1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }
 </style>
@@ -169,8 +180,7 @@ Note: the fade in and slide in animation will not show in the preview if you try
 <div style="position:relative;width:100%;height:100%;min-height:500px">
     <!-- position absolute below is only for example to display properly -->
     <mks-sidebar v-bind:open="true" style="position:absolute;">
-        <header slot="header">My sidebar title</header>
-        <mks-text tag="p">The rest of my content</mks-text>
+        <mks-text tag="p">My content blablabla</mks-text>
         <mks-link to="/">Go home</mks-link>
         <mks-separator></mks-separator>
         <mks-lang-picker v-bind:langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
