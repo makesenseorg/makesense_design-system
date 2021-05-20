@@ -86,11 +86,11 @@ props:
     value: &color-primary-inverse "{!white}"
 
   - name: color-secondary
-    value: &color-secondary "{!roman}"
+    value: &color-secondary "{!broom}"
   - name: color-secondary-active
-    value: &color-secondary-active "#e05254"
+    value: &color-secondary-active "#F4E804"
   - name: color-secondary-inverse
-    value: &color-secondary-inverse "{!black}"
+    value: &color-secondary-inverse "{!blue_dianne}"
 
   - name: color-tertiary
     value: &color-tertiary "{!cerise}"
