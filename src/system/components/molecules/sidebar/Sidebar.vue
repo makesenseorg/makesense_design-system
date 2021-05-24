@@ -97,7 +97,7 @@ export default {
       x: hidden;
     }
     padding: $space-xxl $space-base $space-l;
-    width: calc(100% -$space-base);
+    width: calc(100% - 1.25rem);
     max-width: 31.25rem;
     max-height: calc(100% - 3.75rem);
     background-color: $color-primary;
@@ -111,7 +111,7 @@ export default {
     @include breakpoint("medium") {
       border-bottom-left-radius: $border-radius-xxl;
       padding: $space-xxl $space-xxxl $space-xxl;
-      border-bottom-left-radius: 3rem;
+      border-bottom-left-radius: $space-l;
       width: 86%;
       max-width: none;
     }
