@@ -3,7 +3,7 @@ $contained-width: 1400px;
 $header-height: 54px;
 $header-background-color: $background-color-soft;
 
-$sidebar-brand-height: 136px;
+$sidebar-brand-height: 75px;
 $sidebar-width: 220px;
 $sidebar-width-large: 260px;
 $sidebar-background-color: $background-color-base;
@@ -29,7 +29,7 @@ $drawer-background-color: $background-color-base;
   top: 0;
   left: 0;
   right: 0;
-  z-index: $z-index-page-header;
+  z-index: 100000000;
 
   .ds-page-has-no-header & {
     @media #{$media-query-medium} {
@@ -69,7 +69,7 @@ $drawer-background-color: $background-color-base;
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 $space-s;
+  padding: $space-m $space-s 0;
 
   .ds-page-has-no-header & {
     @media #{$media-query-medium} {

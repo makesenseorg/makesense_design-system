@@ -1,7 +1,7 @@
 <template>
   <span class="logotype">
     <img
-      src="@@/assets/img/brand/makesense-logo.png"
+      src="~@@/assets/img/brand/makesense-logo.png"
       class="logotype__image"
       alt="Logo makesense"
     />
@@ -27,7 +27,7 @@ export default {
 }
 .logotype__image {
   max-width: 100%;
-  height: 2.5em;
+  max-height: 2.5em;
   margin-right: 0.3em;
 }
 </style>
