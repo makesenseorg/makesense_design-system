@@ -83,8 +83,7 @@ export default {
     }
 
     .sidebar__close-btn {
-      // to offset the outline which is visible if set to translateX(O)
-      transform: translateX(-5%);
+      transform: translateX(0);
     }
   }
 
@@ -133,7 +132,8 @@ export default {
     z-index: 1;
     border-top-right-radius: 100px;
     border-bottom-right-radius: 100px;
-    transform: translateX(100%);
+    // to offset the outline which is visible if set to translateX(100%)
+    transform: translateX(105%);
     transition: transform 0.4s ease;
 
     @include breakpoint("medium") {
