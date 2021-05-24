@@ -28,19 +28,6 @@ describe("Sidebar.vue", () => {
     expect(wrapper.classes()).toContain("sidebar--opened");
   });
 
-  it("displays header slot content", () => {
-    const wrapper = shallowMount(Comp, {
-      localVue,
-      mocks: { $MKSlocale },
-      slots: {
-        header: "abc",
-      },
-    });
-
-    const div = wrapper.find(".sidebar__header");
-    expect(div.text()).toBe("abc");
-  });
-
   it("displays default slot content", () => {
     const wrapper = shallowMount(Comp, {
       localVue,
@@ -69,6 +56,6 @@ describe("Sidebar.vue", () => {
     button.trigger("click");
     await wrapper.vm.$nextTick();
 
-    expect(wrapper.emitted("close")).toBeTruthy();
+    expect(wrapper.emitted("closed")).toBeTruthy();
   });
 });

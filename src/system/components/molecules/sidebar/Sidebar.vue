@@ -16,25 +16,25 @@
       :aria-label="$MKSlocale['close']"
     ></button>
     <div class="sidebar__inner">
-      <mks-button
-        tabindex="0"
-        tag="button"
-        size="round"
-        type="secondary"
-        class="sidebar__close-btn"
-        @click="close"
-      >
-        <mks-icon
-          type="x"
-          size="30"
-          stroke-width="4"
-          :alt="$MKSlocale['close']"
-        ></mks-icon>
-      </mks-button>
       <main class="sidebar__main-content">
         <slot></slot>
       </main>
     </div>
+    <mks-button
+      tabindex="0"
+      tag="button"
+      size="small"
+      type="secondary"
+      class="sidebar__close-btn"
+      @click="close"
+    >
+      <mks-icon
+        type="x"
+        size="20"
+        stroke-width="4"
+        :alt="$MKSlocale['close']"
+      ></mks-icon>
+    </mks-button>
   </aside>
 </template>
 <script>
@@ -55,9 +55,9 @@ export default {
       /**
        * When users clicked close button or outer layer
        *
-       * @event close
+       * @event closed
        */
-      this.$emit("close");
+      this.$emit("closed");
     }
   }
 };
@@ -79,7 +79,12 @@ export default {
     }
 
     .sidebar__close-layer {
-      opacity: 0.6;
+      opacity: 0.4;
+    }
+
+    .sidebar__close-btn {
+      // to offset the outline which is visible if set to translateX(O)
+      transform: translateX(-5%);
     }
   }
 
@@ -91,71 +96,33 @@ export default {
       y: auto;
       x: hidden;
     }
-    width: 30rem;
-    height: 100%;
-    max-width: 100%;
+    padding: $space-xxl $space-base $space-l;
+    width: calc(100% -$space-base);
+    max-width: 31.25rem;
     max-height: calc(100% - 3.75rem);
     background-color: $color-primary;
     color: $color-primary-inverse;
     -webkit-overflow-scrolling: touch;
     transform: translateX(100%);
-    transition: all 0.4s;
+    transition: transform 0.4s ease;
     border-bottom-left-radius: $border-radius-xl;
+    box-shadow: $box-shadow-base;
 
     @include breakpoint("medium") {
       border-bottom-left-radius: $border-radius-xxl;
+      padding: $space-xxl $space-xxxl $space-xxl;
+      border-bottom-left-radius: 3rem;
+      width: 86%;
+      max-width: none;
     }
-  }
-
-  &__header {
-    @include title-xsmall;
-    position: relative;
-    overflow: hidden;
-    padding: $space-xl $space-m;
-    color: $color-secondary-inverse;
-    background-color: $color-secondary;
-
-    // add beans
-    &:before,
-    &:after {
-      content: "";
-      border-radius: 5rem;
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 1;
-      width: 100%;
-      height: 5rem;
-    }
-
-    &:before {
-      background-color: $color-secondary-active;
-      transform: rotate(-45deg) translate(-22%, 210%);
-    }
-
-    &:after {
-      opacity: 0.5;
-      background-color: $color-secondary-active;
-      transform: rotate(-45deg) translate(-36%, 160%);
-    }
-
-    &__inner {
-      position: relative;
-      z-index: 2;
-    }
-  }
-
-  &__main-content {
-    padding: $space-xl $space-m;
   }
 
   &__close-layer {
-    background-color: black;
+    background-color: $color-neutral-10;
     position: absolute;
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: all 0.4s;
     border: none;
   }
 
@@ -164,8 +131,17 @@ export default {
     top: $space-m;
     right: 0;
     z-index: 1;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+
+    @include breakpoint("medium") {
+      svg {
+        width: 27px;
+        height: 27px;
+      }
+    }
   }
 }
 </style>
@@ -174,7 +150,9 @@ export default {
 
 ## View sidebar example
 
-Note: the fade in and slide in animation will not show in the preview if you try to change <code>open</code>. Toggle the class <code>.sidebar__opened</code> in the inspector to view the animations.
+Note: the fade in and slide in animation will not show in the preview if you try to change <code>open</code>. 
+
+Toggle the class <code>.sidebar__opened</code> in the inspector to view the animations.
 
 ```jsx
 <div style="position:relative;width:100%;height:100%;min-height:500px">
