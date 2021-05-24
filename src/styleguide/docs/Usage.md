@@ -1,4 +1,5 @@
-## Table of contents
+
+## Table of content
 1. [Use in a Vue app](#vue)
     1. [Install dependency](#vue-1)
     2. [Import in the app](#vue-2)
@@ -7,8 +8,8 @@
     5. [Usage](#vue-5)
 2. [Use in a Nuxt app](#nuxt)
     1. [Add as a dependency](#nuxt-1)
-    2. [Create a plugin](#nuxt-2)
-    3. [Change the theme colors](#nuxt-3)
+    2. [Create a plugin](#c-2)
+    3. [Change the theme colors on client side](#nuxt-3)
     4. [Import the styles and variables](#nuxt-4)
     5. [Usage](#nuxt-5)
 3. [Contributing](#contributing)
@@ -53,7 +54,7 @@ You can also change the theme using `this.$loadTheme(theme_name)` inside a view 
 ### 4. Import the styles and variables <a name="vue-4"></a>
 
 In order to have access to the design system variables and mixins, you need to import the `shared.scss` file.
-Note: You might need to run `npm install node-sass@4.14.1 sass-loader#7.1.0`
+Note: You might need to run `npm install node-sass@4.14.1 sass-loader@7.1.0`
 
 ```js
 // globally inside vue.config.js
@@ -117,23 +118,23 @@ plugins: ["~/plugins/design-system"],
 Create the file `design-system.js` in `plugins` folder.
 
 ```js
-import Vue from 'vue'
-import DesignSystem from '@makesenseorg/design-system'
-import '@makesenseorg/design-system/dist/system.css'
+import Vue from "vue";
+import DesignSystem from "@makesenseorg/design-system";
 
 Vue.use(DesignSystem);
 ...
+
 ```
 
 ### 3. Change the theme colors <a name="nuxt-3"></a>
-
-Just below, load the app theme, to get all the colors related to your app. The theme needs to exist in the design system. (list of available themes in `./src/tokens/themes`)
+In order to change the theme color, you can use the function `loadTheme`, in `plugins/design-system.js`. 
+The theme needs to exist in the design system. (list of available themes in `./src/tokens/themes`)
 The default name is `base`.
 
 ```js
 ...
 if (process.client) {
-  Vue.prototype.$loadTheme('base')
+  Vue.prototype.$loadTheme('jobs')
 }
 ```
 
@@ -142,10 +143,13 @@ You can also change the theme using `this.$loadTheme(theme_name)` inside a view 
 > **⚠️  Warning ⚠️**
 > It is important to only use `loadTheme` on the client side, as it would throw a `document is not defined` error on the server side.
 
-### 4. Import the styles <a name="nuxt-4"></a>
+### 4. Import the global CSS styles <a name="nuxt-4"></a>
 
 In order to have access to the design system variables and mixins, you need to import the `shared.scss` file either locally in each component, or once globally in the app.
 The `system.css` file is a global file providing reset classes, fonts, and basic styling.
+The `base.css` and `jobs.css` register the design tokens as CSS variables. It is important to load them here to prevent a jump on first client load.
+
+Note: You might need to run `npm install node-sass@4.14.1 sass-loader@7.1.0`
 
 #### 1. Install style-ressources <a name="nuxt-4-1"></a>
 
@@ -160,7 +164,12 @@ npm install --save-dev @nuxtjs/style-resources
 In `nuxt.config.js`, register the module and add the style files
 
 ```js
-css: ["@makesenseorg/design-system/dist/system.css"],
+css: [
+    "@makesenseorg/design-system/dist/system.css",
+    "@makesenseorg/design-system/src/system/tokens/generated/themes/base.css",
+    // you need to specify your theme here to make sure it's loaded on server side
+    "@makesenseorg/design-system/src/system/tokens/generated/themes/jobs.css"
+  ],
 modules: [
     '@nuxtjs/style-resources',
 ],

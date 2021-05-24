@@ -17,6 +17,10 @@ props:
     value: "10px"
   - name: border-radius-l
     value: "20px"
+  - name: border-radius-xl
+    value: "30px"
+  - name: border-radius-xxl
+    value: "50px"
   - name: border-radius-full
     value: "1000px"
 

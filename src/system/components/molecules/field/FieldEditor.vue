@@ -183,7 +183,6 @@ export default {
     },
     component: function() {
       this.$nextTick(() => {
-        console.log("ref", this.$refs[this.reference]);
         if (this.$refs[this.reference] === undefined) return;
 
         this.applyAccessibilityHacks(this.$refs[this.reference]);

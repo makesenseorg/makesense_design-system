@@ -16,31 +16,27 @@ exports[`Sidebar.vue matches snapshot 1`] = `
   <div
     class="sidebar__inner"
   >
-    <mks-button-stub
-      class="sidebar__close-btn"
-      inputtype=""
-      role="button"
-      size="round"
-      tabindex="0"
-      tag="button"
-      type="secondary"
-    >
-      <mks-icon-stub
-        alt="Close"
-        color="inherit"
-        size="30"
-        strokewidth="2"
-        type="x"
-      />
-    </mks-button-stub>
-     
-    <header
-      class="sidebar__header"
-    />
-     
     <main
       class="sidebar__main-content"
     />
   </div>
+   
+  <mks-button-stub
+    class="sidebar__close-btn"
+    inputtype=""
+    role="button"
+    size="small"
+    tabindex="0"
+    tag="button"
+    type="secondary"
+  >
+    <mks-icon-stub
+      alt="Close"
+      color="inherit"
+      size="20"
+      strokewidth="4"
+      type="x"
+    />
+  </mks-button-stub>
 </aside>
 `;

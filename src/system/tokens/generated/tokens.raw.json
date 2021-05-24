@@ -168,21 +168,21 @@
       "category": "color",
       "name": "color-secondary",
       "value": "var(--color-secondary)",
-      "originalValue": "{!roman}"
+      "originalValue": "{!broom}"
     },
     "color-secondary-active": {
       "type": "color",
       "category": "color",
       "name": "color-secondary-active",
       "value": "var(--color-secondary-active)",
-      "originalValue": "#e05254"
+      "originalValue": "#F4E804"
     },
     "color-secondary-inverse": {
       "type": "color",
       "category": "color",
       "name": "color-secondary-inverse",
       "value": "var(--color-secondary-inverse)",
-      "originalValue": "{!black}"
+      "originalValue": "{!blue_dianne}"
     },
     "color-tertiary": {
       "type": "color",
@@ -532,14 +532,14 @@
       "category": "text-color",
       "name": "text-color-secondary",
       "value": "var(--text-color-secondary)",
-      "originalValue": "{!roman}"
+      "originalValue": "{!broom}"
     },
     "text-color-secondary-inverse": {
       "type": "color",
       "category": "text-color",
       "name": "text-color-secondary-inverse",
       "value": "var(--text-color-secondary-inverse)",
-      "originalValue": "{!black}"
+      "originalValue": "{!blue_dianne}"
     },
     "text-color-success": {
       "type": "color",
@@ -686,21 +686,21 @@
       "category": "background-color",
       "name": "background-color-secondary",
       "value": "var(--background-color-secondary)",
-      "originalValue": "{!roman}"
+      "originalValue": "{!broom}"
     },
     "background-color-secondary-active": {
       "type": "color",
       "category": "background-color",
       "name": "background-color-secondary-active",
       "value": "var(--background-color-secondary-active)",
-      "originalValue": "#e05254"
+      "originalValue": "#F4E804"
     },
     "background-color-secondary-inverse": {
       "type": "color",
       "category": "background-color",
       "name": "background-color-secondary-inverse",
       "value": "var(--background-color-secondary-inverse)",
-      "originalValue": "{!black}"
+      "originalValue": "{!blue_dianne}"
     },
     "background-color-success": {
       "type": "color",
@@ -897,6 +897,20 @@
       "name": "border-radius-l",
       "value": "var(--border-radius-l)",
       "originalValue": "20px"
+    },
+    "border-radius-xl": {
+      "type": "number",
+      "category": "border",
+      "name": "border-radius-xl",
+      "value": "var(--border-radius-xl)",
+      "originalValue": "30px"
+    },
+    "border-radius-xxl": {
+      "type": "number",
+      "category": "border",
+      "name": "border-radius-xxl",
+      "value": "var(--border-radius-xxl)",
+      "originalValue": "50px"
     },
     "border-radius-full": {
       "type": "number",
