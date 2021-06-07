@@ -42,6 +42,7 @@ export default {
       const routes = this.$router.options.routes.filter(route => {
         return route.path !== "*";
       });
+      console.log(routes);
       return routes
         .map(route => {
           const [parent, ...children] = [...route.children];

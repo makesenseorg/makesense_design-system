@@ -20,11 +20,9 @@
       ref="link"
     >
       <mks-heading class="menu-item" tag="h6" v-if="parents.length === 0">
-        <slot>
-          {{ name }}
-        </slot>
+        <slot> {{ name }}</slot>
       </mks-heading>
-      <slot v-else>{{ name }}</slot>
+      <slot v-else>{{ name }} </slot>
       <div
         v-if="hasSubmenu"
         class="ds-menu-item-arrow"
@@ -32,6 +30,16 @@
       >
         <mks-icon v-if="showSubmenu === true" type="arrow-up"></mks-icon>
         <mks-icon v-else type="arrow-down"></mks-icon>
+      </div>
+      <div
+        class="menu-item__tag"
+        v-if="
+          route.tags &&
+            route.tags.deprecated &&
+            route.tags.deprecated[0].description
+        "
+      >
+        <mks-tag color="warning" size="small">Deprecated</mks-tag>
       </div>
     </component>
     <ul class="ds-menu-item-submenu" v-if="hasSubmenu && showSubmenu">
@@ -192,5 +200,14 @@ export default {
 <style>
 .menu-item {
   margin: 0 !important;
+}
+
+.ds-menu-item-link {
+  display: flex;
+  align-items: center;
+}
+
+.menu-item__tag {
+  margin-left: auto;
 }
 </style>

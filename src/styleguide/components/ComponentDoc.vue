@@ -4,12 +4,12 @@
     <ds-container>
       <ds-space v-if="component.tags" margin-top="base">
         <template v-for="(tagGroup, name) in component.tags">
-          <ds-tag
+          <mks-tag
             v-for="(tag, index) in tagGroup"
             :color="tagColor(tag)"
             :key="`${name}${index}`"
           >
-            {{ tagDescription(tag) }} </ds-tag
+            {{ tagDescription(tag) }} </mks-tag
           >&nbsp;
         </template>
       </ds-space>
@@ -134,7 +134,7 @@ export default {
       if (tag.title === "see") {
         return "primary";
       }
-      return "inverse";
+      return "neutral";
     },
     tagDescription(tag) {
       if (tag.description === true) {

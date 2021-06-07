@@ -11,7 +11,7 @@
               {{ row.name | kebabCase }}
             </ds-code>
             <div v-if="row.required">
-              <ds-tag v-if="row.required" color="warning">required</ds-tag>
+              <mks-tag v-if="row.required" color="warning">required</mks-tag>
             </div>
             <ds-space :margin-bottom="null" margin-top="small">
               <div v-if="row.options">

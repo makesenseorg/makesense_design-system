@@ -63,7 +63,8 @@ function createComponentRoute(component) {
   return {
     path: createUrl(component.name, false),
     name: component.name,
-    component: createComponentPage(component)
+    component: createComponentPage(component),
+    tags: component.tags
   };
 }
 
