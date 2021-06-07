@@ -19,9 +19,14 @@
       :is="linkTag"
       ref="link"
     >
-      <mks-heading class="menu-item" tag="h6" v-if="parents.length === 0">
+      <mks-text
+        class="menu-item"
+        weight="bold"
+        size="small"
+        v-if="parents.length === 0"
+      >
         <slot> {{ name }}</slot>
-      </mks-heading>
+      </mks-text>
       <slot v-else>{{ name }} </slot>
       <div
         v-if="hasSubmenu"
