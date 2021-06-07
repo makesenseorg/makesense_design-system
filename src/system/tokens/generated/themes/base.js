@@ -181,7 +181,7 @@ export default {
   "--space-s": "15px",
   "--space-xs": "10px",
   "--space-xxs": "5px",
-  "--space-sxxs": "2px",
+  "--space-xxxs": "2px",
   "--size-height-base": "42px",
   "--size-height-large": "50px",
   "--size-height-xlarge": "60px",

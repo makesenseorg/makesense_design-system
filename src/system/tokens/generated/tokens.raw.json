@@ -1402,11 +1402,11 @@
       "value": "var(--space-xxs)",
       "originalValue": "{!xx-small}px"
     },
-    "space-sxxs": {
+    "space-xxxs": {
       "type": "number",
       "category": "space",
-      "name": "space-sxxs",
-      "value": "var(--space-sxxs)",
+      "name": "space-xxxs",
+      "value": "var(--space-xxxs)",
       "originalValue": "{!xxx-small}px"
     },
     "size-height-base": {
