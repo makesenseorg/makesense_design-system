@@ -1,5 +1,5 @@
 <template>
-  <component class="spacer" :is="tag">
+  <component :class="classes" :is="tag">
     <!-- @slot children elements to space -->
     <slot></slot>
   </component>
@@ -17,12 +17,43 @@ export default {
       validator: value => {
         return value.match(/(div|p|ul|ol|li|span)/);
       }
+    },
+    inline: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    classes() {
+      let classes = "spacer";
+      if (this.inline) classes += " spacer--inline";
+      else classes += " spacer--stack";
+      return classes;
+      // if inline
+      // if stak
     }
   }
 };
 </script>
 <style lang="scss" scoped>
 .spacer {
+  display: flex;
+  align-items: flex-start;
+  &--stack {
+    flex-direction: column;
+
+    & > * + * {
+      margin-top: $space-m;
+    }
+  }
+
+  &--inline {
+    flex-direction: row;
+
+    & > * + * {
+      margin-left: $space-m;
+    }
+  }
 }
 </style>
 <docs>
@@ -37,6 +68,20 @@ It is essentially a wrapper for flexbox and works on both axis, vertically and h
   <mks-tag>We</mks-tag>
   <mks-tag>Are</mks-tag>
   <mks-tag>Spaced</mks-tag>
+</mks-spacer>
+```
+
+## Inline axis
+
+```jsx
+<mks-spacer>
+  <mks-tag>Hello</mks-tag>
+  <mks-tag>World</mks-tag>
+  <mks-spacer inline>
+    <mks-tag>We</mks-tag>
+    <mks-tag>are</mks-tag>
+    <mks-tag>not stacked</mks-tag>
+  </mks-spacer>
 </mks-spacer>
 ```
 
