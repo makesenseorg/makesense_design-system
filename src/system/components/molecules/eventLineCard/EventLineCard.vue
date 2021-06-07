@@ -36,7 +36,12 @@
         </div>
       </div>
       <div class="content__action" v-if="!past">
-        <mks-button size="small" tag="a" :target="external ? '_blank' : '_self'" :href="link">
+        <mks-button
+          size="small"
+          tag="a"
+          :target="external ? '_blank' : '_self'"
+          :href="link"
+        >
           <mks-visually-hidden
             >{{ $MKSlocale["event"] }}: {{ title }}</mks-visually-hidden
           >
@@ -124,16 +129,6 @@ export default {
         .substr(2, 9)
     };
   },
-  computed: {
-    external() {
-      return (
-        typeof this.link === "string" &&
-        (this.link.startsWith("http") ||
-          this.link.startsWith("//") ||
-          this.link.startsWith("www"))
-      );
-    },
-  },
   methods: {
     onClick: function() {
       /** Fires on event click
@@ -156,6 +151,14 @@ export default {
     },
     formattedDate() {
       return dayjs(this.date).format("HH:mm");
+    },
+    external() {
+      return (
+        typeof this.link === "string" &&
+        (this.link.startsWith("http") ||
+          this.link.startsWith("//") ||
+          this.link.startsWith("www"))
+      );
     }
   },
   created() {
