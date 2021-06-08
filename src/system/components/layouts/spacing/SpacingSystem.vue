@@ -26,7 +26,11 @@ export default {
 </style>
 <docs>
 ## Introduction to our spacing system
-We define two types of space : 
+
+Spacing is important because it gives rythm to the page. 
+It gives meaning by grouping elements visually, or by separating them. 
+
+### Two types of space
 
 1. <mks-text weight="bold">Space</mks-text>, between elements
     - Stack space, where elements follow eachother vertically
