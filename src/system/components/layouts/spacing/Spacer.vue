@@ -11,27 +11,33 @@
 export default {
   name: "MksSpacer",
   props: {
-    /** Set alignment on main axis. (align-items) */
+    /** Set alignment on secondary axis. (align-items) */
     align: {
       type: String,
-      default: "center"
+      default: "start",
+      validator: value => {
+        return value.match(/(start|end|center|stretch|baseline)/);
+      }
     },
     /** Apply same spacing to nested elements */
     deep: {
       type: Boolean,
       default: false
     },
-    /** Set alignment on secondary axis (justify-content) */
+    /** Set alignment on main axis (justify-content) */
     distribute: {
       type: String,
-      default: "start"
+      default: "start",
+      validator: value => {
+        return value.match(/(start|end|center|equal|baseline)/);
+      }
     },
     /** Elements flow on the vertical axis by default, inline makes them flow horizontally */
     inline: {
       type: Boolean,
       default: false
     },
-    /** Set alignment on main axis */
+    /** Set spacing between elements */
     spacing: {
       type: String,
       default: "m",
@@ -63,6 +69,8 @@ export default {
     classes() {
       let classes = "spacer";
       classes += ` spacer--spacing-${this.spacing}`;
+      classes += ` spacer--align-${this.align}`;
+      classes += ` spacer--distribute-${this.distribute}`;
       if (this.inline) classes += " spacer--inline";
       else classes += " spacer--stack";
       return classes;
@@ -82,6 +90,7 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
 .spacer {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
 
@@ -100,6 +109,50 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
       margin-top: 0;
       margin-left: var(--spacer-space);
     }
+  }
+
+  // ALIGN
+  &--align-start {
+    align-items: flex-start;
+  }
+
+  &--align-end {
+    align-items: flex-end;
+  }
+
+  &--align-center {
+    align-items: center;
+  }
+
+  &--align-stretch {
+    align-items: baseline;
+  }
+
+  &--align-baseline {
+    align-items: baseline;
+  }
+
+  // DISTRIBUTE
+  &--distribute-start {
+    justify-content: flex-start;
+  }
+
+  &--distribute-end {
+    justify-content: flex-end;
+  }
+
+  &--distribute-center {
+    justify-content: center;
+  }
+
+  &--distribute-equal {
+    // justify-content: space-around;
+    // justify-content: space-evenly;
+    justify-content: space-between;
+  }
+
+  &--distribute-baseline {
+    justify-content: baseline;
   }
 }
 </style>
@@ -185,5 +238,66 @@ Add `inline` prop to display items horizontally
 </mks-spacer>
 ```
 
+## Alignment 
+Align items on the secondary axis
+
+```jsx
+<mks-spacer inline align="start">
+  <mks-tag>IM BIG<br/>align</mks-tag>
+  <mks-tag>items</mks-tag>
+  <mks-tag>start</mks-tag>
+</mks-spacer>
+<mks-spacer inline align="center">
+  <mks-tag>IM BIG<br/>align</mks-tag>
+  <mks-tag>items</mks-tag>
+  <mks-tag>center</mks-tag>
+</mks-spacer>
+<mks-spacer inline align="end">
+  <mks-tag>IM BIG<br/>align</mks-tag>
+  <mks-tag>items</mks-tag>
+  <mks-tag>end</mks-tag>
+</mks-spacer>
+<mks-spacer inline align="stretch">
+  <mks-tag>IM BIG<br/>align</mks-tag>
+  <mks-tag>items</mks-tag>
+  <mks-tag>stretch</mks-tag>
+</mks-spacer>
+<mks-spacer inline align="baseline">
+  <mks-tag>IM BIG<br/>align</mks-tag>
+  <mks-tag>items</mks-tag>
+  <mks-tag>baseline</mks-tag>
+</mks-spacer>
+```
+
+## Distribution 
+Distribute items on the main axis
+
+```jsx
+<mks-spacer inline distribute="start">
+  <mks-tag>distribute</mks-tag>
+  <mks-tag>items</mks-tag>
+  <mks-tag>start</mks-tag>
+</mks-spacer>
+<mks-spacer inline distribute="center">
+  <mks-tag>distribute</mks-tag>
+  <mks-tag>items</mks-tag>
+  <mks-tag>center</mks-tag>
+</mks-spacer>
+<mks-spacer inline distribute="end">
+  <mks-tag>distribute</mks-tag>
+  <mks-tag>items</mks-tag>
+  <mks-tag>end</mks-tag>
+</mks-spacer>
+<mks-spacer inline distribute="equal">
+  <mks-tag>distribute</mks-tag>
+  <mks-tag>items</mks-tag>
+  <mks-tag>stretch</mks-tag>
+</mks-spacer>
+<mks-spacer inline distribute="baseline">
+  <mks-tag>distribute</mks-tag>
+  <mks-tag>items</mks-tag>
+  <mks-tag>baseline</mks-tag>
+</mks-spacer>
+```
 
 </docs>
