@@ -1,43 +1,35 @@
 <template>
-  <component :class="classes" :style="cssVars" :is="tag">
+  <component :class="classes" :is="tag">
     <!-- @slot children elements to space -->
     <slot></slot>
   </component>
 </template>
 <script>
-/** Spacer
+/** Use to add spacing between a collection of items with flexbox. Props allow to change spacing size, axis, and distribution.
  * @version 0.0.0
  */
 export default {
   name: "MksSpacer",
   props: {
-    /** Div, p, ul, ol, li, span */
-    tag: {
+    /** Set alignment on main axis. (align-items) */
+    align: {
       type: String,
-      default: "div",
-      validator: value => {
-        return value.match(/(div|p|ul|ol|li|span)/);
-      }
-    },
-    /** Elements flow on the vertical axis by default, inline makes them flow horizontally */
-    inline: {
-      type: Boolean,
-      default: false
+      default: "center"
     },
     /** Apply same spacing to nested elements */
     deep: {
       type: Boolean,
       default: false
     },
-    /** Set alignment on main axis */
-    align: {
-      type: String,
-      default: "center"
-    },
-    /** Set alignment on secondary axis */
+    /** Set alignment on secondary axis (justify-content) */
     distribute: {
       type: String,
       default: "start"
+    },
+    /** Elements flow on the vertical axis by default, inline makes them flow horizontally */
+    inline: {
+      type: Boolean,
+      default: false
     },
     /** Set alignment on main axis */
     spacing: {
@@ -45,6 +37,14 @@ export default {
       default: "m",
       validator: value => {
         return value.match(/(xxxs|xxs|xs|s|m|l|xl|xxl|xxxl)/);
+      }
+    },
+    /** Div, p, ul, ol, li, span */
+    tag: {
+      type: String,
+      default: "div",
+      validator: value => {
+        return value.match(/(div|p|ul|ol|li|span)/);
       }
     },
     /** Elements should wrap if they extend size of container */
@@ -60,32 +60,41 @@ export default {
     // }
   },
   computed: {
-    cssVars() {
-      return { "--spacer-space": `var(--space-${this.spacing}` };
-    },
     classes() {
       let classes = "spacer";
+      classes += ` spacer--spacing-${this.spacing}`;
       if (this.inline) classes += " spacer--inline";
       else classes += " spacer--stack";
       return classes;
-      // if inline
-      // if stak
     }
   }
 };
 </script>
 <style lang="scss" scoped>
+$sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
+@each $size in $sizes {
+  // apply on children to prevent overriding of first element when nesting mks-spacer components
+  .spacer--spacing-#{$size} > * {
+    --spacer-space: var(--space-#{$size});
+  }
+}
+
 .spacer {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: flex-start;
   flex-direction: column;
+
   & > * + * {
     margin-top: var(--spacer-space);
+    flex: 0 0 auto;
+    min-width: 0;
+    max-width: 100%;
   }
 
   &--inline {
     flex-direction: row;
+    align-items: center;
 
     & > * + * {
       margin-top: 0;
@@ -112,15 +121,16 @@ The spacer component is only made for simple flows of item and not complex layou
 ```
 
 ## Inline axis
+Add `inline` prop to display items horizontally
 
 ```jsx
 <mks-spacer>
   <mks-tag>Hello</mks-tag>
   <mks-tag>World</mks-tag>
-  <mks-spacer inline>
+  <mks-spacer inline spacing="xxxs">
     <mks-tag>We</mks-tag>
     <mks-tag>are</mks-tag>
-    <mks-tag>not stacked</mks-tag>
+    <mks-tag>inlined</mks-tag>
   </mks-spacer>
 </mks-spacer>
 ```
