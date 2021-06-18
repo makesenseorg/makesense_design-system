@@ -108,40 +108,6 @@ export default {
     padding-bottom: $space-xxxl;
   }
 
-  &__image {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: 0;
-
-    img {
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
-    }
-
-    &::after {
-      position: absolute;
-      left: 0px;
-      top: 0px;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      content: " ";
-      transition: background-color 0.2s;
-    }
-  }
-
-  &:hover {
-    .hero__image {
-      &::after {
-        background-color: rgba(0, 0, 0, 0.4);
-      }
-    }
-  }
-
   &__container {
     flex-wrap: nowrap;
     @include workspace($equal: true);
