@@ -76,6 +76,10 @@ ${code}
   margin-right: 0;
 }
 
+.CodeMirror-scroll {
+  max-height: 310px;
+}
+
 .vuep-preview {
   width: auto;
   height: auto;
