@@ -125,7 +125,7 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
   }
 
   &--align-stretch {
-    align-items: baseline;
+    align-items: stretch;
   }
 
   &--align-baseline {
@@ -241,31 +241,60 @@ Add `inline` prop to display items horizontally
 ## Alignment 
 Align items on the secondary axis
 
+TODO: improve doc with select box and reactive prop
+
 ```jsx
+<mks-heading tag="h3">Alignment of inline items</mks-heading>
 <mks-spacer inline align="start">
-  <mks-tag>IM BIG<br/>align</mks-tag>
   <mks-tag>items</mks-tag>
   <mks-tag>start</mks-tag>
+  <mks-button>Start aligned</mks-button>
 </mks-spacer>
 <mks-spacer inline align="center">
-  <mks-tag>IM BIG<br/>align</mks-tag>
   <mks-tag>items</mks-tag>
   <mks-tag>center</mks-tag>
+  <mks-button>Center aligned</mks-button>
 </mks-spacer>
 <mks-spacer inline align="end">
-  <mks-tag>IM BIG<br/>align</mks-tag>
   <mks-tag>items</mks-tag>
   <mks-tag>end</mks-tag>
+  <mks-button>End aligned</mks-button>
 </mks-spacer>
 <mks-spacer inline align="stretch">
-  <mks-tag>IM BIG<br/>align</mks-tag>
   <mks-tag>items</mks-tag>
   <mks-tag>stretch</mks-tag>
+  <mks-button>Stretch aligned</mks-button>
 </mks-spacer>
 <mks-spacer inline align="baseline">
-  <mks-tag>IM BIG<br/>align</mks-tag>
   <mks-tag>items</mks-tag>
   <mks-tag>baseline</mks-tag>
+  <mks-button>Baseline aligned</mks-button>
+</mks-spacer>
+<mks-heading tag="h3">Alignment of stacked items</mks-heading>
+<mks-spacer  align="start">
+  <mks-tag>items</mks-tag>
+  <mks-tag>start</mks-tag>
+  <mks-button>Big button</mks-button>
+</mks-spacer>
+<mks-spacer  align="center">
+  <mks-tag>items</mks-tag>
+  <mks-tag>center</mks-tag>
+  <mks-button>Big button</mks-button>
+</mks-spacer>
+<mks-spacer  align="end">
+  <mks-tag>items</mks-tag>
+  <mks-tag>end</mks-tag>
+  <mks-button>Big button</mks-button>
+</mks-spacer>
+<mks-spacer  align="stretch">
+  <mks-tag>items</mks-tag>
+  <mks-tag>stretch</mks-tag>
+  <mks-button>Big button</mks-button>
+</mks-spacer>
+<mks-spacer  align="baseline">
+  <mks-tag>items</mks-tag>
+  <mks-tag>baseline</mks-tag>
+  <mks-button>Big button</mks-button>
 </mks-spacer>
 ```
 
