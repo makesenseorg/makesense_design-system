@@ -1,5 +1,13 @@
 <template>
   <div class="container">
+    <mks-hero 
+      title="Innovez dans votre organisation et blablabla..."
+      title-tag="h3"
+      theme="primary"
+      text-color="var(--color-cerise)"
+      beans="0">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </mks-hero>
     <mks-heading tag="h1">Hello world !!!</mks-heading>
     logo : <mks-logotype />
     <mks-icon type="clock"/>
@@ -19,8 +27,9 @@
 
 <script>
 import MksCard from '@makesenseorg/design-system/dist/components/Card'
+import MksHero from '@makesenseorg/design-system/dist/components/Hero'
 export default {
-  components: {MksCard},
+  components: {MksCard, MksHero},
   created() {
     this.$MKSaddLocale('it', {
       loading: 'Caricamento...',
