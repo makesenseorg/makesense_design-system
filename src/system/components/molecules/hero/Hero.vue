@@ -2,7 +2,7 @@
   <component
     :is="'div'"
     class="hero"
-    :class="['hero--theme-' + theme, beans === 0 ? 'hero--no-bean' : '']"
+    :class="['hero--theme-' + theme]"
     :style="{
       backgroundColor: mainColor !== undefined ? mainColor : null,
       color: textColor !== undefined ? textColor : null,
