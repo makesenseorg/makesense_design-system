@@ -47,7 +47,6 @@ export default {
   },
   computed: {
     classes() {
-      // `alert alert--${type} alert--`
       let classes = `alert alert--${this.type}`;
       if (this.separator) classes += " alert--separator";
       else classes += " alert--no-separator";
