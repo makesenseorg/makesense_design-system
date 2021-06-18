@@ -1318,6 +1318,20 @@
       "value": "var(--size-height-footer)",
       "originalValue": "64px"
     },
+    "container-size": {
+      "type": "number",
+      "category": "size",
+      "name": "container-size",
+      "value": "var(--container-size)",
+      "originalValue": "1100px"
+    },
+    "container-size-l": {
+      "type": "number",
+      "category": "size",
+      "name": "container-size-l",
+      "value": "var(--container-size-l)",
+      "originalValue": "1760px"
+    },
     "box-shadow-s": {
       "type": "...",
       "category": "box-shadow",

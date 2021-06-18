@@ -144,6 +144,7 @@ export default {
 
   &__container {
     flex-wrap: nowrap;
+    @include workspace($equal: true);
   }
 
   &__content {

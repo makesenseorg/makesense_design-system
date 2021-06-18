@@ -169,6 +169,8 @@
 --size-height-xlarge: 60px;
 --size-tappable-square: 44px;
 --size-height-footer: 64px;
+--container-size: 1100px;
+--container-size-l: 1760px;
 --box-shadow-s: 0 0 0 1px rgba(92,106,196,.1);
 --box-shadow-m: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
 --box-shadow-l: 2px 4px 10px 0 rgba(0, 0, 0, 0.1);
