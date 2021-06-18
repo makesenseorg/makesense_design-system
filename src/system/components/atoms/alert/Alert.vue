@@ -1,7 +1,8 @@
 <template>
-  <div :class="type ? `alert alert--${type}` : 'alert'" :role="role">
+  <div :class="classes" :role="role">
     <!-- @slot Content of the slot-->
     <slot />
+    <mks-separator v-if="separator" :color="separatorColor"></mks-separator>
   </div>
 </template>
 
@@ -34,6 +35,22 @@ export default {
           ["region", "alert", "alertdialog", "status"].indexOf(value) !== -1
         );
       }
+    },
+    separator: {
+      type: Boolean,
+      default: false
+    },
+    separatorColor: {
+      type: String,
+      default: "var(--color-neutral-100)"
+    }
+  },
+  computed: {
+    classes() {
+      let classes = `alert alert--${this.type}`;
+      if (this.separator) classes += " alert--separator";
+      else classes += " alert--no-separator";
+      return classes;
     }
   }
 };
@@ -41,10 +58,18 @@ export default {
 
 <style lang="scss" scoped>
 .alert {
-  @include elevated;
   border-radius: $border-radius-base;
   padding: $space-s;
   text-align: center;
+  position: relative;
+
+  &--no-separator {
+    @include elevated;
+  }
+
+  &--separator {
+    padding-bottom: $space-m;
+  }
 
   &--positive {
     background: $color-success;
@@ -63,9 +88,15 @@ export default {
 }
 </style>
 <docs>
+## Alert themes
 ```jsx
 <mks-alert type="positive">A positive alert</mks-alert>
 <mks-alert type="warning">A warning alert</mks-alert>
 <mks-alert type="negative">A negative alert</mks-alert>
+```
+
+## With separator
+```jsx
+<mks-alert type="positive" separator>A positive alert</mks-alert>
 ```
 </docs>

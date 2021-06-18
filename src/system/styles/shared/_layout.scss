@@ -51,9 +51,39 @@
   min-height: 100%;
 }
 @mixin workarea-small {
-  max-width: 1000px;
+  max-width: 1000px; // $layout-size
   margin-left: auto;
   margin-right: auto;
+}
+
+@mixin workspace($vertical: false, $dense: false, $equal: false) {
+  max-width: $container-size; 
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $space-s;
+  padding-right: $space-s;
+
+  @if $vertical {
+    padding-top: $space-l;
+    padding-bottom: $space-xxxl;
+  }
+
+  @if $equal {
+    padding-top: $space-xl;
+    padding-bottom: $space-xl;
+  }
+
+  @include breakpoint("medium") {
+    padding-left: $space-xxl;
+    padding-right: $space-xxl;
+    max-width: $container-size-l; 
+
+    @if $dense {
+      max-width: $container-size; 
+      padding-left: $space-s;
+      padding-right: $space-s;
+    }
+  }
 }
 
 // GRID system 

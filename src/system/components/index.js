@@ -73,6 +73,7 @@ export { default as MksEventLineCard } from "./molecules/eventLineCard/EventLine
 export { default as MksField } from "./molecules/field/Field";
 export { default as MksFieldEditor } from "./molecules/field/FieldEditor";
 export { default as MksFieldUpload } from "./molecules/field/FieldUpload";
+export { default as MksHero } from "./molecules/hero/Hero";
 export { default as MksIconActionCard } from "./molecules/iconActionCard/IconActionCard";
 export { default as MksIconHeader } from "./molecules/iconHeader/IconHeader";
 export { default as MksLangPicker } from "./molecules/langPicker/LangPicker";

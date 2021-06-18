@@ -95,7 +95,7 @@ export default {
       y: auto;
       x: hidden;
     }
-    padding: $space-xxl $space-base $space-l;
+    padding: $space-xxl $space-m $space-l;
     width: calc(100% - 1.25rem);
     max-width: 31.25rem;
     max-height: calc(100% - 3.75rem);

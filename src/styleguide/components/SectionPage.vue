@@ -2,7 +2,7 @@
   <div>
     <ds-page-title :heading="section.name" />
     <ds-container>
-      <ds-space margin-top="x-large">
+      <ds-space margin-top="xl">
         <markdown
           :content="description"
           :components="requiredComponents"

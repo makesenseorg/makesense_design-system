@@ -15,6 +15,11 @@ props:
     value: "44px"
   - name: size-height-footer
     value: "64px"
+
+  - name: container-size
+    value: "1100px"
+  - name: container-size-l
+    value: "1760px"
 global:
   type: number
   category: size

@@ -91,7 +91,7 @@ ${code}
   }
 
   .my-component > * {
-    margin-bottom: $space-base;
+    margin-bottom: $space-m;
   }
 }
 

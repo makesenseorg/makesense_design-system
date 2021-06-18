@@ -1,7 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Separator.vue matches snapshot 1`] = `
-<hr
-  class="separator"
-/>
+<div
+  class="separator__wrapper"
+>
+  <svg
+    class="separator"
+    height="10"
+    viewBox="0 0 3258 10"
+    width="3258"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0 10L162.9 0l162.9 10zm651.6 0L488.7 0 325.8 10zm325.8 0L814.5 0 651.6 10zm325.8 0L1140.3 0 977.4 10zm325.8 0L1466.1 0l-162.9 10zm325.8 0L1791.9 0 1629 10zm325.8 0L2117.7 0l-162.9 10zm325.8 0L2443.5 0l-162.9 10zm325.8 0L2769.3 0l-162.9 10zm325.8 0L3095.1 0l-162.9 10z"
+      style="fill: var(--color-neutral-100);"
+    />
+  </svg>
+</div>
 `;
