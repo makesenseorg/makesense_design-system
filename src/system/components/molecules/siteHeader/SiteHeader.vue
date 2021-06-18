@@ -104,7 +104,7 @@ export default {
     position: relative;
     background: $background-color-softer;
     color: $color-text-light;
-    padding: $space-s $space-base $space-s $space-base;
+    padding: $space-s $space-m $space-s $space-m;
 
     @include breakpoint("small") {
       padding-top: $space-xs;
@@ -122,7 +122,7 @@ export default {
   }
 
   &__bar-container {
-    padding: $space-s $space-base $space-s $space-base;
+    padding: $space-s $space-m $space-s $space-m;
 
     @include breakpoint("small") {
       padding-top: $space-l;

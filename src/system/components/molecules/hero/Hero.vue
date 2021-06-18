@@ -39,28 +39,46 @@
 export default {
   name: "MksHero",
   props: {
+    /**
+     * A small headline before the title
+     */
     uptitle: {
       required: false,
       type: String
     },
+    /**
+     * Catchy title for your Hero section.
+     */
     title: {
       required: false,
       type: String
     },
+    /**
+     * Semantic tag for the title element.
+     */
     titleTag: {
       required: false,
       type: String,
       default: "h1"
     },
+    /**
+     * Background and text color theme. `primary` or `secondary`
+     */
     theme: {
       required: false,
       type: String,
       default: "default"
     },
+    /**
+     * Override the background color
+     */
     mainColor: {
       required: false,
       type: String
     },
+    /**
+     * Override the title color
+     */
     textColor: {
       required: false,
       type: String

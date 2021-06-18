@@ -13,7 +13,7 @@
             <div v-if="row.required">
               <ds-tag v-if="row.required" color="warning">required</ds-tag>
             </div>
-            <ds-space :margin-bottom="null" margin-top="small">
+            <ds-space :margin-bottom="null" margin-top="s">
               <div v-if="row.options">
                 <ds-chip
                   size="small"

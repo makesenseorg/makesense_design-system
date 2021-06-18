@@ -78,23 +78,23 @@ $spacing-ratio: 1.618;
 }
 
 @mixin padding-button-small {
-  padding: $space-xx-small $space-small;
+  padding: $space-xxs $space-s;
 
   @include breakpoint("medium") {
-    padding: $space-x-small $space-base;
+    padding: $space-xs $space-m;
   }
 }
 
 @mixin padding-button {
-  padding: $space-x-small $space-small;
+  padding: $space-xs $space-s;
 
   @include breakpoint("medium") {
-    padding: $space-small $space-large;
+    padding: $space-s $space-l;
   }
 }
 
 @mixin padding-button-invert {
-  padding: $space-base $space-small;
+  padding: $space-m $space-s;
 }
 
 /**
