@@ -35,6 +35,7 @@
 <script>
 /**
  * Grab your user's attention with a catchy title right in the top of the page.
+ * @version 1.4.0
  */
 export default {
   name: "MksHero",
