@@ -2,7 +2,10 @@
 
 exports[`Alert.vue matches snapshot 1`] = `
 <div
-  class="alert alert--warning"
+  class="alert alert--warning alert--no-separator"
   role="region"
-/>
+>
+   
+  <!---->
+</div>
 `;
