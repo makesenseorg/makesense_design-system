@@ -7,7 +7,7 @@
       backgroundColor: mainColor !== undefined ? mainColor : null,
       color: textColor !== undefined ? textColor : null,
       backgroundImage:
-        beans !== 0 && beans !== '0' 
+        beans !== 0 && beans !== '0'
           ? `url(${require(`@@/assets/img/brand/beans-${this.beans}.png`)})`
           : null
     }"

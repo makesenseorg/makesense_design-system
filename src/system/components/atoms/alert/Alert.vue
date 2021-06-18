@@ -67,6 +67,10 @@ export default {
     @include elevated;
   }
 
+  &--separator {
+    padding-bottom: $space-m;
+  }
+
   &--positive {
     background: $color-success;
     color: $color-success-inverse;
