@@ -78,10 +78,13 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
 @each $size in $sizes {
   .spacer--spacing-#{$size} {
     --spacer-container-space: var(--space-#{$size});
-  }
-  // apply on children to prevent overriding of first element when nesting mks-spacer components
-  .spacer--spacing-#{$size} > * {
-    --spacer-space: var(--space-#{$size});
+    margin-top: calc(-1 * var(--space-#{$size}));
+    margin-left: calc(-1 * var(--space-#{$size}));
+
+    & > * {
+      // apply on children to prevent overriding of first element when nesting mks-spacer components
+      --spacer-space: var(--space-#{$size});
+    }
   }
 }
 
@@ -98,6 +101,11 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
   .push-bottom {
     margin-top: auto;
   }
+}
+
+.spacer > .spacer {
+  margin-top: calc(var(--spacer-space) - var(--spacer-container-space));
+  margin-left: calc(var(--spacer-space) - var(--spacer-container-space));
 }
 
 .spacer {
@@ -193,7 +201,7 @@ Add `inline` prop to display items horizontally
 <mks-spacer>
   <mks-tag>Hello</mks-tag>
   <mks-tag>World</mks-tag>
-  <mks-spacer inline spacing="xxxs">
+  <mks-spacer inline spacing="xxxl">
     <mks-tag>We</mks-tag>
     <mks-tag>are</mks-tag>
     <mks-tag>inlined</mks-tag>
