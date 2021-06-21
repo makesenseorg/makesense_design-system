@@ -38,7 +38,7 @@ export default {
      */
     marginBottom: {
       type: [String, Object],
-      default: "large"
+      default: "l"
     },
     /**
      * The html element name used for this space.

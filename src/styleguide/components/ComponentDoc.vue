@@ -2,7 +2,7 @@
   <div>
     <ds-page-title :heading="component.name | componentName" />
     <ds-container>
-      <ds-space v-if="component.tags" margin-top="base">
+      <mks-spacer v-if="component.tags" inline>
         <template v-for="(tagGroup, name) in component.tags">
           <mks-tag
             v-for="(tag, index) in tagGroup"
@@ -12,7 +12,7 @@
             {{ tagDescription(tag) }} </mks-tag
           >&nbsp;
         </template>
-      </ds-space>
+      </mks-spacer>
       <ds-space margin-bottom="xxl">
         <ds-text size="xl">{{ component.description }}</ds-text>
       </ds-space>

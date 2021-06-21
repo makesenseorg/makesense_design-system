@@ -1,5 +1,5 @@
 <template>
-  <component :class="classes" :is="tag">
+  <component :class="classes" :is="tag" :style="style">
     <!-- @slot children elements to space -->
     <slot></slot>
   </component>
@@ -29,7 +29,7 @@ export default {
       type: String,
       default: "start",
       validator: value => {
-        return value.match(/(start|end|center|equal|baseline)/);
+        return value.match(/(start|end|center|equal|spaced)/);
       }
     },
     /** Elements flow on the vertical axis by default, inline makes them flow horizontally */
@@ -57,13 +57,13 @@ export default {
     wrap: {
       type: Boolean,
       default: true
-    }
+    },
     /** Index of element that needs to be pushed to the other side of the container */
     // TODO: maybe un sous-composant à la place ?
-    // splitAfter: {
-    //   type: Number,
-    //   default: 0
-    // }
+    splitAfter: {
+      type: Number,
+      default: 0
+    }
   },
   computed: {
     classes() {
@@ -84,6 +84,21 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
   // apply on children to prevent overriding of first element when nesting mks-spacer components
   .spacer--spacing-#{$size} > * {
     --spacer-space: var(--space-#{$size});
+  }
+}
+
+.spacer {
+  .push-left {
+    margin-right: auto;
+  }
+  .push-right {
+    margin-left: auto;
+  }
+  .push-top {
+    margin-bottom: auto;
+  }
+  .push-bottom {
+    margin-top: auto;
   }
 }
 
@@ -146,13 +161,11 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
   }
 
   &--distribute-equal {
-    // justify-content: space-around;
-    // justify-content: space-evenly;
     justify-content: space-between;
   }
 
-  &--distribute-baseline {
-    justify-content: baseline;
+  &--distribute-spaced {
+    justify-content: space-around;
   }
 }
 </style>
@@ -238,95 +251,113 @@ Add `inline` prop to display items horizontally
 </mks-spacer>
 ```
 
-## Alignment 
-Align items on the secondary axis
-
-TODO: improve doc with select box and reactive prop
-
-```jsx
-<mks-heading tag="h3">Alignment of inline items</mks-heading>
-<mks-spacer inline align="start">
-  <mks-tag>items</mks-tag>
-  <mks-tag>start</mks-tag>
-  <mks-button>Start aligned</mks-button>
-</mks-spacer>
-<mks-spacer inline align="center">
-  <mks-tag>items</mks-tag>
-  <mks-tag>center</mks-tag>
-  <mks-button>Center aligned</mks-button>
-</mks-spacer>
-<mks-spacer inline align="end">
-  <mks-tag>items</mks-tag>
-  <mks-tag>end</mks-tag>
-  <mks-button>End aligned</mks-button>
-</mks-spacer>
-<mks-spacer inline align="stretch">
-  <mks-tag>items</mks-tag>
-  <mks-tag>stretch</mks-tag>
-  <mks-button>Stretch aligned</mks-button>
-</mks-spacer>
-<mks-spacer inline align="baseline">
-  <mks-tag>items</mks-tag>
-  <mks-tag>baseline</mks-tag>
-  <mks-button>Baseline aligned</mks-button>
-</mks-spacer>
-<mks-heading tag="h3">Alignment of stacked items</mks-heading>
-<mks-spacer  align="start">
-  <mks-tag>items</mks-tag>
-  <mks-tag>start</mks-tag>
-  <mks-button>Big button</mks-button>
-</mks-spacer>
-<mks-spacer  align="center">
-  <mks-tag>items</mks-tag>
-  <mks-tag>center</mks-tag>
-  <mks-button>Big button</mks-button>
-</mks-spacer>
-<mks-spacer  align="end">
-  <mks-tag>items</mks-tag>
-  <mks-tag>end</mks-tag>
-  <mks-button>Big button</mks-button>
-</mks-spacer>
-<mks-spacer  align="stretch">
-  <mks-tag>items</mks-tag>
-  <mks-tag>stretch</mks-tag>
-  <mks-button>Big button</mks-button>
-</mks-spacer>
-<mks-spacer  align="baseline">
-  <mks-tag>items</mks-tag>
-  <mks-tag>baseline</mks-tag>
-  <mks-button>Big button</mks-button>
-</mks-spacer>
-```
-
 ## Distribution 
 Distribute items on the main axis
 
 ```jsx
 <mks-spacer inline distribute="start">
-  <mks-tag>distribute</mks-tag>
-  <mks-tag>items</mks-tag>
+  <mks-tag>start</mks-tag>
+  <mks-tag>start</mks-tag>
   <mks-tag>start</mks-tag>
 </mks-spacer>
 <mks-spacer inline distribute="center">
-  <mks-tag>distribute</mks-tag>
-  <mks-tag>items</mks-tag>
+  <mks-tag>center</mks-tag>
+  <mks-tag>center</mks-tag>
   <mks-tag>center</mks-tag>
 </mks-spacer>
 <mks-spacer inline distribute="end">
-  <mks-tag>distribute</mks-tag>
-  <mks-tag>items</mks-tag>
+  <mks-tag>end</mks-tag>
+  <mks-tag>end</mks-tag>
   <mks-tag>end</mks-tag>
 </mks-spacer>
 <mks-spacer inline distribute="equal">
-  <mks-tag>distribute</mks-tag>
-  <mks-tag>items</mks-tag>
-  <mks-tag>stretch</mks-tag>
+  <mks-tag>equal</mks-tag>
+  <mks-tag>equal</mks-tag>
+  <mks-tag>equal</mks-tag>
 </mks-spacer>
-<mks-spacer inline distribute="baseline">
-  <mks-tag>distribute</mks-tag>
-  <mks-tag>items</mks-tag>
-  <mks-tag>baseline</mks-tag>
+<mks-spacer inline distribute="spaced">
+  <mks-tag>spaced</mks-tag>
+  <mks-tag>spaced</mks-tag>
+  <mks-tag>spaced</mks-tag>
 </mks-spacer>
 ```
+
+## Alignment 
+Align items on the secondary axis
+
+TODO: improve doc with select box and reactive prop
+
+### Alignment of inline items
+
+```jsx
+<mks-spacer inline align="start">
+  <mks-tag>start</mks-tag>
+  <mks-tag>start</mks-tag>
+  <mks-button>Start aligned</mks-button>
+</mks-spacer>
+<mks-spacer inline align="center">
+  <mks-tag>center</mks-tag>
+  <mks-tag>center</mks-tag>
+  <mks-button>Center aligned</mks-button>
+</mks-spacer>
+<mks-spacer inline align="end">
+  <mks-tag>end</mks-tag>
+  <mks-tag>end</mks-tag>
+  <mks-button>End aligned</mks-button>
+</mks-spacer>
+<mks-spacer inline align="stretch">
+  <mks-tag>stretch</mks-tag>
+  <mks-tag>stretch</mks-tag>
+  <mks-button>Stretch aligned</mks-button>
+</mks-spacer>
+<mks-spacer inline align="baseline">
+  <mks-tag>baseline</mks-tag>
+  <mks-tag>baseline</mks-tag>
+  <mks-button>Baseline aligned</mks-button>
+</mks-spacer>
+```
+
+### Alignment of stacked items
+
+```jsx
+<mks-spacer align="start">
+  <mks-tag>start</mks-tag>
+  <mks-tag>start</mks-tag>
+  <mks-button>Big button</mks-button>
+</mks-spacer>
+<mks-spacer align="center">
+  <mks-tag>center</mks-tag>
+  <mks-tag>center</mks-tag>
+  <mks-button>Big button</mks-button>
+</mks-spacer>
+<mks-spacer align="end">
+  <mks-tag>end</mks-tag>
+  <mks-tag>end</mks-tag>
+  <mks-button>Big button</mks-button>
+</mks-spacer>
+<mks-spacer align="stretch">
+  <mks-tag>stretch</mks-tag>
+  <mks-tag>stretch</mks-tag>
+  <mks-button>Big button</mks-button>
+</mks-spacer>
+<mks-spacer align="baseline">
+  <mks-tag>baseline</mks-tag>
+  <mks-tag>baseline</mks-tag>
+  <mks-button>Big button</mks-button>
+</mks-spacer>
+```
+
+## Split the layout
+
+You can split the layout and push one or multiple items to the side of the container by using the helper classes `push-left`, `push-right`, `push-top` and `push-bottom`
+
+```jsx
+<mks-spacer inline align="center">
+  <mks-tag>Tag 1</mks-tag>
+  <mks-tag>Tag 2</mks-tag>
+  <mks-button class="push-right" size="small">Call to action</mks-button>
+  <mks-text size="small">Text</mks-text>
+</mks-spacer>
+````
 
 </docs>
