@@ -116,6 +116,7 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
   flex-direction: column;
   margin-top: calc(-1 * var(--spacer-container-space));
   margin-left: calc(-1 * var(--spacer-container-space));
+  max-width: 100%;
 
   & > * {
     margin-top: var(--spacer-space);

@@ -90,6 +90,8 @@
 @mixin grid-base {
   display: grid;
   grid-gap: var(--grid-gap, 0);
+  width: 100%;
+  max-width: 100%;
 }
 
 @mixin grid {

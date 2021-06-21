@@ -120,7 +120,8 @@ export default {
 
 <style lang="scss" scoped>
 .text {
-  @include reset;
+  box-sizing: border-box;
+  padding: 0;
 
   &--color-text {
     color: text;

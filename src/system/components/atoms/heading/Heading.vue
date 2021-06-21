@@ -63,7 +63,8 @@ export default {
 
 <style lang="scss" scoped>
 .heading {
-  @include reset;
+  box-sizing: border-box;
+  padding: 0;
   color: $color-text;
 
   &--inherit {
