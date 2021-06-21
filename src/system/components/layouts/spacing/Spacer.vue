@@ -1,5 +1,5 @@
 <template>
-  <component :class="classes" :is="tag" :style="style">
+  <component :class="classes" :is="tag">
     <!-- @slot children elements to space -->
     <slot></slot>
   </component>
