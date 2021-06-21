@@ -1,5 +1,5 @@
 <template>
-  <ds-space margin-top="x-large">
+  <ds-space margin-top="xl">
     <ds-flex gutter="large" :direction="{ lg: 'row-reverse' }">
       <ds-flex-item :width="{ base: '100%', lg: '250px' }">
         <div class="sticky">

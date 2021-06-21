@@ -51,7 +51,7 @@ export default {
   display: flex;
 }
 .app-lang__item {
-  margin-right: $space-small;
+  margin-right: $space-s;
 }
 </style>
 

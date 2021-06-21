@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Hero.vue matches snapshot 1`] = `
+<div
+  class="hero hero--theme-default"
+  style="background-image: url();"
+>
+  <div
+    class="hero__container layout__section layout__section--v-equal"
+  >
+    <div
+      class="hero__content"
+    >
+      <div
+        class="content__uptitle"
+      >
+        Hello
+      </div>
+       
+      <mks-heading-stub
+        class="content__title"
+        color="text"
+        tag="h3"
+      >
+        
+        World
+      
+      </mks-heading-stub>
+       
+      <div
+        class="content__text"
+      />
+    </div>
+  </div>
+   
+  <mks-separator-stub
+    class="hero__separator"
+    color="var(--color-neutral-100)"
+  />
+</div>
+`;

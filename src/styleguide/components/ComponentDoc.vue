@@ -13,12 +13,12 @@
           >&nbsp;
         </template>
       </ds-space>
-      <ds-space margin-bottom="xx-large">
-        <ds-text size="x-large">{{ component.description }}</ds-text>
+      <ds-space margin-bottom="xxl">
+        <ds-text size="xl">{{ component.description }}</ds-text>
       </ds-space>
       <ds-space
         v-for="(part, index) in docParts"
-        margin-bottom="xx-large"
+        margin-bottom="xxl"
         :key="index"
       >
         <ds-space>
@@ -26,11 +26,11 @@
         </ds-space>
         <code-example :code="part.example" v-if="part.example" />
       </ds-space>
-      <ds-space margin-bottom="xx-large">
+      <ds-space margin-bottom="xxl">
         <component-options-doc :component="component" />
       </ds-space>
       <ds-space
-        margin-bottom="xx-large"
+        margin-bottom="xxl"
         v-if="component.children"
         v-for="child in component.children"
         :key="child.name"
