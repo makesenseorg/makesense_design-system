@@ -87,7 +87,7 @@ ${code}
   border: $border-width-m solid $border-color-softer;
   padding: $space-m;
   margin-bottom: $space-s;
-  overflow: visible;
+  overflow: hidden;
 
   .vuep-iframe & {
     padding: 0;

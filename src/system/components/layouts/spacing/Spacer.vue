@@ -54,15 +54,9 @@ export default {
       }
     },
     /** Elements should wrap if they extend size of container */
-    wrap: {
+    nowrap: {
       type: Boolean,
-      default: true
-    },
-    /** Index of element that needs to be pushed to the other side of the container */
-    // TODO: maybe un sous-composant à la place ?
-    splitAfter: {
-      type: Number,
-      default: 0
+      default: false
     }
   },
   computed: {
@@ -72,6 +66,7 @@ export default {
       classes += ` spacer--align-${this.align}`;
       classes += ` spacer--distribute-${this.distribute}`;
       if (this.inline) classes += " spacer--inline";
+      if (this.nowrap) classes += " spacer--no-wrap";
       else classes += " spacer--stack";
       return classes;
     }
@@ -81,6 +76,9 @@ export default {
 <style lang="scss" scoped>
 $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
 @each $size in $sizes {
+  .spacer--spacing-#{$size} {
+    --spacer-container-space: var(--space-#{$size});
+  }
   // apply on children to prevent overriding of first element when nesting mks-spacer components
   .spacer--spacing-#{$size} > * {
     --spacer-space: var(--space-#{$size});
@@ -108,9 +106,12 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
+  margin-top: calc(-1 * var(--spacer-container-space));
+  margin-left: calc(-1 * var(--spacer-container-space));
 
-  & > * + * {
+  & > * {
     margin-top: var(--spacer-space);
+    margin-left: var(--spacer-space);
     flex: 0 0 auto;
     min-width: 0;
     max-width: 100%;
@@ -119,11 +120,10 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
   &--inline {
     flex-direction: row;
     align-items: center;
+  }
 
-    & > * + * {
-      margin-top: 0;
-      margin-left: var(--spacer-space);
-    }
+  &--no-wrap {
+    flex-wrap: nowrap;
   }
 
   // ALIGN
@@ -357,6 +357,26 @@ You can split the layout and push one or multiple items to the side of the conta
   <mks-tag>Tag 2</mks-tag>
   <mks-button class="push-right" size="small">Call to action</mks-button>
   <mks-text size="small">Text</mks-text>
+</mks-spacer>
+````
+
+## Prevent wrapping
+
+You can split the layout and push one or multiple items to the side of the container by using the helper classes `push-left`, `push-right`, `push-top` and `push-bottom`
+
+```jsx
+<mks-spacer inline nowrap>
+  <mks-tag>Citizens</mks-tag>
+  <mks-tag>Entrepreneurs</mks-tag>
+  <mks-tag>Citizens</mks-tag>
+  <mks-tag>Entrepreneurs</mks-tag>
+  <mks-tag>Organizations</mks-tag>
+  <mks-tag>Citizens</mks-tag>
+  <mks-tag>Entrepreneurs</mks-tag>
+  <mks-tag>Organizations</mks-tag>
+  <mks-tag>Citizens</mks-tag>
+  <mks-tag>Entrepreneurs</mks-tag>
+  <mks-tag>Organizations</mks-tag>
 </mks-spacer>
 ````
 
