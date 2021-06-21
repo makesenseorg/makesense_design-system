@@ -1,20 +1,20 @@
 <template>
   <span class="logotype">
-    <img
-      src="~@@/assets/img/brand/makesense-logo.png"
-      class="logotype__image"
-      alt="Logo makesense"
-    />
+    <svg-logo class="logotype__image" title="Logo makesense" />
   </span>
 </template>
 
 <script>
+import svgLogo from "@@/assets/img/brand/makesense_logo.svg";
 /**
  * Logotype of makesense
  * @version 1.0.0
  */
 export default {
-  name: "MksLogotype"
+  name: "MksLogotype",
+  components: {
+    svgLogo
+  }
 };
 </script>
 
@@ -31,9 +31,3 @@ export default {
   margin-right: 0.3em;
 }
 </style>
-
-<docs>
-```jsx
-  <mks-logotype></mks-logotype>
-```
-</docs>
