@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spacer.vue matches snapshot 1`] = `
+<div
+  class="spacer spacer--spacing-m spacer--align-start spacer--distribute-start spacer--stack"
+/>
+`;
