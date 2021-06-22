@@ -1,11 +1,13 @@
 <template>
   <div class="container">
+    
     <mks-hero 
       title="Innovez dans votre organisation et blablabla..."
       title-tag="h3"
       theme="primary"
       text-color="var(--color-cerise)"
       beans="1">
+      <mks-logotype></mks-logotype>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </mks-hero>
     <mks-spacer>

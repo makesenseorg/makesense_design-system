@@ -5,7 +5,7 @@
   </component>
 </template>
 <script>
-/** Use to add spacing between a collection of items with flexbox. Props allow to change spacing size, axis, and distribution.
+/** Used to add spacing between a collection of items with flexbox. Props allow to change spacing size, axis, and distribution.
  * @version 0.0.0
  */
 export default {
@@ -195,6 +195,8 @@ The spacer component is only made for simple flows of item and not complex layou
 </mks-spacer>
 ```
 
+
+
 ## Inline axis
 Add `inline` prop to display items horizontally
 
@@ -209,6 +211,8 @@ Add `inline` prop to display items horizontally
   </mks-spacer>
 </mks-spacer>
 ```
+
+
 
 ## Spacing scale
 
@@ -260,6 +264,8 @@ Add `inline` prop to display items horizontally
 </mks-spacer>
 ```
 
+
+
 ## Distribution 
 Distribute items on the main axis
 
@@ -290,6 +296,8 @@ Distribute items on the main axis
   <mks-tag>spaced</mks-tag>
 </mks-spacer>
 ```
+
+
 
 ## Alignment 
 Align items on the secondary axis
@@ -326,6 +334,8 @@ TODO: improve doc with select box and reactive prop
 </mks-spacer>
 ```
 
+
+
 ### Alignment of stacked items
 
 ```jsx
@@ -356,6 +366,8 @@ TODO: improve doc with select box and reactive prop
 </mks-spacer>
 ```
 
+
+
 ## Split the layout
 
 You can split the layout and push one or multiple items to the side of the container by using the helper classes `push-left`, `push-right`, `push-top` and `push-bottom`
@@ -368,6 +380,8 @@ You can split the layout and push one or multiple items to the side of the conta
   <mks-text size="small">Text</mks-text>
 </mks-spacer>
 ````
+
+
 
 ## Prevent wrapping
 

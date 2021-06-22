@@ -1,21 +1,22 @@
 <template>
   <div>
     <ds-page-title :heading="component.name | componentName" />
-    <ds-container>
-      <mks-spacer v-if="component.tags" inline>
-        <template v-for="(tagGroup, name) in component.tags">
-          <mks-tag
-            v-for="(tag, index) in tagGroup"
-            :color="tagColor(tag)"
-            :key="`${name}${index}`"
-          >
-            {{ tagDescription(tag) }} </mks-tag
-          >&nbsp;
-        </template>
+    <ds-container class="container">
+      <mks-spacer>
+        <mks-spacer v-if="component.tags" inline>
+          <template v-for="(tagGroup, name) in component.tags">
+            <mks-tag
+              v-for="(tag, index) in tagGroup"
+              :color="tagColor(tag)"
+              :key="`${name}${index}`"
+            >
+              {{ tagDescription(tag) }} </mks-tag
+            >&nbsp;
+          </template>
+        </mks-spacer>
+        <mks-text size="large">{{ component.description }}</mks-text>
       </mks-spacer>
-      <ds-space margin-bottom="xxl">
-        <ds-text size="xl">{{ component.description }}</ds-text>
-      </ds-space>
+      <br />
       <ds-space
         v-for="(part, index) in docParts"
         margin-bottom="xxl"
@@ -149,4 +150,19 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.container {
+  padding-top: $space-l;
+}
+h1.heading,
+h2.heading {
+  margin-top: $space-xxl;
+}
+h3.heading {
+  margin-top: $space-xl;
+}
+.heading {
+  margin-top: $space-l;
+  margin-bottom: $space-s;
+}
+</style>

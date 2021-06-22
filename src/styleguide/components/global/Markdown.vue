@@ -144,6 +144,13 @@ export default {
   li {
     margin-bottom: $space-xs;
   }
+  h1.heading,
+  h2.heading {
+    margin-top: $space-xxl;
+  }
+  h3.heading {
+    margin-top: $space-xl;
+  }
   .heading {
     margin-top: $space-l;
     margin-bottom: $space-s;
