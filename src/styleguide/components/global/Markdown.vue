@@ -144,7 +144,6 @@ export default {
   li {
     margin-bottom: $space-xs;
   }
-  h1.heading,
   h2.heading {
     margin-top: $space-xxl;
   }
@@ -174,6 +173,7 @@ export default {
   code {
     background: $color-neutral-90;
     padding: 2px 5px;
+    margin: 0 $space-xxxs;
     display: inline;
     border-radius: 4px;
   }

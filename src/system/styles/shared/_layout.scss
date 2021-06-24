@@ -56,7 +56,7 @@
   margin-right: auto;
 }
 
-@mixin workspace($vertical: false, $dense: false, $equal: false) {
+@mixin container-spacing($vertical: false, $dense: false, $equal: false) {
   max-width: $container-size; 
   margin-left: auto;
   margin-right: auto;
@@ -152,4 +152,27 @@
 
 @mixin col-end($amount: 1) {
   grid-column-end: $amount;
+}
+
+
+/** Inner spacing */
+@mixin inner-spacing($value: 'm', $dir: null, ) {
+  $directions: (
+    "t": 'top',
+    "b": 'bottom',
+    "l": 'left',
+    "r": 'right'
+  );
+
+  @if $dir == 'x' {
+    padding-left: var(--space-#{$value});
+    padding-right: var(--space-#{$value});
+  } @else if $dir == 'y' {
+    padding-top: var(--space-#{$value});
+    padding-bottom: var(--space-#{$value});
+  } @else if $dir and map-has-key($directions, $dir) {
+    padding-#{map-get($directions, $dir)}: var(--space-#{$value});
+  } @else {
+    padding: var(--space-#{$value});
+  }
 }

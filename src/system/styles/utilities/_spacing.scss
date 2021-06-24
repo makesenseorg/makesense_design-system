@@ -1,0 +1,29 @@
+/** Container spacing mixin wrapper */
+.mks-cs {
+    @include container-spacing;
+
+    &-vertical {
+        @include container-spacing($vertical: true);
+    }
+
+    &-dense {
+        @include container-spacing($dense: true);
+    }
+
+    &-equal {
+        @include container-spacing($equal: true);
+    }
+
+    &-vertical-dense,
+    &-dense-vertical {
+        @include container-spacing($vertical: true, $dense: true);
+    }
+
+    &-dense-equal,
+    &-equal-dense {
+        @include container-spacing($dense: true, $equal: true);
+    }
+}
+
+
+/** Inner spacing */

@@ -1283,6 +1283,13 @@
       "value": "var(--space-xxxs)",
       "originalValue": "{!xxx-small}px"
     },
+    "space-0": {
+      "type": "number",
+      "category": "space",
+      "name": "space-0",
+      "value": "var(--space-0)",
+      "originalValue": "0"
+    },
     "size-height-base": {
       "type": "number",
       "category": "size",

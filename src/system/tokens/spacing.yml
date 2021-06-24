@@ -42,6 +42,8 @@ props:
     value: "{!xx-small}px"
   - name: space-xxxs
     value: "{!xxx-small}px"
+  - name: space-0
+    value: "0"
 
 global:
   type: number

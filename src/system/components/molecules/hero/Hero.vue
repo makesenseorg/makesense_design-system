@@ -111,7 +111,7 @@ export default {
 
   &__container {
     flex-wrap: nowrap;
-    @include workspace($equal: true);
+    @include container-spacing($equal: true);
   }
 
   &__content {

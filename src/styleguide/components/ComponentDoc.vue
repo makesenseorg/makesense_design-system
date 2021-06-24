@@ -153,8 +153,8 @@ export default {
 <style lang="scss">
 .container {
   padding-top: $space-l;
+  padding-bottom: $space-xxl;
 }
-h1.heading,
 h2.heading {
   margin-top: $space-xxl;
 }
