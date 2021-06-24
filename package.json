@@ -3,7 +3,7 @@
   "version": "1.4.0",
   "scripts": {
     "serve": "http-server ./docs -o -s",
-    "build": "npm run theo && vue-cli-service build",
+    "build": "npm run theo && vue-cli-service build; mkdir docs/assets; cp -r src/styleguide/assets public/",
     "lint": "vue-cli-service lint",
     "dev": "npm-run-all --parallel theo:onchange theo servedev",
     "install-playground": "cd src/playground && npm install",
@@ -18,9 +18,6 @@
     "prepack": "npm run build:system"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.25",
-    "@fortawesome/free-solid-svg-icons": "^5.13.0",
-    "@fortawesome/vue-fontawesome": "^0.1.7",
     "dayjs": "^1.8.26",
     "eval": "^0.1.4",
     "feather-icons": "^4.28.0",

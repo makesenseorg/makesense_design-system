@@ -1,29 +1,64 @@
 /** Container spacing mixin wrapper */
 .mks-cs {
-    @include container-spacing;
+  @include container-spacing;
 
-    &-vertical {
-        @include container-spacing($vertical: true);
+  &-dense {
+    @include container-spacing($dense: true);
+  }
+}
+
+/** Inner spacing */
+$directions: ("t", "b", "l", "r", "x", "y");
+$spacesizes: ("xxxs", "xxs", "xs", "sm", "md", "lg", "xl", "xxl", "xxxl");
+
+.mks-space {
+  @include inner-space;
+}
+
+@each $s in $spacesizes {
+  .mks-space-#{$s} {
+    @include inner-space($s);
+  }
+  @each $d in $directions {
+    .mks-space-#{$d}-#{$s} {
+      @include inner-space($s, $d);
     }
-
-    &-dense {
-        @include container-spacing($dense: true);
-    }
-
-    &-equal {
-        @include container-spacing($equal: true);
-    }
-
-    &-vertical-dense,
-    &-dense-vertical {
-        @include container-spacing($vertical: true, $dense: true);
-    }
-
-    &-dense-equal,
-    &-equal-dense {
-        @include container-spacing($dense: true, $equal: true);
+  }
+}
+@each $d in $directions {
+    .mks-space-#{$d} {
+      @include inner-space($dir: $d);
     }
 }
 
+$grid-breakpoints: (
+  "xsmall": "xs",
+  "small": "sm",
+  "medium": "md",
+  "large": "lg",
+  "xlarge": "xl"
+);
+@each $bp, $modifier in $grid-breakpoints {
+    @include breakpoint($bp) {
 
-/** Inner spacing */
+      .mks-space\@#{$modifier} {
+        @include inner-space;
+      }
+      
+      @each $s in $spacesizes {
+        .mks-space-#{$s}\@#{$modifier} {
+          @include inner-space($s);
+        }
+        @each $d in $directions {
+          .mks-space-#{$d}-#{$s}\@#{$modifier} {
+            @include inner-space($s, $d);
+          }
+        }
+      }
+      @each $d in $directions {
+          .mks-space-#{$d}\@#{$modifier} {
+            @include inner-space($dir: $d);
+          }
+      }
+    }
+  }

@@ -157,7 +157,7 @@ export default {
   p,
   ul,
   ol {
-    margin-bottom: $space-m;
+    margin-bottom: $space-xs;
   }
 
   ol {
