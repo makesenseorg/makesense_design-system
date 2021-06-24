@@ -164,6 +164,7 @@ export default {
   "--space-xs": "10px",
   "--space-xxs": "5px",
   "--space-xxxs": "2px",
+  "--space-0": "0",
   "--size-height-base": "42px",
   "--size-height-large": "50px",
   "--size-height-xlarge": "60px",

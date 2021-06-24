@@ -8,11 +8,13 @@
 </template>
 <script>
 /**
- * Displays items in a horizontal line
+ * Deprecated: Use Spacer instead - Displays items in a horizontal line
  * @version 0.2.0
+ * @deprecated
  */
 export default {
   name: "MksHorizontalList",
+  status: "deprecated",
   release: "0.2.0",
   props: {
     tag: {
@@ -54,6 +56,8 @@ export default {
 }
 </style>
 <docs>
+
+Deprecated: Use <mks-link to="/layouts/mksspacer">Spacer</mks-link> instead
 
 ```jsx
 <mks-horizontal-list spacing="none">

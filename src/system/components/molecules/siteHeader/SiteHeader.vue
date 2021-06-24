@@ -117,8 +117,7 @@ export default {
     align-items: center;
     flex-shrink: 0;
     justify-content: space-between;
-    max-width: 1100px;
-    margin: 0 auto;
+    @include container-spacing($dense: true, $padding: false);
   }
 
   &__bar-container {
@@ -136,8 +135,7 @@ export default {
     align-items: center;
     flex-shrink: 0;
     justify-content: space-between;
-    max-width: 1100px;
-    margin: 0 auto;
+    @include container-spacing($dense: true, $padding: false);
   }
 
   &__logo {
@@ -189,7 +187,7 @@ export default {
   }
 
   &__container {
-    max-width: 1100px;
+    @include container-spacing($dense: true, $padding: false);
   }
 }
 

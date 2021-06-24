@@ -76,6 +76,10 @@ ${code}
   margin-right: 0;
 }
 
+.CodeMirror-scroll {
+  max-height: 310px;
+}
+
 .vuep-preview {
   width: auto;
   height: auto;
@@ -83,7 +87,7 @@ ${code}
   border: $border-width-m solid $border-color-softer;
   padding: $space-m;
   margin-bottom: $space-s;
-  overflow: visible;
+  overflow: hidden;
 
   .vuep-iframe & {
     padding: 0;

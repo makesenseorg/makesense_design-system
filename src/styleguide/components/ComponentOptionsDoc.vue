@@ -7,24 +7,28 @@
       <ds-card>
         <ds-table :data="componentProps" :fields="propFields">
           <template slot="name" slot-scope="{ row }">
-            <ds-code inline>
-              {{ row.name | kebabCase }}
-            </ds-code>
-            <div v-if="row.required">
-              <ds-tag v-if="row.required" color="warning">required</ds-tag>
-            </div>
-            <ds-space :margin-bottom="null" margin-top="s">
-              <div v-if="row.options">
-                <ds-chip
-                  size="small"
-                  v-for="option in row.options"
-                  :key="option"
-                >
-                  {{ option }}
-                </ds-chip>
+            <mks-spacer spacing="xs">
+              <ds-code inline>
+                {{ row.name | kebabCase }}
+              </ds-code>
+              <div v-if="row.required">
+                <mks-tag v-if="row.required" color="warning">required</mks-tag>
               </div>
-              <ds-text color="soft">{{ row.description }}</ds-text>
-            </ds-space>
+              <ds-space :margin-bottom="null" margin-top="s">
+                <div v-if="row.options">
+                  <ds-chip
+                    size="small"
+                    v-for="option in row.options"
+                    :key="option"
+                  >
+                    {{ option }}
+                  </ds-chip>
+                </div>
+                <mks-text size="small" color="light">{{
+                  row.description
+                }}</mks-text>
+              </ds-space>
+            </mks-spacer>
           </template>
           <template slot="type" slot-scope="{ row }">
             <ds-chip v-for="type in row.types" :key="type" inline>
@@ -56,9 +60,14 @@
           <ds-code slot="name" slot-scope="{ row }" inline>
             {{ row.name }}
           </ds-code>
-          <ds-text color="soft" slot="description" slot-scope="{ row }">
+          <mks-text
+            size="small"
+            color="light"
+            slot="description"
+            slot-scope="{ row }"
+          >
             {{ row.description }}
-          </ds-text>
+          </mks-text>
         </ds-table>
       </ds-card>
     </ds-space>
@@ -71,9 +80,14 @@
           <ds-code slot="name" slot-scope="{ row }" inline>
             @{{ row.name }}
           </ds-code>
-          <ds-text color="soft" slot="description" slot-scope="{ row }">
+          <mks-text
+            size="small"
+            color="light"
+            slot="description"
+            slot-scope="{ row }"
+          >
             {{ row.description }}
-          </ds-text>
+          </mks-text>
         </ds-table>
       </ds-card>
     </ds-space>
