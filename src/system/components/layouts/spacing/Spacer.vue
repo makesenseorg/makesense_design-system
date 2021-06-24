@@ -179,11 +179,15 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
 }
 </style>
 <docs>
+<img src="/assets/spacing-flow.jpg" /><br>
+
 The component <code>mks-spacer</code> allows you to stack or inline elements by handling the spacing between them.
 
 It is essentially a wrapper for flexbox and works on both axis, vertically and horizontally.
 
 The spacer component is only made for simple flows of item and not complex layout structures, for those have a look at <mks-link to="mksgridsystem">the grid system</mks-link>
+
+## Basic example : stacking items
 
 ```jsx
 <mks-spacer>
@@ -385,7 +389,7 @@ You can split the layout and push one or multiple items to the side of the conta
 
 ## Prevent wrapping
 
-You can split the layout and push one or multiple items to the side of the container by using the helper classes `push-left`, `push-right`, `push-top` and `push-bottom`
+Prevent wrapping of the items by using the `nowrap` prop.
 
 ```jsx
 <mks-spacer inline nowrap>

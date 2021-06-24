@@ -56,32 +56,21 @@
   margin-right: auto;
 }
 
-@mixin container-spacing($vertical: false, $dense: false, $equal: false) {
+@mixin container-spacing($dense: false, $padding: true) {
   max-width: $container-size; 
   margin-left: auto;
   margin-right: auto;
-  padding-left: $space-s;
-  padding-right: $space-s;
-
-  @if $vertical {
-    padding-top: $space-l;
-    padding-bottom: $space-xxxl;
+  @if $padding {
+    @include inner-space("s", "x");
+    @include inner-space("m", "y");
   }
-
-  @if $equal {
-    padding-top: $space-xl;
-    padding-bottom: $space-xl;
-  }
-
+  
   @include breakpoint("medium") {
-    padding-left: $space-xxl;
-    padding-right: $space-xxl;
-    max-width: $container-size-l; 
-
-    @if $dense {
-      max-width: $container-size; 
-      padding-left: $space-s;
-      padding-right: $space-s;
+    @if not ($dense) {
+      max-width: $container-size-l; 
+      @if $padding {
+        @include inner-space("xxl", "x");
+      }
     }
   }
 }
@@ -154,9 +143,8 @@
   grid-column-end: $amount;
 }
 
-
 /** Inner spacing */
-@mixin inner-spacing($value: 'm', $dir: null, ) {
+@mixin inner-space($value: 'm', $dir: null, ) {
   $directions: (
     "t": 'top',
     "b": 'bottom',

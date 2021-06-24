@@ -58,7 +58,7 @@ export default {
 
 <style lang="scss" scoped>
 .alert {
-  @include inner-spacing("s");
+  @include inner-space("s");
   border-radius: $border-radius-base;
   text-align: center;
   position: relative;

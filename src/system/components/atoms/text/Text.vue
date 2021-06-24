@@ -121,7 +121,6 @@ export default {
 <style lang="scss" scoped>
 .text {
   box-sizing: border-box;
-  padding: 0;
 
   &--color-text {
     color: text;

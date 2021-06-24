@@ -98,20 +98,22 @@ export default {
 </script>
 <style lang="scss" scoped>
 .hero {
+  @include inner-space($dir: "t");
+  @include inner-space("l", "b");
   overflow: hidden;
-  padding-top: $space-m;
-  padding-bottom: $space-l;
   position: relative;
   background-size: cover;
 
   @include breakpoint("small") {
     padding-top: $space-xxl;
     padding-bottom: $space-xxxl;
+    @include inner-space("xxl" "t");
+    @include inner-space("xxxl", "b");
   }
 
   &__container {
     flex-wrap: nowrap;
-    @include container-spacing($equal: true);
+    @include container-spacing;
   }
 
   &__content {
