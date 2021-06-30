@@ -1,44 +1,44 @@
 <template>
-  <component
-    :is="tag"
-    :to="to ? to : ''"
-    :href="href ? href : ''"
-    :target="target"
-    :class="`card${isElevated ? ' card--elevated' : ' card--flat'}`"
-    @click="onClick"
-    @click.native="onClick"
-    :aria-labelledby="`title-${uniqueId}`"
-    :aria-describedby="`description-${uniqueId}`"
-  >
-    <div :class="`card__image card__image--cover-${imageFormat}`">
-      <img class="card__cover" :src="image" />
-      <img class="card__logotype" v-if="logo" :src="logo" />
-      <div class="card__viewed" v-if="viewed"></div>
-    </div>
-    <div class="card__content">
-      <div class="card__meta">
-        <div class="card__title-wrapper">
-          <div :id="`title-${uniqueId}`" class="card__title">
-            <!-- @slot The title of the card -->
-            <slot name="title"></slot>
+  <div @click="onClick">
+    <component
+      :is="tag"
+      :to="to ? to : ''"
+      :href="href ? href : ''"
+      :target="target"
+      :class="`card${isElevated ? ' card--elevated' : ' card--flat'}`"
+      :aria-labelledby="`title-${uniqueId}`"
+      :aria-describedby="`description-${uniqueId}`"
+    >
+      <div :class="`card__image card__image--cover-${imageFormat}`">
+        <img class="card__cover" :src="image" />
+        <img class="card__logotype" v-if="logo" :src="logo" />
+        <div class="card__viewed" v-if="viewed"></div>
+      </div>
+      <div class="card__content">
+        <div class="card__meta">
+          <div class="card__title-wrapper">
+            <div :id="`title-${uniqueId}`" class="card__title">
+              <!-- @slot The title of the card -->
+              <slot name="title"></slot>
+            </div>
+            <!-- @slot Some meta to display on the right of the title -->
+            <slot name="title-meta"></slot>
           </div>
-          <!-- @slot Some meta to display on the right of the title -->
-          <slot name="title-meta"></slot>
+          <div
+            :class="`card__subtitle card__subtitle--${subtitleType}`"
+            v-html="subtitle"
+          ></div>
         </div>
-        <div
-          :class="`card__subtitle card__subtitle--${subtitleType}`"
-          v-html="subtitle"
-        ></div>
+        <div :id="`description-${uniqueId}`" class="card__description">
+          <!-- @slot Textual content -->
+          <slot name="description"></slot>
+        </div>
       </div>
-      <div :id="`description-${uniqueId}`" class="card__description">
-        <!-- @slot Textual content -->
-        <slot name="description"></slot>
+      <div class="card__cta" v-if="callToAction">
+        <mks-button type="primary" size="small">{{ callToAction }}</mks-button>
       </div>
-    </div>
-    <div class="card__cta" v-if="callToAction">
-      <mks-button type="primary" size="small">{{ callToAction }}</mks-button>
-    </div>
-  </component>
+    </component>
+  </div>
 </template>
 <script>
 /**

@@ -5,11 +5,12 @@
   </component>
 </template>
 <script>
+// this file is used just for docs
 /** Used to add spacing between a collection of items with flexbox. Props allow to change spacing size, axis, and distribution.
- * @version 0.0.0
+ * @version 1.5.0
  */
 export default {
-  name: "MksSpacer",
+  name: "Spacer",
   props: {
     /** Set alignment on secondary axis. (align-items) */
     align: {
@@ -58,22 +59,10 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-  computed: {
-    classes() {
-      let classes = "spacer";
-      classes += ` spacer--spacing-${this.spacing}`;
-      classes += ` spacer--align-${this.align}`;
-      classes += ` spacer--distribute-${this.distribute}`;
-      if (this.inline) classes += " spacer--inline";
-      if (this.nowrap) classes += " spacer--no-wrap";
-      else classes += " spacer--stack";
-      return classes;
-    }
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
 @each $size in $sizes {
   .spacer--spacing-#{$size} {
@@ -88,7 +77,8 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
   }
 }
 
-.spacer {
+.spacer,
+.spacer > .spacer {
   .push-left {
     margin-right: auto;
   }
@@ -106,6 +96,12 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
 .spacer > .spacer {
   margin-top: calc(var(--spacer-space) - var(--spacer-container-space));
   margin-left: calc(var(--spacer-space) - var(--spacer-container-space));
+  width: 100%;
+
+  &--inline {
+    height: 100%;
+    width: auto;
+  }
 }
 
 .spacer {
@@ -126,9 +122,14 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
     max-width: 100%;
   }
 
+  &--stack > .spacer__item {
+    width: 100%;
+  }
+
   &--inline {
     flex-direction: row;
     align-items: center;
+    max-height: 100%;
   }
 
   &--no-wrap {

@@ -1,7 +1,7 @@
 import plugins from "./plugins";
 import atoms from "./components/atoms";
 import Grid from "./components/layouts/grid/Grid.vue";
-import Spacer from "./components/layouts/spacing/Spacer.vue";
+import Spacer from "./components/layouts/spacing/spacer.js";
 import "./styles/main.scss";
 
 export default {
@@ -10,5 +10,6 @@ export default {
     Vue.use(atoms);
     Vue.component("MksSpacer", Spacer);
     Vue.component("MksGrid", Grid);
+    Vue.component("MksSpacer", Spacer);
   }
 };
