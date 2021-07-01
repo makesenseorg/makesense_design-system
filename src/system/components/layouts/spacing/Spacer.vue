@@ -73,8 +73,13 @@ export default {
     this.$slots.default.forEach(item => {
       // verifier si pas de tag comment faire (node)
       if (item.tag) {
-        console.log(item);
-        childs.push(createElement("div", { class: "spacer__item" }, [item]));
+        // console.log(item.componentOptions.tag);
+        if (item.componentOptions.tag === "mks-spacer-item") {
+          console.log("spacer item", item);
+          childs.push(item);
+        } else {
+          childs.push(createElement("div", { class: "spacer__item" }, [item]));
+        }
       }
     });
 
@@ -94,22 +99,6 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
       // apply on children to prevent overriding of first element when nesting mks-spacer components
       --spacer-space: var(--space-#{$size});
     }
-  }
-}
-
-.spacer,
-.spacer > .spacer {
-  .push-left {
-    margin-right: auto;
-  }
-  .push-right {
-    margin-left: auto;
-  }
-  .push-top {
-    margin-bottom: auto;
-  }
-  .push-bottom {
-    margin-top: auto;
   }
 }
 
@@ -393,15 +382,17 @@ TODO: improve doc with select box and reactive prop
 
 
 
-## Split the layout
+## Split 
 
-You can split the layout and push one or multiple items to the side of the container by using the helper classes `push-left`, `push-right`, `push-top` and `push-bottom`
+You can split the flow and push one or multiple items to the side of the container by using the `spacer-item` component and its prop `push` with the direction as value.
 
 ```jsx
 <mks-spacer inline align="center">
   <mks-tag>Tag 1</mks-tag>
   <mks-tag>Tag 2</mks-tag>
-  <mks-button class="push-right" size="small">Call to action</mks-button>
+  <mks-spacer-item push="right">
+    <mks-button size="small">Call to action</mks-button>
+  </mks-spacer-item>
   <mks-text size="small">Text</mks-text>
 </mks-spacer>
 ````
