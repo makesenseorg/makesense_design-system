@@ -1,16 +1,9 @@
-<template>
-  <component :class="classes" :is="tag">
-    <!-- @slot children elements to space -->
-    <slot></slot>
-  </component>
-</template>
 <script>
-// this file is used just for docs
 /** Used to add spacing between a collection of items with flexbox. Props allow to change spacing size, axis, and distribution.
  * @version 1.5.0
  */
 export default {
-  name: "Spacer",
+  name: "MksSpacer",
   props: {
     /** Set alignment on secondary axis. (align-items) */
     align: {
@@ -59,6 +52,33 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  computed: {
+    classes() {
+      let classes = "spacer";
+      classes += ` spacer--spacing-${this.spacing}`;
+      classes += ` spacer--align-${this.align}`;
+      classes += ` spacer--distribute-${this.distribute}`;
+      if (this.nowrap) classes += " spacer--no-wrap";
+      if (this.inline) {
+        classes += " spacer--inline";
+      } else {
+        classes += " spacer--stack";
+      }
+      return classes;
+    }
+  },
+  render(createElement) {
+    const childs = [];
+    this.$slots.default.forEach(item => {
+      // verifier si pas de tag comment faire (node)
+      if (item.tag) {
+        console.log(item);
+        childs.push(createElement("div", { class: "spacer__item" }, [item]));
+      }
+    });
+
+    return createElement(this.tag, { class: this.classes }, childs);
   }
 };
 </script>
