@@ -1,5 +1,11 @@
 <template>
-  <div :class="`spacer__item ${push ? `push-${push}` : ''}`">
+  <div
+    :class="
+      `spacer__item ${push ? `push-${push}` : ''} ${
+        grow ? 'spacer__item--grow' : ''
+      }`
+    "
+  >
     <slot></slot>
   </div>
 </template>
@@ -17,6 +23,13 @@ export default {
       validator: value => {
         return value.match(/(left|right|top|bottom)/);
       }
+    },
+    /** Make the item use all the available space
+     * @version 1.5.2
+     */
+    grow: {
+      type: Boolean,
+      default: false
     }
   }
 };
@@ -37,6 +50,10 @@ export default {
     @include push-bottom;
   }
 }
+
+.spacer__item--grow {
+  flex-grow: 1;
+}
 </style>
 <docs>
 
@@ -44,7 +61,7 @@ The component <code>mks-spacer-item</code> is meant to be used in the component 
 
 It is not needed otherwise.
 
-## Example
+## Split on one side
 
 You can split the flow and push one or multiple items to the side of the container by using the `spacer-item` component and its prop `push` with the direction as value.
 
@@ -56,6 +73,19 @@ You can split the flow and push one or multiple items to the side of the contain
     <mks-button size="small">Call to action</mks-button>
   </mks-spacer-item>
   <mks-text size="small">Text</mks-text>
+</mks-spacer>
+```
+
+## Make an item grow
+
+```jsx
+<mks-spacer inline align="center">
+  <mks-tag>Tag 1</mks-tag>
+  <mks-tag>Tag 2</mks-tag>
+  <mks-spacer-item grow>
+    <mks-field name="field" placeholder="i take all the remaining space!" value=""/>
+  </mks-spacer-item>
+  <mks-tag>Tag 3</mks-tag>
 </mks-spacer>
 ````
 </docs>
