@@ -25,22 +25,24 @@
         <mks-icon type="clock" />
         <mks-spacer inline distribute="start" align="center">
           <mks-text>Hover on the loading to see a localized title</mks-text>
+          <mks-spacer-item push="right"><mks-tag>a tag</mks-tag></mks-spacer-item>
           <mks-tag>a tag</mks-tag>
           <mks-tag>a tag</mks-tag>
           <mks-tag>a tag</mks-tag>
-          <mks-tag>a tag</mks-tag>
-          <mks-tag>a tag</mks-tag>
+          <mks-spacer-item push="left"><mks-tag>a tag</mks-tag></mks-spacer-item>
+          <mks-tag class="push-left">a tag</mks-tag>
         </mks-spacer>
 
         <div class="mks-grid-auto-lg mks-grid-gap-sm">
-          <mks-card
-            v-for="i in 12"
-            :key="i"
-            image="https://via.placeholder.com/500"
-            image-format="square"
-          >
-            <template v-slot:title>Content</template>
-          </mks-card>
+          <mks-spacer v-for="i in 12" :key="i" >
+            <mks-heading tag="h4">i coucou</mks-heading>
+            <mks-card
+              image="https://via.placeholder.com/500"
+              image-format="square"
+            >
+              <template v-slot:title>Content</template>
+            </mks-card>
+          </mks-spacer>
         </div>
       </mks-spacer>
     </div>

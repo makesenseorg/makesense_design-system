@@ -1,12 +1,6 @@
-<template>
-  <component :class="classes" :is="tag">
-    <!-- @slot children elements to space -->
-    <slot></slot>
-  </component>
-</template>
 <script>
 /** Used to add spacing between a collection of items with flexbox. Props allow to change spacing size, axis, and distribution.
- * @version 0.0.0
+ * @version 1.5.0
  */
 export default {
   name: "MksSpacer",
@@ -65,15 +59,37 @@ export default {
       classes += ` spacer--spacing-${this.spacing}`;
       classes += ` spacer--align-${this.align}`;
       classes += ` spacer--distribute-${this.distribute}`;
-      if (this.inline) classes += " spacer--inline";
       if (this.nowrap) classes += " spacer--no-wrap";
-      else classes += " spacer--stack";
+      if (this.inline) {
+        classes += " spacer--inline";
+      } else {
+        classes += " spacer--stack";
+      }
       return classes;
     }
+  },
+  render(createElement) {
+    const childs = [];
+    this.$slots.default.forEach(item => {
+      // verifier si pas de tag comment faire (node)
+      if (item && item.tag) {
+        // console.log(item.componentOptions.tag);
+        if (
+          item.componentOptions &&
+          item.componentOptions.tag === "mks-spacer-item"
+        ) {
+          childs.push(item);
+        } else {
+          childs.push(createElement("div", { class: "spacer__item" }, [item]));
+        }
+      }
+    });
+
+    return createElement(this.tag, { class: this.classes }, childs);
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
 @each $size in $sizes {
   .spacer--spacing-#{$size} {
@@ -88,24 +104,15 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
   }
 }
 
-.spacer {
-  .push-left {
-    margin-right: auto;
-  }
-  .push-right {
-    margin-left: auto;
-  }
-  .push-top {
-    margin-bottom: auto;
-  }
-  .push-bottom {
-    margin-top: auto;
-  }
-}
-
 .spacer > .spacer {
   margin-top: calc(var(--spacer-space) - var(--spacer-container-space));
   margin-left: calc(var(--spacer-space) - var(--spacer-container-space));
+  width: 100%;
+
+  &--inline {
+    height: 100%;
+    width: auto;
+  }
 }
 
 .spacer {
@@ -126,9 +133,14 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
     max-width: 100%;
   }
 
+  &--stack > .spacer__item {
+    width: 100%;
+  }
+
   &--inline {
     flex-direction: row;
     align-items: center;
+    max-height: 100%;
   }
 
   &--no-wrap {
@@ -372,15 +384,17 @@ TODO: improve doc with select box and reactive prop
 
 
 
-## Split the layout
+## Split 
 
-You can split the layout and push one or multiple items to the side of the container by using the helper classes `push-left`, `push-right`, `push-top` and `push-bottom`
+You can split the flow and push one or multiple items to the side of the container by using the `spacer-item` component and its prop `push` with the direction as value.
 
 ```jsx
 <mks-spacer inline align="center">
   <mks-tag>Tag 1</mks-tag>
   <mks-tag>Tag 2</mks-tag>
-  <mks-button class="push-right" size="small">Call to action</mks-button>
+  <mks-spacer-item push="right">
+    <mks-button size="small">Call to action</mks-button>
+  </mks-spacer-item>
   <mks-text size="small">Text</mks-text>
 </mks-spacer>
 ````
