@@ -72,10 +72,12 @@ export default {
     const childs = [];
     this.$slots.default.forEach(item => {
       // verifier si pas de tag comment faire (node)
-      if (item.tag) {
+      if (item && item.tag) {
         // console.log(item.componentOptions.tag);
-        if (item.componentOptions.tag === "mks-spacer-item") {
-          console.log("spacer item", item);
+        if (
+          item.componentOptions &&
+          item.componentOptions.tag === "mks-spacer-item"
+        ) {
           childs.push(item);
         } else {
           childs.push(createElement("div", { class: "spacer__item" }, [item]));

@@ -25,10 +25,11 @@
         <mks-icon type="clock" />
         <mks-spacer inline distribute="start" align="center">
           <mks-text>Hover on the loading to see a localized title</mks-text>
-          <mks-tag class="push-right">a tag</mks-tag>
+          <mks-spacer-item push="right"><mks-tag>a tag</mks-tag></mks-spacer-item>
           <mks-tag>a tag</mks-tag>
           <mks-tag>a tag</mks-tag>
           <mks-tag>a tag</mks-tag>
+          <mks-spacer-item push="left"><mks-tag>a tag</mks-tag></mks-spacer-item>
           <mks-tag class="push-left">a tag</mks-tag>
         </mks-spacer>
 
