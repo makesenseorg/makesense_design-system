@@ -15,6 +15,11 @@
   }
 }
 
+@mixin title-large-semibold {
+  @include title-large;
+  font-weight: $font-weight-semi-bold;
+}
+
 // equivalent of h2
 @mixin title-medium {
   font-size: $font-size-xxl;
@@ -24,6 +29,10 @@
   @include breakpoint("small") {
     font-size: $font-size-xxxxl;
   }
+}
+@mixin title-medium-semibold {
+  @include title-medium;
+  font-weight: $font-weight-semi-bold;
 }
 
 // equivalent of h3
@@ -36,6 +45,10 @@
     font-size: $font-size-xxxl;
   }
 }
+@mixin title-small-semibold {
+  @include title-small;
+  font-weight: $font-weight-semi-bold;
+}
 
 // equivalent of h4
 @mixin title-xsmall {
@@ -47,6 +60,10 @@
     font-size: $font-size-xl;
   }
 }
+@mixin title-xsmall-semibold {
+  @include title-xsmall;
+  font-weight: $font-weight-semi-bold;
+}
 
 // for larger body copy
 @mixin text-large {
@@ -56,6 +73,10 @@
   @include breakpoint("small") {
     font-size: $font-size-l;
   }
+}
+@mixin text-large-semibold {
+  @include text-large;
+  font-weight: $font-weight-semi-bold;
 }
 
 // equivalent of h5
@@ -70,6 +91,11 @@
   line-height: $line-height-m;
 }
 
+@mixin text-body-semibold {
+  @include text-body;
+  font-weight: $font-weight-semi-bold;
+}
+
 @mixin text-body-black {
   @include text-body;
   font-weight: $font-weight-black;
@@ -79,6 +105,11 @@
 @mixin text-small {
   font-size: $font-size-s;
   line-height: $line-height-m;
+}
+
+@mixin text-small-semibold {
+  @include text-small;
+  font-weight: $font-weight-semi-bold;
 }
 
 @mixin text-small-extrabold {
@@ -96,6 +127,11 @@
   font-size: $font-size-xs;
   line-height: $line-height-m;
 }
+@mixin text-xsmall-semibold {
+  @include text-xsmall;
+  font-weight: $font-weight-semi-bold;
+}
+
 
 ///////// END TYPESCALE - other text types
 
@@ -205,7 +241,7 @@
   }
 
   strong {
-    font-weight: $font-weight-black;
+    font-weight: $font-weight-extrabold;
   }
 
   a {
