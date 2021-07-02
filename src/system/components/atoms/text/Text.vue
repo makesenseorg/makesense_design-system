@@ -58,12 +58,12 @@ export default {
         );
       }
     },
-    /** The weight of the font. Either "normal" or "bold" */
+    /** The weight of the font. Either "normal" or "bold", "semibold" added @version 1.5.3 */
     weight: {
       type: String,
       default: "normal",
       validator: function(value) {
-        return ["normal", "bold"].indexOf(value) !== -1;
+        return ["normal", "semibold", "bold"].indexOf(value) !== -1;
       }
     },
     /** left / right / center / justify */
@@ -184,6 +184,15 @@ export default {
 .text--size-large.text--weight-bold {
   @include text-large-black;
 }
+.text--size-small.text--weight-semibold {
+  @include text-small-semibold;
+}
+.text--size-normal.text--weight-semibold {
+  @include text-body-semibold;
+}
+.text--size-large.text--weight-semibold {
+  @include text-large-semibold;
+}
 </style>
 
 <docs>
@@ -202,12 +211,15 @@ export default {
 ## Sizes and weights
 ```jsx
 <mks-text size="small">The quick brown fox</mks-text><br>
+<mks-text size="small" weight="semibold">The quick brown fox</mks-text><br>
 <mks-text size="small" weight="bold">The quick brown fox</mks-text>
 <br><br>
 <mks-text>The quick brown fox</mks-text><br>
+<mks-text weight="semibold">The quick brown fox</mks-text><br>
 <mks-text weight="bold">The quick brown fox</mks-text>
 <br><br>
 <mks-text size="large">The quick brown fox</mks-text><br>
+<mks-text size="large" weight="semibold">The quick brown fox</mks-text><br>
 <mks-text size="large" weight="bold">The quick brown fox</mks-text>
 ```
 

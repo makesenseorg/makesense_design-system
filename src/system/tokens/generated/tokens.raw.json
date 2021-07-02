@@ -1120,28 +1120,28 @@
       "category": "font",
       "name": "font-weight-semi-bold",
       "value": "var(--font-weight-semi-bold)",
-      "originalValue": "400"
+      "originalValue": "600"
     },
     "font-weight-bold": {
       "type": "...",
       "category": "font",
       "name": "font-weight-bold",
       "value": "var(--font-weight-bold)",
-      "originalValue": "400"
+      "originalValue": "500"
     },
     "font-weight-normal": {
       "type": "...",
       "category": "font",
       "name": "font-weight-normal",
       "value": "var(--font-weight-normal)",
-      "originalValue": "300"
+      "originalValue": "400"
     },
     "font-weight-light": {
       "type": "...",
       "category": "font",
       "name": "font-weight-light",
       "value": "var(--font-weight-light)",
-      "originalValue": "200"
+      "originalValue": "300"
     },
     "line-height-m": {
       "type": "number",
