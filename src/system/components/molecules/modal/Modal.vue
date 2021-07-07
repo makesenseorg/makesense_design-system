@@ -19,7 +19,7 @@
           class="modal__title"
           :id="`modal-title-${uniqueId}`"
           :ref="`modal-title-${uniqueId}`"
-          >{{ title }}</mks-heading
+          ><slot name="title">{{ title }}</slot></mks-heading
         >
         <div class="modal__tools">
           <!-- @slot In the modal menu, allows to display tools or context. -->
@@ -31,8 +31,19 @@
             :ref="`modal-close-${uniqueId}`"
             tag="button"
             @click="onClose"
+            v-if="closeButton"
             >Close</mks-button
           >
+          <mks-button
+            tabindex="0"
+            :ref="`modal-close-${uniqueId}`"
+            tag="button"
+            @click="onClose"
+            size="round"
+            type="text"
+            v-else
+            ><mks-icon type="x" size="50" stroke-width="3"></mks-icon
+          ></mks-button>
         </div>
       </header>
       <main class="modal__main">
@@ -66,14 +77,14 @@ export default {
       required: false
     },
     /**
-     * Unused
+     * "small", "medium", "full" or "page" (page introduced in @version 1.6.0)
      */
     size: {
       type: String,
       required: false,
       default: "full",
       validator: function(value) {
-        return ["small", "medium", "full"].indexOf(value) !== -1;
+        return ["small", "medium", "full", "page"].indexOf(value) !== -1;
       }
     }
   },
@@ -131,6 +142,17 @@ export default {
     left: $space-m;
     right: $space-m;
   }
+
+  &--size-page {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .modal__menu {
+    background: none;
+  }
 }
 
 .modal__title {
@@ -174,11 +196,11 @@ export default {
 }
 
 .modal-enter-active {
-  z-index: 10;
+  z-index: 10000;
 }
 
 .modal-enter {
-  z-index: 10;
+  z-index: 10000;
   transform: translate3d(0, 100%, 0);
 }
 
@@ -206,6 +228,11 @@ export default {
 
         <mks-button v-on:click="toggleModal('full')">Open full modal</mks-button>
         <mks-modal v-bind:active="modalActive === 'full'" title="full modal" size="full" v-on:close="toggleModal(null)">
+            I take the whole screen !
+        </mks-modal>
+
+        <mks-button v-on:click="toggleModal('page')">Open page modal</mks-button>
+        <mks-modal v-bind:active="modalActive === 'page'" size="page" v-on:close="toggleModal(null)">
             I take the whole screen !
         </mks-modal>
     </div>
