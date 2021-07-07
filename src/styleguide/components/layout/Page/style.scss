@@ -29,7 +29,7 @@ $drawer-background-color: $background-color-base;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100000000;
+  z-index: 9999;
 
   .ds-page-has-no-header & {
     @media #{$media-query-medium} {
