@@ -86,6 +86,13 @@ export default {
       validator: function(value) {
         return ["small", "medium", "full", "page"].indexOf(value) !== -1;
       }
+    },
+    /**
+     * Display a button instead of icon
+     */
+    closeButton: {
+      type: Boolean,
+      default: false
     }
   },
   data: function() {
