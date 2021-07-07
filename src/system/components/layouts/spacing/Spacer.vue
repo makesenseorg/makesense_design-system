@@ -39,13 +39,10 @@ export default {
         return value.match(/(xxxs|xxs|xs|s|m|l|xl|xxl|xxxl)/);
       }
     },
-    /** Div, p, ul, ol, li, span */
+    /** Tag of the wrapper element */
     tag: {
       type: String,
       default: "div",
-      validator: value => {
-        return value.match(/(div|p|ul|ol|li|span)/);
-      }
     },
     /** Elements should wrap if they extend size of container */
     nowrap: {
