@@ -1,25 +1,29 @@
 <template>
-  <component :is="'div'" class="mksemptystate">
+  <div class="mksemptystate">
     <!-- classes v -->
-    <div
-      class="mksemptystate__container layout__section layout__section--v-equal"
-    >
-      <div class="mksemptystate__content">
-        <img class="content__cover" :src="image" />
+    <div class="mksemptystate__container">
+      <img
+        v-if="imageVisible"
+        alt="image non affichée"
+        class="content__cover"
+        :src="image"
+      />
+      <!-- @slot The header that you want. By default, it is a mks-heading with tag h3 -->
+      <slot name="header mks-space-xxs">
         <mks-heading v-if="heading" tag="h3" class="content__heading">{{
           heading
         }}</mks-heading>
-        <div class="content__description">
-          <!-- @slot The description that you want to add -->
-          <slot name="description"></slot>
-        </div>
-        <div class="content__cta">
-          <!-- @slot The call to action that you want to add -->
-          <slot name="cta"></slot>
-        </div>
+      </slot>
+      <div class="content__description">
+        <!-- @slot The description that you want to add -->
+        <slot v-if="$slots.description" name="description"></slot>
+      </div>
+      <div v-if="$slots.cta" class="content__cta mks-space-xl">
+        <!-- @slot The call to action that you want to add -->
+        <slot name="cta"></slot>
       </div>
     </div>
-  </component>
+  </div>
 </template>
 <script>
 /**
@@ -27,7 +31,7 @@
  * @version 1.4.0
  */
 export default {
-  name: "EmptyState",
+  name: "MksEmptyState",
   props: {
     /**
      * A heading for your empty state
@@ -44,6 +48,14 @@ export default {
       default:
         "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/285/loudly-crying-face_1f62d.png",
       type: String
+    },
+    /**
+     * The visibility of your image
+     */
+    imageVisible: {
+      required: false,
+      default: true,
+      type: Boolean
     }
   }
 };
@@ -52,33 +64,37 @@ export default {
 .mksemptystate {
   text-align: center;
 }
-.content__cta {
-  padding-top: 1em;
-}
 </style>
 
 <docs>
 ## Basic Empty State
 
 ```jsx
-<empty-state heading="Dommage...">
+<mks-empty-state heading="Dommage...">
     <template v-slot:description>Il serait temps de te créer un projet !</template>
-</empty-state>
+</mks-empty-state>
+```
+## Basic Empty State without image
+
+```jsx
+<mks-empty-state heading="Dommage..." v-bind:image-visible="false">
+    <template v-slot:description>Il serait temps de te créer un projet !</template>
+</mks-empty-state>
 ```
 ## Empty State with Call to Action
 
 ```jsx
-<empty-state heading="Dommage...">
+<mks-empty-state heading="Dommage...">
     <template v-slot:description>Il serait temps de te créer un projet !</template>
     <template v-slot:cta><mks-button>Crée ton projet ici !</mks-button></template>
-</empty-state>
+</mks-empty-state>
 ```
 ## Empty State with custom image
 
 ```jsx
-<empty-state heading="Dommage..." image="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/285/red-heart_2764-fe0f.png">
+<mks-empty-state heading="Dommage..." image="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/285/red-heart_2764-fe0f.png">
     <template v-slot:description>Il serait temps de te créer un projet !</template>
     <template v-slot:cta><mks-button>Crée ton projet ici !</mks-button></template>
-</empty-state>
+</mks-empty-state>
 ```
 </docs>
