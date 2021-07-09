@@ -4,19 +4,19 @@
     <div class="mksemptystate__container">
       <img
         v-if="imageVisible"
-        alt="image non affichée"
+        :alt="imageAlt"
         class="content__cover"
         :src="image"
       />
       <!-- @slot The header that you want. By default, it is a mks-heading with tag h3 -->
-      <slot name="header mks-space-xxs">
+      <slot name="header">
         <mks-heading v-if="heading" tag="h3" class="content__heading">{{
           heading
         }}</mks-heading>
       </slot>
-      <div class="content__description">
+      <div v-if="$slots.description" class="content__description">
         <!-- @slot The description that you want to add -->
-        <slot v-if="$slots.description" name="description"></slot>
+        <slot name="description"></slot>
       </div>
       <div v-if="$slots.cta" class="content__cta mks-space-xl">
         <!-- @slot The call to action that you want to add -->
@@ -56,6 +56,14 @@ export default {
       required: false,
       default: true,
       type: Boolean
+    },
+    /**
+     * The alt of your image
+     */
+    imageAlt: {
+      required: false,
+      default: "image non affichée",
+      type: String
     }
   }
 };
