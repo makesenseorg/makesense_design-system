@@ -43,6 +43,21 @@
         @change="$emit('change')"
       >
         <option
+          v-if="required && placeholder"
+          value=""
+          disabled
+          selected
+          class="select__placeholder"
+          >{{ placeholder }}</option
+        >
+        <option
+          v-else-if="placeholder"
+          value=""
+          hidden
+          class="select__placeholder"
+          >{{ placeholder }}</option
+        >
+        <option
           v-for="(item, index) in options"
           :key="index"
           :value="item.value"
@@ -460,6 +475,8 @@ export default {
       var styles = ["-style-" + this.version, "-light-" + this.light];
       if (this.error) styles.push("-in-error");
       if (this.success) styles.push("-in-success");
+      if (this.type === "select" && this.theValue === "")
+        styles.push("select--placeholder");
 
       return styles;
     },
@@ -505,7 +522,14 @@ export default {
       background: $color-neutral-100;
     }
   }
+
+  .ql-editor.ql-blank::before {
+    color: $color-text-light;
+    font-style: initial;
+  }
 }
+
+@include placeholder;
 </style>
 <style lang="scss" scoped>
 .field__container {
@@ -643,6 +667,15 @@ select {
   background-repeat: no-repeat, repeat;
   background-position: right 0.7em top 50%, 0 0;
   background-size: 0.65em auto, 100%;
+  //color: $color-text-light;
+
+  &.select--placeholder {
+    color: $color-text-light;
+  }
+}
+
+.select__placeholder {
+  color: $color-text-light;
 }
 
 .input__search-icon,
