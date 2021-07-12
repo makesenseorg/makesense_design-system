@@ -73,3 +73,26 @@
     color: $color-success;
   }
 }
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: $color-text-light;
+    font-family: $font-text;
+  }
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $color-text-light;
+    font-family: $font-text;
+  }
+  :-ms-input-placeholder {
+    /* IE 10+ */
+    color: $color-text-light;
+    font-family: $font-text;
+  }
+  :-moz-placeholder {
+    /* Firefox 18- */
+    color: $color-text-light;
+    font-family: $font-text;
+  }
+}

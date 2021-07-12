@@ -42,7 +42,7 @@ export default {
     /** Tag of the wrapper element */
     tag: {
       type: String,
-      default: "div",
+      default: "div"
     },
     /** Elements should wrap if they extend size of container */
     nowrap: {
