@@ -43,15 +43,7 @@
         @change="$emit('change')"
       >
         <option
-          v-if="required && placeholder"
-          value=""
-          disabled
-          selected
-          class="select__placeholder"
-          >{{ placeholder }}</option
-        >
-        <option
-          v-else-if="placeholder"
+          v-if="placeholder"
           value=""
           hidden
           class="select__placeholder"
