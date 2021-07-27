@@ -136,6 +136,25 @@ export default {
   background: $background-color-base;
   max-width: 100%;
 
+  &--size-small,
+  &--size-medium {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &.modal-enter {
+      z-index: 10000;
+      transform: translate3d(-50%, 100%, 0);
+    }
+
+    &.modal-enter-to {
+      transform: translate3d(-50%, -50%, 0);
+    }
+
+    &.modal-leave-to {
+      transform: translate3d(-50%, 100%, 0);
+    }
+  }
+
   &--size-medium {
     width: 60%;
     min-width: 300px;
