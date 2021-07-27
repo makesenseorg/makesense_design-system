@@ -155,14 +155,14 @@ export default {
   padding-top: $space-l;
   padding-bottom: $space-xxl;
 }
-h2.heading {
-  margin-top: $space-xxl;
-}
-h3.heading {
-  margin-top: $space-xl;
-}
-.heading {
-  margin-top: $space-l;
-  margin-bottom: $space-s;
-}
+// h2.heading {
+//   margin-top: $space-xxl;
+// }
+// h3.heading {
+//   margin-top: $space-xl;
+// }
+// .heading {
+//   margin-top: $space-l;
+//   margin-bottom: $space-s;
+// }
 </style>

@@ -6,50 +6,59 @@
     :aria-labelledby="`modal-title-${uniqueId}`"
   >
     <div
-      :class="`modal modal--size-${size}`"
-      :ref="`modal-${uniqueId}`"
       v-if="active && isMounted"
-      tabindex="0"
       @keydown.esc="onClose"
+      :class="
+        `modal__wrapper modal--size-${size} ${
+          active && isMounted ? 'modal--opened' : ''
+        }`
+      "
     >
-      <header class="modal__menu">
-        <mks-heading
-          tag="h3"
-          tabindex="0"
-          class="modal__title"
-          :id="`modal-title-${uniqueId}`"
-          :ref="`modal-title-${uniqueId}`"
-          ><slot name="title">{{ title }}</slot></mks-heading
-        >
-        <div class="modal__tools">
-          <!-- @slot In the modal menu, allows to display tools or context. -->
-          <slot name="tools"></slot>
-        </div>
-        <div class="modal__close">
-          <mks-button
+      <button
+        class="modal__overlay"
+        @click="onClose"
+        :aria-label="$MKSlocale['close']"
+      ></button>
+      <div class="modal" :ref="`modal-${uniqueId}`" tabindex="0">
+        <header class="modal__menu">
+          <mks-heading
+            tag="h3"
             tabindex="0"
-            :ref="`modal-close-${uniqueId}`"
-            tag="button"
-            @click="onClose"
-            v-if="closeButton"
-            >Close</mks-button
+            class="modal__title"
+            :id="`modal-title-${uniqueId}`"
+            :ref="`modal-title-${uniqueId}`"
+            ><slot name="title">{{ title }}</slot></mks-heading
           >
-          <mks-button
-            tabindex="0"
-            :ref="`modal-close-${uniqueId}`"
-            tag="button"
-            @click="onClose"
-            size="round"
-            type="text"
-            v-else
-            ><mks-icon type="x" size="50" stroke-width="3"></mks-icon
-          ></mks-button>
-        </div>
-      </header>
-      <main class="modal__main">
-        <!-- @slot Main content of the modal-->
-        <slot />
-      </main>
+          <div class="modal__tools">
+            <!-- @slot In the modal menu, allows to display tools or context. -->
+            <slot name="tools"></slot>
+          </div>
+          <div class="modal__close">
+            <mks-button
+              tabindex="0"
+              :ref="`modal-close-${uniqueId}`"
+              tag="button"
+              @click="onClose"
+              v-if="closeButton"
+              >Close</mks-button
+            >
+            <mks-button
+              tabindex="0"
+              :ref="`modal-close-${uniqueId}`"
+              tag="button"
+              @click="onClose"
+              size="round"
+              type="text"
+              v-else
+              ><mks-icon type="x" size="40" stroke-width="3"></mks-icon
+            ></mks-button>
+          </div>
+        </header>
+        <main class="modal__main">
+          <!-- @slot Main content of the modal-->
+          <slot />
+        </main>
+      </div>
     </div>
   </transition>
 </template>
@@ -93,6 +102,11 @@ export default {
     closeButton: {
       type: Boolean,
       default: false
+    },
+    /** Displays an overlay over the page content to draw attention to the modal */
+    overlay: {
+      type: Boolean,
+      default: false
     }
   },
   data: function() {
@@ -124,61 +138,105 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.modal {
-  @include flex;
-  @include elevated-xxl;
-  flex-direction: column;
+.modal__wrapper {
   position: fixed;
-
   z-index: 10000;
-  //padding-top: 70px;
-  overflow-y: scroll;
-  background: $background-color-base;
-  max-width: 100%;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
 
-  &--size-small,
-  &--size-medium {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    &.modal-enter {
-      z-index: 10000;
-      transform: translate3d(-50%, 100%, 0);
-    }
+  &.modal--opened {
+    pointer-events: all;
 
-    &.modal-enter-to {
-      transform: translate3d(-50%, -50%, 0);
-    }
-
-    &.modal-leave-to {
-      transform: translate3d(-50%, 100%, 0);
+    .modal__overlay {
+      opacity: 0.4;
     }
   }
 
-  &--size-medium {
+  &.modal--size-small,
+  &.modal--size-medium {
+    .modal {
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      border-radius: $border-radius-l;
+    }
+
+    &.modal-enter-active,
+    &.modal-leave-active {
+      .modal {
+        transform: translate3d(-50%, -50%, 0);
+      }
+    }
+
+    &.modal-enter {
+      .modal {
+        z-index: 10000;
+        transform: translate3d(-50%, 300%, 0);
+      }
+    }
+
+    &.modal-enter-to .modal {
+      transform: translate3d(-50%, -50%, 0);
+    }
+
+    &.modal-leave-to .modal {
+      transform: translate3d(-50%, 300%, 0);
+    }
+  }
+
+  &.modal--size-medium .modal {
     width: 60%;
     min-width: 300px;
     min-height: 20%;
     max-height: 80%;
   }
 
-  &--size-full {
+  &.modal--size-full .modal {
+    border-radius: $border-radius-l;
     top: $space-m;
     bottom: $space-m;
     left: $space-m;
     right: $space-m;
   }
 
-  &--size-page {
+  &.modal--size-page .modal {
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-  }
 
-  .modal__menu {
-    background: none;
+    .modal__menu {
+      background: none;
+    }
   }
+}
+.modal__overlay {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.modal {
+  @include flex;
+  position: fixed;
+  box-shadow: $box-shadow-large;
+  flex-direction: column;
+  //padding-top: 70px;
+  overflow-y: scroll;
+  background: $background-color-base;
+  max-width: 100%;
+  z-index: 2;
 }
 
 .modal__title {
@@ -194,7 +252,12 @@ export default {
   right: 0px;
   z-index: 10000;
   background: $background-color-soft;
-  padding: $space-s;
+  @include inner-space("s", "y");
+  @include inner-space("m", "x");
+
+  @include breakpoint("medium") {
+    @include inner-space("xl", "x");
+  }
 }
 
 .modal__tools {
@@ -215,10 +278,16 @@ export default {
 
 .modal-enter-active,
 .modal-leave-active {
-  transform: translate3d(0, 0, 0);
-  transition: transform 0.2s;
-  perspective: 1000;
-  backface-visibility: hidden;
+  .modal {
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.2s;
+    perspective: 1000;
+    backface-visibility: hidden;
+  }
+  .modal__overlay {
+    transition: opacity 0.1s;
+    opacity: 0.4;
+  }
 }
 
 .modal-enter-active {
@@ -226,16 +295,30 @@ export default {
 }
 
 .modal-enter {
+  .modal {
+    transform: translate3d(0, 100%, 0);
+  }
   z-index: 10000;
-  transform: translate3d(0, 100%, 0);
 }
 
 .modal-enter-to {
-  transform: translate3d(0%, 0, 0);
+  .modal {
+    transform: translate3d(0%, 0, 0);
+  }
+  .modal__overlay {
+    transition: opacity 0.2s;
+    opacity: 0;
+  }
 }
 
 .modal-leave-to {
-  transform: translate3d(0, 100%, 0);
+  .modal {
+    transform: translate3d(0, 100%, 0);
+  }
+  .modal__overlay {
+    transition: opacity 0.2s;
+    opacity: 0;
+  }
 }
 </style>
 <docs>
