@@ -236,7 +236,7 @@ export default {
   overflow-y: scroll;
   background: $background-color-base;
   max-width: 100%;
-  z-index: 2;
+  z-index: 10000;
 }
 
 .modal__title {
