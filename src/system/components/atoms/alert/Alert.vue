@@ -1,5 +1,12 @@
 <template>
-  <div :class="classes" :role="role">
+  <div
+    :class="classes"
+    :role="role"
+    :style="{
+      backgroundColor: background !== undefined ? background : null,
+      color: textColor !== undefined ? textColor : null
+    }"
+  >
     <!-- @slot Content of the slot-->
     <slot />
     <mks-separator v-if="separator" :color="separatorColor"></mks-separator>
@@ -25,6 +32,18 @@ export default {
       }
     },
     /**
+     * Sets the text colors explicitely (overrides `type`)
+     */
+    textColor: {
+      type: String
+    },
+    /**
+     * Sets the background color explicitely (overrides `type`)
+     */
+    background: {
+      type: String
+    },
+    /**
      * Accessibility role for the alert. Use the ARIA role="alert" to inform assistive technologies of a time-sensitive and important message that is not interactive. If the message is interactive, use the role="alertdialog" instead
      */
     role: {
@@ -47,7 +66,10 @@ export default {
   },
   computed: {
     classes() {
-      let classes = `alert alert--${this.type}`;
+      let classes = `alert`;
+      // todo si textColor/color on applique pas le type
+      if (!this.textColor && !this.background)
+        classes += ` alert--${this.type}`;
       if (this.separator) classes += " alert--separator";
       else classes += " alert--no-separator";
       return classes;
@@ -93,6 +115,11 @@ export default {
 <mks-alert type="positive">A positive alert</mks-alert>
 <mks-alert type="warning">A warning alert</mks-alert>
 <mks-alert type="negative">A negative alert</mks-alert>
+```
+
+## Override theme colors
+```jsx
+<mks-alert text-color="#00ff00" background="var(--color-tertiary)">I turned into a nice cerise banner! yoohoo</mks-alert>
 ```
 
 ## With separator
