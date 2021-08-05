@@ -139,11 +139,17 @@ export default {
   }
 
   &__logo {
-    width: 8.75rem;
-    max-height: $space-m;
-    //width: auto;
+    max-width: 8.75rem;
+    max-height: 35px;
     img {
-      max-height: 100%;
+      width: 100%;
+      height: 100%;
+      max-width: 8.75rem;
+      max-height: 35px;
+
+      @include breakpoint("medium") {
+        max-height: 50px;
+      }
     }
   }
 
@@ -247,7 +253,7 @@ The logo is makesense logo by default but can be customized with an URL.
 
 ```jsx
 <mks-button v-on:click="$loadTheme('events')" size="small">Try with events theme</mks-button><br>
-<mks-site-header v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" logo="https://events.makesense.org/static/img/logo.6e3c1fd.svg">
+<mks-site-header v-bind:menu-links="[{label: 'Accueil', to: '/molecules/mkssiteheader'},{label: 'Agenda', to: 'https://google.com'}, {label: 'Jouer', to: { path: '/jouer' }}]" logo="https://s3.eu-west-1.amazonaws.com/api.makesense.org/uploads/1581002704566.kmfXH5W1LIlcntBcbLJ5aQKR.png">
   <template slot="main-bar">
     <mks-list theme="primary">
       <mks-link type="menu" to="https://makesense.org">Retourner au site makesense</mks-link>
