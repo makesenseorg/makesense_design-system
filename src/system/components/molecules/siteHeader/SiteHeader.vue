@@ -18,7 +18,7 @@
     <div class="site-header__bar-container">
       <div class="site-header__bar">
         <mks-link
-          to="/"
+          :to="logoLink"
           type="menu"
           class="site-header__logo"
           :aria-label="$MKSlocale['home']"
@@ -60,6 +60,11 @@ export default {
     logo: {
       type: String,
       default: require("@@/assets/img/brand/makesense-logo.png")
+    },
+    /** Link for the logo */
+    logoLink: {
+      type: [String, Object],
+      default: "/"
     },
     /** Array of links object */
     menuLinks: {
