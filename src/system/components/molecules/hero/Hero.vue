@@ -29,7 +29,7 @@
         <div class="content__text"><slot></slot></div>
       </div>
     </div>
-    <mks-separator class="hero__separator"></mks-separator>
+    <mks-separator class="hero__separator" v-if="separator"></mks-separator>
   </component>
 </template>
 <script>
@@ -92,6 +92,13 @@ export default {
       default: function() {
         return this.theme === "secondary" ? 3 : 1;
       }
+    },
+    /**
+     * Show a separator at the bottom
+     */
+    separator: {
+      type: Boolean,
+      default: true
     }
   }
 };
@@ -241,6 +248,17 @@ Variant of beans to show. Use 0 for no beans, or 1 to 5 for different variants
 <mks-hero 
   title="Innovez dans votre organisation et blablabla..."
   v-bind:beans="2">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</mks-hero>
+```
+
+## Without separator
+
+```jsx
+<mks-hero 
+  title="Innovez dans votre organisation et blablabla..."
+  theme="secondary"
+  v-bind:separator="false">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </mks-hero>
 ```
