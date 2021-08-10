@@ -1,28 +1,32 @@
 <template>
-  <div class="mksemptystate">
+  <div class="empty-state">
     <!-- classes v -->
-    <div class="mksemptystate__container">
+    <mks-spacer spacing="l" class="empty-state__container">
       <img
         v-if="imageVisible"
         :alt="imageAlt"
-        class="content__cover"
+        class="empty-state__cover"
         :src="image"
       />
-      <!-- @slot The header that you want. By default, it is a mks-heading with tag h3 -->
-      <slot name="header">
-        <mks-heading v-if="heading" tag="h3" class="content__heading">{{
-          heading
-        }}</mks-heading>
-      </slot>
-      <div v-if="$slots.description" class="content__description">
-        <!-- @slot The description that you want to add -->
-        <slot name="description"></slot>
-      </div>
-      <div v-if="$slots.cta" class="content__cta mks-space-xl">
+      <mks-spacer spacing="xxs">
+        <!-- @slot The header that you want. By default, it is a mks-heading with tag h3 -->
+        <slot name="header">
+          <mks-heading v-if="heading" tag="h3" class="empty-state__heading">{{
+            heading
+          }}</mks-heading>
+        </slot>
+        <div v-if="$slots.description" class="empty-state__description">
+          <!-- @slot The description that you want to add -->
+          <slot name="description"></slot>
+        </div>
+      </mks-spacer>
+      <slot></slot>
+
+      <div v-if="$slots.cta" class="empty-state__cta">
         <!-- @slot The call to action that you want to add -->
         <slot name="cta"></slot>
       </div>
-    </div>
+    </mks-spacer>
   </div>
 </template>
 <script>
@@ -69,8 +73,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.mksemptystate {
+.empty-state {
   text-align: center;
+}
+.empty-state__cover {
+  max-width: 20em;
+  max-height: 20em;
 }
 </style>
 
@@ -94,15 +102,15 @@ export default {
 ```jsx
 <mks-empty-state heading="Dommage...">
     <template v-slot:description>Il serait temps de te créer un projet !</template>
-    <template v-slot:cta><mks-button>Crée ton projet ici !</mks-button></template>
+    <template v-slot:cta><mks-button>Crée ton projet</mks-button></template>
 </mks-empty-state>
 ```
 ## Empty State with custom image
 
 ```jsx
-<mks-empty-state heading="Dommage..." image="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/285/red-heart_2764-fe0f.png">
+<mks-empty-state heading="Dommage..." image="https://events-2021.staging.makesense.org/_nuxt/img/hiking.9630438.png">
     <template v-slot:description>Il serait temps de te créer un projet !</template>
-    <template v-slot:cta><mks-button>Crée ton projet ici !</mks-button></template>
+    <template v-slot:cta><mks-button>Crée ton projet</mks-button></template>
 </mks-empty-state>
 ```
 </docs>
