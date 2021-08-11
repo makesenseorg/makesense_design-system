@@ -41,7 +41,8 @@ export default {
         typeof this.to === "string" &&
         (this.to.startsWith("http") ||
           this.to.startsWith("//") ||
-          this.to.startsWith("www"))
+          this.to.startsWith("www")) ||
+          this.to.startsWith("mailto:")
       );
     },
     tag() {
