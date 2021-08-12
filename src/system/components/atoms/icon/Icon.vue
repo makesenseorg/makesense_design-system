@@ -69,14 +69,8 @@ export default {
   },
   data() {
     return {
-      defaultSize: 24,
-      path: ""
+      defaultSize: 24
     };
-  },
-  async created() {
-    this.path = `<title id="${this.type}">${this.alt || ""}</title>${
-      feather.icons[this.type]
-    }`;
   },
   computed: {
     getIcon: function() {
@@ -86,6 +80,11 @@ export default {
       if (this.type === "arrowLeft") return "arrow-left";
       if (this.type === "arrowRight") return "arrow-right";
       return this.type;
+    },
+    path() {
+      return `<title id="${this.type}">${this.alt || ""}</title>${
+        feather.icons[this.type]
+      }`;
     }
   }
 };

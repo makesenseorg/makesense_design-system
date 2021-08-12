@@ -69,8 +69,9 @@ export default {
     const childs = [];
     this.$slots.default.forEach(item => {
       // verifier si pas de tag comment faire (node)
-      if (item && item.tag) {
-        // console.log(item.componentOptions.tag);
+      const text = item.text && item.text.trim();
+
+      if (item && (text || item.tag)) {
         if (
           item.componentOptions &&
           item.componentOptions.tag === "mks-spacer-item"
@@ -205,6 +206,7 @@ The spacer component is only made for simple flows of item and not complex layou
   <mks-tag>We</mks-tag>
   <mks-tag>Are</mks-tag>
   <mks-tag>Spaced</mks-tag>
+  some text without tags
 </mks-spacer>
 ```
 

@@ -38,11 +38,11 @@ export default {
   computed: {
     external() {
       return (
-        typeof this.to === "string" &&
-        (this.to.startsWith("http") ||
-          this.to.startsWith("//") ||
-          this.to.startsWith("www")) ||
-          this.to.startsWith("mailto:")
+        (typeof this.to === "string" &&
+          (this.to.startsWith("http") ||
+            this.to.startsWith("//") ||
+            this.to.startsWith("www"))) ||
+        this.to.startsWith("mailto:")
       );
     },
     tag() {
