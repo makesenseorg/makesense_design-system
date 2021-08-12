@@ -124,14 +124,16 @@ export default {
       default: false
     },
     /**
-     * Size of the button. "default", "small", "full", "round"
+     * Size of the button. "default", "small", "medium" "full", "round"
      */
     size: {
       type: String,
       default: "default",
       validator: function(value) {
         return (
-          ["default", "small", "full", "round", "square"].indexOf(value) !== -1
+          ["default", "small", "medium", "full", "round", "square"].indexOf(
+            value
+          ) !== -1
         );
       }
     },
@@ -210,6 +212,10 @@ export default {
     @include padding-button-small;
   }
 
+  &--size-medium {
+    @include border-radius;
+    @include padding-button-small;
+  }
   &--size-full {
     width: 100%;
     text-align: center;
@@ -413,8 +419,8 @@ button {
 ```jsx
     <mks-button size="round" icon="menu"></mks-button>
     <mks-button size="small">Button small</mks-button>
-    <br>
-    <mks-button size="default">Button normal</mks-button>
+    <mks-button size="medium">Button medium</mks-button>
+    <mks-button size="default">Button default</mks-button>
     <mks-button size="full">Button full</mks-button>
   ```
 
