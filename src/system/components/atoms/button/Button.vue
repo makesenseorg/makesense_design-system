@@ -16,6 +16,12 @@
     @click="onClick"
     @keyup.enter="onClick"
   >
+    <mks-icon
+      v-if="icon && !iconRight"
+      :type="icon"
+      class="button__icon button__icon--left"
+      :size="size === 'round' ? 24 : 20"
+    ></mks-icon>
     <!-- @slot Content of the button-->
     <slot v-if="!loading" />
     <!-- @slot Content of the button when `loading` prop is true -->
@@ -27,6 +33,12 @@
         :size="20"
       ></mks-loading>
     </slot>
+    <mks-icon
+      v-if="icon && iconRight"
+      :type="icon"
+      class="button__icon button__icon--right"
+      :size="size === 'round' ? 24 : 20"
+    ></mks-icon>
   </component>
 </template>
 <script>
@@ -97,6 +109,19 @@ export default {
           ].indexOf(value) !== -1
         );
       }
+    },
+    /**
+     * Has to be a valid icon type
+     */
+    icon: {
+      type: String
+    },
+    /**
+     * Place the icon on the right side of the text
+     */
+    iconRight: {
+      type: Boolean,
+      default: false
     },
     /**
      * Size of the button. "default", "small", "full", "round"
@@ -203,6 +228,10 @@ export default {
     width: $space-xxl;
     height: $space-xxl;
     text-align: center;
+
+    .button__icon {
+      margin: 0;
+    }
   }
   &--size-square {
     @include text-body;
@@ -354,6 +383,15 @@ export default {
   }
 }
 
+.button__icon {
+  &--left {
+    margin-right: $space-xs;
+  }
+  &--right {
+    margin-left: $space-xs;
+  }
+}
+
 button {
   outline: none !important;
 }
@@ -373,11 +411,22 @@ button {
 
 ## Sizes
 ```jsx
-    <mks-button size="round"><mks-icon type="menu"></mks-icon></mks-button>
+    <mks-button size="round" icon="menu"></mks-button>
     <mks-button size="small">Button small</mks-button>
     <br>
     <mks-button size="default">Button normal</mks-button>
     <mks-button size="full">Button full</mks-button>
+  ```
+
+## With icons
+```jsx
+    <mks-button size="round" icon="bell"></mks-button>
+    <br>
+    <mks-button icon="menu" size="small">Menu</mks-button>
+    <mks-button icon="menu" icon-right size="small">Menu</mks-button>
+    <br>
+    <mks-button icon="star">Sauvegarder</mks-button>
+    <mks-button icon="star" icon-right>Sauvegarder</mks-button>
   ```
 
   ## States
