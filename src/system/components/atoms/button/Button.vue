@@ -51,14 +51,11 @@ export default {
   release: "0.3.0",
   props: {
     /**
-     * Buttons can be replaced by any of these tags : "div", "a", "input", "button", "span"
+     * Buttons can be replaced by any valid tag.
      */
     tag: {
       type: String,
       default: "button",
-      validator: function(value) {
-        return ["div", "a", "input", "button", "span"].indexOf(value) !== -1;
-      }
     },
     /**
      * If loading is set to true, the button will display the loading slot or "Processing..."
