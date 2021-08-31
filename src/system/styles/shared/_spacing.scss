@@ -54,8 +54,8 @@ $spacing-ratio: 1.618;
 }
 
 @mixin padding-container {
-  padding-left: $space-m * 2;
-  padding-right: $space-m * 2;
+  padding-left: $space-xl;
+  padding-right: $space-xl;
   padding-top: $space-m;
   padding-bottom: $space-m;
 
@@ -66,14 +66,14 @@ $spacing-ratio: 1.618;
 }
 
 @mixin padding-container-double {
-  padding-left: $space-m * 3;
-  padding-right: $space-m * 3;
-  padding-top: $space-m * 2;
-  padding-bottom: $space-m * 2;
+  padding-left: $space-xxl;
+  padding-right: $space-xxl;
+  padding-top: $space-xl;
+  padding-bottom: $space-xl;
 
   @media only screen and (max-width: 767px) {
-    padding-left: $space-m * 2;
-    padding-right: $space-m * 2;
+    padding-left: $space-xl;
+    padding-right: $space-xl;
   }
 }
 
