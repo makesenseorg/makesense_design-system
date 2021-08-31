@@ -9,7 +9,7 @@
 
 aliases:
   black:
-    value: "#001123"
+    value: "#00194f"
   white:
     value: "#fff"
   red:
@@ -65,15 +65,19 @@ props:
   # Use different lightness variations of the base hues.
   #
   # Light theme: darkest color | Dark theme: lightest color
+  - name: color-default
+    value: &color-default "{!black}"
+  - name: color-default-inverse
+    value: &color-default-inverse "{!white}"
   - name: color-primary
-    value: &color-primary "#075163"
+    value: &color-primary "#00194f"
   - name: color-primary-active
-    value: &color-primary-active "#003643"
+    value: &color-primary-active "#0c3944"
   - name: color-primary-inverse
     value: &color-primary-inverse "{!white}"
 
   - name: color-secondary
-    value: &color-secondary "#fabe3c"
+    value: &color-secondary "#f9be3c"
   - name: color-secondary-active
     value: &color-secondary-active "#fff87a"
   - name: color-secondary-inverse

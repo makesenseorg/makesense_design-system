@@ -10,11 +10,12 @@
       <span v-if="textGroups.includes(this.token.category)">Aa</span>
     </div>
     <div>
+      <br />
       <code>{{ token.value }}</code>
       <br />
-      <code>* {{ computedValue }} *</code>
+      <code>{{ computedValue }}</code>
       <br />
-      <code v-if="hexValue">* {{ hexValue }} *</code>
+      <code v-if="hexValue">{{ hexValue }}</code>
     </div>
   </div>
 </template>
@@ -42,7 +43,8 @@ export default {
         "line-height"
       ],
       timeGroups: ["time", "ease"],
-      hideTokenGroups: ["space-size", "media-size", "z-index", "media-query"]
+      hideTokenGroups: ["space-size", "media-size", "z-index", "media-query"],
+      computedValue: null
     };
   },
   computed: {
@@ -109,15 +111,6 @@ export default {
       }
       return styles;
     },
-    computedValue() {
-      const formatted = this.token.value
-        .toString()
-        .replace("var(", "")
-        .replace(")", "");
-      return getComputedStyle(document.documentElement).getPropertyValue(
-        formatted
-      );
-    },
     hexValue() {
       if (
         this.token.category !== "text-color" &&
@@ -127,6 +120,7 @@ export default {
       )
         return;
 
+      if (!this.computedValue) return;
       return this.rgbToHex(
         this.computedValue
           .replace("rgb(", "")
@@ -135,7 +129,28 @@ export default {
       );
     }
   },
+  watch: {
+    mksGetTheme(value) {
+      console.log("watching", value);
+      this.setComputedValue();
+    }
+  },
+  mounted() {
+    this.setComputedValue();
+    console.log(this.mksGetTheme);
+  },
   methods: {
+    setComputedValue() {
+      // console.log("in set computed");
+      if (!this.token.value) return;
+      const formatted = this.token.value
+        .toString()
+        .replace("var(", "")
+        .replace(")", "");
+      this.computedValue = getComputedStyle(
+        document.documentElement
+      ).getPropertyValue(formatted);
+    },
     rgbToHex(rgb) {
       return (
         "#" +

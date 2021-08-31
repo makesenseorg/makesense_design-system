@@ -4,7 +4,5 @@ You can use tokens as SCSS variables or import them in your JS:
 ```
 import { tokens } from 'system'
 ```
-<mks-icon type="alert-circle" color="warning"></mks-icon> 
-<mks-text size="small" color="light"> Known bug: The values indicated by <code>*</code> only work with the base theme for now </mks-text>
 
 <design-tokens />
