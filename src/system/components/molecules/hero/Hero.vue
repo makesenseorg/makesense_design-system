@@ -116,6 +116,7 @@ export default {
     // padding-bottom: $space-xxl;
     @include inner-space("xxl", "t");
     @include inner-space("xxl", "b");
+    background-position: right center;
   }
 
   &__container {
