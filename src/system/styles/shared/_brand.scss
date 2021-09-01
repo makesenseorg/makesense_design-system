@@ -5,5 +5,6 @@
     width: $space-xs;
     background: $color;
     margin-right: $margin-right;
-    @include border-round;
+    overflow: visible;
+    border-radius: 20px;
 }

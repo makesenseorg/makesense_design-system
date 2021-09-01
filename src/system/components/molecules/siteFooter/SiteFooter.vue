@@ -15,7 +15,6 @@ export default {
   text-align: center;
   background: $color-default;
   color: $color-default-inverse;
-  border-top: $border-width-m solid $border-color-base;
   padding: {
     top: $space-xxl;
     right: $space-m;

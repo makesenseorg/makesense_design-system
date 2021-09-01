@@ -55,7 +55,7 @@ export default {
      */
     tag: {
       type: String,
-      default: "button",
+      default: "button"
     },
     /**
      * If loading is set to true, the button will display the loading slot or "Processing..."

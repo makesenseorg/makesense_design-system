@@ -112,10 +112,10 @@ export default {
   background-size: cover;
 
   @include breakpoint("small") {
-    padding-top: $space-xxl;
-    padding-bottom: $space-xxxl;
-    @include inner-space("xxl" "t");
-    @include inner-space("xxxl", "b");
+    // padding-top: $space-xxl;
+    // padding-bottom: $space-xxl;
+    @include inner-space("xxl", "t");
+    @include inner-space("xxl", "b");
   }
 
   &__container {

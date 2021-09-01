@@ -65,6 +65,7 @@ export default {
   text-decoration: none;
   color: inherit;
   border-bottom: $border-width-m solid;
+  border-radius: $border-radius-full;
 
   &.exact-active,
   &.router-link-exact-active,
