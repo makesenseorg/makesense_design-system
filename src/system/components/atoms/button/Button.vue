@@ -2,7 +2,7 @@
   <component
     :is="tag"
     :class="[
-      `button button--type-${type} button--size-${size}`,
+      `button button--type-${type} button--size-${size} button--style-${variant}`,
       { 'button--loading': loading }
     ]"
     :role="role"
@@ -11,7 +11,10 @@
     :disabled="disabled"
     ref="container"
     :style="{
-      minWidth: $slots.loading === undefined ? minWidth + 'px' : 'auto'
+      minWidth:
+        $slots.loading === undefined && variant !== 'text' && variant !== 'bare'
+          ? minWidth + 'px'
+          : 'auto'
     }"
     @click="onClick"
     @keyup.enter="onClick"
@@ -80,7 +83,8 @@ export default {
       default: ""
     },
     /**
-     * Color of the button. "primary",
+     * Color of the button. 
+     *      "primary",
             "secondary",
             "tertiary",
             "neutral",
@@ -105,6 +109,16 @@ export default {
             "text-active"
           ].indexOf(value) !== -1
         );
+      }
+    },
+    /**
+     * Style of the button : full(default), ghost, text, underline
+     */
+    variant: {
+      type: String,
+      default: "full",
+      validator: function(value) {
+        return ["full", "ghost", "text"].indexOf(value) !== -1;
       }
     },
     /**
@@ -253,124 +267,126 @@ export default {
   }
 
   @mixin type-text {
-    @include text-small;
+    // @include text-small;
     background-color: transparent;
-    text-transform: uppercase;
     color: inherit;
     padding: 0;
     margin: 0;
     border: none;
+    font-size: inherit;
+    font-weight: inherit;
+    display: inline;
+    text-decoration: none;
   }
 
-  &--type-text {
+  &--style-bare {
     @include type-text;
     font-weight: $font-weight-normal;
-  }
-
-  &--type-text-active {
-    @include type-text;
-    font-weight: $font-weight-black;
-  }
-
-  &--type-primary {
-    background-color: $color-primary;
-    border-color: $color-primary;
-    color: $color-primary-inverse;
-
-    &:hover {
-      background-color: $color-primary-active;
-      border-color: $color-primary-active;
-    }
-  }
-
-  &--type-secondary {
-    background-color: $color-secondary;
-    border-color: $color-secondary;
-    color: $color-secondary-inverse;
-
-    &:hover {
-      // todo : garder la border peut-être? ou rendre l'effet un peu plus légeer
-      background-color: $color-secondary-active;
-      border-color: $color-secondary-active;
-    }
-
     &:focus {
-      @include focus($color-secondary);
+      box-shadow: none;
     }
   }
 
-  &--type-tertiary {
-    background-color: $color-tertiary;
-    border-color: $color-tertiary;
-    color: $color-tertiary-inverse;
+  $themes: (
+    "neutral": (
+      "color": $background-color-soft,
+      "inverse": $color-neutral-20,
+      "active": $background-color-softest
+    ),
+    "primary": (
+      "color": $color-primary,
+      "inverse": $color-primary-inverse,
+      "active": $color-primary-active
+    ),
+    "secondary": (
+      "color": $color-secondary,
+      "inverse": $color-secondary-inverse,
+      "active": $color-secondary-active
+    ),
+    "tertiary": (
+      "color": $color-tertiary,
+      "inverse": $color-tertiary-inverse,
+      "active": $color-tertiary-active
+    ),
+    "positive": (
+      "color": $color-success,
+      "inverse": $color-success-inverse,
+      "active": $color-success-active
+    ),
+    "warning": (
+      "color": $color-warning,
+      "inverse": $color-warning-inverse,
+      "active": $color-warning-active
+    ),
+    "negative": (
+      "color": $color-danger,
+      "inverse": $color-danger-inverse,
+      "active": $color-danger-active
+    )
+  );
 
-    &:hover {
-      // todo : garder la border peut-être? ou rendre l'effet un peu plus légeer
-      background-color: $color-tertiary-active;
-      border-color: $color-tertiary-active;
+  @function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+      $map: map-get($map, $key);
     }
-
-    &:focus {
-      @include focus($color-tertiary);
-    }
+    @return $map;
   }
+  @each $name, $theme in $themes {
+    &.button--type-#{$name} {
+      &.button--style-full {
+        @if $name == "neutral" {
+          border-color: map-deep-get($theme, "active");
+        } @else {
+          border-color: map-deep-get($theme, "color");
+        }
+        background-color: map-deep-get($theme, "color");
+        color: map-deep-get($theme, "inverse");
 
-  &--type-positive {
-    background-color: $color-success;
-    border-color: $color-success;
-    color: $color-success-inverse;
+        &:hover {
+          background-color: map-deep-get($theme, "active");
+          border-color: map-deep-get($theme, "active");
+        }
 
-    &:hover {
-      background-color: $color-success-active;
-      border-color: $color-success-active;
-    }
+        &:focus {
+          @include focus(map-deep-get($theme, "active"));
+        }
+      }
+      &.button--style-ghost {
+        @if $name == "neutral" {
+          border-color: map-deep-get($theme, "active");
+          color: map-deep-get($theme, "inverse");
+        } @else {
+          border-color: map-deep-get($theme, "color");
+          color: map-deep-get($theme, "color");
+        }
+        background: transparent;
 
-    &:focus {
-      @include focus($color-success);
-    }
-  }
+        &:hover {
+          background-color: map-deep-get($theme, "color");
+          color: map-deep-get($theme, "inverse");
+        }
 
-  &--type-warning {
-    background-color: $color-warning;
-    border-color: $color-warning;
-    color: $color-warning-inverse;
+        &:focus {
+          @include focus(map-deep-get($theme, "active"));
+        }
+      }
 
-    &:hover {
-      background-color: $color-warning-active;
-      border-color: $color-warning-active;
-    }
-
-    &:focus {
-      @include focus($color-warning-active);
-    }
-  }
-
-  &--type-negative {
-    background-color: $color-danger;
-    border-color: $color-danger;
-    color: $color-danger-inverse;
-
-    &:hover {
-      background-color: $color-danger-active;
-      border-color: $color-danger-active;
-    }
-
-    &:focus {
-      @include focus($color-danger-active);
-    }
-  }
-
-  &--type-neutral {
-    color: $color-neutral-20;
-    background-color: $background-color-base;
-    border-color: $background-color-softest;
-
-    &:hover {
-      background-color: $background-color-softest;
-    }
-
-    &:focus {
-      @include focus($background-color-softest);
+      &.button--style-text {
+        @include type-text;
+        font-weight: $font-weight-black;
+        border-bottom: 1px solid map-deep-get($theme, "color");
+        box-shadow: inset 0 -3px 0 map-deep-get($theme, "color");
+        border-radius: 0;
+        &:hover {
+          background-color: map-deep-get($theme, "color");
+          color: map-deep-get($theme, "inverse");
+        }
+        &:focus {
+          border-radius: $border-radius-m;
+          border-bottom: none;
+          @include focus(map-deep-get($theme, "active"));
+        }
+      }
     }
   }
 
@@ -400,16 +416,33 @@ button {
 }
 </style>
 <docs>
-## Colors
+## Colors and variants
   ```jsx
-    <mks-button tag="button">Button default</mks-button>
-    <mks-button tag="button" type="secondary">Button secondary</mks-button>
-    <mks-button tag="button" type="tertiary">Button tertiary</mks-button>
-    <mks-button tag="button" type="neutral">Button neutral</mks-button>
+
+    <mks-heading tag="h3">Variant full</mks-heading>
+    <mks-button>Button primary</mks-button>
+    <mks-button type="secondary">Button secondary</mks-button>
+    <mks-button type="tertiary">Button tertiary</mks-button>
+    <mks-button type="neutral">Button neutral</mks-button>
     <br>
     <mks-button type="positive">Button positive</mks-button>
     <mks-button type="warning">Button warning</mks-button>
     <mks-button type="negative">Button negative</mks-button>
+    <br>
+   <mks-heading tag="h3">Variant ghost</mks-heading>
+    <mks-button type="primary" variant="ghost">Button primary</mks-button>
+    <mks-button type="secondary" variant="ghost">Button secondary</mks-button>
+    <mks-button type="tertiary" variant="ghost">Button tertiary</mks-button>
+    <mks-button type="neutral" variant="ghost">Button neutral</mks-button>
+
+    <br>
+    <mks-button type="positive" variant="ghost">Button positive</mks-button>
+    <mks-button type="warning" variant="ghost">Button warning</mks-button>
+    <mks-button type="negative" variant="ghost">Button negative</mks-button>
+    <br>
+    <mks-heading tag="h3">Variant bare and text</mks-heading>
+    This is some text, and <mks-button variant="bare">a styleless button</mks-button>,
+    and a <mks-button variant="text" type="secondary">text button</mks-button>.
   ```
 
 ## Sizes

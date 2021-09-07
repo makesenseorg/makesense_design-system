@@ -34,7 +34,7 @@
 
         <div v-if="sidebar" class="site-header__sidebar-control">
           <mks-button
-            type="text"
+            variant="bare"
             @click="$emit('openSidebar')"
             :aria-label="$MKSlocale['openSidebar']"
           >

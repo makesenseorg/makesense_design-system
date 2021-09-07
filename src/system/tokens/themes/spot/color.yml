@@ -70,23 +70,23 @@ props:
   - name: color-default-inverse
     value: &color-default-inverse "{!white}"
   - name: color-primary
-    value: &color-primary "#00194f"
+    value: &color-primary "{!black}"
   - name: color-primary-active
-    value: &color-primary-active "#0c3944"
+    value: &color-primary-active "#00174b"
   - name: color-primary-inverse
     value: &color-primary-inverse "{!white}"
 
   - name: color-secondary
     value: &color-secondary "#f9be3c"
   - name: color-secondary-active
-    value: &color-secondary-active "#fff87a"
+    value: &color-secondary-active "#f8b623"
   - name: color-secondary-inverse
     value: &color-secondary-inverse "{!black}"
 
   - name: color-tertiary
     value: &color-tertiary "{!cerise}"
   - name: color-tertiary-active
-    value: &color-tertiary-active "#c10b63"
+    value: &color-tertiary-active "#93074b"
   - name: color-tertiary-inverse
     value: &color-tertiary-inverse "{!white}"
 
@@ -149,28 +149,28 @@ props:
   - name: color-success
     value: &color-success "#27AE60"
   - name: color-success-active
-    value: &color-success-active "#2abb67"
+    value: &color-success-active "#25a55b"
   - name: color-success-inverse
     value: &color-success-inverse "{!white}"
 
   - name: color-danger
     value: &color-danger "#d93a3a"
   - name: color-danger-active
-    value: &color-danger-active "#dd4b4b"
+    value: &color-danger-active "#d62e2e"
   - name: color-danger-inverse
     value: &color-danger-inverse "{!white}"
 
   - name: color-warning
     value: &color-warning "hsla({!orange}, 50%, 1)"
   - name: color-warning-active
-    value: &color-warning-active "hsla({!orange}, 56%, 1)"
+    value: &color-warning-active "hsla({!orange}, 48%, 1)"
   - name: color-warning-inverse
     value: &color-warning-inverse "{!white}"
 
   - name: color-yellow
     value: &color-yellow "hsla({!yellow}, 48%, 1)"
   - name: color-yellow-active
-    value: &color-yellow-active "hsla({!yellow}, 52%, 1)"
+    value: &color-yellow-active "hsla({!yellow}, 46%, 1)"
   - name: color-yellow-inverse
     value: &color-yellow-inverse "{!white}"
 

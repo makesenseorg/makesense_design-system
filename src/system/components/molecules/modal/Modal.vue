@@ -48,7 +48,7 @@
               tag="button"
               @click="onClose"
               size="round"
-              type="text"
+              variant="bare"
               v-else
               ><mks-icon type="x" size="40" stroke-width="3"></mks-icon
             ></mks-button>

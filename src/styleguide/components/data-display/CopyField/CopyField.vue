@@ -4,7 +4,7 @@
       <slot />
     </div>
     <div class="ds-copy-field-link">
-      <mks-button @click="copy" type="text" size="small">
+      <mks-button @click="copy" variant="bare" size="small">
         <mks-icon type="copy"></mks-icon>
       </mks-button>
     </div>

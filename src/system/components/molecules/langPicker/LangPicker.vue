@@ -7,12 +7,13 @@
           'app-lang__button': true,
           'app-lang__button--active': lang === active
         }"
-        :type="lang === active ? 'text-active' : 'text'"
+        variant="bare"
         :aria-selected="lang === active ? true : false"
         role="option"
         @click="$emit('select', lang)"
-        >{{ lang }}</mks-button
       >
+        {{ lang }}
+      </mks-button>
     </li>
   </ul>
 </template>
@@ -52,6 +53,14 @@ export default {
 }
 .app-lang__item {
   margin-right: $space-s;
+}
+.app-lang__button {
+  text-transform: uppercase !important;
+  color: inherit !important;
+
+  &--active {
+    font-weight: $font-weight-black;
+  }
 }
 </style>
 
