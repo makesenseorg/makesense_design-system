@@ -6,6 +6,7 @@
     :id="name"
     :ref="reference"
     :editor-toolbar="editorToolbar"
+    :editor-options="editorOptions"
     :name="name"
     :placeholder="placeholder"
     :use-custom-image-handler="editorCustomImageHandler"
@@ -17,6 +18,8 @@
   />
 </template>
 <script>
+import "quill-mention";
+import "quill-mention/dist/quill.mention.css";
 /**
  * The field component can be used for RTE
  * @private
@@ -40,16 +43,29 @@ export default {
     editorToolbar: null,
     editorCustomImageHandler: false,
     placeholder: "",
-    css: ""
+    css: "",
+    onMention: null
   },
   data: () => {
     return {
       theValue: null,
-      component: null
+      component: null,
+      editorOptions: null
     };
   },
   created() {
     this.theValue = this.value;
+    this.editorOptions = {
+      modules: {
+        mention: {
+          isolateCharacter: true,
+          source: async (searchTerm, renderList) => {
+            const matchedPeople = await this.onMention(searchTerm);
+            renderList(matchedPeople);
+          }
+        }
+      }
+    };
   },
   mounted: function() {
     if (
@@ -59,7 +75,6 @@ export default {
     )
       this.component = require("vue2-editor").VueEditor;
   },
-  computed: {},
   methods: {
     handleImageAdded: function(file, Editor, cursorLocation, resetUploader) {
       this.$emit("image-added", file, Editor, cursorLocation, resetUploader);
@@ -192,7 +207,36 @@ export default {
 };
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.quillWrapper /deep/ {
+  .ql-mention-list {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
+  }
+
+  .ql-mention-list-item {
+    @include text-small;
+    list-style-type: none;
+    padding: $space-xxs $space-xs;
+    line-height: inherit;
+    margin: 0;
+
+    .user__name {
+      @include text-small-extrabold;
+    }
+
+    &.selected {
+      background-color: $color-neutral-60;
+    }
+  }
+}
+
+.mention {
+  @include text-small;
+  background-color: $color-neutral-60;
+}
+</style>
 <docs>
 ## Icon types
 </docs>
