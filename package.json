@@ -1,6 +1,6 @@
 {
   "name": "@makesenseorg/design-system",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "scripts": {
     "serve": "http-server ./docs -o -s",
     "build": "npm run theo && vue-cli-service build; mkdir docs/assets; cp -r src/styleguide/assets public/",
@@ -21,6 +21,7 @@
     "dayjs": "^1.8.26",
     "eval": "^0.1.4",
     "feather-icons": "^4.28.0",
+    "quill-mention": "^3.0.4",
     "reset-css": "^5.0.1",
     "vue": "^2.5.17",
     "vue-feather": "^1.0.1",

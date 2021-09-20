@@ -71,6 +71,7 @@
       @image-added="editorHandleImageAdded"
       :name="name"
       :placeholder="placeholder"
+      :on-mention="onMention"
       :class="getCss"
       @focus="$emit('focus')"
       @blur="onBlur"
@@ -353,6 +354,15 @@ export default {
       validator: function(value) {
         return ["default", "onBlack"].indexOf(value) !== -1;
       }
+    },
+    /**
+     * Callback function for suggesting a list of users when mentioning.
+     * Only for `editor` field.
+     * Must return a list of objects with each an `id` and `value` at the minimum.
+     */
+    onMention: {
+      type: Function,
+      default: null
     }
   },
   watch: {
@@ -702,6 +712,22 @@ For accessibility purposes, indicate required fields by using <code>mks-visually
     <mks-field name="search" type="search" placeholder="Search..." value=""></mks-field>
   ```
 
+## Editor with mention
+
+In order to enable mention functionality in the editor, you need to provide a callback function through the prop `on-mention`.
+
+The function has the search term as argument, and awaits an array of objects, which each have an `id` and `value`.
+
+<pre><code> // example of return value for the callback function
+(searchTerm) => [
+    { id: 1, value: 'name 1' }, 
+    { id: 2, value: 'name 2' }
+]
+</code></pre>
+```jsx
+<mks-field name="editor" v-bind:on-mention="() => [{ id: 1, value: 'name 1' }, { id: 2, value: 'name 2' }]" type="editor" label="Editor" placeholder="Placeholder" value="" ></mks-field>
+```
+
 ## Additional texts
 
 ```jsx
@@ -722,5 +748,4 @@ For accessibility purposes, indicate required fields by using <code>mks-visually
     <mks-field name="text" type="text" label="Success" v-bind:success="true" value="Foo success"></mks-field>
     <mks-field name="text" type="text" label="Error" v-bind:error="true" value="Bar error"></mks-field>
   ```
-
 </docs>
