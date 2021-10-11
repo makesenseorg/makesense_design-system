@@ -59,7 +59,7 @@ export default {
       }
     },
     size: {
-      type: String,
+      type: [String, Number],
       default: "24"
     },
     strokeWidth: {
@@ -151,6 +151,11 @@ Some examples :
   <mks-icon type="thumbs-up"></mks-icon> 
   <mks-icon type="user"></mks-icon>
   <mks-icon type="zoom-in"></mks-icon>
+</p>
+
+<p>
+  <mks-icon type="star" alt="petite étoile" v-bind:size="12" color="primary"></mks-icon> 
+  <mks-icon type="star" alt="étoile couleur secondaire" size="50" color="secondary"></mks-icon> 
 </p>
 ```
 </docs>
