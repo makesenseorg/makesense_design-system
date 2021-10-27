@@ -2,7 +2,7 @@
   <component
     :is="'div'"
     class="hero"
-    :class="['hero--theme-' + theme]"
+    :class="[`hero--theme-${theme}`, `hero--size-${size}`]"
     :style="{
       backgroundColor: mainColor !== undefined ? mainColor : null,
       color: textColor !== undefined ? textColor : null,
@@ -99,6 +99,14 @@ export default {
     separator: {
       type: Boolean,
       default: true
+    },
+    /**
+     * Size variant of the header.
+     * Introduced version 1.10.0
+     */
+    size: {
+      type: String,
+      default: "large"
     }
   }
 };
@@ -110,18 +118,31 @@ export default {
   overflow: hidden;
   position: relative;
   background-size: cover;
+  &--size-small {
+    @include inner-space("s", "t");
+    @include inner-space("m", "b");
+  }
 
   @include breakpoint("small") {
     // padding-top: $space-xxl;
     // padding-bottom: $space-xxl;
-    @include inner-space("xxl", "t");
-    @include inner-space("xxl", "b");
+    &--size-large {
+      @include inner-space("xxl", "t");
+      @include inner-space("xxl", "b");
+    }
+
     background-position: right center;
   }
 
   &__container {
     flex-wrap: nowrap;
-    @include container-spacing;
+    .hero--size-large & {
+      @include container-spacing;
+    }
+    .hero--size-small & {
+      @include container-spacing(true);
+      @include inner-space("m", "x");
+    }
   }
 
   &__content {
@@ -135,15 +156,15 @@ export default {
     z-index: 1;
 
     .content {
-      &__uptitle {
-        @include title-xsmall;
-        margin-bottom: $space-m;
-      }
-
       &__title {
         @include title-large;
         font-weight: $font-weight-extrablack;
         margin-bottom: $space-l;
+
+        .hero--size-small & {
+          @include title-small;
+          margin-bottom: $space-s;
+        }
 
         img {
           height: 1em;
@@ -156,10 +177,22 @@ export default {
         }
       }
 
+      &__uptitle {
+        @include title-xsmall;
+        margin-bottom: $space-m;
+        .hero--size-small & {
+          @include text-body-black;
+          margin-bottom: $space-s;
+        }
+      }
+
       &__text {
         @include title-xsmall;
         font-weight: 600;
         line-height: 1.5em;
+        .hero--size-small & {
+          @include text-body-semibold;
+        }
       }
     }
   }
@@ -262,6 +295,20 @@ Variant of beans to show. Use 0 for no beans, or 1 to 5 for different variants
   v-bind:separator="false">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </mks-hero>
+```
+
+## Size variant small
+
+```jsx
+<div style="max-width: 460px;margin:0 auto;">
+<mks-hero 
+  title="Ne passez pas à côté de votre futur job !"
+  theme="primary"
+  beans="0"
+  size="small">
+    Recevez chaque jour les nouvelles annonces qui correspondent exactement à votre recherche.
+</mks-hero>
+</div>
 ```
 
 </docs>
