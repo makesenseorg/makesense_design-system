@@ -139,6 +139,7 @@ $sizes: ("xxxs", "xxs", "xs", "s", "m", "l", "xl", "xxl", "xxxl");
     flex-direction: row;
     align-items: center;
     max-height: 100%;
+    max-width: none;
   }
 
   &--no-wrap {
