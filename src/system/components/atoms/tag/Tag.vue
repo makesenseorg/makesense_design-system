@@ -249,7 +249,7 @@ export default {
 
 ## With close or check icons
 ```jsx
-    <mks-tag label="Close icon" icon="close" v-bind:cliquable="true"></mks-tag>
+    <mks-tag label="Close icon" icon="x" v-bind:cliquable="true"></mks-tag>
     <mks-tag label="Check icon" icon="check" v-bind:cliquable="true"></mks-tag>
   ```
 
