@@ -31,14 +31,14 @@
           >
             <!-- @slot Slot to provide a custom selected option display -->
             <slot name="optionitem" :value="value">
-              <ds-chip
+              <mks-tag
                 removable
                 @remove="deselectOption(index)"
                 color="primary"
                 :size="size"
               >
                 {{ value[labelProp] || value }}
-              </ds-chip>
+              </mks-tag>
             </slot>
           </div>
           <input

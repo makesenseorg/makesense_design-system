@@ -16,13 +16,13 @@
               </div>
               <ds-space :margin-bottom="null" margin-top="s">
                 <div v-if="row.options">
-                  <ds-chip
+                  <mks-tag
                     size="small"
                     v-for="option in row.options"
                     :key="option"
                   >
                     {{ option }}
-                  </ds-chip>
+                  </mks-tag>
                 </div>
                 <mks-text size="small" color="light">{{
                   row.description
@@ -31,12 +31,12 @@
             </mks-spacer>
           </template>
           <template slot="type" slot-scope="{ row }">
-            <ds-chip v-for="type in row.types" :key="type" inline>
+            <mks-tag v-for="type in row.types" :key="type" inline>
               {{ type }}
-            </ds-chip>
+            </mks-tag>
           </template>
           <template slot="default" slot-scope="{ row }">
-            <ds-chip v-if="row.defaultValue" color="primary">
+            <mks-tag v-if="row.defaultValue" color="primary">
               <template v-if="row.default">
                 {{ row.default }}
               </template>
@@ -46,7 +46,7 @@
               <template v-else>
                 {{ row.defaultValue.value }}
               </template>
-            </ds-chip>
+            </mks-tag>
           </template>
         </ds-table>
       </ds-card>
@@ -100,7 +100,6 @@ import DsSpace from "./layout/Space/Space";
 import DsText from "./typography/Text/Text";
 import DsHeading from "./typography/Heading/Heading";
 import DsCode from "./typography/Code/Code";
-import DsChip from "./typography/Chip/Chip";
 import DsCard from "./layout/Card/Card";
 import DsTag from "./typography/Tag/Tag";
 
@@ -119,7 +118,6 @@ export default {
     DsHeading,
     DsCode,
     DsCard,
-    DsChip,
     DsTag
   },
   data() {
