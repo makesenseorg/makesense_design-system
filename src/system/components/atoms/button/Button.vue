@@ -14,7 +14,9 @@
       minWidth:
         $slots.loading === undefined && variant !== 'text' && variant !== 'bare'
           ? minWidth + 'px'
-          : 'auto'
+          : 'auto',
+      '--color': `var(--color-${type})`,
+      '--color-inverse': `var(--color-${getContrastColor(type)})`
     }"
     @click="onClick"
     @keyup.enter="onClick"
@@ -45,6 +47,7 @@
   </component>
 </template>
 <script>
+import { colorTokens } from "@@/mixins";
 /**
  * Buttons can be used for any action or inner link.
  * @version 0.3.0
@@ -52,6 +55,7 @@
 export default {
   name: "MksButton",
   release: "0.3.0",
+  mixins: [colorTokens],
   props: {
     /**
      * Buttons can be replaced by any valid tag.
@@ -97,28 +101,19 @@ export default {
       default: "primary",
       validator: function(value) {
         return (
-          [
-            "primary",
-            "secondary",
-            "tertiary",
-            "neutral",
-            "positive",
-            "warning",
-            "negative",
-            "text",
-            "text-active"
-          ].indexOf(value) !== -1
+          colorTokens.methods.exists(value) ||
+          ["neutral", "positive", "warning", "negative"].indexOf(value) !== -1
         );
       }
     },
     /**
-     * Style of the button : full(default), ghost, text, underline
+     * Style of the button : full(default), ghost, text, bare
      */
     variant: {
       type: String,
       default: "full",
       validator: function(value) {
-        return ["full", "ghost", "text"].indexOf(value) !== -1;
+        return ["full", "ghost", "text", "bare"].indexOf(value) !== -1;
       }
     },
     /**
@@ -287,6 +282,65 @@ export default {
     }
   }
 
+  @mixin make-button($color, $inverse, $active) {
+    &.button--style-full {
+      border-color: $color;
+      background-color: $color;
+      color: $inverse;
+
+      &.button--type-neutral {
+        border-color: $active;
+      }
+
+      &:hover {
+        background-color: $active;
+        border-color: $active;
+      }
+
+      &:focus {
+        @include focus($active);
+      }
+    }
+    &.button--style-ghost {
+      border-color: $color;
+      color: $color;
+      background: transparent;
+      &.button--type-neutral {
+        border-color: $active;
+        color: $inverse;
+      }
+
+      &:hover {
+        background-color: $color;
+        color: $inverse;
+      }
+
+      &:focus {
+        @include focus($active);
+      }
+    }
+    &.button--style-text {
+      @include type-text;
+      &.button--type-neutral {
+        border-color: $active;
+        color: $color-neutral-80;
+      }
+      font-weight: $font-weight-black;
+      border-bottom: 1px solid $color;
+      box-shadow: inset 0 -3px 0 $color;
+      border-radius: 0;
+      &:hover {
+        background-color: $color;
+        color: $inverse;
+      }
+      &:focus {
+        border-radius: $border-radius-m;
+        border-bottom: none;
+        @include focus($active);
+      }
+    }
+  }
+
   $themes: (
     "neutral": (
       "color": $background-color-soft,
@@ -333,62 +387,14 @@ export default {
   }
   @each $name, $theme in $themes {
     &.button--type-#{$name} {
-      &.button--style-full {
-        @if $name == "neutral" {
-          border-color: map-deep-get($theme, "active");
-        } @else {
-          border-color: map-deep-get($theme, "color");
-        }
-        background-color: map-deep-get($theme, "color");
-        color: map-deep-get($theme, "inverse");
-
-        &:hover {
-          background-color: map-deep-get($theme, "active");
-          border-color: map-deep-get($theme, "active");
-        }
-
-        &:focus {
-          @include focus(map-deep-get($theme, "active"));
-        }
-      }
-      &.button--style-ghost {
-        @if $name == "neutral" {
-          border-color: map-deep-get($theme, "active");
-          color: map-deep-get($theme, "inverse");
-        } @else {
-          border-color: map-deep-get($theme, "color");
-          color: map-deep-get($theme, "color");
-        }
-        background: transparent;
-
-        &:hover {
-          background-color: map-deep-get($theme, "color");
-          color: map-deep-get($theme, "inverse");
-        }
-
-        &:focus {
-          @include focus(map-deep-get($theme, "active"));
-        }
-      }
-
-      &.button--style-text {
-        @include type-text;
-        font-weight: $font-weight-black;
-        border-bottom: 1px solid map-deep-get($theme, "color");
-        box-shadow: inset 0 -3px 0 map-deep-get($theme, "color");
-        border-radius: 0;
-        &:hover {
-          background-color: map-deep-get($theme, "color");
-          color: map-deep-get($theme, "inverse");
-        }
-        &:focus {
-          border-radius: $border-radius-m;
-          border-bottom: none;
-          @include focus(map-deep-get($theme, "active"));
-        }
-      }
+      $color: map-deep-get($theme, "color");
+      $inverse: map-deep-get($theme, "inverse");
+      $active: map-deep-get($theme, "active");
+      @include make-button($color, $inverse, $active);
     }
   }
+
+  @include make-button(var(--color), var(--color-inverse), var(--color));
 
   &:disabled,
   &[disabled] {
@@ -416,34 +422,40 @@ button {
 }
 </style>
 <docs>
-## Colors and variants
+## Variants
   ```jsx
 
-    <mks-heading tag="h3">Variant full</mks-heading>
+    <mks-heading tag="h3">Full</mks-heading>
+    <mks-button>Button primary</mks-button>
+    <br>
+   <mks-heading tag="h3">Ghost</mks-heading>
+    <mks-button type="primary" variant="ghost">Button primary</mks-button>
+    <br>
+    <mks-heading tag="h3">Bare and text</mks-heading>
+    This is some text, and <mks-button variant="bare">a styleless button</mks-button>,
+    and a <mks-button variant="text" type="secondary">text button</mks-button>.
+  ```
+
+## Types
+```jsx
+    
+    <mks-heading tag="h3">Theme colors</mks-heading>
     <mks-button>Button primary</mks-button>
     <mks-button type="secondary">Button secondary</mks-button>
-    <mks-button type="tertiary">Button tertiary</mks-button>
+    <mks-button type="tertiary">Button tertiary</mks-button><br>
     <mks-button type="neutral">Button neutral</mks-button>
     <br>
+    <mks-heading tag="h3">Feedback colors</mks-heading>
     <mks-button type="positive">Button positive</mks-button>
     <mks-button type="warning">Button warning</mks-button>
     <mks-button type="negative">Button negative</mks-button>
     <br>
-   <mks-heading tag="h3">Variant ghost</mks-heading>
-    <mks-button type="primary" variant="ghost">Button primary</mks-button>
-    <mks-button type="secondary" variant="ghost">Button secondary</mks-button>
-    <mks-button type="tertiary" variant="ghost">Button tertiary</mks-button>
-    <mks-button type="neutral" variant="ghost">Button neutral</mks-button>
-
+    <mks-heading tag="h3">Other brand colors</mks-heading>
+    <mks-button type="roman">Roman</mks-button>
+    <mks-button type="atlantis">Atlantis</mks-button>
+    <mks-button type="sahara-sand">Sahara sand</mks-button>
     <br>
-    <mks-button type="positive" variant="ghost">Button positive</mks-button>
-    <mks-button type="warning" variant="ghost">Button warning</mks-button>
-    <mks-button type="negative" variant="ghost">Button negative</mks-button>
-    <br>
-    <mks-heading tag="h3">Variant bare and text</mks-heading>
-    This is some text, and <mks-button variant="bare">a styleless button</mks-button>,
-    and a <mks-button variant="text" type="secondary">text button</mks-button>.
-  ```
+```
 
 ## Sizes
 ```jsx

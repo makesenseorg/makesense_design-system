@@ -31,7 +31,7 @@ export default {
       var g = parseInt(hex.substr(2, 2), 16);
       var b = parseInt(hex.substr(4, 2), 16);
       var yiq = (r * 299 + g * 587 + b * 114) / 1000;
-      return yiq >= 128 ? "text" : "neutral-100";
+      return yiq >= 137 ? "text" : "neutral-100";
     },
     getHexa(color) {
       const array = getComputedStyle(document.documentElement)
