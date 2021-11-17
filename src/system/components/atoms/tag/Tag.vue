@@ -3,6 +3,11 @@
     class="tag"
     :class="`tag--color-${color} tag--size-${size} tag--${isCliquable}`"
     :role="isCliquable ? 'button' : undefined"
+    :style="
+      `--color: var(--color-${color}); --color-inverse: var(--color-${getContrastColor(
+        color
+      )})`
+    "
     @click="onClick"
   >
     <slot>{{ formattedLabel }}</slot>
@@ -16,17 +21,17 @@
 </template>
 
 <script>
+import { colorTokens } from "@@/mixins";
 /**
  * Tags are used for small informations or taxonomies.
  * @version 0.1.0
  */
 export default {
   name: "MksTag",
+  mixins: [colorTokens],
   props: {
     /**
-     * Any of the theme colors : "primary",
-            "secondary",
-            "tertiary",
+     * Any of the design tokens colors and these : 
             "neutral",
             "positive",
             "warning",
@@ -38,15 +43,8 @@ export default {
       default: "neutral",
       validator: function(value) {
         return (
-          [
-            "primary",
-            "secondary",
-            "tertiary",
-            "neutral",
-            "positive",
-            "warning",
-            "negative"
-          ].indexOf(value) !== -1
+          colorTokens.methods.exists(value) ||
+          ["positive", "negative", "warning", "neutral"].indexOf(value) !== -1
         );
       }
     },
@@ -120,6 +118,9 @@ export default {
     onClick: function() {
       this.$emit("click");
     }
+  },
+  mounted() {
+    // console.log("tokens", this.colorTokens);
   }
 };
 </script>
@@ -132,39 +133,9 @@ export default {
   align-items: center;
   font-weight: $font-weight-extrabold;
   padding: 0.35em 0.625em;
-
-  &--color-primary {
-    background-color: $color-primary;
-    border-color: $color-primary;
-    color: $color-primary-inverse;
-
-    &:hover {
-      background-color: $color-primary-active;
-      border-color: $color-primary-active;
-    }
-  }
-
-  &--color-secondary {
-    background-color: $color-secondary;
-    border-color: $color-secondary;
-    color: $color-secondary-inverse;
-
-    &:hover {
-      background-color: $color-secondary-active;
-      border-color: $color-secondary-active;
-    }
-  }
-
-  &--color-tertiary {
-    background-color: $color-tertiary;
-    border-color: $color-tertiary;
-    color: $color-tertiary-inverse;
-
-    &:hover {
-      background-color: $color-tertiary-active;
-      border-color: $color-tertiary-active;
-    }
-  }
+  background-color: var(--color);
+  border-color: var(--color);
+  color: var(--color-inverse);
 
   &--color-positive {
     background-color: $color-success;
@@ -231,14 +202,26 @@ export default {
 ## Colors
   ```jsx
     <mks-tag label="Neutral (default)"></mks-tag>
-    <br>
+
+    <mks-text tag="p">Theme colors</mks-text>
     <mks-tag label="Primary" color="primary"></mks-tag>
     <mks-tag label="Secondary" color="secondary"></mks-tag>
-    <mks-tag label="Tertiary" color="tertiary"></mks-tag>
-    <br>
+    <mks-tag label="Tertiary" color="tertiary"></mks-tag><br><br>
+
+    <mks-text tag="p">Feedback colors</mks-text>
     <mks-tag label="Positive" color="positive"></mks-tag>
     <mks-tag label="Warning" color="warning"></mks-tag>
-    <mks-tag label="Negative" color="negative"></mks-tag>
+    <mks-tag label="Negative" color="negative"></mks-tag><br><br>
+
+    <mks-text tag="p">Other brand colors<br>
+      <mks-text tag="span" size="small" color="light">All the colors in design tokens are available.</mks-text>
+    </mks-text>
+    
+    <mks-tag label="Neutral 20" color="neutral-20"></mks-tag>
+    <mks-tag label="Brick red" color="brick-red"></mks-tag>
+    <mks-tag label="Atlantis" color="atlantis"></mks-tag>
+    <mks-tag label="Sahara sand" color="sahara-sand"></mks-tag><br><br>
+    
   ```
 
 ## Sizes

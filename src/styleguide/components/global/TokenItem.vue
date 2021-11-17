@@ -121,12 +121,7 @@ export default {
         return;
 
       if (!this.computedValue) return;
-      return this.rgbToHex(
-        this.computedValue
-          .replace("rgb(", "")
-          .replace(")", "")
-          .split(", ")
-      );
+      return this.rgbToHex(this.computedValue);
     }
   },
   watch: {
@@ -152,9 +147,13 @@ export default {
       ).getPropertyValue(formatted);
     },
     rgbToHex(rgb) {
+      const array = rgb
+        .replace("rgb(", "")
+        .replace(")", "")
+        .split(", ");
       return (
         "#" +
-        rgb
+        array
           .map(x => {
             const hex = parseInt(x, 10).toString(16);
             return hex.length === 1 ? "0" + hex : hex;
