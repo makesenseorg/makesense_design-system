@@ -25,7 +25,7 @@ export default {
       return keys.indexOf(`color-${color}`) !== -1;
     },
     getContrastColor(color) {
-      if (!window) return "neutral-100";
+      if (process.server) return "neutral-100";
       const hex = this.getHexa(color);
       var r = parseInt(hex.substr(0, 2), 16);
       var g = parseInt(hex.substr(2, 2), 16);
