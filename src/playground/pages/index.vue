@@ -21,6 +21,7 @@
       "
     >
       <mks-spacer>
+        <mks-button type="neutral-90">coucou</mks-button>
         <mks-heading tag="h1">Hello world !!!</mks-heading>
         <mks-icon type="clock" />
         <mks-spacer inline distribute="start" align="center">
