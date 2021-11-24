@@ -2,6 +2,7 @@ import filters from "./filters";
 import utils from "./utils";
 import themer from "./themer";
 import i18n from "./i18n";
+import colors from "./colors";
 
 export default {
   install(Vue) {
@@ -9,5 +10,6 @@ export default {
     Vue.use(utils);
     Vue.use(themer);
     Vue.use(i18n);
+    Vue.use(colors);
   }
 };

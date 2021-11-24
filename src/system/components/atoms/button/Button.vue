@@ -16,7 +16,7 @@
           ? minWidth + 'px'
           : 'auto',
       '--color': `var(--color-${type})`,
-      '--color-inverse': `var(--color-${getContrastColor(type)})`
+      '--color-inverse': `var(--color-${contrastColor})`
     }"
     @click="onClick"
     @keyup.enter="onClick"
@@ -47,7 +47,7 @@
   </component>
 </template>
 <script>
-import { colorTokens } from "@@/mixins";
+import Vue from "vue";
 /**
  * Buttons can be used for any action or inner link.
  * @version 0.3.0
@@ -55,7 +55,6 @@ import { colorTokens } from "@@/mixins";
 export default {
   name: "MksButton",
   release: "0.3.0",
-  mixins: [colorTokens],
   props: {
     /**
      * Buttons can be replaced by any valid tag.
@@ -99,9 +98,9 @@ export default {
     type: {
       type: String,
       default: "primary",
-      validator: function(value) {
+      validator: value => {
         return (
-          colorTokens.methods.exists(value) ||
+          Vue.prototype.$colorExists(value) ||
           ["neutral", "positive", "warning", "negative"].indexOf(value) !== -1
         );
       }
@@ -154,7 +153,8 @@ export default {
   data: function() {
     return {
       minWidth: 0,
-      observer: null
+      observer: null,
+      contrastColor: null
     };
   },
   mounted() {
@@ -170,6 +170,9 @@ export default {
       characterData: true,
       subtree: true
     });
+
+    if (typeof window !== undefined || !process.server)
+      this.contrastColor = this.$getContrastColor(this.type);
   },
   beforeDestroy: function() {
     // Clean up

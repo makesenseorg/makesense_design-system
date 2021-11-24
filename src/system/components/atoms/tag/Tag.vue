@@ -4,9 +4,8 @@
     :class="`tag--color-${color} tag--size-${size} tag--${isCliquable}`"
     :role="isCliquable ? 'button' : undefined"
     :style="
-      `--color: var(--color-${color}); --color-inverse: var(--color-${getContrastColor(
-        color
-      )})`
+      `--color: var(--color-${color}); 
+      --color-inverse: var(--color-${contrastColor})`
     "
     @click="onClick"
   >
@@ -21,14 +20,13 @@
 </template>
 
 <script>
-import { colorTokens } from "@@/mixins";
+import Vue from "vue";
 /**
  * Tags are used for small informations or taxonomies.
  * @version 0.1.0
  */
 export default {
   name: "MksTag",
-  mixins: [colorTokens],
   props: {
     /**
      * Any of the design tokens colors and these : 
@@ -43,7 +41,7 @@ export default {
       default: "neutral",
       validator: function(value) {
         return (
-          colorTokens.methods.exists(value) ||
+          Vue.prototype.$colorExists(value) ||
           ["positive", "negative", "warning", "neutral"].indexOf(value) !== -1
         );
       }
@@ -102,6 +100,11 @@ export default {
       default: false
     }
   },
+  data() {
+    return {
+      contrastColor: null
+    };
+  },
   computed: {
     isCliquable() {
       return this.cliquable ? "cliquable" : "not-cliquable";
@@ -120,7 +123,8 @@ export default {
     }
   },
   mounted() {
-    // console.log("tokens", this.colorTokens);
+    if (typeof window !== undefined || !process.server)
+      this.contrastColor = this.$getContrastColor(this.color);
   }
 };
 </script>
