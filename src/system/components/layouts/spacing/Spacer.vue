@@ -67,7 +67,7 @@ export default {
   },
   render(createElement) {
     const childs = [];
-    this.$slots.default.forEach(item => {
+    (this.$slots.default || []).forEach(item => {
       // verifier si pas de tag comment faire (node)
       const text = item.text && item.text.trim();
 
@@ -282,7 +282,7 @@ Add `inline` prop to display items horizontally
 
 
 
-## Distribution 
+## Distribution
 Distribute items on the main axis
 
 ```jsx
@@ -315,7 +315,7 @@ Distribute items on the main axis
 
 
 
-## Alignment 
+## Alignment
 Align items on the secondary axis
 
 TODO: improve doc with select box and reactive prop
@@ -384,7 +384,7 @@ TODO: improve doc with select box and reactive prop
 
 
 
-## Split 
+## Split
 
 You can split the flow and push one or multiple items to the side of the container by using the `spacer-item` component and its prop `push` with the direction as value.
 
