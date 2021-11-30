@@ -22,7 +22,7 @@
     @keyup.enter="onClick"
   >
     <mks-icon
-      v-if="icon && !iconRight"
+      v-if="icon && !iconRight && !loading"
       :type="icon"
       class="button__icon button__icon--left"
       :size="size === 'round' ? 24 : 20"
@@ -40,7 +40,7 @@
       ></mks-loading>
     </slot>
     <mks-icon
-      v-if="icon && iconRight"
+      v-if="icon && iconRight && !loading"
       :type="icon"
       class="button__icon button__icon--right"
       :size="size === 'round' ? 24 : 20"
