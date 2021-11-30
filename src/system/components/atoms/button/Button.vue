@@ -22,7 +22,7 @@
     @keyup.enter="onClick"
   >
     <mks-icon
-      v-if="icon && !iconRight"
+      v-if="icon && !iconRight && !loading"
       :type="icon"
       class="button__icon button__icon--left"
       :size="size === 'round' ? 24 : 20"
@@ -40,7 +40,7 @@
       ></mks-loading>
     </slot>
     <mks-icon
-      v-if="icon && iconRight"
+      v-if="icon && iconRight && !loading"
       :type="icon"
       class="button__icon button__icon--right"
       :size="size === 'round' ? 24 : 20"
@@ -428,7 +428,6 @@ button {
 <docs>
 ## Variants
   ```jsx
-    <mks-button icon="clock" loading="true">Full</mks-button>
     <mks-heading tag="h3">Full</mks-heading>
     <mks-button>Button primary</mks-button>
     <br>

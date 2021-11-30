@@ -10,6 +10,20 @@ function convertToKebabCase(string) {
     .toLowerCase();
 }
 
+function adjust(color, amount) {
+  return (
+    "#" +
+    color
+      .replace(/^#/, "")
+      .replace(/../g, color =>
+        (
+          "0" +
+          Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)
+        ).substr(-2)
+      )
+  );
+}
+
 function getHexa(color) {
   const array = getComputedStyle(document.documentElement)
     .getPropertyValue(`--color-${color}`)
@@ -41,6 +55,13 @@ export default {
       var b = parseInt(hex.substr(4, 2), 16);
       var yiq = (r * 299 + g * 587 + b * 114) / 1000;
       return yiq >= 137 ? "text" : "neutral-100";
+    };
+
+    Vue.prototype.$getHoverColor = color => {
+      if (process.server || typeof window === "undefined") return "neutral-100";
+      const hex = getHexa(color);
+
+      return adjust(hex, -7);
     };
   }
 };
