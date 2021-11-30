@@ -428,7 +428,6 @@ button {
 <docs>
 ## Variants
   ```jsx
-    <mks-button icon="clock" loading="true">Full</mks-button>
     <mks-heading tag="h3">Full</mks-heading>
     <mks-button>Button primary</mks-button>
     <br>

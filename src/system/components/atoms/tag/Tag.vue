@@ -1,10 +1,13 @@
 <template>
   <div
     class="tag"
-    :class="`tag--color-${color} tag--size-${size} tag--${isCliquable}`"
+    :class="
+      `tag--color-${color} tag--size-${size} tag--${isCliquable} tag--style-${variant}`
+    "
     :role="isCliquable ? 'button' : undefined"
     :style="
       `--color: var(--color-${color}); 
+      --color-hover: ${color}; 
       --color-inverse: var(--color-${contrastColor})`
     "
     @click="onClick"
@@ -15,6 +18,7 @@
       class="tag__icon"
       :type="icon"
       :alt="iconAlt"
+      :size="size === 'small' ? 16 : 24"
     ></mks-icon>
   </div>
 </template>
@@ -55,6 +59,16 @@ export default {
       default: "medium",
       validator: function(value) {
         return ["medium", "small"].indexOf(value) !== -1;
+      }
+    },
+    /**
+     * Style of the tag : full(default), ghost, bare
+     */
+    variant: {
+      type: String,
+      default: "full",
+      validator: function(value) {
+        return ["full", "ghost", "bare"].indexOf(value) !== -1;
       }
     },
     /**
@@ -102,7 +116,8 @@ export default {
   },
   data() {
     return {
-      contrastColor: null
+      contrastColor: null,
+      hoverColor: null
     };
   },
   computed: {
@@ -123,8 +138,10 @@ export default {
     }
   },
   mounted() {
-    if (typeof window !== undefined || !process.server)
+    if (typeof window !== undefined || !process.server) {
       this.contrastColor = this.$getContrastColor(this.color);
+      this.hoverColor = this.$getHoverColor(this.color);
+    }
   }
 };
 </script>
@@ -133,6 +150,7 @@ export default {
 .tag {
   @include border-round;
   @include text-small;
+  line-height: 1;
   display: inline-flex;
   align-items: center;
   font-weight: $font-weight-extrabold;
@@ -140,58 +158,64 @@ export default {
   background-color: var(--color);
   border-color: var(--color);
   color: var(--color-inverse);
+  border: 2px solid var(--color);
 
-  &--color-positive {
-    background-color: $color-success;
-    border-color: $color-success;
-    color: $color-success-inverse;
-
+  &--cliquable {
+    cursor: pointer;
     &:hover {
-      background-color: $color-success-active;
-      border-color: $color-success-active;
-    }
-  }
-
-  &--color-warning {
-    background-color: $color-warning;
-    border-color: $color-warning;
-    color: $color-warning-inverse;
-
-    &:hover {
-      background-color: $color-warning-active;
-      border-color: $color-warning-active;
-    }
-  }
-
-  &--color-negative {
-    background-color: $color-danger;
-    border-color: $color-danger;
-    color: $color-danger-inverse;
-
-    &:hover {
-      background-color: $color-danger-active;
-      border-color: $color-danger-active;
+      background-color: var(--color-hover);
+      border-color: var(--color-hover);
     }
   }
 
   &--color-neutral {
-    background-color: $color-neutral-80;
-    border-color: $color-neutral-80;
-    color: $color-neutral-20;
+    --color: var(--color-neutral-80) !important;
+    --color-inverse: var(--color-neutral-20) !important;
 
-    &:hover {
-      background-color: $color-neutral-85;
-      border-color: $color-neutral-85;
+    &.tag--style-ghost {
+      background-color: transparent;
+      border-color: var(--color-neutral-80);
+      color: var(--color-inverse);
     }
+  }
+
+  &--style-full {
+    background-color: var(--color);
+    border-color: var(--color);
+    color: var(--color-inverse);
+  }
+  &--style-ghost {
+    background-color: transparent;
+    border-color: var(--color);
+    color: var(--color);
+  }
+  &--style-bare {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--color-inverse);
+    padding: 0.35em 0.15em;
+  }
+
+  &--color-positive {
+    --color: var(--color-success) !important;
+    --color-inverse: var(--color-success-inverse) !important;
+  }
+
+  &--color-warning {
+    --color: var(--color-warning) !important;
+    --color-inverse: var(--color-warning-inverse) !important;
+  }
+
+  &--color-negative {
+    --color: var(--color-danger) !important;
+    --color-inverse: var(--color-danger-inverse) !important;
   }
 
   &--size-small {
     @include text-xsmall;
+    line-height: 1;
   }
 
-  &--cliquable {
-    cursor: pointer;
-  }
   &--not-cliquable {
     pointer-events: none;
   }
@@ -203,6 +227,13 @@ export default {
 }
 </style>
 <docs>
+## Variants
+```jsx
+  <mks-tag label="Full" variant="full"></mks-tag>
+  <mks-tag label="Ghost" variant="ghost" color="neutral"></mks-tag>
+  <mks-tag label="Bare" variant="bare"></mks-tag>
+```
+
 ## Colors
   ```jsx
     <mks-tag label="Neutral (default)"></mks-tag>
