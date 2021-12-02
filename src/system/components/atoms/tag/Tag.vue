@@ -7,7 +7,7 @@
     :role="isCliquable ? 'button' : undefined"
     :style="
       `--color: var(--color-${color}); 
-      --color-hover: ${color}; 
+      --color-hover: ${hoverColor}; 
       --color-inverse: var(--color-${contrastColor})`
     "
     @click="onClick"
@@ -159,6 +159,7 @@ export default {
   border-color: var(--color);
   color: var(--color-inverse);
   border: 2px solid var(--color);
+  transition: all 0.2s ease;
 
   &--cliquable {
     cursor: pointer;
@@ -171,11 +172,15 @@ export default {
   &--color-neutral {
     --color: var(--color-neutral-80) !important;
     --color-inverse: var(--color-neutral-20) !important;
+    --color-hover: var(--color-neutral-70) !important;
 
     &.tag--style-ghost {
       background-color: transparent;
       border-color: var(--color-neutral-80);
       color: var(--color-inverse);
+      &:hover {
+        background-color: var(--color);
+      }
     }
   }
 
@@ -194,21 +199,29 @@ export default {
     border-color: transparent;
     color: var(--color-inverse);
     padding: 0.35em 0.15em;
+    &:hover {
+      background: transparent;
+      border-color: transparent;
+      text-decoration: underline;
+    }
   }
 
   &--color-positive {
     --color: var(--color-success) !important;
     --color-inverse: var(--color-success-inverse) !important;
+    --color-hover: var(--color-success-active) !important;
   }
 
   &--color-warning {
     --color: var(--color-warning) !important;
     --color-inverse: var(--color-warning-inverse) !important;
+    --color-hover: var(--color-warning-active) !important;
   }
 
   &--color-negative {
     --color: var(--color-danger) !important;
     --color-inverse: var(--color-danger-inverse) !important;
+    --color-hover: var(--color-danger-active) !important;
   }
 
   &--size-small {
@@ -229,9 +242,9 @@ export default {
 <docs>
 ## Variants
 ```jsx
-  <mks-tag label="Full" variant="full"></mks-tag>
-  <mks-tag label="Ghost" variant="ghost" color="neutral"></mks-tag>
-  <mks-tag label="Bare" variant="bare"></mks-tag>
+  <mks-tag label="Full" variant="full" v-bind:cliquable="true"></mks-tag>
+  <mks-tag label="Ghost" variant="ghost" color="neutral" v-bind:cliquable="true"></mks-tag>
+  <mks-tag label="Bare" variant="bare" v-bind:cliquable="true"></mks-tag>
 ```
 
 ## Colors
@@ -239,23 +252,23 @@ export default {
     <mks-tag label="Neutral (default)"></mks-tag>
 
     <mks-text tag="p">Theme colors</mks-text>
-    <mks-tag label="Primary" color="primary"></mks-tag>
-    <mks-tag label="Secondary" color="secondary"></mks-tag>
-    <mks-tag label="Tertiary" color="tertiary"></mks-tag><br><br>
+    <mks-tag label="Primary" color="primary" v-bind:cliquable="true"></mks-tag>
+    <mks-tag label="Secondary" color="secondary" v-bind:cliquable="true"></mks-tag>
+    <mks-tag label="Tertiary" color="tertiary" v-bind:cliquable="true"></mks-tag><br><br>
 
     <mks-text tag="p">Feedback colors</mks-text>
-    <mks-tag label="Positive" color="positive"></mks-tag>
-    <mks-tag label="Warning" color="warning"></mks-tag>
-    <mks-tag label="Negative" color="negative"></mks-tag><br><br>
+    <mks-tag label="Positive" color="positive" v-bind:cliquable="true"></mks-tag>
+    <mks-tag label="Warning" color="warning" v-bind:cliquable="true"></mks-tag>
+    <mks-tag label="Negative" color="negative" v-bind:cliquable="true"></mks-tag><br><br>
 
     <mks-text tag="p">Other brand colors<br>
       <mks-text tag="span" size="small" color="light">All the colors in design tokens are available.</mks-text>
     </mks-text>
     
-    <mks-tag label="Neutral 20" color="neutral-20"></mks-tag>
-    <mks-tag label="Brick red" color="brick-red"></mks-tag>
-    <mks-tag label="Atlantis" color="atlantis"></mks-tag>
-    <mks-tag label="Sahara sand" color="sahara-sand"></mks-tag><br><br>
+    <mks-tag label="Neutral 20" color="neutral-20" v-bind:cliquable="true"></mks-tag>
+    <mks-tag label="Brick red" color="brick-red" v-bind:cliquable="true"></mks-tag>
+    <mks-tag label="Atlantis" color="atlantis" v-bind:cliquable="true"></mks-tag>
+    <mks-tag label="Sahara sand" color="sahara-sand" v-bind:cliquable="true"></mks-tag><br><br>
     
   ```
 
