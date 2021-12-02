@@ -61,7 +61,6 @@ export default {
       if (process.server || typeof window === "undefined") return "neutral-100";
       const hex = getHexa(color);
       const hovercolor = adjust(hex, -10);
-      console.log(color, hex, hovercolor);
 
       return hovercolor;
     };
