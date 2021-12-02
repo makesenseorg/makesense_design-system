@@ -60,8 +60,10 @@ export default {
     Vue.prototype.$getHoverColor = color => {
       if (process.server || typeof window === "undefined") return "neutral-100";
       const hex = getHexa(color);
+      const hovercolor = adjust(hex, -10);
+      console.log(color, hex, hovercolor);
 
-      return adjust(hex, -7);
+      return hovercolor;
     };
   }
 };
