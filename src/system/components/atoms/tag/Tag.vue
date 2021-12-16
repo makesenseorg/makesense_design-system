@@ -12,13 +12,20 @@
     "
     @click="onClick"
   >
-    <slot>{{ formattedLabel }}</slot>
     <mks-icon
-      v-if="icon"
-      class="tag__icon"
+      v-if="icon && iconLeft"
+      class="tag__icon tag__icon--left"
       :type="icon"
       :alt="iconAlt"
-      :size="size === 'small' ? 16 : 24"
+      :size="10"
+    ></mks-icon>
+    <slot>{{ formattedLabel }}</slot>
+    <mks-icon
+      v-if="icon && !iconLeft"
+      class="tag__icon tag__icon--right"
+      :type="icon"
+      :alt="iconAlt"
+      :size="10"
     ></mks-icon>
   </div>
 </template>
@@ -90,20 +97,21 @@ export default {
      */
     icon: {
       type: String,
-      required: false,
-      validator: function(value) {
-        return ["x", "check"].indexOf(value) !== -1;
-      }
+      required: false
     },
     /**
      * Icon description
      */
     iconAlt: {
       type: String,
-      required: false,
-      validator: function(value) {
-        return ["x", "check"].indexOf(value) !== -1;
-      }
+      required: false
+    },
+    /**
+     * Display icon on the left side of the Tag
+     */
+    iconLeft: {
+      type: Boolean,
+      required: false
     },
     /**
      * Should the tag be cliquable
@@ -235,8 +243,14 @@ export default {
 }
 
 .tag__icon {
-  margin-left: $space_xxs;
   color: inherit;
+  transform: scale(1.5);
+  &--left {
+    margin-right: $space_xxs;
+  }
+  &--right {
+    margin-left: $space_xxs;
+  }
 }
 </style>
 <docs>
@@ -278,10 +292,15 @@ export default {
     <mks-tag label="Medium (default)" size="medium"></mks-tag>
   ```
 
-## With close or check icons
+## With icons
 ```jsx
+    <mks-tag label="No icon" v-bind:cliquable="true"></mks-tag>
     <mks-tag label="Close icon" icon="x" v-bind:cliquable="true"></mks-tag>
     <mks-tag label="Check icon" icon="check" v-bind:cliquable="true"></mks-tag>
+    <br>
+    <mks-tag label="No icon" icon-left v-bind:cliquable="true" size="small"></mks-tag>
+    <mks-tag label="Filter icon" icon-left icon="filter" v-bind:cliquable="true" size="small"></mks-tag>
+    <mks-tag label="Search icon" icon-left icon="search" v-bind:cliquable="true" size="small"></mks-tag>
   ```
 
 ## Truncated
