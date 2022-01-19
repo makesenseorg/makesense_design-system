@@ -1,7 +1,8 @@
 <template>
   <component
     :is="tag"
-    :class="`heading heading--${color} heading--${tagClass}`"
+    :class="`heading ${tagClass}`"
+    :style="`--color: ${colorComputed};`"
   >
     <!-- @slot The text passed to the heading -->
     <slot />
@@ -9,6 +10,7 @@
 </template>
 
 <script>
+import Vue from "vue";
 /**
  * Headings are used in each major section of a page in the
  * interface.
@@ -51,11 +53,27 @@ export default {
       required: false,
       validator: function(value) {
         return (
-          ["primary", "secondary", "text", "tertiary", "inherit"].indexOf(
-            value
-          ) !== -1
+          Vue.prototype.$colorExists(value) ||
+          [
+            "positive",
+            "negative",
+            "warning",
+            "neutral",
+            "text",
+            "inherit"
+          ].indexOf(value) !== -1
         );
       }
+    }
+  },
+  computed: {
+    colorComputed() {
+      const hexa = new RegExp("^#(?:[0-9a-fA-F]{3}){1,2}$");
+      if (hexa.test(this.color)) {
+        return this.color;
+      } else if (this.color === "inherit") {
+        return "inherit";
+      } else return `var(--color-${this.color})`;
     }
   }
 };
@@ -64,20 +82,20 @@ export default {
 <style lang="scss" scoped>
 .heading {
   box-sizing: border-box;
-  color: $color-text;
+  color: var(--color);
 
-  &--inherit {
-    color: inherit;
-  }
-  &--primary {
-    color: $color-primary;
-  }
-  &--secondary {
-    color: $color-secondary;
-  }
-  &--tertiary {
-    color: $color-tertiary;
-  }
+  // &--inherit {
+  //   color: inherit;
+  // }
+  // &--primary {
+  //   color: $color-primary;
+  // }
+  // &--secondary {
+  //   color: $color-secondary;
+  // }
+  // &--tertiary {
+  //   color: $color-tertiary;
+  // }
 }
 .h1,
 h1 {
@@ -114,5 +132,16 @@ h6,
     <mks-heading tag="h5">The quick brown fox</mks-heading>
     <mks-heading tag="h6">The quick brown fox</mks-heading>
 
+  ```
+
+  ## Use custom colors
+
+  The `color` prop accepts hexa colors or existing color tokens.
+
+  ```jsx
+    <mks-heading tag="h2" color="primary">The quick brown fox</mks-heading>
+    <mks-heading tag="h2" color="#000">The quick brown fox</mks-heading>
+    <mks-heading tag="h2" color="#ff00ff">The quick brown fox</mks-heading>
+    <mks-heading tag="h2" color="silver-tree">The quick brown fox</mks-heading>
   ```
 </docs>
