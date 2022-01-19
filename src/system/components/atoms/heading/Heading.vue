@@ -52,7 +52,10 @@ export default {
       default: "text",
       required: false,
       validator: function(value) {
+        const hexa = new RegExp("^#(?:[0-9a-fA-F]{3}){1,2}$");
+        // TODO : vérifier toutes les couleurs acceptéess
         return (
+          hexa.test(value) ||
           Vue.prototype.$colorExists(value) ||
           [
             "positive",
@@ -73,6 +76,12 @@ export default {
         return this.color;
       } else if (this.color === "inherit") {
         return "inherit";
+      } else if (this.color === "light") {
+        return "var(--color-text-light)";
+      } else if (this.color === "positive") {
+        return "var(--color-success)";
+      } else if (this.color === "negative") {
+        return "var(--color-danger)";
       } else return `var(--color-${this.color})`;
     }
   }
@@ -143,5 +152,7 @@ h6,
     <mks-heading tag="h2" color="#000">The quick brown fox</mks-heading>
     <mks-heading tag="h2" color="#ff00ff">The quick brown fox</mks-heading>
     <mks-heading tag="h2" color="silver-tree">The quick brown fox</mks-heading>
+    <mks-heading tag="h2" color="positive">The quick brown fox</mks-heading>
+    <mks-heading tag="h2" color="inherit">The quick brown fox</mks-heading>
   ```
 </docs>

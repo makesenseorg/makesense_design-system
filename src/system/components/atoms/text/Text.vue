@@ -2,8 +2,9 @@
   <component
     :is="tag"
     :class="
-      `text text--color-${color} text--size-${size} text--weight-${weight} text--align-${align}`
+      `text text--size-${size} text--weight-${weight} text--align-${align}`
     "
+    :style="`--color: ${colorComputed};`"
   >
     <!-- @slot The text passed to the text -->
     <slot />
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+import Vue from "vue";
 /**
  * For displaying small, normal or large texts.
  *  @version 0.2.0
@@ -99,20 +101,38 @@ export default {
       default: "inherit",
       required: false,
       validator: function(value) {
+        const hexa = new RegExp("^#(?:[0-9a-fA-F]{3}){1,2}$");
+        // TODO : vérifier toutes les couleurs acceptéess
         return (
+          hexa.test(value) ||
+          Vue.prototype.$colorExists(value) ||
           [
+            "positive",
+            "negative",
+            "warning",
+            "neutral",
             "text",
             "light",
-            "primary",
-            "secondary",
-            "tertiary",
-            "inherit",
-            "positive",
-            "warning",
-            "negative"
+            "inherit"
           ].indexOf(value) !== -1
         );
       }
+    }
+  },
+  computed: {
+    colorComputed() {
+      const hexa = new RegExp("^#(?:[0-9a-fA-F]{3}){1,2}$");
+      if (hexa.test(this.color)) {
+        return this.color;
+      } else if (this.color === "inherit") {
+        return "inherit";
+      } else if (this.color === "light") {
+        return "var(--color-text-light)";
+      } else if (this.color === "positive") {
+        return "var(--color-success)";
+      } else if (this.color === "negative") {
+        return "var(--color-danger)";
+      } else return `var(--color-${this.color})`;
     }
   }
 };
@@ -121,42 +141,7 @@ export default {
 <style lang="scss" scoped>
 .text {
   box-sizing: border-box;
-
-  &--color-text {
-    color: text;
-  }
-
-  &--color-inherit {
-    color: inherit;
-  }
-
-  &--color-light {
-    color: $color-text-light;
-  }
-
-  &--color-primary {
-    color: $color-primary;
-  }
-
-  &--color-secondary {
-    color: $color-secondary;
-  }
-
-  &--color-tertiary {
-    color: $color-tertiary;
-  }
-
-  &--color-positive {
-    color: $color-success;
-  }
-
-  &--color-warning {
-    color: $color-warning;
-  }
-
-  &--color-negative {
-    color: $color-danger;
-  }
+  color: var(--color);
 
   &--size-small {
     @include text-small;
@@ -199,13 +184,19 @@ export default {
  ## Colors
 ```jsx
 <mks-text>The quick brown fox</mks-text><br>
-<mks-text color="light">The quick brown fox</mks-text><br><br>
+<mks-text color="light">The quick brown fox</mks-text><br>
+<br>
 <mks-text color="primary">The quick brown fox</mks-text><br>
 <mks-text color="secondary">The quick brown fox</mks-text><br>
-<mks-text color="tertiary">The quick brown fox</mks-text><br><br>
+<mks-text color="tertiary">The quick brown fox</mks-text><br>
+<br>
 <mks-text color="positive">The quick brown fox</mks-text><br>
 <mks-text color="warning">The quick brown fox</mks-text><br>
-<mks-text color="negative">The quick brown fox</mks-text>
+<mks-text color="negative">The quick brown fox</mks-text><br>
+<br>
+<mks-text color="#000">The quick brown fox</mks-text><br>
+<mks-text color="inherit">The quick brown fox</mks-text><br>
+<mks-text color="calypso">The quick brown fox</mks-text>
 ```
 
 ## Sizes and weights
