@@ -32,7 +32,8 @@ export default {
             secondaryNav: 'Navigation secondaire',
             close: 'Fermer',
             home: 'Retour à la page d\'accueil',
-            openSidebar: 'Ouvrir le menu latéral'
+            openSidebar: 'Ouvrir le menu latéral',
+            discover: 'Découvrir'
         },
         en: {
             date: 'Calendar date',
@@ -60,7 +61,8 @@ export default {
             secondaryNav: 'Secondary navigation',
             close: 'Close',
             home: 'Back to homepage',
-            openSidebar: 'Open sidebar'
+            openSidebar: 'Open sidebar',
+            discover: 'Discover'
         },
       },
       current: "fr",
