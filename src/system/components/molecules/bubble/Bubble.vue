@@ -195,7 +195,7 @@ export default {
     width: 400px;
   }
 }
-.bubble__content /deep/ {
+.bubble__content ::v-deep {
   @include text-large-semibold;
   color: var(--color-content);
   p + p {

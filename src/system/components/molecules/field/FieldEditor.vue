@@ -208,7 +208,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.quillWrapper /deep/ {
+.quillWrapper ::v-deep {
   .ql-mention-list {
     list-style-type: none;
     margin: 0;
