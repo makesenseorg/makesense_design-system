@@ -209,6 +209,11 @@ export default {
 
 <style scoped lang="scss">
 .quillWrapper ::v-deep {
+  .ql-mention-list-container {
+    max-height: 250px;
+    overflow: scroll;
+  }
+
   .ql-mention-list {
     list-style-type: none;
     margin: 0;
