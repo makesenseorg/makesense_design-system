@@ -91,6 +91,7 @@
       @focus="$emit('focus')"
       @blur="$emit('blur')"
       @change="$emit('change')"
+      @input="resize"
     ></textarea>
     <label
       v-else-if="type === 'checkbox'"
@@ -159,6 +160,7 @@
       :min="min"
       :max="max"
       v-model="theValue"
+      @input="resize"
       @blur="$emit('blur')"
       @focus="$emit('focus')"
       @change="$emit('change')"
@@ -363,6 +365,15 @@ export default {
     onMention: {
       type: Function,
       default: null
+    },
+    /**
+     * @version 1.14.0
+     * Autoresize field to make it bigger if the text exceeds the specified size.
+     * Only for textarea inputs.
+     */
+    autoresize: {
+      type: Boolean,
+      default: false
     }
   },
   watch: {
@@ -469,6 +480,13 @@ export default {
         cursorLocation,
         resetUploader
       );
+    },
+    resize($event) {
+      if (this.autoresize && (window || (process && process.client))) {
+        const el = $event.target;
+        el.style.height = "auto";
+        el.style.height = `${el.scrollHeight}px`;
+      }
     }
   },
   computed: {
@@ -704,10 +722,10 @@ For accessibility purposes, indicate required fields by using <code>mks-visually
 
   ```jsx
     <mks-field name="text" type="text" label="Text" placeholder="Placeholder" value=""></mks-field>
-    <mks-field name="number" type="number" label="Number" placeholder="Placeholder" value=""></mks-field>
-    <mks-field name="select" type="select" label="Select" placeholder="Placeholder" v-bind:options="[{value: '1', label: 'Option 1'}, {value: '2', label: 'Option 2'}]" value=""></mks-field>
+    <mks-field name="number" type="number" label="Number" v-bind:min="1" v-bind:max="10" placeholder="Min and max props can be set" value=""></mks-field>
+    <mks-field name="select" type="select" label="Select" placeholder="An array of objects with value and label key sets the options. Or just an array of values." v-bind:options="[{value: '1', label: 'Option 1'}, {value: '2', label: 'Option 2'}]" value=""></mks-field>
     <mks-field name="editor" type="editor" label="Editor" placeholder="Placeholder" value=""></mks-field>
-    <mks-field name="textarea" type="textarea" label="Textarea" placeholder="Placeholder" value=""></mks-field>
+    <mks-field name="textarea" type="textarea" label="Textarea" autoresize placeholder="Textarea can autoresize to the height of the content by using the prop 'autoresize'" value=""></mks-field>
     <mks-field name="checkbox" type="checkbox" label="Checkbox" checkbox-label="Checkbox label" value=""></mks-field>
     <mks-field name="search" type="search" placeholder="Search..." value=""></mks-field>
   ```
@@ -748,4 +766,6 @@ The function has the search term as argument, and awaits an array of objects, wh
     <mks-field name="text" type="text" label="Success" v-bind:success="true" value="Foo success"></mks-field>
     <mks-field name="text" type="text" label="Error" v-bind:error="true" value="Bar error"></mks-field>
   ```
+
+
 </docs>
