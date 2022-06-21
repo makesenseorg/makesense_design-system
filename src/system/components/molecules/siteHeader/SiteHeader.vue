@@ -27,10 +27,14 @@
         </mks-link>
 
         <mks-navigation
+          v-if="menuLinks"
           class="site-header__nav"
           theme="primary"
           :links="menuLinks"
         ></mks-navigation>
+        <div v-else-if="$slots.default" class="site-header__content">
+          <slot></slot>
+        </div>
 
         <div v-if="sidebar" class="site-header__sidebar-control">
           <mks-button
@@ -192,6 +196,10 @@ export default {
     }
   }
 
+  &__content {
+    @include push-right;
+  }
+
   &__sidebar-control {
     justify-content: flex-end;
     padding-left: $space-m;
@@ -231,6 +239,19 @@ It has three slots : left, right and top-bar.
     <mks-lang-picker v-bind:langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
   </template>
   
+</mks-site-header>
+
+```
+
+## Custom navigation or content
+
+You can choose to provide your own navigation menu by using the default slot. 
+
+It is useful to display some states of the app, such a the logged in status of the user.
+
+```jsx
+<mks-site-header>
+  Welcome, <mks-text weight="bold">Jane Doe</mks-text>
 </mks-site-header>
 
 ```
