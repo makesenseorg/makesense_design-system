@@ -122,12 +122,6 @@ export default {
       default: false
     }
   },
-  data() {
-    return {
-      contrastColor: null,
-      hoverColor: null
-    };
-  },
   computed: {
     isCliquable() {
       return this.cliquable ? "cliquable" : "not-cliquable";
@@ -138,17 +132,17 @@ export default {
 
       if (this.label.length > 30) return this.label.substring(0, 30) + "...";
       else return this.label;
+    },
+    contrastColor() {
+      return this.$getContrastColor(this.color);
+    },
+    hoverColor() {
+      return this.$getHoverColor(this.color);
     }
   },
   methods: {
     onClick: function() {
       this.$emit("click");
-    }
-  },
-  mounted() {
-    if (typeof window !== undefined || !process.server) {
-      this.contrastColor = this.$getContrastColor(this.color);
-      this.hoverColor = this.$getHoverColor(this.color);
     }
   }
 };
