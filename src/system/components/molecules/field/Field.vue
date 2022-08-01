@@ -109,7 +109,7 @@
         @focus="$emit('focus')"
         @blur="$emit('blur')"
         @change="$emit('change')"
-        @input="$emit('input')"
+        @input="$emit('input', theValue)"
       />
       <span class="checkbox__mention" v-html="checkboxLabel"></span>
     </label>
@@ -125,7 +125,7 @@
         @focus="$emit('focus')"
         @blur="$emit('blur')"
         @change="$emit('change')"
-        @input="$emit('input')"
+        @input="$emit('input', theValue)"
       ></gmap-autocomplete>
     </div>
     <div v-else-if="type === 'tags'">
@@ -396,7 +396,7 @@ export default {
   methods: {
     onInput() {
       this.resize();
-      this.$emit('input');
+      this.$emit('input', this.theValue);
     },
     onClickLabel: function() {
       if (this.foldingOpen) this.foldingOpen = false;
