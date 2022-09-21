@@ -396,7 +396,7 @@ export default {
   methods: {
     onInput() {
       this.resize();
-      this.$emit('input', this.theValue);
+      this.$emit("input", this.theValue);
     },
     onClickLabel: function() {
       if (this.foldingOpen) this.foldingOpen = false;

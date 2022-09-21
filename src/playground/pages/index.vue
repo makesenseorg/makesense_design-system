@@ -15,12 +15,18 @@
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
     </mks-hero>
+
+    
     <div
       class="
         mks-cs-dense mks-space-x-xxl@md mks-space-t-xl@md mks-space-b-xxxl@md
       "
     >
       <mks-spacer>
+        <mks-toggle name="email" v-model="email">Notify by email</mks-toggle>
+        <mks-toggle name="sms" v-model="sms">Notify by SMS</mks-toggle>
+        <mks-toggle name="pigeon" v-model="pigeon" disabled>Notify by Pigeon voyageur</mks-toggle>
+
         <mks-button type="neutral-90">coucou</mks-button>
         <mks-heading tag="h1">Hello world !!!</mks-heading>
         <mks-icon type="clock" />
@@ -55,6 +61,13 @@ import MksCard from "@makesenseorg/design-system/dist/components/Card";
 import MksHero from "@makesenseorg/design-system/dist/components/Hero";
 export default {
   components: { MksCard, MksHero },
+  data() {
+    return {
+      email: false,
+      sms: true,
+      pigeon: false
+    }
+  },
   created() {
     this.$MKSaddLocale("it", {
       loading: "Caricamento...",
