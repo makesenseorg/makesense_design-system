@@ -230,26 +230,9 @@ export default {
 <docs>
  ## Colors
 ```jsx
-<mks-toggle name="email" v-model="email" icon-off="bell-off" icon-on="bell" >Notify by email</mks-toggle><br>
-<mks-toggle name="sms" v-model="sms" icon-off="bell-off" icon-on="bell" >Notify by SMS</mks-toggle><br>
-<mks-toggle name="pigeon" v-model="pigeon" disabled icon-off="bell-off" icon-on="bell" >Notify by Pigeon voyageur</mks-toggle><br>
-
-<script>
-export default {
-    name: "ExampleComponent",
-    data() {
-        return {
-            email: true,
-            sms: false
-        }
-    },
-    methods: {
-        toggleModal(name) {
-            this.modalActive = name;
-        },
-    }
-}
-</script>
+<mks-toggle name="email" v-bind:value="true" icon-off="bell-off" icon-on="bell" >Notify by email</mks-toggle><br>
+<mks-toggle name="sms" v-bind:value="false" icon-off="bell-off" icon-on="bell" >Notify by SMS</mks-toggle><br>
+<mks-toggle name="pigeon" disabled>Notify by Pigeon voyageur</mks-toggle><br>
 ```
 
 </docs>
