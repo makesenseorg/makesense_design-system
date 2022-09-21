@@ -53,7 +53,8 @@ export default {
             "neutral",
             "positive",
             "warning",
-            "negative"
+            "negative",
+            "currentColor"
           ].indexOf(value) !== -1
         );
       }

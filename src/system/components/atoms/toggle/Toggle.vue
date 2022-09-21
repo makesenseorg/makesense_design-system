@@ -11,16 +11,20 @@
     />
     <span class="toggle__display">
       <mks-icon
-        v-if="iconTrue"
+        v-if="iconOn"
+        :type="iconOn"
         aria-hidden="true"
         focusable="false"
-        class="toggle__icon toggle__icon--true"
+        class="toggle__icon toggle__icon--on"
+        color="currentColor"
       ></mks-icon>
       <mks-icon
-        v-if="iconFalse"
+        v-if="iconOff"
+        :type="iconOff"
         aria-hidden="true"
         focusable="false"
-        class="toggle__icon toggle__icon--false"
+        class="toggle__icon toggle__icon--off"
+        color="currentColor"
       ></mks-icon>
     </span>
     <div v-if="$slots['default']" :class="{ 'label--disabled': disabled }">
@@ -51,15 +55,17 @@ export default {
       required: true
     },
     /**
-     * Displays an icon when toggle is truthy
+     * Displays an icon when toggle is on
+     * @version 1.16.1
      */
-    iconTrue: {
+    iconOn: {
       type: String
     },
     /**
-     * Displays an icon when toggle is falsy
+     * Displays an icon when toggle is off
+     * @version 1.16.1
      */
-    iconFalse: {
+    iconOff: {
       type: String
     },
     /**
@@ -199,31 +205,34 @@ export default {
   width: 1em;
   height: 1em;
   color: inherit;
-  fill: currentcolor;
   vertical-align: middle;
   overflow: hidden;
 }
 
-.toggle__icon--false {
-  // color: #e74c3c;
+.toggle__icon--on {
+  color: $color-neutral-100;
   // font-size: 85%;
 }
 
-.toggle__icon--true {
-  // color: #1fb978;
+.toggle__icon--off {
+  color: $color-text-light;
 }
 
 .label--disabled {
   color: $color-text-light;
+
+  .toggle__icon {
+    color: $color-neutral-80;
+  }
 }
 </style>
 
 <docs>
  ## Colors
 ```jsx
-<mks-toggle name="email" v-model="email">Notify by email</mks-toggle><br>
-<mks-toggle name="sms" v-model="sms">Notify by SMS</mks-toggle><br>
-<mks-toggle name="pigeon" v-model="pigeon" disabled>Notify by Pigeon voyageur</mks-toggle><br>
+<mks-toggle name="email" v-model="email" icon-off="bell-off" icon-on="bell" >Notify by email</mks-toggle><br>
+<mks-toggle name="sms" v-model="sms" icon-off="bell-off" icon-on="bell" >Notify by SMS</mks-toggle><br>
+<mks-toggle name="pigeon" v-model="pigeon" disabled icon-off="bell-off" icon-on="bell" >Notify by Pigeon voyageur</mks-toggle><br>
 
 <script>
 export default {
