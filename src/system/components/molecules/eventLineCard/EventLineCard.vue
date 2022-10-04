@@ -1,20 +1,31 @@
 <template>
-  <div
+  <component
+    :is="cliquable ? 'mks-link' : 'div'"
     :class="['event', { 'event--now': now }, { 'event--past': past }]"
+    :to="cliquable ? link : undefined"
+    :type="cliquable ? 'menu' : undefined"
     target="_blank"
     @click="onClick"
     :aria-labelledby="`event-${uniqueId}`"
   >
     <div class="event__hour">
-      <time v-if="!now || past" :datetime="formattedDate">{{
-        formattedDate
-      }}</time>
-      <span v-else
-        >{{ beforeTimeText }} {{ elapsedTime
-        }}<span class="event__hour-space"></span>min(s)</span
-      >
+      <div align="center" distribute="center" v-if="showDate">
+        <mks-date-number class="event__day">{{ day }}</mks-date-number>
+        <mks-text tag="p" align="center" size="small" weight="bold">{{
+          month
+        }}</mks-text>
+      </div>
+      <template v-else>
+        <time v-if="!now || past" :datetime="formattedDate">{{
+          formattedDate
+        }}</time>
+        <span v-else
+          >{{ beforeTimeText }} {{ elapsedTime
+          }}<span class="event__hour-space"></span>min(s)</span
+        >
+      </template>
     </div>
-    <div class="event__cover">
+    <div v-if="showCover" class="event__cover">
       <img class="event__cover-image" :src="cover" />
     </div>
 
@@ -35,7 +46,7 @@
           />
         </div>
       </div>
-      <div class="content__action" v-if="!past">
+      <div class="content__action" v-if="!past && showCallToAction">
         <mks-button
           size="small"
           tag="a"
@@ -49,7 +60,7 @@
         </mks-button>
       </div>
     </div>
-  </div>
+  </component>
 </template>
 
 <script>
@@ -119,6 +130,38 @@ export default {
     metas: {
       type: Array,
       required: false
+    },
+    /**
+     * @version 1.16.3
+     * show the day and month instead of the hour. use if Card is standalone
+     */
+    showDate: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * @version 1.16.3
+     * show or hide the call to action
+     */
+    showCallToAction: {
+      type: Boolean,
+      default: true
+    },
+    /**
+     * @version 1.16.3
+     * show or hide the cover
+     */
+    showCover: {
+      type: Boolean,
+      default: true
+    },
+    /**
+     * @version 1.16.3
+     * make whole card cliquable. Set to true if call to action is hidden.
+     */
+    cliquable: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -151,6 +194,12 @@ export default {
     },
     formattedDate() {
       return dayjs(this.date).format("HH:mm");
+    },
+    day() {
+      return dayjs(this.date).format("D");
+    },
+    month() {
+      return dayjs(this.date).format("MMMM");
     },
     external() {
       return (
@@ -208,6 +257,10 @@ export default {
       box-shadow: none;
     }
   }
+}
+
+.event__day {
+  margin-bottom: $space-xxs;
 }
 
 .event__hour {
@@ -298,6 +351,7 @@ export default {
 ## Basic event line item 
 ```jsx
 <mks-event-line-item link="#" title="An event in the future" v-bind:date="$date().add(1, 'd')" cover="https://via.placeholder.com/300" v-bind:duration="60" v-bind:metas="['1 heure', 'France']"></mks-event-line-item>
+<mks-event-line-item cliquable show-date v-bind:show-call-to-action="false" v-bind:show-cover="false" link="#" title="An event in the future" v-bind:date="$date().add(1, 'd')" cover="https://via.placeholder.com/300" v-bind:duration="60" v-bind:metas="['1 heure', 'France']"></mks-event-line-item>
 ```
 
 ## Event currently happening 
