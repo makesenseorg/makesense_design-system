@@ -1,6 +1,9 @@
 {
   "name": "@makesenseorg/design-system",
   "version": "1.16.3",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "serve": "http-server ./docs -o -s",
     "build": "npm run theo && vue-cli-service build; mkdir docs/assets; cp -r src/styleguide/assets public/",
