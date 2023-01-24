@@ -1546,22 +1546,22 @@
       "type": "...",
       "category": "media-query",
       "name": "media_query_s",
-      "value": "(min-width: 767px)",
-      "originalValue": "(min-width: 767px)"
+      "value": "'(min-width: 767px)'",
+      "originalValue": "'(min-width: 767px)'"
     },
     "media_query_m": {
       "type": "...",
       "category": "media-query",
       "name": "media_query_m",
-      "value": "(min-width: 992px)",
-      "originalValue": "(min-width: 992px)"
+      "value": "'(min-width: 992px)'",
+      "originalValue": "'(min-width: 992px)'"
     },
     "media_query_l": {
       "type": "...",
       "category": "media-query",
       "name": "media_query_l",
-      "value": "(min-width: 1200px)",
-      "originalValue": "(min-width: 1200px)"
+      "value": "'(min-width: 1200px)'",
+      "originalValue": "'(min-width: 1200px)'"
     },
     "xs": {
       "type": "...",
@@ -1602,36 +1602,36 @@
       "type": "...",
       "category": "media-query",
       "name": "media-query-x-small",
-      "value": "(min-width: 480px)",
-      "originalValue": "(min-width: {!xs}px)"
+      "value": "'(min-width: 480px)'",
+      "originalValue": "'(min-width: {!xs}px)'"
     },
     "media-query-small": {
       "type": "...",
       "category": "media-query",
       "name": "media-query-small",
-      "value": "(min-width: 600px)",
-      "originalValue": "(min-width: {!sm}px)"
+      "value": "'(min-width: 600px)'",
+      "originalValue": "'(min-width: {!sm}px)'"
     },
     "media-query-medium": {
       "type": "...",
       "category": "media-query",
       "name": "media-query-medium",
-      "value": "(min-width: 768px)",
-      "originalValue": "(min-width: {!md}px)"
+      "value": "'(min-width: 768px)'",
+      "originalValue": "'(min-width: {!md}px)'"
     },
     "media-query-large": {
       "type": "...",
       "category": "media-query",
       "name": "media-query-large",
-      "value": "(min-width: 1024px)",
-      "originalValue": "(min-width: {!lg}px)"
+      "value": "'(min-width: 1024px)'",
+      "originalValue": "'(min-width: {!lg}px)'"
     },
     "media-query-x-large": {
       "type": "...",
       "category": "media-query",
       "name": "media-query-x-large",
-      "value": "(min-width: 1200px)",
-      "originalValue": "(min-width: {!xl}px)"
+      "value": "'(min-width: 1200px)'",
+      "originalValue": "'(min-width: {!xl}px)'"
     }
   }
 }

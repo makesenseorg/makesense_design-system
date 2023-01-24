@@ -108,7 +108,7 @@ Creates a box with ratio of width:height and fills with image or content
 @mixin image-ratio($width, $height, $selector: "img") {
   position: relative;
   overflow: hidden;
-  padding-top: ($height / $width) * 100%;
+  padding-top: calc($height / $width) * 100%;
   object-fit: cover;
 
   #{$selector} {
