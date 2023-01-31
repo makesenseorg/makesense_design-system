@@ -394,8 +394,8 @@ export default {
     };
   },
   methods: {
-    onInput() {
-      this.resize();
+    onInput($event) {
+      this.resize($event);
       this.$emit("input", this.theValue);
     },
     onClickLabel: function() {
