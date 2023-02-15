@@ -1,24 +1,19 @@
-/* eslint-disable */
+import { reactive } from "vue";
 import { themeMap } from "../tokens";
 
 let stylesheet = null;
 
-export default {
-  install(Vue) {
-    const observable = Vue.observable({
-      theme: 'base',
-    }); 
-
-    Vue.mixin({
-      computed: {
-        mksGetTheme: () => observable.theme
-      }
+const themer = {
+  install(Vue, theme) {
+    const observable = reactive({
+      theme: "base",
     });
 
-    Vue.prototype.$loadTheme = name => {
+    const loadTheme = (name) => {
       if (typeof document === "undefined") {
         return;
       }
+      // eslint-disable-next-line
       if (!themeMap.hasOwnProperty(name)) {
         // eslint-disable-next-line
         console.warn(`Theme '${name}' not found.`);
@@ -29,16 +24,34 @@ export default {
       const theme = { ...themeMap.base, ...themeMap[name] };
       useTheme(theme);
     };
-  }
+
+    Vue.mixin({
+      computed: {
+        mksGetTheme: () => observable.theme,
+      },
+    });
+
+    Vue.provide("$loadTheme", loadTheme);
+
+    // Init base theme
+    if (typeof document !== "undefined") {
+      if (theme) {
+        loadTheme(theme)
+      }
+      else {
+        useTheme(themeMap.base);
+      }
+    }
+  },
 };
 
-const useTheme = theme => {
+const useTheme = (theme) => {
   if (!stylesheet) {
     stylesheet = document.createElement("style");
     document.querySelector("head").append(stylesheet);
   }
   const variables = Object.keys(theme)
-    .map(key => {
+    .map((key) => {
       return `${key}: ${theme[key]};`;
     })
     .join("\n");
@@ -47,7 +60,5 @@ const useTheme = theme => {
 }`;
 };
 
-// Init base theme
-if (typeof document !== "undefined") {
-  useTheme(themeMap.base);
-}
+
+export { themer as default, useTheme };

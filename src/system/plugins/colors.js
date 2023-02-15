@@ -1,6 +1,6 @@
 import { tokenMap } from "../tokens";
 
-const keys = Object.keys(tokenMap["color"]).map(item =>
+const keys = Object.keys(tokenMap["color"]).map((item) =>
   convertToKebabCase(item)
 );
 
@@ -15,7 +15,7 @@ function adjust(color, amount) {
     "#" +
     color
       .replace(/^#/, "")
-      .replace(/../g, color =>
+      .replace(/../g, (color) =>
         (
           "0" +
           Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)
@@ -38,31 +38,42 @@ function getHexa(color) {
     .join("");
 }
 
+function colorExists(color) {
+  return keys.indexOf(`color-${color}`) !== -1;
+}
+
+function getContrastColor(color) {
+  if (
+    (typeof process === "object" && process.server) ||
+    typeof window === "undefined"
+  ) {
+    return "neutral-100";
+  }
+  const hex = getHexa(color);
+  var r = parseInt(hex.substr(0, 2), 16);
+  var g = parseInt(hex.substr(2, 2), 16);
+  var b = parseInt(hex.substr(4, 2), 16);
+  var yiq = (r * 299 + g * 587 + b * 114) / 1000;
+  return yiq >= 137 ? "text" : "neutral-100";
+}
+
+function getHoverColor(color) {
+  if ((typeof process === 'object' && process.server) || typeof window === "undefined") return "neutral-100";
+  const hex = getHexa(color);
+  return adjust(hex, -10);
+}
+
+export { colorExists, getContrastColor, getHoverColor };
+
 export default {
   install(Vue) {
-    Vue.prototype.$colorTokensKeys = keys;
-    Vue.prototype.$colorTokens = tokenMap;
+    Vue.provide("$colorTokensKeys", keys);
+    Vue.provide("$colorTokens", tokenMap);
 
-    Vue.prototype.$colorExists = color => {
-      return keys.indexOf(`color-${color}`) !== -1;
-    };
+    Vue.provide("$colorExists", colorExists);
 
-    Vue.prototype.$getContrastColor = color => {
-      if (process.server || typeof window === "undefined") return "neutral-100";
-      const hex = getHexa(color);
-      var r = parseInt(hex.substr(0, 2), 16);
-      var g = parseInt(hex.substr(2, 2), 16);
-      var b = parseInt(hex.substr(4, 2), 16);
-      var yiq = (r * 299 + g * 587 + b * 114) / 1000;
-      return yiq >= 137 ? "text" : "neutral-100";
-    };
+    Vue.provide("$getContrastColor", getContrastColor);
 
-    Vue.prototype.$getHoverColor = color => {
-      if (process.server || typeof window === "undefined") return "neutral-100";
-      const hex = getHexa(color);
-      const hovercolor = adjust(hex, -10);
-
-      return hovercolor;
-    };
+    Vue.provide("$getHoverColor", getHoverColor);
   }
 };

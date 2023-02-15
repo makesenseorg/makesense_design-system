@@ -48,7 +48,7 @@
   </component>
 </template>
 <script>
-import Vue from "vue";
+import {colorExists, getContrastColor} from "@@/plugins/colors";
 /**
  * Buttons can be used for any action or inner link.
  * @version 0.3.0
@@ -87,7 +87,7 @@ export default {
       default: ""
     },
     /**
-     * Color of the button. 
+     * Color of the button.
      *      "primary",
             "secondary",
             "tertiary",
@@ -101,7 +101,7 @@ export default {
       default: "primary",
       validator: value => {
         return (
-          Vue.prototype.$colorExists(value) ||
+          colorExists(value) ||
           ["neutral", "positive", "warning", "negative"].indexOf(value) !== -1
         );
       }
@@ -173,7 +173,7 @@ export default {
     });
 
     if (typeof window !== undefined || !process.server)
-      this.contrastColor = this.$getContrastColor(this.type);
+      this.contrastColor = getContrastColor(this.type);
   },
   beforeDestroy: function() {
     // Clean up
@@ -441,7 +441,7 @@ button {
 
 ## Types
 ```jsx
-    
+
     <mks-heading tag="h3">Theme colors</mks-heading>
     <mks-button>Button primary</mks-button>
     <mks-button type="secondary">Button secondary</mks-button>
@@ -485,16 +485,16 @@ button {
     <mks-button v-bind:disabled="true">Disabled</mks-button>
     <br>
     <mks-button v-bind:loading="true">
-        Load 
+        Load
         <template v-slot:loading>Loading...</template>
     </mks-button>
     <br>
     <mks-button v-bind:loading="true">
-        Load 
+        Load
     </mks-button>
     <br>
     <mks-button v-bind:loading="true" size="small">
-        Load 
+        Load
     </mks-button>
   ```
 </docs>

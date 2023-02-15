@@ -1,16 +1,11 @@
-import plugins from "./plugins";
-import atoms from "./components/atoms";
-import Grid from "./components/layouts/grid/Grid.vue";
-import Spacer from "./components/layouts/spacing/Spacer.vue";
-import SpacerItem from "./components/layouts/spacing/SpacerItem.vue";
-import "./styles/main.scss";
+import themer from "./plugins/themer";
+import i18n from "./plugins/i18n";
+import colors from "./plugins/colors";
 
 export default {
-  install(Vue) {
-    Vue.use(plugins);
-    Vue.use(atoms);
-    Vue.component("MksGrid", Grid);
-    Vue.component("MksSpacer", Spacer);
-    Vue.component("MksSpacerItem", SpacerItem);
+  install(Vue, { theme }) {
+    Vue.use(themer, theme);
+    Vue.use(i18n);
+    Vue.use(colors);
   }
 };
