@@ -59,9 +59,8 @@
       </select>
       <mks-icon type="chevron-down" class="input__select-icon" />
     </div>
-    <component
+    <async-mks-field-editor
       v-else-if="type === 'editor'"
-      :is="component"
       v-model="theValue"
       class="field__input field--rich-text-editor rte-render"
       :id="name"
@@ -190,7 +189,13 @@
  * The field component can be used in forms. It emits 'blur', 'change' and 'input' events, as a native input would.
  * @version 1.0.0
  */
+import { defineAsyncComponent } from "vue";
+const AsyncMksFieldEditor = defineAsyncComponent(() => import("./FieldEditor.vue"));
+
 export default {
+  components: {
+    AsyncMksFieldEditor,
+  },
   name: "MksField",
   props: {
     /**
@@ -394,8 +399,8 @@ export default {
     };
   },
   methods: {
-    onInput() {
-      this.resize();
+    onInput($event) {
+      this.resize($event);
       this.$emit("input", this.theValue);
     },
     onClickLabel: function() {
@@ -530,9 +535,6 @@ export default {
 
     if (this.foldDefault) this.foldingOpen = true;
   },
-  mounted() {
-    if (this.type === "editor") this.component = () => import(`./FieldEditor`);
-  }
 };
 </script>
 <style lang="scss">
@@ -744,7 +746,7 @@ The function has the search term as argument, and awaits an array of objects, wh
 
 <pre><code> // example of return value for the callback function
 (searchTerm) => [
-    { id: 1, value: 'name 1' }, 
+    { id: 1, value: 'name 1' },
     { id: 2, value: 'name 2' }
 ]
 </code></pre>

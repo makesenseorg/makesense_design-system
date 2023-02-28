@@ -88,7 +88,7 @@ label,
 }
 </style>
 <docs>
-```jsx 
+```jsx
   <mks-field-label>This is a field label</mks-field-label>
   <mks-field-label icon="x">This is a field label with icon</mks-field-label>
 ```

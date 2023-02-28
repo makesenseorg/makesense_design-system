@@ -6,10 +6,10 @@ let stylesheet = null;
 const themer = {
   install(Vue, theme) {
     const observable = reactive({
-      theme: "base",
+      theme: "base"
     });
 
-    const loadTheme = (name) => {
+    const loadTheme = name => {
       if (typeof document === "undefined") {
         return;
       }
@@ -27,8 +27,8 @@ const themer = {
 
     Vue.mixin({
       computed: {
-        mksGetTheme: () => observable.theme,
-      },
+        mksGetTheme: () => observable.theme
+      }
     });
 
     Vue.provide("$loadTheme", loadTheme);
@@ -36,22 +36,21 @@ const themer = {
     // Init base theme
     if (typeof document !== "undefined") {
       if (theme) {
-        loadTheme(theme)
-      }
-      else {
+        loadTheme(theme);
+      } else {
         useTheme(themeMap.base);
       }
     }
-  },
+  }
 };
 
-const useTheme = (theme) => {
+const useTheme = theme => {
   if (!stylesheet) {
     stylesheet = document.createElement("style");
     document.querySelector("head").append(stylesheet);
   }
   const variables = Object.keys(theme)
-    .map((key) => {
+    .map(key => {
       return `${key}: ${theme[key]};`;
     })
     .join("\n");
@@ -59,6 +58,5 @@ const useTheme = (theme) => {
   ${variables}
 }`;
 };
-
 
 export { themer as default, useTheme };

@@ -92,7 +92,7 @@ export default {
   methods: {}
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .toggle {
   display: flex;
   align-items: center;

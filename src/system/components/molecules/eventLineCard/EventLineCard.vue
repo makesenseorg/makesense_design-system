@@ -217,7 +217,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .event {
   @include flex;
   box-sizing: border-box;
@@ -348,13 +348,13 @@ export default {
 }
 </style>
 <docs>
-## Basic event line item 
+## Basic event line item
 ```jsx
 <mks-event-line-item link="#" title="An event in the future" v-bind:date="$date().add(1, 'd')" cover="https://via.placeholder.com/300" v-bind:duration="60" v-bind:metas="['1 heure', 'France']"></mks-event-line-item>
 <mks-event-line-item cliquable show-date v-bind:show-call-to-action="false" v-bind:show-cover="false" link="#" title="An event in the future" v-bind:date="$date().add(1, 'd')" cover="https://via.placeholder.com/300" v-bind:duration="60" v-bind:metas="['1 heure', 'France']"></mks-event-line-item>
 ```
 
-## Event currently happening 
+## Event currently happening
 ```jsx
 <mks-event-line-item link="#" v-bind:date="$date().subtract(12, 'm')" before-time-text="depuis" title="A great event about stuff" cover="https://via.placeholder.com/300" v-bind:duration="60"></mks-event-line-item>
 ```
@@ -364,7 +364,7 @@ export default {
 <mks-event-line-item link="#" title="An event in the past" v-bind:date="$date().subtract(2, 'h')" cover="https://via.placeholder.com/300" v-bind:duration="60"></mks-event-line-item>
 ```
 
-## A very long title 
+## A very long title
 ```jsx
 <mks-event-line-item link="#" title="[agir] Comment engager à l'échelle locale autour de la transition écologique grâce à la collaboration entre la collectivité, les citoyen.nes et autres acteurs locaux ? - Témoignage de la Ville de Paris" v-bind:date="$date().add(1, 'd')" cover="https://via.placeholder.com/300" v-bind:duration="60" :metas="['1 heure', 'France']"></mks-event-line-item>
 ```

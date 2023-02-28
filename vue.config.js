@@ -27,8 +27,8 @@ module.exports = {
 					resourceQuery: /blockType=docs/,
 					loader:
 						process.env.BUILD === 'library'
-							? require.resolve('./src/loader/docs-trim-loader.js')
-							: require.resolve('./src/loader/docs-loader.js')
+							? require.resolve('./src/loader/docs-loader.js')
+							: require.resolve('./src/loader/docs-trim-loader.js')
 				}
 			]
 		},

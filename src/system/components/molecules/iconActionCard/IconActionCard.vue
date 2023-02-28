@@ -364,7 +364,7 @@ export default {
 }
 </style>
 <docs>
-## Basic 
+## Basic
 ```jsx
 <mks-icon-action-card icon="lock" name="A locked item" description="some text about the card" button-label="Unlock"></mks-icon-action-card>
 ```

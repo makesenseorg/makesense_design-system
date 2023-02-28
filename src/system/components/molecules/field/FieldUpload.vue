@@ -31,7 +31,7 @@
           v-show="!file && !file_image"
           tag="button"
           type="neutral"
-          @click="addFile()"
+          @click="() => {console.log('click1'); addFile()}"
           >{{ uploadLabelTranslated }}</mks-button
         >
         <mks-button
@@ -220,6 +220,8 @@ export default {
     },
 
     addFile: function() {
+      console.log("addfile");
+      console.trace("addfile");
       this.$refs.selecter.click();
     },
 
@@ -232,7 +234,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .field__sublabel {
   font-weight: $font-weight-light;
   margin-left: 0.3em;

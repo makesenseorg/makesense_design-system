@@ -137,7 +137,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .modal__wrapper {
   position: fixed;
   z-index: 10000;
@@ -345,7 +345,7 @@ export default {
             I take the whole screen !
         </mks-modal>
     </div>
-</template>  
+</template>
 <script>
 export default {
     name: "ExampleComponent",

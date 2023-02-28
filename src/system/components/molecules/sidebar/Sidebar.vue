@@ -62,7 +62,7 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .sidebar {
   position: fixed;
   z-index: $z-index-page-sidebar;
@@ -150,7 +150,7 @@ export default {
 
 ## View sidebar example
 
-Note: the fade in and slide in animation will not show in the preview if you try to change <code>open</code>. 
+Note: the fade in and slide in animation will not show in the preview if you try to change <code>open</code>.
 
 Toggle the class <code>.sidebar__opened</code> in the inspector to view the animations.
 

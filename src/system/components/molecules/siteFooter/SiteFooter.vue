@@ -9,7 +9,7 @@ export default {
   release: "0.3.0"
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .site-footer {
   @include text-small;
   text-align: center;

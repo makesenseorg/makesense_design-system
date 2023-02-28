@@ -14,7 +14,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -40,7 +40,7 @@ Inspect element to see additionnal text that will be read by screen savers.
 
 ## The opposite of aria-hidden
 
-<code>aria-hidden</code> indicates that an element should be ignored by assistive technologies. 
+<code>aria-hidden</code> indicates that an element should be ignored by assistive technologies.
 We can use it in combination with <code>mks-visually-hidden</code> to replace with more suited content.
 
 ```jsx

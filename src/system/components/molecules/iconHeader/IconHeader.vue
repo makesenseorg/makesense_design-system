@@ -73,7 +73,7 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .icon-header {
   text-align: center;
   margin-bottom: $space-xl;

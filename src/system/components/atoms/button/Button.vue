@@ -8,7 +8,7 @@
     :role="role"
     tabindex="0"
     :type="inputType"
-    :disabled="disabled"
+    :disabled="disabled || null"
     ref="container"
     :style="{
       minWidth:
@@ -48,7 +48,7 @@
   </component>
 </template>
 <script>
-import {colorExists, getContrastColor} from "@@/plugins/colors";
+import { colorExists, getContrastColor } from "@@/plugins/colors";
 /**
  * Buttons can be used for any action or inner link.
  * @version 0.3.0
@@ -151,6 +151,7 @@ export default {
       default: "button"
     }
   },
+  emits: ["click"],
   data: function() {
     return {
       minWidth: 0,
@@ -198,7 +199,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .button {
   @include cursor-pointer;
   @include border-radius;

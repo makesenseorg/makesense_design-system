@@ -116,4 +116,4 @@ export default {
   "--font-weight-bold": "500",
   "--font-weight-normal": "400",
   "--font-weight-light": "300"
-};
+}

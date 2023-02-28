@@ -56,6 +56,8 @@
  *
  * @event openSidebar
  */
+import makesenseLogo from "@@/assets/img/brand/makesense-logo.png";
+
 export default {
   name: "MksSiteHeader",
   release: "0.2.0",
@@ -63,7 +65,7 @@ export default {
     /** Site logo */
     logo: {
       type: String,
-      default: require("@@/assets/img/brand/makesense-logo.png")
+      default: makesenseLogo
     },
     /** Link for the logo */
     logoLink: {
@@ -87,7 +89,7 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .site-header {
   position: relative;
   background-color: $background-color-base;
@@ -230,7 +232,7 @@ It has three slots : left, right and top-bar.
 
 ```jsx
 
-<mks-site-header 
+<mks-site-header
   v-bind:menu-links="[{label: 'Citoyens', to: '/molecules/mkssiteheader'},{label: 'Entrepreneurs', to: 'https://makesense.org'}, {label: 'Organisations', to: 'https://makesense.org'}]">
   <template slot="main-bar">
     <mks-list theme="primary">
@@ -238,14 +240,14 @@ It has three slots : left, right and top-bar.
     </mks-list>
     <mks-lang-picker v-bind:langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
   </template>
-  
+
 </mks-site-header>
 
 ```
 
 ## Custom navigation or content
 
-You can choose to provide your own navigation menu by using the default slot. 
+You can choose to provide your own navigation menu by using the default slot.
 
 It is useful to display some states of the app, such a the logged in status of the user.
 
@@ -259,7 +261,7 @@ It is useful to display some states of the app, such a the logged in status of t
 ## Top bar
 
 ```jsx
-<mks-site-header 
+<mks-site-header
   v-bind:menu-links="[{label: 'Citoyens', to: '/molecules/mkssiteheader'},{label: 'Entrepreneurs', to: 'https://makesense.org'}, {label: 'Organisations', to: 'https://makesense.org'}]">
   <mks-alert slot="top-bar" type="positive">An ad or important message can be placed here, the component just needs a background.</mks-alert>
   <template slot="main-bar">
@@ -268,7 +270,7 @@ It is useful to display some states of the app, such a the logged in status of t
     </mks-list>
     <mks-lang-picker v-bind:langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
   </template>
-  
+
 </mks-site-header>
 
 ```

@@ -1,0 +1,39 @@
+
+
+.ds-container {
+	@include reset;
+	padding: 0 $space-s;
+	margin: 0 auto;
+
+	@media #{$media-query-medium} {
+		padding: 0 $space-m;
+	}
+
+	@media #{$media-query-large} {
+		padding: 0 $space-xl;
+	}
+}
+
+.ds-container-centered {
+	text-align: center;
+}
+
+.ds-container-x-small {
+	max-width: #{$xs}px;
+}
+
+.ds-container-small {
+	max-width: #{$sm}px;
+}
+
+.ds-container-medium {
+	max-width: #{$md}px;
+}
+
+.ds-container-large {
+	max-width: #{$lg}px;
+}
+
+.ds-container-x-large {
+	max-width: #{$xl}px;
+}

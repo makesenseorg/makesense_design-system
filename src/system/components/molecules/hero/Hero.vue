@@ -7,8 +7,8 @@
       backgroundColor: mainColor !== undefined ? mainColor : null,
       color: textColor !== undefined ? textColor : null,
       backgroundImage:
-        beans !== 0 && beans !== '0'
-          ? `url(${require(`@@/assets/img/brand/beans-${this.beans}.png`)})`
+        realBeans !== 0 && realBeans !== '0'
+          ? `url(${require(`@@/assets/img/brand/beans-${realBeans}.png`)})`
           : null
     }"
   >
@@ -88,10 +88,7 @@ export default {
      * Variant of beans to show. Use 0 for no beans, or 1 to 5 for different variants
      */
     beans: {
-      type: [Number, String],
-      default: function() {
-        return this.theme === "secondary" ? 3 : 1;
-      }
+      type: [Number, String]
     },
     /**
      * Show a separator at the bottom
@@ -108,10 +105,15 @@ export default {
       type: String,
       default: "large"
     }
-  }
+  },
+  computed: {
+    realBeans() {
+      return this.beans || (this.theme === "secondary" ? 3 : 1);
+    }
+  },
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .hero {
   @include inner-space($dir: "t");
   @include inner-space("l", "b");
@@ -253,7 +255,7 @@ export default {
 ## Basic hero
 
 ```jsx
-<mks-hero 
+<mks-hero
   uptitle="Le petit uptitle qui est cool"
   title="Innovez dans votre organisation et blablabla..."
   title-tag="h3"
@@ -266,7 +268,7 @@ export default {
 You can use the CSS variables to apply custom makesense colors easily.
 
 ```jsx
-<mks-hero 
+<mks-hero
   title="Innovez dans votre organisation et blablabla..."
   theme="secondary"
   text-color="var(--color-cerise)">
@@ -279,7 +281,7 @@ You can use the CSS variables to apply custom makesense colors easily.
 Variant of beans to show. Use 0 for no beans, or 1 to 5 for different variants
 
 ```jsx
-<mks-hero 
+<mks-hero
   title="Innovez dans votre organisation et blablabla..."
   v-bind:beans="2">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -289,7 +291,7 @@ Variant of beans to show. Use 0 for no beans, or 1 to 5 for different variants
 ## Without separator
 
 ```jsx
-<mks-hero 
+<mks-hero
   title="Innovez dans votre organisation et blablabla..."
   theme="secondary"
   v-bind:separator="false">
@@ -301,7 +303,7 @@ Variant of beans to show. Use 0 for no beans, or 1 to 5 for different variants
 
 ```jsx
 <div style="max-width: 460px;margin:0 auto;">
-<mks-hero 
+<mks-hero
   title="Ne passez pas à côté de votre futur job !"
   theme="primary"
   beans="0"

@@ -1,0 +1,55 @@
+.ds-text {
+	@include reset;
+	@include stack-space($font-space-xl);
+	font-family: $font-text;
+	line-height: $line-height-m;
+	display: block;
+}
+
+.ds-text-bold {
+	font-weight: $font-weight-bold;
+}
+
+.ds-text-inline {
+	display: inline;
+}
+
+.ds-text-size-small {
+	font-size: $font-size-s;
+}
+
+.ds-text-size-base {
+	font-size: $font-size-m;
+}
+
+.ds-text-size-large {
+	font-size: $font-size-l;
+}
+
+.ds-text-size-x-large {
+	font-size: $font-size-xl;
+}
+
+.ds-text-soft {
+	color: $color-text-light;
+}
+
+.ds-text-softer {
+	color: $color-text-lighter;
+}
+
+.ds-text-primary {
+	color: $text-color-primary;
+}
+
+.ds-text-success {
+	color: $text-color-success;
+}
+
+.ds-text-danger {
+	color: $text-color-danger;
+}
+
+.ds-text-warning {
+	color: $text-color-warning;
+}

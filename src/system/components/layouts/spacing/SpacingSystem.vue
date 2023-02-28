@@ -9,15 +9,15 @@ export default {
   name: "SpacingSystem"
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .spacer {
 }
 </style>
 <docs>
-## Introduction 
+## Introduction
 
-Spacing is important because it gives rythm to the page. 
-It gives meaning by grouping elements visually, or by separating them. 
+Spacing is important because it gives rythm to the page.
+It gives meaning by grouping elements visually, or by separating them.
 <br><br>
 
 We define in this guide 3 types of spacing :
@@ -79,25 +79,25 @@ Example : `$space-xxs`
 
 
 Use the mixin `container-spacing`
-- is <mks-text weight="bold">centered</mks-text>, 
+- is <mks-text weight="bold">centered</mks-text>,
 - has a <mks-text weight="bold">fixed width</mks-text> (`$container-size` (1100px) on mobile and `$container-size-l` (1740px) on bigger screens)
 - has responsive paddings (you can override it with <mks-text weight="bold">[inner spacing](#inner)</mks-text> mixin).
 
-Use this mixin for pages where you want to draw attention to the content. For example, a blog post, 
+Use this mixin for pages where you want to draw attention to the content. For example, a blog post,
 
 ##### Use as a mixin (prefered method)
 
-The mixin `@include container-spacing` takes one arguments : 
+The mixin `@include container-spacing` takes one arguments :
 
 - `$dense: false`, keeps the same container size `$container-size` (1100px) regardless of viewport width.
 
 
-##### Use as a class 
+##### Use as a class
 
 <mks-text weight="bold">Note: Only use one class maximum per element.</mks-text> If you have more than two utility classes, use the mixins in the `style` section instead.
 
-- `mks-cs` 
-- `mks-cs-dense` 
+- `mks-cs`
+- `mks-cs-dense`
 
 ## 2. Flow spacing <a name="flow"></a>
 
@@ -110,12 +110,12 @@ See <mks-link class="link" to="mksspacer">Spacer component</mks-link> to stack a
 
 ## 3. Inner spacing <a name="inner"></a>
 
-<img src="/assets/spacing-inner.jpg" /><br> 
+<img src="/assets/spacing-inner.jpg" /><br>
 
 The inner spacing mixins and class take two arguments : `value` (spacing scale) and `direction` (t, b, l, r, x, y).
 <br><br>
 
-##### There are 4 types of inner spacing : 
+##### There are 4 types of inner spacing :
 
 - Square spacing : Equal on all four sides
 - Horizontal spacing : Equal on `x` axis, left and right directions
@@ -151,7 +151,7 @@ You can specify the value by passing it as a first paramater. See <mks-text weig
 </pre>
 
 
-##### Using the classes 
+##### Using the classes
 
 The logic of the class is as follow : `.mks-space-{direction*}-{value*}@{breakpoint*}` where direction is optional.
 

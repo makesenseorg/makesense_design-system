@@ -31,7 +31,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .separator__wrapper {
   overflow: hidden;
   max-width: 100%;

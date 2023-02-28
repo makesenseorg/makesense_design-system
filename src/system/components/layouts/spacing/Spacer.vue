@@ -1,4 +1,5 @@
 <script>
+import { h } from "vue";
 /** Used to add spacing between a collection of items with flexbox. Props allow to change spacing size, axis, and distribution.
  * @version 1.5.0
  */
@@ -65,25 +66,39 @@ export default {
       return classes;
     }
   },
-  render(createElement) {
+  render() {
     const childs = [];
-    (this.$slots.default || []).forEach(item => {
+    (this.$slots.default() || []).forEach((item, index, items) => {
       // verifier si pas de tag comment faire (node)
-      const text = item.text && item.text.trim();
-
-      if (item && (text || item.tag)) {
-        if (
-          item.componentOptions &&
-          item.componentOptions.tag === "mks-spacer-item"
-        ) {
+      // const text = item.text && item.text.trim();
+      if (item) {
+        if (item.type && item.type.name === "MksSpacerItem") {
           childs.push(item);
-        } else {
-          childs.push(createElement("div", { class: "spacer__item" }, [item]));
+        } else if (item.type.toString() !== "Symbol(Comment)") {
+          if (item.type.toString() === "Symbol(Fragment)") {
+            if (item.children && item.children.length) {
+              if (items.length === 1) {
+                item.children.forEach(child => {
+                  if (child.children === " ") {
+                    return;
+                  }
+                  childs.push(h("div", { class: "spacer__item" }, [child]));
+                });
+              }
+              else {
+                childs.push(h("div", { class: "spacer__item" }, [item]));
+              }
+            }
+            return;
+          }
+          if (item.children === " ") {
+            return;
+          }
+          childs.push(h("div", { class: "spacer__item" }, [item]));
         }
       }
     });
-
-    return createElement(this.tag, { class: this.classes }, childs);
+    return h(this.tag, { class: this.classes }, childs);
   }
 };
 </script>

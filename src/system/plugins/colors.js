@@ -1,6 +1,6 @@
 import { tokenMap } from "../tokens";
 
-const keys = Object.keys(tokenMap["color"]).map((item) =>
+const keys = Object.keys(tokenMap["color"]).map(item =>
   convertToKebabCase(item)
 );
 
@@ -15,7 +15,7 @@ function adjust(color, amount) {
     "#" +
     color
       .replace(/^#/, "")
-      .replace(/../g, (color) =>
+      .replace(/../g, color =>
         (
           "0" +
           Math.min(255, Math.max(0, parseInt(color, 16) + amount)).toString(16)
@@ -58,7 +58,11 @@ function getContrastColor(color) {
 }
 
 function getHoverColor(color) {
-  if ((typeof process === 'object' && process.server) || typeof window === "undefined") return "neutral-100";
+  if (
+    (typeof process === "object" && process.server) ||
+    typeof window === "undefined"
+  )
+    return "neutral-100";
   const hex = getHexa(color);
   return adjust(hex, -10);
 }

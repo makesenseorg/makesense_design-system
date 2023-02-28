@@ -31,7 +31,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .avatar {
   position: relative;
   display: inline-block;
@@ -70,6 +70,6 @@ export default {
   <mks-avatar size="small" ></mks-avatar>
   <mks-avatar image="https://via.placeholder.com/200"></mks-avatar>
   <mks-avatar size="large" image="https://via.placeholder.com/300"></mks-avatar>
-  
+
 ```
 </docs>

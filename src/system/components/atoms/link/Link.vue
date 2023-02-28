@@ -38,11 +38,11 @@ export default {
   computed: {
     external() {
       return (
-        (typeof this.to === "string" &&
-          (this.to.startsWith("http") ||
-            this.to.startsWith("//") ||
-            this.to.startsWith("www"))) ||
-        this.to.startsWith("mailto:")
+        typeof this.to === "string" &&
+        (this.to.startsWith("http") ||
+          this.to.startsWith("//") ||
+          this.to.startsWith("www") ||
+          this.to.startsWith("mailto:"))
       );
     },
     tag() {
@@ -57,7 +57,7 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .link {
   font-size: inherit;
   font-weight: inherit;
@@ -103,7 +103,7 @@ export default {
 </style>
 <docs>
 
-## External links 
+## External links
 
 The component automatically detects an external link if it starts with <code>http</code>, <code>//</code> or <code>www</code>.
 

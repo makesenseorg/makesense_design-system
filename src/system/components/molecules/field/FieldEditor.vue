@@ -1,7 +1,5 @@
 <template>
-  <component
-    v-if="component"
-    :is="component"
+  <VueEditor
     v-model="theValue"
     :id="name"
     :ref="reference"
@@ -18,6 +16,7 @@
   />
 </template>
 <script>
+import VueEditor from "@@/modules/vue2-editor/components/VueEditor.vue";
 import "quill-mention";
 import "quill-mention/dist/quill.mention.css";
 /**
@@ -29,7 +28,9 @@ import "quill-mention/dist/quill.mention.css";
 
 export default {
   name: "MksFieldEditor",
-  components: {},
+  components: {
+    VueEditor,
+  },
   props: {
     value: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
@@ -66,14 +67,6 @@ export default {
         }
       }
     };
-  },
-  mounted: function() {
-    if (
-      process === undefined ||
-      process.server === undefined ||
-      !process.server
-    )
-      this.component = require("vue2-editor").VueEditor;
   },
   methods: {
     handleImageAdded: function(file, Editor, cursorLocation, resetUploader) {
@@ -207,8 +200,8 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.quillWrapper ::v-deep {
+<style lang="scss" scoped>
+.quillWrapper :deep() {
   .ql-mention-list-container {
     max-height: 250px;
     overflow: scroll;

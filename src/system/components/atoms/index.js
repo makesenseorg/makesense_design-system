@@ -53,10 +53,10 @@ Object.keys(componentsByName).forEach(name => {
   componentsByName[component.parent].children.push(component);
 });
 
-export { componentsMap };
-
-export default {
+const plugin = {
   install(Vue) {
     components.forEach(c => Vue.component(c.name, c));
   }
 };
+
+export { plugin as default, componentsMap };

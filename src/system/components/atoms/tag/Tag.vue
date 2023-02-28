@@ -6,8 +6,8 @@
     "
     :role="isCliquable ? 'button' : undefined"
     :style="
-      `--color: var(--color-${color}); 
-      --color-hover: ${hoverColor}; 
+      `--color: var(--color-${color});
+      --color-hover: ${hoverColor};
       --color-inverse: var(--color-${contrastColor})`
     "
     @click="onClick"
@@ -31,7 +31,11 @@
 </template>
 
 <script>
-import Vue from "vue";
+import {
+  colorExists,
+  getContrastColor,
+  getHoverColor
+} from "@@/plugins/colors";
 /**
  * Tags are used for small informations or taxonomies.
  * @version 0.1.0
@@ -40,7 +44,7 @@ export default {
   name: "MksTag",
   props: {
     /**
-     * Any of the design tokens colors and these : 
+     * Any of the design tokens colors and these :
             "neutral",
             "positive",
             "warning",
@@ -52,7 +56,7 @@ export default {
       default: "neutral",
       validator: function(value) {
         return (
-          Vue.prototype.$colorExists(value) ||
+          colorExists(value) ||
           ["positive", "negative", "warning", "neutral"].indexOf(value) !== -1
         );
       }
@@ -134,10 +138,10 @@ export default {
       else return this.label;
     },
     contrastColor() {
-      return this.$getContrastColor(this.color);
+      return getContrastColor(this.color);
     },
     hoverColor() {
-      return this.$getHoverColor(this.color);
+      return getHoverColor(this.color);
     }
   },
   methods: {
@@ -148,7 +152,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .tag {
   @include border-round;
   @include text-small;
@@ -272,12 +276,12 @@ export default {
     <mks-text tag="p">Other brand colors<br>
       <mks-text tag="span" size="small" color="light">All the colors in design tokens are available.</mks-text>
     </mks-text>
-    
+
     <mks-tag label="Neutral 20" color="neutral-20" v-bind:cliquable="true"></mks-tag>
     <mks-tag label="Brick red" color="brick-red" v-bind:cliquable="true"></mks-tag>
     <mks-tag label="Atlantis" color="atlantis" v-bind:cliquable="true"></mks-tag>
     <mks-tag label="Sahara sand" color="sahara-sand" v-bind:cliquable="true"></mks-tag><br><br>
-    
+
   ```
 
 ## Sizes

@@ -32,16 +32,12 @@
 </template>
 
 <script>
-import svgLoading from "@@/assets/img/ui/loading.svg";
 /**
  * Displays a loading indicator
  * @version 1.0.0
  */
 export default {
   name: "MksLoading",
-  components: {
-    svgLoading
-  },
   props: {
     /**
      * height of the zone covered by the loading indicator. Full by default
@@ -93,7 +89,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .loading {
   position: relative;
 

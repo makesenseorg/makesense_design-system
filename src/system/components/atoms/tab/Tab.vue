@@ -43,7 +43,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .tab-button {
   @include no-break;
   @include cursor-pointer;

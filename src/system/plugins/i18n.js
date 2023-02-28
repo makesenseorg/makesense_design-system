@@ -31,7 +31,7 @@ export default {
           close: "Fermer",
           home: "Retour à la page d'accueil",
           openSidebar: "Ouvrir le menu latéral",
-          discover: "Découvrir",
+          discover: "Découvrir"
         },
         en: {
           date: "Calendar date",
@@ -60,15 +60,15 @@ export default {
           close: "Close",
           home: "Back to homepage",
           openSidebar: "Open sidebar",
-          discover: "Discover",
-        },
+          discover: "Discover"
+        }
       },
-      current: "fr",
+      current: "fr"
     });
     Vue.provide("$MKSaddLocale", (name, locale) => {
       Vue.set(localeObservable.locales, name, locale);
     });
-    Vue.provide("$MKSsetLocale", (locale) => {
+    Vue.provide("$MKSsetLocale", locale => {
       localeObservable.current = locale;
     });
     Vue.mixin({
@@ -84,8 +84,8 @@ export default {
         },
         $MKSlocale() {
           return localeObservable.locales[localeObservable.current];
-        },
-      },
+        }
+      }
     });
-  },
+  }
 };

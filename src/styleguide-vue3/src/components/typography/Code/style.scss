@@ -1,0 +1,28 @@
+.ds-code {
+  @include reset;
+  @include stack-space($font-space-xl);
+  font-family: $font-code;
+  line-height: $line-height-m;
+  color: $text-color-inverse;
+  background: $background-color-inverse-softer;
+  padding: $space-s;
+  border-radius: $border-radius-s;
+}
+
+.ds-code-inline {
+  display: inline-block;
+  padding: $space-xxs $space-xs;
+  margin-bottom: 0;
+}
+
+.ds-code-size-small {
+  font-size: $font-size-s;
+}
+
+.ds-code-size-base {
+  font-size: $font-size-m;
+}
+
+.ds-code-size-large {
+  font-size: $font-size-l;
+}

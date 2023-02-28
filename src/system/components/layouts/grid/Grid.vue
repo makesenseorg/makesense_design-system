@@ -13,7 +13,7 @@ export default {
   release: "1.2.0"
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .example {
   background: $background-color-base;
 }
@@ -32,7 +32,7 @@ export default {
 ⚠️ **Note**: <mks-text weight="bold">Component `mks-grid-system` is only meant as an example in this documentation and should not be used in apps</mks-text>.
 
 ## The stack
-The grid system is composed of a container element with the class `mks-grid` and children elements. 
+The grid system is composed of a container element with the class `mks-grid` and children elements.
 
 By default, children span 12 columns.
 
@@ -45,7 +45,7 @@ By default, children span 12 columns.
 ```
 
 ## Defining columns
-You can tell an item to span a certain amount of columns by using the class `mks-col-{amount}`, where amount is any number between `1` and `12`. 
+You can tell an item to span a certain amount of columns by using the class `mks-col-{amount}`, where amount is any number between `1` and `12`.
 
 The items will not wrap as the screen gets smaller. See section #responsive for this.
 
@@ -106,7 +106,7 @@ There are two utility classes that allow a more specific placement and use of wh
 ## Automatic grids
 The class `mks-grid-auto` can replace the class `mks-grid` to display all children in one row, similarly to flexbox.
 
-All columns will have the same size (that of the biggest child) and fill the entire container width. 
+All columns will have the same size (that of the biggest child) and fill the entire container width.
 
 They will not wrap.
 
@@ -138,8 +138,8 @@ They will not wrap.
 ```
 
 ## Responsive
-For a more flexible grid when elements can wrap when they become smaller, we can use the following utility classes : 
-`mks-grid-auto-{size}`, where each element has a minimum width. With this system, you can create a responsive grid with equal sized items very easily. 
+For a more flexible grid when elements can wrap when they become smaller, we can use the following utility classes :
+`mks-grid-auto-{size}`, where each element has a minimum width. With this system, you can create a responsive grid with equal sized items very easily.
 
 ⚠️ You should not use `mks-col-${amount}` when using an auto sized grid.
 
@@ -240,7 +240,7 @@ You can a utility class `mks-grid-gap-{size}` on the container element to get sm
 </mks-grid-system>
 ```
 
-## Mixins 
+## Mixins
 You can use this system with scss mixins instead of utility classes for better readability in the template.
 
 - `.mks-grid` -> `@include grid`

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Vue from "vue";
+import { colorExists } from "@@/plugins/colors";
 /**
  * For displaying small, normal or large texts.
  *  @version 0.2.0
@@ -105,7 +105,7 @@ export default {
         // TODO : vérifier toutes les couleurs acceptéess
         return (
           hexa.test(value) ||
-          Vue.prototype.$colorExists(value) ||
+          colorExists(value) ||
           [
             "positive",
             "negative",
@@ -138,7 +138,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .text {
   box-sizing: border-box;
   color: var(--color);

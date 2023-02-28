@@ -36,7 +36,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .date {
   width: 40px;
   height: 40px;

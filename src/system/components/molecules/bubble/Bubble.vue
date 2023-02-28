@@ -144,7 +144,7 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .bubble {
   // position: fixed;
   // right: 1.25rem;
@@ -195,7 +195,7 @@ export default {
     width: 400px;
   }
 }
-.bubble__content ::v-deep {
+.bubble__content {
   @include text-large-semibold;
   color: var(--color-content);
   p + p {
@@ -211,7 +211,7 @@ export default {
 
 ```jsx
 
-<mks-bubble 
+<mks-bubble
     background-color="#031733"
     accent-color="silver-tree"
     image="https://france.makesense.org/wp-content/uploads/sites/6/2021/12/mesa-de-trabajo-210-2.png"
@@ -227,17 +227,17 @@ export default {
 
 ```
 
-## bubble without image 
+## bubble without image
 
 ```jsx
-<mks-bubble 
+<mks-bubble
   title="Tu veux faire partie de la solution ? Rejoins-nous!"
   content="<p>Depuis 10 ans, makesense crée des outils et des programmes de mobilisation collective pour permettre à tous et à toutes de passer à l’action et de construire une société inclusive et durable.</p>"
 >
 </mks-bubble>
 ```
 
-## bubble without image 
+## bubble without image
 
 ```jsx
 <mks-bubble>

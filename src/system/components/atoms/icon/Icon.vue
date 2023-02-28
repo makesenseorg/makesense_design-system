@@ -91,7 +91,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .icon {
   stroke: currentColor;
   vertical-align: middle;
@@ -133,30 +133,30 @@ Some examples :
 
 ```jsx
 <p>
-  <mks-icon type="activity" alt="Activités"></mks-icon> 
-  <mks-icon type="alert-triangle" alt="Attention, il fait froid!"></mks-icon> 
+  <mks-icon type="activity" alt="Activités"></mks-icon>
+  <mks-icon type="alert-triangle" alt="Attention, il fait froid!"></mks-icon>
   <mks-icon type="arrow-left" alt="A gauche"></mks-icon>
   <mks-icon type="arrow-left-circle" alt="Retourner"></mks-icon>
-  <mks-icon type="bell" alt="Notifications"></mks-icon> 
-  <mks-icon type="check"></mks-icon> 
-  <mks-icon type="clock"></mks-icon> 
-  <mks-icon type="eye-off"></mks-icon> 
-  <mks-icon type="filter"></mks-icon> 
-  <mks-icon type="heart"></mks-icon> 
-  <mks-icon type="list"></mks-icon> 
+  <mks-icon type="bell" alt="Notifications"></mks-icon>
+  <mks-icon type="check"></mks-icon>
+  <mks-icon type="clock"></mks-icon>
+  <mks-icon type="eye-off"></mks-icon>
+  <mks-icon type="filter"></mks-icon>
+  <mks-icon type="heart"></mks-icon>
+  <mks-icon type="list"></mks-icon>
   <mks-icon type="lock"></mks-icon>
   <mks-icon type="map-pin"></mks-icon>
   <mks-icon type="menu"></mks-icon>
   <mks-icon type="save"></mks-icon>
-  <mks-icon type="star"></mks-icon> 
-  <mks-icon type="thumbs-up"></mks-icon> 
+  <mks-icon type="star"></mks-icon>
+  <mks-icon type="thumbs-up"></mks-icon>
   <mks-icon type="user"></mks-icon>
   <mks-icon type="zoom-in"></mks-icon>
 </p>
 
 <p>
-  <mks-icon type="star" alt="petite étoile" v-bind:size="12" color="primary"></mks-icon> 
-  <mks-icon type="star" alt="étoile couleur secondaire" size="50" color="secondary"></mks-icon> 
+  <mks-icon type="star" alt="petite étoile" v-bind:size="12" color="primary"></mks-icon>
+  <mks-icon type="star" alt="étoile couleur secondaire" size="50" color="secondary"></mks-icon>
 </p>
 ```
 </docs>

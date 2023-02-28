@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Vue from "vue";
+import { colorExists } from "@@/plugins/colors";
 /**
  * Headings are used in each major section of a page in the
  * interface.
@@ -56,7 +56,7 @@ export default {
         // TODO : vérifier toutes les couleurs acceptéess
         return (
           hexa.test(value) ||
-          Vue.prototype.$colorExists(value) ||
+          colorExists(value) ||
           [
             "positive",
             "negative",
@@ -88,7 +88,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .heading {
   box-sizing: border-box;
   color: var(--color);
