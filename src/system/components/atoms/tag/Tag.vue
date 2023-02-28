@@ -126,6 +126,7 @@ export default {
       default: false
     }
   },
+  emits: ["click"],
   computed: {
     isCliquable() {
       return this.cliquable ? "cliquable" : "not-cliquable";

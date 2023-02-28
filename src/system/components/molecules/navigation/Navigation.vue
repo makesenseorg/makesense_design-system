@@ -43,7 +43,8 @@ export default {
         return value.match(/(main|secondary)/);
       }
     }
-  }
+  },
+  emits: ["click"]
 };
 /**
  * Returns the link object that was clicked

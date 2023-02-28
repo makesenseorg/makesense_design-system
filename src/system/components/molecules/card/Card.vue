@@ -165,6 +165,7 @@ export default {
       // validator regEx "chiffre : chiffre"
     }
   },
+  emits: ["click"],
   methods: {
     onClick() {
       /**

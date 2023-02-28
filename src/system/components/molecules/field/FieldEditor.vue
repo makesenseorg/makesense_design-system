@@ -32,7 +32,7 @@ export default {
     VueEditor,
   },
   props: {
-    value: {
+    modelValue: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
       required: true
     },
@@ -184,10 +184,10 @@ export default {
   },
   watch: {
     theValue: function() {
-      this.$emit("input", this.theValue);
+      this.$emit("update:modelValue", this.theValue);
     },
     value: function() {
-      this.theValue = this.value;
+      this.theValue = this.modelValue;
     },
     component: function() {
       this.$nextTick(() => {

@@ -139,6 +139,7 @@ export default {
       }
     }
   },
+  emits: ["upload", "change", "remove", "blur"],
   data: () => {
     return {
       file: null,
@@ -220,8 +221,6 @@ export default {
     },
 
     addFile: function() {
-      console.log("addfile");
-      console.trace("addfile");
       this.$refs.selecter.click();
     },
 

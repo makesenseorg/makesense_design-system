@@ -156,6 +156,7 @@ export default {
       type: String
     }
   },
+  emits: ["click"],
   data() {
     return {
       loadingState: null,

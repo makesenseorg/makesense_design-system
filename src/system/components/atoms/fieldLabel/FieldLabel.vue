@@ -51,6 +51,7 @@ export default {
       required: false
     }
   },
+  emits: ["click"],
   computed: {},
   methods: {
     onClickLabel: function() {

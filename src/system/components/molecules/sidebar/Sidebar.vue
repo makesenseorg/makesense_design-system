@@ -50,6 +50,7 @@ export default {
       default: false
     }
   },
+  emits: ["closed"],
   methods: {
     close: function() {
       /**

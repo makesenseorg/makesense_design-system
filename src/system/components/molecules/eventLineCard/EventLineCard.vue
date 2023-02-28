@@ -164,6 +164,7 @@ export default {
       default: false
     }
   },
+  emits: ["click"],
   data() {
     return {
       // used for accessibility labels

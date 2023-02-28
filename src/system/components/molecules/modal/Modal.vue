@@ -109,6 +109,7 @@ export default {
       default: false
     }
   },
+  emits: ["close"],
   data: function() {
     return {
       isMounted: false,

@@ -35,6 +35,7 @@ export default {
       default: false
     }
   },
+  emits: ["click"],
   methods: {
     onClick: function() {
       this.$emit("click", this.id);

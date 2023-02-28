@@ -37,7 +37,8 @@ export default {
       type: String,
       required: true
     }
-  }
+  },
+  emits: ["select"],
 };
 /**
  * Returns the selected language

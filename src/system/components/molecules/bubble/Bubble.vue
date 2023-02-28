@@ -108,6 +108,7 @@ export default {
       default: true
     }
   },
+  emits: ["click", "close"],
   computed: {
     colorBg() {
       const hexa = new RegExp("^#(?:[0-9a-fA-F]{3}){1,2}$");
