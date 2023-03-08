@@ -1,6 +1,6 @@
 {
   "name": "@makesenseorg/design-system",
-  "version": "1.16.7",
+  "version": "1.17.0",
   "engines": {
     "node": "14.x"
   },
@@ -28,6 +28,7 @@
     "reset-css": "^5.0.1",
     "vue": "^2.5.17",
     "vue-feather": "^1.0.1",
+    "vue2-datepicker": "^3.11.1",
     "vue2-editor": "^2.10.2",
     "vue2-google-maps": "^0.10.7"
   },
