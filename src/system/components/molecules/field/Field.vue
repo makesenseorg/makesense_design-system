@@ -77,6 +77,21 @@
       @blur="onBlur"
       @change="$emit('change')"
     />
+    <component
+      v-else-if="type === 'datetime' || type === 'datetimelocal'"
+      :is="component"
+      v-model="theValue"
+      class="field__input rte-render"
+      :id="name"
+      :ref="reference"
+      :name="name"
+      :placeholder="placeholder"
+      :class="getCss"
+      :options="options"
+      @focus="$emit('focus')"
+      @blur="onBlur"
+      @change="$emit('change')"
+    />
     <textarea
       v-else-if="type === 'textarea'"
       class="field field__input field--textarea"
@@ -299,7 +314,8 @@ export default {
             "checkbox",
             "search",
             "tel",
-            "url"
+            "url",
+            "datetime"
           ].indexOf(value) !== -1
         );
       }
@@ -532,6 +548,8 @@ export default {
   },
   mounted() {
     if (this.type === "editor") this.component = () => import(`./FieldEditor`);
+    if (this.type === "datetime" || this.type === "datetime-local")
+      this.component = () => import(`./FieldDateTime`);
   }
 };
 </script>
@@ -727,6 +745,7 @@ select {
 For accessibility purposes, indicate required fields by using <code>mks-visually-hidden</code> component, if using a * for regular devices.
 
   ```jsx
+    <br>
     <mks-field name="text" type="text" label="Text" placeholder="Placeholder" value=""></mks-field>
     <mks-field name="number" type="number" label="Number" v-bind:min="1" v-bind:max="10" placeholder="Min and max props can be set" value=""></mks-field>
     <mks-field name="select" type="select" label="Select" placeholder="An array of objects with value and label key sets the options. Or just an array of values." v-bind:options="[{value: '1', label: 'Option 1'}, {value: '2', label: 'Option 2'}]" value=""></mks-field>
@@ -734,6 +753,7 @@ For accessibility purposes, indicate required fields by using <code>mks-visually
     <mks-field name="textarea" type="textarea" label="Textarea" autoresize placeholder="Textarea can autoresize to the height of the content by using the prop 'autoresize'" value=""></mks-field>
     <mks-field name="checkbox" type="checkbox" label="Checkbox" checkbox-label="Checkbox label" value=""></mks-field>
     <mks-field name="search" type="search" placeholder="Search..." value=""></mks-field>
+    <mks-field name="datetime" label="Datetime" type="datetime" v-bind:value="new Date()" v-bind:options="{type: 'datetime', format: 'DD/MM/YY HH:mm', 'minute-step': 15}"></mks-field>
   ```
 
 ## Editor with mention
