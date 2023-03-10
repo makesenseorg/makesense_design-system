@@ -76,6 +76,21 @@
       @blur="onBlur"
       @change="$emit('change')"
     />
+    <component
+      v-else-if="type === 'datetime' || type === 'datetimelocal'"
+      :is="component"
+      v-model="theValue"
+      class="field__input rte-render"
+      :id="name"
+      :ref="reference"
+      :name="name"
+      :placeholder="placeholder"
+      :class="getCss"
+      :options="options"
+      @focus="$emit('focus')"
+      @blur="onBlur"
+      @change="$emit('change')"
+    />
     <textarea
       v-else-if="type === 'textarea'"
       class="field field__input field--textarea"
@@ -241,7 +256,7 @@ export default {
     /**
      * Value of the field
      */
-    modelValue: {
+    value: {
       type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
       required: true
     },
@@ -293,7 +308,8 @@ export default {
             "checkbox",
             "search",
             "tel",
-            "url"
+            "url",
+            "datetime"
           ].indexOf(value) !== -1
         );
       }
@@ -374,10 +390,10 @@ export default {
   },
   watch: {
     theValue: function() {
-      this.$emit("update:modelValue", this.theValue);
+      this.$emit("input", this.theValue);
     },
     value: function() {
-      this.theValue = this.modelValue;
+      this.theValue = this.value;
     }
   },
   data: function() {
@@ -523,6 +539,10 @@ export default {
     this.theValue = this.value;
 
     if (this.foldDefault) this.foldingOpen = true;
+  },
+  mounted() {
+    if (this.type === "datetime" || this.type === "datetime-local")
+      this.component = () => import(`./FieldDateTime`);
   }
 };
 </script>
@@ -718,13 +738,15 @@ select {
 For accessibility purposes, indicate required fields by using <code>mks-visually-hidden</code> component, if using a * for regular devices.
 
   ```jsx
-    <mks-field name="text" type="text" label="Text" placeholder="Placeholder" model-value=""></mks-field>
-    <mks-field name="number" type="number" label="Number" v-bind:min="1" v-bind:max="10" placeholder="Min and max props can be set" model-value=""></mks-field>
-    <mks-field name="select" type="select" label="Select" placeholder="An array of objects with value and label key sets the options. Or just an array of values." v-bind:options="[{value: '1', label: 'Option 1'}, {value: '2', label: 'Option 2'}]" model-value=""></mks-field>
-    <mks-field name="editor" type="editor" label="Editor" placeholder="Placeholder" model-value=""></mks-field>
-    <mks-field name="textarea" type="textarea" label="Textarea" autoresize placeholder="Textarea can autoresize to the height of the content by using the prop 'autoresize'" model-value=""></mks-field>
-    <mks-field name="checkbox" type="checkbox" label="Checkbox" checkbox-label="Checkbox label" model-value=""></mks-field>
-    <mks-field name="search" type="search" placeholder="Search..." model-value=""></mks-field>
+    <br>
+    <mks-field name="text" type="text" label="Text" placeholder="Placeholder" value=""></mks-field>
+    <mks-field name="number" type="number" label="Number" v-bind:min="1" v-bind:max="10" placeholder="Min and max props can be set" value=""></mks-field>
+    <mks-field name="select" type="select" label="Select" placeholder="An array of objects with value and label key sets the options. Or just an array of values." v-bind:options="[{value: '1', label: 'Option 1'}, {value: '2', label: 'Option 2'}]" value=""></mks-field>
+    <mks-field name="editor" type="editor" label="Editor" placeholder="Placeholder" value=""></mks-field>
+    <mks-field name="textarea" type="textarea" label="Textarea" autoresize placeholder="Textarea can autoresize to the height of the content by using the prop 'autoresize'" value=""></mks-field>
+    <mks-field name="checkbox" type="checkbox" label="Checkbox" checkbox-label="Checkbox label" value=""></mks-field>
+    <mks-field name="search" type="search" placeholder="Search..." value=""></mks-field>
+    <mks-field name="datetime" label="Datetime" type="datetime" v-bind:value="new Date()" v-bind:options="{type: 'datetime', format: 'DD/MM/YY HH:mm', 'minute-step': 15}"></mks-field>
   ```
 
 ## Editor with mention
@@ -746,9 +768,9 @@ The function has the search term as argument, and awaits an array of objects, wh
 ## Additional texts
 
 ```jsx
-    <mks-field name="text" type="text" label="Sublabel" sub-label="with sublabel" model-value=""></mks-field>
-    <mks-field name="text" type="text" label="Description" description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. " model-value=""></mks-field>
-    <mks-field name="text" type="text" label="Action slot" model-value="">
+    <mks-field name="text" type="text" label="Sublabel" sub-label="with sublabel" value=""></mks-field>
+    <mks-field name="text" type="text" label="Description" description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. " value=""></mks-field>
+    <mks-field name="text" type="text" label="Action slot" value="">
       <template v-slot:action>
   Remove
   <mks-icon type="close" />
@@ -758,10 +780,10 @@ The function has the search term as argument, and awaits an array of objects, wh
 
 ## States
 ```jsx
-    <mks-field name="text" type="text" label="Default" model-value=""></mks-field>
-    <mks-field name="text" type="text" label="Disabled" v-bind:disable="true" model-value=""></mks-field>
-    <mks-field name="text" type="text" label="Success" v-bind:success="true" model-value="Foo success"></mks-field>
-    <mks-field name="text" type="text" label="Error" v-bind:error="true" model-value="Bar error"></mks-field>
+    <mks-field name="text" type="text" label="Default" value=""></mks-field>
+    <mks-field name="text" type="text" label="Disabled" v-bind:disable="true" value=""></mks-field>
+    <mks-field name="text" type="text" label="Success" v-bind:success="true" value="Foo success"></mks-field>
+    <mks-field name="text" type="text" label="Error" v-bind:error="true" value="Bar error"></mks-field>
   ```
 
 
