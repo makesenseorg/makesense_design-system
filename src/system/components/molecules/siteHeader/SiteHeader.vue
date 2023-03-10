@@ -87,7 +87,7 @@ export default {
       default: false
     }
   },
-  emits: ["openSidebar"],
+  emits: ["openSidebar"]
 };
 </script>
 <style lang="scss">

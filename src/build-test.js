@@ -38,9 +38,10 @@ fsPromise
       components.map(async file => {
         const filename = path.basename(file);
         let content = await fsPromise.readFile(file, { encoding: "utf8" });
+        content = content.replace(/@@\/plugins/g, "../plugins"); // remplace l'alias dans le path des assets
         content = content.replace(/@@\/assets/g, "../assets"); // remplace l'alias dans le path des assets
         content = content.replace(/<docs(\s|>).*<\/docs>/gs, ""); // retire toutes les balises docs
-        
+
         // récupère les sous composants mks utilisés par chaque composant pour les injecter dans le bloc script
         const subComponents = _.uniq(
           (content.match(/<mks-[^\s>]+/g) || []).map(componentName =>

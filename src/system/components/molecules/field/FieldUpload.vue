@@ -31,7 +31,12 @@
           v-show="!file && !file_image"
           tag="button"
           type="neutral"
-          @click="() => {console.log('click1'); addFile()}"
+          @click="
+            () => {
+              console.log('click1');
+              addFile();
+            }
+          "
           >{{ uploadLabelTranslated }}</mks-button
         >
         <mks-button

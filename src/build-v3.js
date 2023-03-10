@@ -115,6 +115,7 @@ async function buildStyles() {
 async function buildComponents() {
   const components = glob.sync("./system/components/**/**/*.vue");
   const componentsMap = {};
+  const atoms = [];
   const files = await Promise.all(
     components.map(async file => {
       const filename = path.basename(file);
@@ -125,6 +126,9 @@ async function buildComponents() {
         componentInfo.tags.access &&
         componentInfo.tags.access[0].description.indexOf("private") !== -1;
       let content = await fsPromise.readFile(file, { encoding: "utf8" });
+      if (folder === "atoms") {
+        atoms.push(componentName);
+      }
       if (!hidden) {
         const docs = Array.from(content.matchAll(/<docs(\s|>)(.*?)<\/docs>/gs))
           .map(match => match[2])
@@ -212,6 +216,24 @@ Object.values(componentMap).forEach((components) => {
 });
 componentMap.components = componentsByName;
 export default componentMap;
+`
+  );
+
+  await fsPromise.writeFile(
+    `${BUILD_DIR}/components/atoms.js`,
+    atoms.map((name) => `import Mks${name} from "./${name}.vue";`).join("\n") + `
+
+const atoms = {
+  ${atoms.map(name => "Mks" + name).join(",\n  ")}
+};
+
+export default {
+  install(vueApp) {
+    Object.entries(atoms).forEach(([name, component]) => {
+      vueApp.component(name, component);
+    });
+  }
+}
 `
   );
 }

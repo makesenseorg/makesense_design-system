@@ -29,7 +29,7 @@ import "quill-mention/dist/quill.mention.css";
 export default {
   name: "MksFieldEditor",
   components: {
-    VueEditor,
+    VueEditor
   },
   props: {
     modelValue: {

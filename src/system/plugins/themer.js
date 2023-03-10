@@ -5,7 +5,9 @@ let stylesheet = null;
 
 const themer = {
   install(Vue, theme) {
-    const observable = reactive({
+    const observable = (typeof Vue.observable === "function"
+      ? Vue.observable
+      : reactive)({
       theme: "base"
     });
 
@@ -30,8 +32,11 @@ const themer = {
         mksGetTheme: () => observable.theme
       }
     });
-
-    Vue.provide("$loadTheme", loadTheme);
+    if (Vue.provide && typeof Vue.provide === "function") {
+      Vue.provide("$loadTheme", loadTheme);
+    } else {
+      Vue.prototype.$loadTheme = loadTheme;
+    }
 
     // Init base theme
     if (typeof document !== "undefined") {

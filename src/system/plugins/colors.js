@@ -71,13 +71,18 @@ export { colorExists, getContrastColor, getHoverColor };
 
 export default {
   install(Vue) {
-    Vue.provide("$colorTokensKeys", keys);
-    Vue.provide("$colorTokens", tokenMap);
-
-    Vue.provide("$colorExists", colorExists);
-
-    Vue.provide("$getContrastColor", getContrastColor);
-
-    Vue.provide("$getHoverColor", getHoverColor);
+    if (Vue.provide && typeof Vue.provide === "function") {
+      Vue.provide("$colorTokensKeys", keys);
+      Vue.provide("$colorTokens", tokenMap);
+      Vue.provide("$colorExists", colorExists);
+      Vue.provide("$getContrastColor", getContrastColor);
+      Vue.provide("$getHoverColor", getHoverColor);
+    } else {
+      Vue.prototype.$colorTokensKeys = keys;
+      Vue.prototype.$colorTokens = tokenMap;
+      Vue.prototype.$colorExists = colorExists;
+      Vue.prototype.$getContrastColor = getContrastColor;
+      Vue.prototype.$getHoverColor = getHoverColor;
+    }
   }
 };

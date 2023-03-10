@@ -7,7 +7,8 @@ module.exports = {
 	css: {
 		loaderOptions: {
 			sass: {
-				data: `@import "@@/styles/shared.scss";`
+				data: `@import "@@/styles/shared.scss";`,
+				includePaths: [path.resolve(__dirname, "./node_modules")]
 			}
 		}
 	},
@@ -18,7 +19,8 @@ module.exports = {
 		resolve: {
 			alias: {
 				vue$: 'vue/dist/vue.common',
-				'@@': path.resolve(__dirname, './src/system')
+				'@@': path.resolve(__dirname, './src/system'),
+				"reset-css": path.resolve(__dirname, './node_modules/reset-css')
 			}
 		},
 		module: {

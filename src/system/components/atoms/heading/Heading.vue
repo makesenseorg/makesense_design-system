@@ -88,7 +88,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .heading {
   box-sizing: border-box;
   color: var(--color);

@@ -175,11 +175,16 @@
  * @version 1.0.0
  */
 import { defineAsyncComponent } from "vue";
-const AsyncMksFieldEditor = defineAsyncComponent(() => import("./FieldEditor.vue"));
+let AsyncMksFieldEditor;
+if (typeof defineAsyncComponent === "function") {
+  AsyncMksFieldEditor = defineAsyncComponent(() => import("./FieldEditor.vue"));
+} else {
+  AsyncMksFieldEditor = () => import("./FieldEditor.vue");
+}
 
 export default {
   components: {
-    AsyncMksFieldEditor,
+    AsyncMksFieldEditor
   },
   name: "MksField",
   props: {
@@ -518,7 +523,7 @@ export default {
     this.theValue = this.value;
 
     if (this.foldDefault) this.foldingOpen = true;
-  },
+  }
 };
 </script>
 <style lang="scss">

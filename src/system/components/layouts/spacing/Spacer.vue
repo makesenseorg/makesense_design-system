@@ -66,15 +66,23 @@ export default {
       return classes;
     }
   },
-  render() {
+  render(oldH) {
+    let createComponent = h;
+    if (typeof h !== "function" && typeof oldH === "function") {
+      createComponent = oldH;
+    }
     const childs = [];
-    (this.$slots.default() || []).forEach((item, index, items) => {
+    const defaultSlot =
+      typeof this.$slots.default === "function"
+        ? this.$slots.default()
+        : this.$slots.default;
+    (defaultSlot || []).forEach((item, index, items) => {
       // verifier si pas de tag comment faire (node)
       // const text = item.text && item.text.trim();
       if (item) {
         if (item.type && item.type.name === "MksSpacerItem") {
           childs.push(item);
-        } else if (item.type.toString() !== "Symbol(Comment)") {
+        } else if (item.type && item.type.toString() !== "Symbol(Comment)") {
           if (item.type.toString() === "Symbol(Fragment)") {
             if (item.children && item.children.length) {
               if (items.length === 1) {
@@ -84,8 +92,7 @@ export default {
                   }
                   childs.push(h("div", { class: "spacer__item" }, [child]));
                 });
-              }
-              else {
+              } else {
                 childs.push(h("div", { class: "spacer__item" }, [item]));
               }
             }
@@ -94,11 +101,28 @@ export default {
           if (item.children === " ") {
             return;
           }
-          childs.push(h("div", { class: "spacer__item" }, [item]));
+          childs.push(
+            createComponent("div", { class: "spacer__item" }, [item])
+          );
+        } else {
+          const text = item.text && item.text.trim();
+
+          if (item && (text || item.tag)) {
+            if (
+              item.componentOptions &&
+              item.componentOptions.tag === "mks-spacer-item"
+            ) {
+              childs.push(item);
+            } else {
+              childs.push(
+                createComponent("div", { class: "spacer__item" }, [item])
+              );
+            }
+          }
         }
       }
     });
-    return h(this.tag, { class: this.classes }, childs);
+    return createComponent(this.tag, { class: this.classes }, childs);
   }
 };
 </script>

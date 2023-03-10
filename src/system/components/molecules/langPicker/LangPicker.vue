@@ -38,7 +38,7 @@ export default {
       required: true
     }
   },
-  emits: ["select"],
+  emits: ["select"]
 };
 /**
  * Returns the selected language

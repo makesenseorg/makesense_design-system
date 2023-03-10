@@ -107,13 +107,16 @@ export default {
       });
     },
     docParts() {
-      const component = this.component.component;
-      if (!component.__docs) {
+      const component = this.component;
+      if (!component.docsBlocks) {
         return [];
       }
-      const parts = component.__docs.split("```");
+      const parts = component.docsBlocks
+        .join("\n")
+        .replace(/\\\\'/, "\\'")
+        .split("```");
       let i = 0;
-      const parsed = parts.reduce((result, part, index) => {
+      return parts.reduce((result, part, index) => {
         if (index % 2 === 0) {
           result[i] = {
             description: part
@@ -124,7 +127,6 @@ export default {
         }
         return result;
       }, []);
-      return parsed;
     }
   },
   methods: {

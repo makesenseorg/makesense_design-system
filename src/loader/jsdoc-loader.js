@@ -9,6 +9,8 @@ module.exports = function(source) {
     .replace(/\u2029/g, '\\u2029')
     .replace(/\\n/g, '\n')
     .replace(/\\"/g, '\"')
-  const component = parseSource(content, this.resourcePath)
-  callback(null, `module.exports = ${JSON.stringify(component)}`)
+  parseSource(content, this.resourcePath)
+    .then((component) => {
+      callback(null, `module.exports = ${JSON.stringify(component)}`)
+    });
 }

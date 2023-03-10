@@ -2,7 +2,9 @@ import { reactive } from "vue";
 
 export default {
   install(Vue) {
-    const localeObservable = reactive({
+    const localeObservable = (typeof Vue.observable === "function"
+      ? Vue.observable
+      : reactive)({
       locales: {
         fr: {
           date: "Date du calendrier",
@@ -65,12 +67,6 @@ export default {
       },
       current: "fr"
     });
-    Vue.provide("$MKSaddLocale", (name, locale) => {
-      Vue.set(localeObservable.locales, name, locale);
-    });
-    Vue.provide("$MKSsetLocale", locale => {
-      localeObservable.current = locale;
-    });
     Vue.mixin({
       computed: {
         $MKSlocales() {
@@ -87,5 +83,19 @@ export default {
         }
       }
     });
+
+    const addLocale = (name, locale) => {
+      Vue.set(localeObservable.locales, name, locale);
+    };
+    const setLocale = locale => {
+      localeObservable.current = locale;
+    };
+    if (Vue.provide && typeof Vue.provide === "function") {
+      Vue.provide("$MKSaddLocale", addLocale);
+      Vue.provide("$MKSsetLocale", setLocale);
+    } else {
+      Vue.prototype.$MKSaddLocale = addLocale;
+      Vue.prototype.$MKSsetLocale = setLocale;
+    }
   }
 };

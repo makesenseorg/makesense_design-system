@@ -209,13 +209,15 @@ export default {
     },
     getAttributesFromComment(comment) {
       const attributes = {};
-      const optionsMatch = comment.match(/@options[ ]+(\S[ \S]*)\n/);
-      if (optionsMatch) {
-        attributes.options = optionsMatch[1].split("|");
-      }
-      const defaultMatch = comment.match(/@default[ ]+(\S[ \S]*)\n/);
-      if (defaultMatch) {
-        attributes.default = defaultMatch[1];
+      if (comment) {
+        const optionsMatch = comment.match(/@options[ ]+(\S[ \S]*)\n/);
+        if (optionsMatch) {
+          attributes.options = optionsMatch[1].split("|");
+        }
+        const defaultMatch = comment.match(/@default[ ]+(\S[ \S]*)\n/);
+        if (defaultMatch) {
+          attributes.default = defaultMatch[1];
+        }
       }
       return attributes;
     }

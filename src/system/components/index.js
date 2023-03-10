@@ -23,6 +23,9 @@ context.keys().forEach(key => {
   const hidden =
     meta.tags.access &&
     meta.tags.access[0].description.indexOf("private") !== -1;
+  const noImport =
+    meta.tags.access &&
+    meta.tags.access[0].description.indexOf("private_no_import") !== -1;
 
   if (!hidden) {
     const parent = meta.tags.see ? meta.tags.see[0].description : null;
@@ -38,7 +41,7 @@ context.keys().forEach(key => {
     componentsMap[folder].push(componentsByName[c.name]);
   }
 
-  if (meta.comment.indexOf("private_no_import") !== -1) {
+  if (noImport) {
     return;
   } else {
     components.push(c);

@@ -110,7 +110,7 @@ export default {
     realBeans() {
       return this.beans || (this.theme === "secondary" ? 3 : 1);
     }
-  },
+  }
 };
 </script>
 <style lang="scss">
