@@ -59,6 +59,16 @@
       </select>
       <mks-icon type="chevron-down" class="input__select-icon" />
     </div>
+    <Radio
+      v-else-if="type === 'radio'"
+      v-model="theValue"
+      :id="name"
+      :ref="reference"
+      :name="name"
+      :items="options"
+      @blur="onBlur"
+      @change="$emit('change')"
+    />
     <component
       v-else-if="type === 'editor'"
       :is="component"
@@ -201,12 +211,14 @@
 </template>
 
 <script>
+import Radio from "./Radio.vue";
 /**
  * The field component can be used in forms. It emits 'blur', 'change' and 'input' events, as a native input would.
  * @version 1.0.0
  */
 export default {
   name: "MksField",
+  components: { Radio },
   props: {
     /**
      * Name of the field for formData
@@ -315,7 +327,8 @@ export default {
             "search",
             "tel",
             "url",
-            "datetime"
+            "datetime",
+            "radio"
           ].indexOf(value) !== -1
         );
       }
@@ -754,6 +767,8 @@ For accessibility purposes, indicate required fields by using <code>mks-visually
     <mks-field name="checkbox" type="checkbox" label="Checkbox" checkbox-label="Checkbox label" value=""></mks-field>
     <mks-field name="search" type="search" placeholder="Search..." value=""></mks-field>
     <mks-field name="datetime" label="Datetime" type="datetime" v-bind:value="new Date()" v-bind:options="{type: 'datetime', format: 'DD/MM/YY HH:mm', 'minute-step': 15}"></mks-field>
+    <mks-field name="radio" type="radio" label="Radio" v-bind:options="[{value: '1', label: 'Option 1', description: 'une explication du champ'}, {value: '2', label: 'Option 2', tooltip: 'je m\'affiche au survol'}]" value=""></mks-field>
+
   ```
 
 ## Editor with mention
