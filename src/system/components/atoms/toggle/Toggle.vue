@@ -7,6 +7,7 @@
       class="toggle__input"
       :checked="checked"
       :disabled="disabled"
+      v-model="value"
       @input="$emit('input', $event.target.value)"
     />
     <span class="toggle__display">
@@ -27,6 +28,7 @@
         color="currentColor"
       ></mks-icon>
     </span>
+    {{ value }}
     <div v-if="$slots['default']" :class="{ 'label--disabled': disabled }">
       <slot>{{ label }}</slot>
     </div>
