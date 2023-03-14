@@ -53,7 +53,6 @@ export default {
     };
   },
   created() {
-    console.log("created");
     this.theValue = this.value;
     // require("vue2-datepicker/locale/fr");
     this.updateLocale();
