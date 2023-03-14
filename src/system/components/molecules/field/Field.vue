@@ -67,7 +67,7 @@
       :name="name"
       :items="options"
       @blur="onBlur"
-      @change="$emit('change')"
+      @change="$emit('input')"
     />
     <component
       v-else-if="type === 'editor'"
