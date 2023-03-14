@@ -85,7 +85,9 @@ async function optimizeTokens() {
   );
   await fsPromise.writeFile(
     `${BUILD_DIR}/tokens/generated/themes/index.js`,
-    `${themeNames.map((name) => `import ${name} from "./${name}.js";\n`).join("")}export default { ${themeNames.join(', ')} };`
+    `${themeNames
+      .map(name => `import ${name} from "./${name}.js";\n`)
+      .join("")}export default { ${themeNames.join(", ")} };`
   );
 }
 
@@ -94,10 +96,7 @@ async function buildStyles() {
   const mainStyle = sass.compile("./system/styles/main.scss", {
     loadPaths: ["../node_modules"]
   });
-  await fsPromise.writeFile(
-    `${BUILD_DIR}/main.css`,
-    mainStyle.css
-  );
+  await fsPromise.writeFile(`${BUILD_DIR}/main.css`, mainStyle.css);
   const sharedFileNames = glob.sync("./system/styles/shared/*.scss");
   const tokens = await fsPromise.readFile(
     "./system/tokens/generated/tokens.scss",
@@ -121,7 +120,11 @@ async function buildComponents() {
       const filename = path.basename(file);
       const folder = file.split("/")[3];
       const componentName = filename.replace(".vue", "");
-      const componentInfo = await vueDocs.parse(file);
+      const componentInfo = await vueDocs.parse(file, {
+        alias: {
+          "@@": path.resolve(__dirname, "./system")
+        }
+      });
       const hidden =
         componentInfo.tags.access &&
         componentInfo.tags.access[0].description.indexOf("private") !== -1;
@@ -148,6 +151,7 @@ async function buildComponents() {
       content = content.replace(/@@\/plugins/g, "../plugins"); // remplace l'alias dans le path des assets
       content = content.replace(/@@\/modules/g, "../modules"); // remplace l'alias dans le path des modules
       content = content.replace(/<docs(\s|>).*<\/docs>/gs, ""); // retire toutes les balises docs
+      content = content.replace(/vue2-datepicker/g, "vue-datepicker-next"); // retire toutes les balises docs
 
       // récupère les sous composants mks utilisés par chaque composant pour les injecter dans le bloc script
       const subComponents = _.uniq(
@@ -221,7 +225,8 @@ export default componentMap;
 
   await fsPromise.writeFile(
     `${BUILD_DIR}/components/atoms.js`,
-    atoms.map((name) => `import Mks${name} from "./${name}.vue";`).join("\n") + `
+    atoms.map(name => `import Mks${name} from "./${name}.vue";`).join("\n") +
+      `
 
 const atoms = {
   ${atoms.map(name => "Mks" + name).join(",\n  ")}
@@ -259,6 +264,15 @@ async function build() {
     optimizeTokens(),
     buildStyles()
   ]);
+
+  const indexContents = await fsPromise.readFile(`${BUILD_DIR}/index.js`, "utf8");
+  await fsPromise.writeFile(
+    `${BUILD_DIR}/index.js`,
+    indexContents.replace(
+      'import "./styles/main.scss";',
+      'import "./main.css";'
+    )
+  );
 }
 
 build().catch(e => console.log(e));

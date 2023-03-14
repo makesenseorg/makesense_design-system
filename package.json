@@ -26,6 +26,7 @@
     "feather-icons": "^4.28.0",
     "quill-mention": "^3.0.4",
     "vue": "^2.6.11",
+    "vue-datepicker-next": "^1.0.2",
     "vue2-datepicker": "^3.11.1"
   },
   "devDependencies": {

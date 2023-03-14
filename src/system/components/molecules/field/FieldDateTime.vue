@@ -75,13 +75,6 @@ export default {
     },
     value: function() {
       this.theValue = this.value;
-    },
-    component: function() {
-      this.$nextTick(() => {
-        if (this.$refs[this.reference] === undefined) return;
-
-        this.applyAccessibilityHacks(this.$refs[this.reference]);
-      });
     }
   }
 };

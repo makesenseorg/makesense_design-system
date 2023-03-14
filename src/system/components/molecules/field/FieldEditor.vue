@@ -17,8 +17,10 @@
 </template>
 <script>
 import VueEditor from "@@/modules/vue2-editor/components/VueEditor.vue";
+import vmodelMixin from "@@/modules/vmodel";
 import "quill-mention";
 import "quill-mention/dist/quill.mention.css";
+
 /**
  * The field component can be used for RTE
  * @private
@@ -27,15 +29,17 @@ import "quill-mention/dist/quill.mention.css";
  */
 
 export default {
+  mixins: [
+    vmodelMixin({
+      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
+      required: true
+    })
+  ],
   name: "MksFieldEditor",
   components: {
     VueEditor
   },
   props: {
-    modelValue: {
-      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
-      required: true
-    },
     name: "",
     reference: {
       type: String,
@@ -55,7 +59,7 @@ export default {
     };
   },
   created() {
-    this.theValue = this.value;
+    this.theValue = this.vModelValue;
     this.editorOptions = {
       modules: {
         mention: {
@@ -184,10 +188,10 @@ export default {
   },
   watch: {
     theValue: function() {
-      this.$emit("update:modelValue", this.theValue);
+      this.setVModelValue(this.theValue);
     },
-    value: function() {
-      this.theValue = this.modelValue;
+    vModelValue: function() {
+      this.theValue = this.vModelValue;
     },
     component: function() {
       this.$nextTick(() => {

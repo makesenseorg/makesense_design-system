@@ -6,10 +6,7 @@
     :style="{
       backgroundColor: mainColor !== undefined ? mainColor : null,
       color: textColor !== undefined ? textColor : null,
-      backgroundImage:
-        realBeans !== 0 && realBeans !== '0'
-          ? `url(${require(`@@/assets/img/brand/beans-${realBeans}.png`)})`
-          : null
+      backgroundImage: beansImage
     }"
   >
     <!-- classes v -->
@@ -33,6 +30,13 @@
   </component>
 </template>
 <script>
+import beans1 from "@@/assets/img/brand/beans-1.png";
+import beans2 from "@@/assets/img/brand/beans-2.png";
+import beans3 from "@@/assets/img/brand/beans-3.png";
+import beans4 from "@@/assets/img/brand/beans-4.png";
+import beans5 from "@@/assets/img/brand/beans-5.png";
+
+const beansImageList = [null, beans1, beans2, beans3, beans4, beans5];
 /**
  * Grab your user's attention with a catchy title right in the top of the page.
  * @version 1.4.0
@@ -109,6 +113,14 @@ export default {
   computed: {
     realBeans() {
       return this.beans || (this.theme === "secondary" ? 3 : 1);
+    },
+    beansImage() {
+      const beanImageIndex = parseInt(this.realBeans) || 0;
+      if (beansImageList[beanImageIndex]) {
+        return `url(${beansImageList[beanImageIndex]})`;
+      } else {
+        return null;
+      }
     }
   }
 };

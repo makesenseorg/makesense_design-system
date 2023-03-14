@@ -76,9 +76,8 @@
       @blur="onBlur"
       @change="$emit('change')"
     />
-    <component
+    <async-mks-field-date-time
       v-else-if="type === 'datetime' || type === 'datetimelocal'"
-      :is="component"
       v-model="theValue"
       class="field__input rte-render"
       :id="name"
@@ -123,7 +122,7 @@
         @focus="$emit('focus')"
         @blur="$emit('blur')"
         @change="$emit('change')"
-        @input="$emit('input', theValue)"
+        @input="setVModelValue(theValue)"
       />
       <span class="checkbox__mention" v-html="checkboxLabel"></span>
     </label>
@@ -190,16 +189,30 @@
  * @version 1.0.0
  */
 import { defineAsyncComponent } from "vue";
+import vmodelMixin from "@@/modules/vmodel";
+
 let AsyncMksFieldEditor;
+let AsyncMksFieldDateTime;
 if (typeof defineAsyncComponent === "function") {
   AsyncMksFieldEditor = defineAsyncComponent(() => import("./FieldEditor.vue"));
+  AsyncMksFieldDateTime = defineAsyncComponent(() =>
+    import("./FieldDateTime.vue")
+  );
 } else {
   AsyncMksFieldEditor = () => import("./FieldEditor.vue");
+  AsyncMksFieldDateTime = () => import("./FieldDateTime.vue");
 }
 
 export default {
+  mixins: [
+    vmodelMixin({
+      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
+      required: true
+    })
+  ],
   components: {
-    AsyncMksFieldEditor
+    AsyncMksFieldEditor,
+    AsyncMksFieldDateTime
   },
   name: "MksField",
   props: {
@@ -252,13 +265,6 @@ export default {
     checkboxLabel: {
       type: String,
       required: false
-    },
-    /**
-     * Value of the field
-     */
-    value: {
-      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
-      required: true
     },
     fold: {
       type: Boolean,
@@ -390,10 +396,10 @@ export default {
   },
   watch: {
     theValue: function() {
-      this.$emit("input", this.theValue);
+      this.setVModelValue(this.theValue);
     },
-    value: function() {
-      this.theValue = this.value;
+    vModelValue: function() {
+      this.theValue = this.vModelValue;
     }
   },
   data: function() {
@@ -406,7 +412,7 @@ export default {
   methods: {
     onInput($event) {
       this.resize($event);
-      this.$emit("input", this.theValue);
+      this.setVModelValue(this.theValue);
     },
     onClickLabel: function() {
       if (this.foldingOpen) this.foldingOpen = false;
@@ -536,13 +542,9 @@ export default {
     }
   },
   created() {
-    this.theValue = this.value;
+    this.theValue = this.vModelValue;
 
     if (this.foldDefault) this.foldingOpen = true;
-  },
-  mounted() {
-    if (this.type === "datetime" || this.type === "datetime-local")
-      this.component = () => import(`./FieldDateTime`);
   }
 };
 </script>
@@ -762,7 +764,7 @@ The function has the search term as argument, and awaits an array of objects, wh
 ]
 </code></pre>
 ```jsx
-<mks-field name="editor" v-bind:on-mention="() => [{ id: 1, value: 'name 1' }, { id: 2, value: 'name 2' }]" type="editor" label="Editor" placeholder="Placeholder" model-value="" ></mks-field>
+<mks-field name="editor" v-bind:on-mention="() => [{ id: 1, value: 'name 1' }, { id: 2, value: 'name 2' }]" type="editor" label="Editor" placeholder="Placeholder" value="" ></mks-field>
 ```
 
 ## Additional texts
