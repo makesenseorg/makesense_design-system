@@ -11,20 +11,14 @@
         <mks-icon type="check" v-show="selectedValue === item.value"></mks-icon>
       </div>
       <div class="choice__label">
-        <span class="label__primary">{{
-          labelMustBeTranslated ? $t(item.label) : item.label
-        }}</span>
+        <span class="label__primary">{{ item.label }}</span>
         <template
           v-if="item.description !== undefined && item.description !== ''"
         >
-          <span class="label__description">{{
-            labelMustBeTranslated ? $t(item.description) : item.description
-          }}</span>
+          <span class="label__description">{{ item.description }}</span>
         </template>
         <template v-else-if="item.tooltip !== undefined && item.tooltip !== ''">
-          <span class="label__description">{{
-            tooltipMustBeTranslated ? $t(item.tooltip) : item.tooltip
-          }}</span>
+          <span class="label__description">{{ item.tooltip }}</span>
         </template>
       </div>
     </div>
@@ -45,14 +39,6 @@ export default {
       type: String,
       default: ""
     },
-    labelMustBeTranslated: {
-      type: Boolean,
-      default: false
-    },
-    tooltipMustBeTranslated: {
-      type: Boolean,
-      default: false
-    }
   },
   data() {
     return {
@@ -63,9 +49,10 @@ export default {
     this.selectedValue = this.defaultValue;
   },
   methods: {
-    onSelect: function(id) {
-      this.selectedValue = id;
+    onSelect: function(value) {
+      this.selectedValue = value;
       this.$emit("change", this.selectedValue);
+      this.$emit("input", this.selectedValue);
     }
   }
 };
