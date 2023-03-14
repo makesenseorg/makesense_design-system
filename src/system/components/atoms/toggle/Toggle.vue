@@ -7,7 +7,7 @@
       class="toggle__input"
       :checked="checked"
       :disabled="disabled"
-      v-model="value"
+      :value="value"
       @input="$emit('input', $event.target.value)"
     />
     <span class="toggle__display">
