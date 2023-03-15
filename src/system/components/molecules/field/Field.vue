@@ -59,7 +59,7 @@
       </select>
       <mks-icon type="chevron-down" class="input__select-icon" />
     </div>
-    <Radio
+    <FieldRadio
       v-else-if="type === 'radio'"
       v-model="theValue"
       :id="name"
@@ -211,14 +211,14 @@
 </template>
 
 <script>
-import Radio from "./Radio.vue";
+import FieldRadio from "./FieldRadio.vue";
 /**
  * The field component can be used in forms. It emits 'blur', 'change' and 'input' events, as a native input would.
  * @version 1.0.0
  */
 export default {
   name: "MksField",
-  components: { Radio },
+  components: { FieldRadio },
   props: {
     /**
      * Name of the field for formData
