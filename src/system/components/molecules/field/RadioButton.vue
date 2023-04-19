@@ -3,7 +3,7 @@
     :class="
       `mks-field-radio__choice ${
         selected ? 'mks-field-radio__choice--selected' : ''
-      }`
+      } ${disabled ? 'mks-field-radio__choice--disabled' : ''}`
     "
     :aria-checked="selected"
     :aria-labelledby="option.label"
@@ -133,6 +133,11 @@ $inactiveColorChoice: #c9c9c9;
     .mks-label__description {
       display: block;
     }
+  }
+
+  &--disabled {
+    pointer-events: none;
+    cursor: initial;
   }
 
   &--selected {

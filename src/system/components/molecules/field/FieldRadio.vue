@@ -6,6 +6,7 @@
       :name="name"
       :option="item"
       :selected="selectedValue === item.value"
+      :disabled="disabled"
       @click.native="onSelect(item.value)"
     >
     </RadioButton>
@@ -30,7 +31,11 @@ export default {
       required: false
     },
     id: String,
-    name: String
+    name: String,
+    disabled: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
@@ -42,6 +47,7 @@ export default {
   },
   methods: {
     onSelect: function(e) {
+      if (this.disabled) return;
       this.selectedValue = e;
       this.$emit("input", e);
     }

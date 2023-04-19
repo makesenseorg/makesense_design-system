@@ -8,6 +8,7 @@
     :placeholder="placeholder"
     :class="css"
     :lang="locale"
+    :disabled="disabled"
     v-bind="options"
     @blur="$emit('blur')"
     @focus="$emit('focus')"
@@ -43,7 +44,8 @@ export default {
     },
     placeholder: "",
     css: "",
-    options: Object
+    options: Object,
+    disabled: Boolean
   },
   data: () => {
     return {
