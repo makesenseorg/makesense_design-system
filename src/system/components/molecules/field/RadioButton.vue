@@ -35,7 +35,8 @@ export default {
   props: {
     option: Object,
     selected: Boolean,
-    name: String
+    name: String,
+    disabled: Boolean
   }
 };
 </script>
