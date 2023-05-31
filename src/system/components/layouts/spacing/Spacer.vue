@@ -73,28 +73,25 @@ export default {
     }
     const childs = [];
     const defaultSlot =
-      typeof this.$slots.default === "function"
-        ? this.$slots.default()
-        : this.$slots.default;
+        typeof this.$slots.default === "function"
+            ? this.$slots.default()
+            : this.$slots.default;
     (defaultSlot || []).forEach((item, index, items) => {
       // verifier si pas de tag comment faire (node)
       // const text = item.text && item.text.trim();
       if (item) {
+        const itemType = item.type && item.type.toString();
         if (item.type && item.type.name === "MksSpacerItem") {
           childs.push(item);
-        } else if (item.type && item.type.toString() !== "Symbol(Comment)") {
-          if (item.type.toString() === "Symbol(Fragment)") {
+        } else if (itemType !== "Symbol(Comment)") {
+          if (itemType === "Symbol(Fragment)" || itemType === 'template') {
             if (item.children && item.children.length) {
-              if (items.length === 1) {
-                item.children.forEach(child => {
-                  if (child.children === " ") {
-                    return;
-                  }
-                  childs.push(h("div", { class: "spacer__item" }, [child]));
-                });
-              } else {
-                childs.push(h("div", { class: "spacer__item" }, [item]));
-              }
+              item.children.forEach(child => {
+                if (child.children === " ") {
+                  return;
+                }
+                childs.push(h("div", { class: "spacer__item" }, [child]));
+              });
             }
             return;
           }

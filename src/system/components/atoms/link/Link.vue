@@ -52,11 +52,7 @@ export default {
       if (!this.$nuxt) {
         return "router-link";
       }
-      if (typeof resolveComponent === "function") {
-        // eslint-disable-next-line no-undef
-        return resolveComponent("NuxtLink");
-      }
-      return "a";
+      return "nuxt-link";
     }
   }
 };

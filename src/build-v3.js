@@ -18,6 +18,9 @@ const copySystem = [
   "plugins",
   "tokens/index.js",
   "tokens/generated/themes/base.js",
+  ...themes
+    .filter(themePath => path.basename(themePath, ".js") !== "index")
+    .map((themePath) => `tokens/generated/themes/${path.basename(themePath, ".js")}.css`),
   "utils"
 ];
 
@@ -148,9 +151,11 @@ async function buildComponents() {
       }
 
       content = content.replace(/@@\/assets/g, "../assets"); // remplace l'alias dans le path des assets
+      content = content.replace(/~..\/assets/g, "../assets"); // remplace l'import webpack dans le path des assets css
       content = content.replace(/@@\/plugins/g, "../plugins"); // remplace l'alias dans le path des assets
       content = content.replace(/@@\/modules/g, "../modules"); // remplace l'alias dans le path des modules
       content = content.replace(/<docs(\s|>).*<\/docs>/gs, ""); // retire toutes les balises docs
+      content = content.replace(/vue2-datepicker\/locale\/([^'"]+)/g, "vue-datepicker-next/locale/$1.es"); // retire toutes les balises docs
       content = content.replace(/vue2-datepicker/g, "vue-datepicker-next"); // retire toutes les balises docs
 
       // récupère les sous composants mks utilisés par chaque composant pour les injecter dans le bloc script
