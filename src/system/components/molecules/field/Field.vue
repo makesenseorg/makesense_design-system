@@ -35,7 +35,7 @@
       <select
         v-model="theValue"
         class="field--select"
-        :disable="disable"
+        :disabled="disable"
         :ref="reference"
         :class="getCss"
         @blur="$emit('blur')"
@@ -59,6 +59,18 @@
       </select>
       <mks-icon type="chevron-down" class="input__select-icon" />
     </div>
+    <FieldRadio
+        v-else-if="type === 'radio'"
+        v-model="theValue"
+        :id="name"
+        :ref="reference"
+        :name="name"
+        :items="options"
+        :disabled="disable"
+        @blur="onBlur"
+        @change="$emit('input', $event)"
+        @input="$emit('input', $event)"
+    />
     <async-mks-field-editor
       v-else-if="type === 'editor'"
       v-model="theValue"
@@ -72,6 +84,7 @@
       :placeholder="placeholder"
       :on-mention="onMention"
       :class="getCss"
+      :disabled="disable"
       @focus="$emit('focus')"
       @blur="onBlur"
       @change="$emit('change')"
@@ -86,6 +99,7 @@
       :placeholder="placeholder"
       :class="getCss"
       :options="options"
+      :disabled="disable"
       @focus="$emit('focus')"
       @blur="onBlur"
       @change="$emit('change')"
@@ -117,6 +131,7 @@
         :id="name"
         :name="name"
         :ref="reference"
+        :disabled="disable"
         v-model="theValue"
         class="checkbox__input"
         @focus="$emit('focus')"
@@ -141,6 +156,7 @@
         ref="tagField"
         :placeholder="placeholder"
         :class="getCss"
+        :disabled="disable"
         @keydown.enter.prevent="addTag"
         @focus="$emit('focus')"
         @blur="$emit('blur')"
@@ -184,6 +200,7 @@
 </template>
 
 <script>
+import FieldRadio from "./FieldRadio.vue";
 /**
  * The field component can be used in forms. It emits 'blur', 'change' and 'input' events, as a native input would.
  * @version 1.0.0
@@ -211,6 +228,7 @@ export default {
     })
   ],
   components: {
+    FieldRadio,
     AsyncMksFieldEditor,
     AsyncMksFieldDateTime
   },
@@ -315,7 +333,8 @@ export default {
             "search",
             "tel",
             "url",
-            "datetime"
+            "datetime",
+            "radio"
           ].indexOf(value) !== -1
         );
       }
@@ -749,6 +768,8 @@ For accessibility purposes, indicate required fields by using <code>mks-visually
     <mks-field name="checkbox" type="checkbox" label="Checkbox" checkbox-label="Checkbox label" value=""></mks-field>
     <mks-field name="search" type="search" placeholder="Search..." value=""></mks-field>
     <mks-field name="datetime" label="Datetime" type="datetime" v-bind:value="new Date()" v-bind:options="{type: 'datetime', format: 'DD/MM/YY HH:mm', 'minute-step': 15}"></mks-field>
+    <mks-field name="radio" type="radio" label="Radio" v-bind:options="[{value: '1', label: 'Option 1', description: 'une explication du champ'}, {value: '2', label: 'Option 2', tooltip: 'je m\'affiche au survol'}]" value=""></mks-field>
+
   ```
 
 ## Editor with mention

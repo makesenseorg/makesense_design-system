@@ -9,6 +9,7 @@
     :placeholder="placeholder"
     :use-custom-image-handler="editorCustomImageHandler"
     :class="css"
+    :disabled="disabled"
     @blur="$emit('blur')"
     @focus="$emit('focus')"
     @text-change="$emit('change')"
@@ -49,7 +50,8 @@ export default {
     editorCustomImageHandler: false,
     placeholder: "",
     css: "",
-    onMention: null
+    onMention: null,
+    disabled: Boolean
   },
   data: () => {
     return {

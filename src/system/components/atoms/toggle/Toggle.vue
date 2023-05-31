@@ -5,9 +5,8 @@
       :id="`toggle-${name}`"
       type="checkbox"
       class="toggle__input"
-      :checked="checked"
       :disabled="disabled"
-      @input="$emit('input', $event.target.value)"
+      v-model="checked"
     />
     <span class="toggle__display">
       <mks-icon
@@ -82,14 +81,19 @@ export default {
       default: false
     }
   },
-  computed: {
-    checked() {
-      return this.value === true || this.value === "true"
-        ? "checked"
-        : undefined;
-    }
+  data() {
+    return {
+      checked: false
+    };
   },
-  methods: {}
+  created() {
+    this.checked = this.value;
+  },
+  watch: {
+    checked() {
+      this.$emit("input", this.checked);
+    }
+  }
 };
 </script>
 <style lang="scss">

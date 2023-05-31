@@ -1,17 +1,5 @@
 <template>
   <mks-app>
-    <template v-slot:top>
-      <mks-site-header
-        :menu-links="[{label: 'home', to: '/'}, {label: 'event', to: '/event'}]"
-        @openSidebar="toggleSidebar"
-      ></mks-site-header>
-      <mks-sidebar :open="sidebarOpen" @closed="toggleSidebar">
-          <mks-text tag="p">My content blablabla</mks-text>
-          <mks-link to="/">Go home</mks-link>
-          <mks-separator></mks-separator>
-          <mks-lang-picker v-bind:langs="['fr', 'en', 'es']" active="fr"></mks-lang-picker>
-      </mks-sidebar>
-    </template>
     <Nuxt></Nuxt>
     <mks-site-footer slot="bottom">Made by makesense</mks-site-footer>
   </mks-app>

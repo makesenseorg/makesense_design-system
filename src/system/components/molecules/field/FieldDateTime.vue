@@ -8,6 +8,7 @@
     :placeholder="placeholder"
     :class="css"
     :lang="locale"
+    :disabled="disabled"
     v-bind="options"
     @blur="$emit('blur')"
     @focus="$emit('focus')"
@@ -43,7 +44,8 @@ export default {
     },
     placeholder: "",
     css: "",
-    options: Object
+    options: Object,
+    disabled: Boolean
   },
   data: () => {
     return {
@@ -53,7 +55,6 @@ export default {
     };
   },
   created() {
-    console.log("created");
     this.theValue = this.value;
     // require("vue2-datepicker/locale/fr");
     this.updateLocale();
