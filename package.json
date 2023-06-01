@@ -1,6 +1,6 @@
 {
   "name": "@makesenseorg/design-system",
-  "version": "1.17.9",
+  "version": "1.17.9-next.2",
   "engines": {
     "node": "14.x"
   },
@@ -18,16 +18,15 @@
     "theo": "node ./buildtokens.js",
     "theo:onchange": "onchange \"./src/system/tokens/*.yml\" \"./src/system/tokens/themes/**/*.yml\" -- npm run theo",
     "test:unit": "vue-cli-service test:unit",
-    "prepack": "npm run build:system",
+    "prepack": "npm run build:system && npm run build:vue3",
     "build:vue3": "cd src && node build-v3.js"
   },
   "dependencies": {
     "dayjs": "^1.8.26",
     "feather-icons": "^4.28.0",
     "quill-mention": "^3.0.4",
-    "vue": "^2.6.11",
-    "vue-datepicker-next": "^1.0.2",
-    "vue2-datepicker": "^3.11.1"
+    "vue": "^3.2.47",
+    "vue-datepicker-next": "^1.0.2"
   },
   "devDependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
@@ -87,8 +86,9 @@
     "webpack-merge-and-include-globally": "^2.0.11"
   },
   "author": "makesense (makesense.org)",
-  "main": "./dist/system.umd.min.js",
+  "main": "./vue3/index.js",
   "files": [
+    "vue3/*",
     "dist/*",
     "src/*",
     "public/*",
