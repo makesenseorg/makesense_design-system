@@ -21,6 +21,7 @@ import "vue2-datepicker/index.css";
 import "vue2-datepicker/locale/fr";
 import "vue2-datepicker/locale/en";
 import "vue2-datepicker/locale/es";
+import vmodelMixin from '@@/modules/vmodel';
 /**
  * The field component can be used for RTE
  * @private
@@ -30,13 +31,15 @@ import "vue2-datepicker/locale/es";
 
 export default {
   name: "MksFielDateTime",
-  components: { DatePicker },
-  props: {
-    value: {
+  mixins: [
+    vmodelMixin({
       type: Date,
       default: new Date(),
       required: true
-    },
+    })
+  ],
+  components: { DatePicker },
+  props: {
     name: "",
     reference: {
       type: String,
@@ -55,7 +58,7 @@ export default {
     };
   },
   created() {
-    this.theValue = this.value;
+    this.theValue = this.vModelValue;
     // require("vue2-datepicker/locale/fr");
     this.updateLocale();
   },
@@ -72,10 +75,11 @@ export default {
       this.updateLocale();
     },
     theValue: function() {
-      this.$emit("input", this.theValue);
+      this.setVModelValue(this.theValue);
+      // this.$emit("input", this.theValue);
     },
-    value: function() {
-      this.theValue = this.value;
+    vModelValue: function() {
+      this.theValue = this.vModelValue;
     }
   }
 };

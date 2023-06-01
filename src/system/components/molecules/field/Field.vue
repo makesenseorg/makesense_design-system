@@ -1,5 +1,4 @@
 <template>
-  <!-- todo #77 : Refactoriser le champs field-->
   <div
     :class="{
       field__container: true,
@@ -9,6 +8,7 @@
     }"
     :role="type === 'search' ? 'search' : undefined"
   >
+    <!-- todo #77 : Refactoriser le champs field-->
     <div class="field__header" v-if="label">
       <mks-field-label
         v-if="label && label !== undefined"
@@ -59,7 +59,7 @@
       </select>
       <mks-icon type="chevron-down" class="input__select-icon" />
     </div>
-    <FieldRadio
+    <mks-field-radio
         v-else-if="type === 'radio'"
         v-model="theValue"
         :id="name"
@@ -200,7 +200,6 @@
 </template>
 
 <script>
-import FieldRadio from "./FieldRadio.vue";
 /**
  * The field component can be used in forms. It emits 'blur', 'change' and 'input' events, as a native input would.
  * @version 1.0.0
@@ -228,7 +227,6 @@ export default {
     })
   ],
   components: {
-    FieldRadio,
     AsyncMksFieldEditor,
     AsyncMksFieldDateTime
   },

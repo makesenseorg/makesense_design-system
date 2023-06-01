@@ -73,10 +73,10 @@ export default {
     }
     const childs = [];
     const defaultSlot =
-        typeof this.$slots.default === "function"
-            ? this.$slots.default()
-            : this.$slots.default;
-    (defaultSlot || []).forEach((item, index, items) => {
+      typeof this.$slots.default === "function"
+        ? this.$slots.default()
+        : this.$slots.default;
+    (defaultSlot || []).forEach((item) => {
       // verifier si pas de tag comment faire (node)
       // const text = item.text && item.text.trim();
       if (item) {
@@ -84,8 +84,12 @@ export default {
         if (item.type && item.type.name === "MksSpacerItem") {
           childs.push(item);
         } else if (itemType !== "Symbol(Comment)") {
-          if (itemType === "Symbol(Fragment)" || itemType === 'template') {
-            if (item.children && item.children.length) {
+          if (
+            itemType === "Symbol(Fragment)" ||
+            itemType === "Symbol()" ||
+            itemType === "template"
+          ) {
+            if (Array.isArray(item.children) && item.children.length) {
               item.children.forEach(child => {
                 if (child.children === " ") {
                   return;

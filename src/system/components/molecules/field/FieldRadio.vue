@@ -14,8 +14,16 @@
 </template>
 <script>
 import RadioButton from "./RadioButton.vue";
+import vmodelMixin from '@@/modules/vmodel';
 export default {
   name: "FieldRadio",
+  mixins: [
+    vmodelMixin({
+      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
+      default: "",
+      required: false
+    })
+  ],
   components: { RadioButton },
   props: {
     /**
@@ -24,11 +32,6 @@ export default {
     items: {
       type: Array,
       default: () => []
-    },
-    value: {
-      type: [String, Number, Boolean, Array, Object, Date, Function, Symbol],
-      default: "",
-      required: false
     },
     id: String,
     name: String,
@@ -43,13 +46,21 @@ export default {
     };
   },
   created() {
-    this.selectedValue = this.value;
+    this.selectedValue = this.vModelValue;
   },
   methods: {
     onSelect: function(e) {
       if (this.disabled) return;
       this.selectedValue = e;
       this.$emit("input", e);
+    }
+  },
+  watch: {
+    selectedValue: function() {
+      this.setVModelValue(this.selectedValue);
+    },
+    vModelValue: function() {
+      this.selectedValue = this.vModelValue;
     }
   }
 };
