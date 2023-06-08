@@ -1,7 +1,7 @@
 <template>
   <DatePicker
     :key="locale"
-    v-model="theValue"
+    v-model:value="theValue"
     :id="name"
     :ref="reference"
     :name="name"
