@@ -87,7 +87,8 @@ export default {
           if (
             itemType === "Symbol(Fragment)" ||
             itemType === "Symbol()" ||
-            itemType === "template"
+            itemType === "template" ||
+            itemType.match(/^Symbol\(/)
           ) {
             if (Array.isArray(item.children) && item.children.length) {
               item.children.forEach(child => {
