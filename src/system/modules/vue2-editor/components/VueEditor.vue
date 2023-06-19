@@ -23,6 +23,7 @@ import MarkdownShortcuts from "../helpers/markdown-shortcuts";
 
 export default {
   name: "VueEditor",
+  emits: ['input', 'text-change', 'selection-change', 'blur', 'focus', 'editor-change', 'image-added'],
   mixins: [oldApi],
   props: {
     id: {

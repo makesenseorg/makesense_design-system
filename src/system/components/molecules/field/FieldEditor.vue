@@ -1,6 +1,7 @@
 <template>
   <VueEditor
-    v-model="theValue"
+    :value="theValue"
+    @input="theValue = $event"
     :id="name"
     :ref="reference"
     :editor-toolbar="editorToolbar"
