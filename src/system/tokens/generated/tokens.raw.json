@@ -1129,6 +1129,13 @@
       "value": "var(--font-weight-bold)",
       "originalValue": "500"
     },
+    "font-weight-medium": {
+      "type": "...",
+      "category": "font",
+      "name": "font-weight-medium",
+      "value": "var(--font-weight-medium)",
+      "originalValue": "500"
+    },
     "font-weight-normal": {
       "type": "...",
       "category": "font",
@@ -1142,6 +1149,13 @@
       "name": "font-weight-light",
       "value": "var(--font-weight-light)",
       "originalValue": "300"
+    },
+    "line-height-l": {
+      "type": "number",
+      "category": "line-height",
+      "name": "line-height-l",
+      "value": "var(--line-height-l)",
+      "originalValue": "1.45"
     },
     "line-height-m": {
       "type": "number",
@@ -1163,6 +1177,13 @@
       "name": "line-height-xs",
       "value": "var(--line-height-xs)",
       "originalValue": "1"
+    },
+    "line-height-xxs": {
+      "type": "number",
+      "category": "line-height",
+      "name": "line-height-xxs",
+      "value": "var(--line-height-xxs)",
+      "originalValue": "0.8"
     },
     "letter-spacing-x-large": {
       "type": "number",

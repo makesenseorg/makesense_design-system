@@ -3,7 +3,7 @@ const kebabCase = require("lodash/kebabCase");
 const { lstatSync, readdirSync, writeFileSync } = require("fs");
 const { join, basename, dirname } = require("path");
 const mkdirp = require("mkdirp");
-var _eval = require("eval");
+// var _eval = require("eval");
 
 const src = "./src/system/tokens/tokens.yml";
 const themeSrc = "./src/system/tokens/themes";
