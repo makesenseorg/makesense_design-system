@@ -1,0 +1,27 @@
+#
+# FONT-SIZE TOKENS
+# Use these tokens to set a font-size.
+#
+
+props:
+  - name: font-size-xxxxxl #H1
+    value: "3.4375rem"
+  - name: font-size-xxxxl #H2, mobile h1
+    value: "2.5rem"
+  - name: font-size-xxxl #H3, mobile h2
+    value: "1.875rem"
+  - name: font-size-xxl #H4, mobile h3
+    value: "1.5rem"
+  - name: font-size-xl #H5, mobile h4
+    value: "1.25rem"
+  - name: font-size-l #body-large, mobile h5
+    value: "1.125rem"
+  - name: font-size-m #body
+    value: "1.0rem"
+  - name: font-size-s #body-small
+    value: "0.875rem"
+  - name: font-size-xs
+    value: "0.75rem"
+global:
+  type: number
+  category: font-size

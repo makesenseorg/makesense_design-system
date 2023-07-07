@@ -9,9 +9,11 @@
   font-size: $font-size-xxxxl;
   line-height: $line-height-xs;
   font-weight: $font-weight-black;
+  letter-spacing: $letter-spacing-small;
 
   @include breakpoint("small") {
     font-size: $font-size-xxxxxl;
+    letter-spacing: $letter-spacing-small;
   }
 }
 
@@ -43,11 +45,20 @@
 
   @include breakpoint("small") {
     font-size: $font-size-xxxl;
+    letter-spacing: $letter-spacing-small;
   }
 }
 @mixin title-small-semibold {
   @include title-small;
   font-weight: $font-weight-semi-bold;
+}
+@mixin title-small-extrabold {
+  @include title-small;
+  font-weight: $font-weight-extrabold;
+}
+@mixin title-small-bold {
+  @include title-small;
+  font-weight: $font-weight-bold;
 }
 
 // equivalent of h4
@@ -65,14 +76,38 @@
   font-weight: $font-weight-semi-bold;
 }
 
+// equivalent of h5
+@mixin title-xxsmall { 
+  font-size: $font-size-s;
+  line-height: $line-height-m;
+  font-weight: $font-weight-black;
+
+  @include breakpoint("small") {
+    font-size: $font-size-m;
+  }
+}
+@mixin title-xxsmall-semibold {
+  @include title-xxsmall;
+  font-weight: $font-weight-semi-bold;
+}
+@mixin title-xxsmall-bold {
+  @include title-xxsmall;
+  font-weight: $font-weight-bold;
+}
+
 // for larger body copy
 @mixin text-large {
   font-size: $font-size-m;
   line-height: $line-height-m;
+  font-family: $font-text;
 
   @include breakpoint("small") {
     font-size: $font-size-l;
   }
+}
+@mixin text-large-bold {
+  @include text-large;
+  font-weight: $font-weight-bold;
 }
 @mixin text-large-semibold {
   @include text-large;
@@ -87,8 +122,19 @@
 
 // for most body copy
 @mixin text-body {
+  font-family: $font-text;
   font-size: $font-size-m;
   line-height: $line-height-m;
+}
+
+@mixin text-body-extrabold {
+  @include text-body;
+  font-weight: $font-weight-extrabold;
+}
+
+@mixin text-body-bold {
+  @include text-body;
+  font-weight: $font-weight-bold;
 }
 
 @mixin text-body-semibold {
@@ -103,8 +149,14 @@
 
 // for small labels and texts
 @mixin text-small {
+  font-family: $font-text;
   font-size: $font-size-s;
   line-height: $line-height-m;
+}
+
+@mixin text-small-medium {
+  @include text-small;
+  font-weight: $font-weight-medium;
 }
 
 @mixin text-small-semibold {
@@ -132,6 +184,13 @@
   font-weight: $font-weight-semi-bold;
 }
 
+@mixin text-tag {
+  font-family: $font-heading;
+  font-size: $font-size-xs;
+  line-height: $line-height-m;
+  text-transform: capitalize;
+  font-weight: $font-weight-black;
+}
 
 ///////// END TYPESCALE - other text types
 
