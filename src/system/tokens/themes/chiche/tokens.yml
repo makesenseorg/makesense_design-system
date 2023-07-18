@@ -3,7 +3,11 @@
 #
 
 imports:
+  - ./box-shadow.yml
   - ./color.yml
+  - ./font-size.yml
+  - ./font.yml
+  - ./line-height.yml
 global:
   type: global
   category: all
