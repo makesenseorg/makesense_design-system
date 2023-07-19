@@ -19,7 +19,10 @@
     "theo:onchange": "onchange \"./src/system/tokens/*.yml\" \"./src/system/tokens/themes/**/*.yml\" -- npm run theo",
     "test:unit": "vue-cli-service test:unit",
     "prepack": "npm run theo && npm run build:vue3",
-    "build:vue3": "cd src && node build-v3.js"
+    "build:vue3": "cd src && node build-v3.js",
+    "serve:vue3": "onchange \"./src/system/**/*.js\" \"./src/system/**/*.vue\" -- npm run build:vue3",
+    "dev:guide": "cd src/styleguide-vue3 && npm run serve",
+    "serve:guide": "npm-run-all --parallel theo:onchange serve:vue3 dev:guide"
   },
   "dependencies": {
     "dayjs": "^1.8.26",

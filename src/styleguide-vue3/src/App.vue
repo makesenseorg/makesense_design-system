@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <mks-field v-if="true" type="datetime" v-model="test"></mks-field>
-    <ds-page ref="page" v-else>
+    <ds-page ref="page">
       <template v-slot:brand>
         <router-link to="/">
           <mks-logotype />
@@ -21,14 +20,12 @@
 <script>
 import Navigation from "./components/Navigation";
 import DsPage from "./components/layout/Page/Page";
-import MksField from "@@/components/Field";
 
 export default {
   name: "App",
   components: {
     Navigation,
     DsPage,
-    MksField,
   },
   data() {
     return {
