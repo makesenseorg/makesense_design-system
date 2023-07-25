@@ -1,0 +1,61 @@
+name: Build and publish to npm
+on:
+  push:
+    branches:
+      - vue3
+jobs:
+  check:
+    name: Check if version changed
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.check.outputs.changed }}
+      version: ${{ steps.check.outputs.version }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - name: Set up Node.js
+        uses: actions/setup-node@master
+        with:
+          registry-url: "https://registry.npmjs.org"
+          node-version: 10.19.0
+      - name: Check version
+        id: check # This will be the reference for getting the outputs.
+        uses: EndBug/version-check@v1 # You can choose the version/branch you prefer.
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          file-url: https://unpkg.com/@makesenseorg/design-system@next/package.json
+          static-checking: localIsNew
+      - name: Version is unchanged
+        if: steps.check.outputs.changed != 'true'
+        run: 'echo "No version change in package.json :/"'
+      - name: Version update detected
+        if: steps.check.outputs.changed == 'true'
+        run: 'echo "Version change found! New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'
+
+  publish:
+    needs: check
+    if: needs.check.outputs.changed == 'true'
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - name: Set up Node.js
+        uses: actions/setup-node@master
+        with:
+          registry-url: "https://registry.npmjs.org"
+          node-version: 10.19.0
+      - name: Create tag
+        run: |
+          git config --global user.email "digitale@makesense.org"
+          git config --global user.name "GitHub Action"
+          git tag -a v${{needs.check.outputs.version}} -m "Release ${{needs.check.outputs.version}}"
+          git push origin v${{needs.check.outputs.version}}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Publish to npm
+        run: npm publish --tag next
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
