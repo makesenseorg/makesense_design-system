@@ -6,7 +6,7 @@
   },
   "scripts": {
     "serve": "http-server ./docs -o -s",
-    "build": "npm run build:vue3 && rm -rf docs && cd src/styleguide-vue3 && npm run build && mkdir ../../docs && mv dist/* ../../docs && cp -r ../../public/* ../../docs/",
+    "build": "npm run build:vue3 && rm -rf docs && cd src/styleguide-vue3 && npm run build && mkdir ../../docs && mv dist/* ../../docs && cd ../../public && cp -r assets 404.html favicon.* brand.svg ../docs/",
     "lint": "vue-cli-service lint",
     "dev": "npm-run-all --parallel theo:onchange theo servedev",
     "install-playground": "cd src/playground && npm install",
