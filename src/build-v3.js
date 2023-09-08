@@ -258,7 +258,6 @@ async function copySystemFiles() {
 }
 
 async function build() {
-  console.log('build start')
   await Promise.all(
     directories.map(async directory => {
       await createDirectory(directory);
