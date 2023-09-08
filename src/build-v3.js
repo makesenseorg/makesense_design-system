@@ -6,7 +6,8 @@ const glob = require("glob");
 const _ = require("lodash");
 const ncp = require("ncp");
 
-const BUILD_DIR = "../vue3";
+const BUILD_DIR_DEF = "../vue3";
+const BUILD_DIR = "../.vue3-temp";
 
 const themes = glob.sync("./system/tokens/generated/themes/*.js");
 const directories = ["components", "tokens/generated/themes"];
@@ -257,6 +258,7 @@ async function copySystemFiles() {
 }
 
 async function build() {
+  console.log('build start')
   await Promise.all(
     directories.map(async directory => {
       await createDirectory(directory);
@@ -278,6 +280,12 @@ async function build() {
       'import "./main.css";'
     )
   );
+  const files = await fsPromise.readdir(BUILD_DIR);
+  const copyPromises = files.map(async (file) => {
+    return fsPromise.cp(`${BUILD_DIR}/${file}`, `${BUILD_DIR_DEF}/${file}`, {force: true, recursive: true})
+  })
+  await Promise.all(copyPromises);
+  await fsPromise.rm(BUILD_DIR, {recursive: true, force: true});
 }
 
 build().catch(e => console.log(e));

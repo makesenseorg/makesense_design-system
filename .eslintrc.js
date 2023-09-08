@@ -1,7 +1,8 @@
 module.exports = {
 	root: true,
 	env: {
-		node: true
+		node: true,
+		es2022: true
 	},
 	extends: ['plugin:vue/strongly-recommended', '@vue/prettier'],
 	rules: {
@@ -12,6 +13,6 @@ module.exports = {
 		'vue/require-prop-types': 'off',
 	},
 	parserOptions: {
-		parser: 'babel-eslint'
+		// parser: 'babel-eslint'
 	}
 }
