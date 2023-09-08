@@ -285,12 +285,6 @@ async function build() {
     return fsPromise.cp(`${BUILD_DIR}/${file}`, `${BUILD_DIR_DEF}/${file}`, {force: true, recursive: true})
   })
   await Promise.all(copyPromises);
-  console.log('before json')
-  await fsPromise.writeFile(`${BUILD_DIR_DEF}/package.json`, `{
-    "name": "test",
-    "version": "1.0.0"
-}`)
-  console.log('after json')
   await fsPromise.rm(BUILD_DIR, {recursive: true, force: true});
 }
 

@@ -21,7 +21,8 @@ module.exports = {
       alias: {
         vue$: 'vue/dist/vue.common',
         '@@': path.resolve(__dirname, './src/system'),
-        "reset-css": path.resolve(__dirname, './node_modules/reset-css')
+        "reset-css": path.resolve(__dirname, './node_modules/reset-css'),
+        "@makesenseorg/design-system": path.resolve(__dirname,"./vue3")
       },
       fallback: {
         "util": require.resolve("util/"),

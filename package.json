@@ -25,7 +25,6 @@
     "serve:guide": "npm-run-all --parallel build:vue3 theo:onchange serve:vue3 dev:guide"
   },
   "dependencies": {
-    "@makesenseorg/design-system": "../vue3",
     "cheerio": "^0.22.0",
     "core-js": "^3.8.3",
     "dayjs": "^1.8.26",
