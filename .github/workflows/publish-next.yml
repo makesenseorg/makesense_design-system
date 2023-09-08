@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-node@master
         with:
           registry-url: "https://registry.npmjs.org"
-          node-version: 10.19.0
+          node-version: 16.20.1
       - name: Check version
         id: check # This will be the reference for getting the outputs.
         uses: EndBug/version-check@v1 # You can choose the version/branch you prefer.
