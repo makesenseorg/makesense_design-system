@@ -92,6 +92,7 @@ export default {
 .heading {
   box-sizing: border-box;
   color: var(--color);
+  font-family: $font-heading;
 
   // &--inherit {
   //   color: inherit;
