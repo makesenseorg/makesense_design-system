@@ -1,8 +1,8 @@
 {
   "name": "@makesenseorg/design-system",
-  "version": "1.17.9-next.9",
+  "version": "1.17.10-next.1",
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   },
   "scripts": {
     "serve": "http-server ./docs -o -s",
