@@ -73,7 +73,7 @@ export default {
     border-color: $color-primary;
   }
 
-  &:focus {
+  &:focus-visible {
     @include focus($color-primary);
     border-radius: $border-radius-full;
   }
