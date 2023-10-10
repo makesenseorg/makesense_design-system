@@ -139,7 +139,8 @@ export default {
       else return this.label;
     },
     contrastColor() {
-      return getContrastColor(this.color);
+      if (process.server) return getContrastColor(this.color);
+      if (process.client) return getContrastColor(this.color);
     },
     hoverColor() {
       return getHoverColor(this.color);
