@@ -134,7 +134,8 @@ export default {
       else return this.label;
     },
     contrastColor() {
-      return this.$getContrastColor(this.color);
+      if (process.server) return getContrastColor(this.color);
+      if (process.client) return getContrastColor(this.color);
     },
     hoverColor() {
       return this.$getHoverColor(this.color);
