@@ -3,7 +3,7 @@
     :is="tag"
     :class="[
       `button button--type-${type} button--size-${size} button--style-${variant}`,
-      { 'button--loading': loading }
+      { 'button--loading': loading, 'button--animate-icon': animateIcon }
     ]"
     :role="role"
     tabindex="0"
@@ -126,6 +126,10 @@ export default {
      * Place the icon on the right side of the text
      */
     iconRight: {
+      type: Boolean,
+      default: false
+    },
+    animateIcon: {
       type: Boolean,
       default: false
     },
@@ -264,6 +268,24 @@ export default {
     height: $space-xl;
     padding: $space-xxs;
     text-align: center;
+  }
+
+  &--animate-icon {
+    transition: all .3s ease;
+  svg {
+    height: 25px;
+    margin-left: 0;
+    margin-right: 0;
+    position: relative;
+    opacity: 0;
+    width: 0;
+    transition: all .3s ease;
+  }
+
+  &:hover svg {
+    width: 25px;
+    opacity: 1;
+  }
   }
 
   @mixin type-text {
