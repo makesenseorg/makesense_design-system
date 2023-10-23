@@ -272,20 +272,20 @@ export default {
 
   &--animate-icon {
     transition: all .3s ease;
-  svg {
-    height: 25px;
-    margin-left: 0;
-    margin-right: 0;
-    position: relative;
-    opacity: 0;
-    width: 0;
-    transition: all .3s ease;
-  }
+    svg {
+      height: 25px;
+      margin-left: 0;
+      margin-right: 0;
+      position: relative;
+      opacity: 0;
+      width: 0;
+      transition: all .3s ease;
+    }
 
-  &:hover svg {
-    width: 25px;
-    opacity: 1;
-  }
+    &:hover svg {
+      width: 25px;
+      opacity: 1;
+    }
   }
 
   @mixin type-text {

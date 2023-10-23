@@ -127,6 +127,11 @@ export default {
     }
   },
   emits: ["click"],
+  data() {
+    return {
+      contrastColor: null
+    }
+  },
   computed: {
     isCliquable() {
       return this.cliquable ? "cliquable" : "not-cliquable";
@@ -138,13 +143,17 @@ export default {
       if (this.label.length > 30) return this.label.substring(0, 30) + "...";
       else return this.label;
     },
-    contrastColor() {
-      if (process.server) return getContrastColor(this.color);
-      if (process.client) return getContrastColor(this.color);
-    },
+    // contrastColor() {
+    //   if (process.server) return getContrastColor(this.color);
+    //   if (process.client) return getContrastColor(this.color);
+    // },
     hoverColor() {
       return getHoverColor(this.color);
     }
+  },
+  mounted() {
+    if (process.server) this.contrastColor = getContrastColor(this.color);
+    if (process.client) this.contrastColor = getContrastColor(this.color);
   },
   methods: {
     onClick: function() {
