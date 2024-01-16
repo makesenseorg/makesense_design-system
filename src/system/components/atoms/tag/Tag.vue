@@ -134,8 +134,9 @@ export default {
       else return this.label;
     },
     contrastColor() {
-      if (process.server) return getContrastColor(this.color);
-      if (process.client) return getContrastColor(this.color);
+      if (process.server) return this.$getContrastColor(this.color); // for nuxt // to trigger on server side
+      if (process.client) return this.$getContrastColor(this.color); // for nuxt // to trigger on client side
+      return this.$getContrastColor(this.color); // for vue
     },
     hoverColor() {
       return this.$getHoverColor(this.color);
