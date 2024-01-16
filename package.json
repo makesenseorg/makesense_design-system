@@ -1,6 +1,6 @@
 {
   "name": "@makesenseorg/design-system",
-  "version": "1.17.12-next.2",
+  "version": "1.17.13-next.0",
   "engines": {
     "node": "16.x"
   },

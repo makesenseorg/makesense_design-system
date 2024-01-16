@@ -28,7 +28,8 @@
       :size="size === 'round' ? 24 : 20"
     ></mks-icon>
     <!-- @slot Content of the button-->
-    <slot v-if="!loading" />
+    <slot v-if="!loading && !animateIcon"></slot>
+    <span v-else-if="!loading"><slot></slot></span>
     <!-- @slot Content of the button when `loading` prop is true -->
     <slot v-else name="loading">
       <mks-loading
@@ -160,7 +161,7 @@ export default {
     return {
       minWidth: 0,
       observer: null,
-      contrastColor: null
+      contrastColor: null 
     };
   },
   mounted() {
@@ -272,6 +273,10 @@ export default {
 
   &--animate-icon {
     transition: all .3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     svg {
       height: 25px;
       margin-left: 0;
@@ -280,6 +285,11 @@ export default {
       opacity: 0;
       width: 0;
       transition: all .3s ease;
+    }
+
+    span {
+      margin-left: 2px;
+      margin-right: 2px;
     }
 
     &:hover svg {
@@ -501,6 +511,9 @@ button {
     <br>
     <mks-button icon="star">Sauvegarder</mks-button>
     <mks-button icon="star" icon-right>Sauvegarder</mks-button>
+    <br>
+    <mks-text tag="p">Les icônes peuvent être animées au hover :</mks-text>
+    <mks-button icon="arrow-right" size="small" animate-icon="true">Découvrir</mks-button>
   ```
 
   ## States
