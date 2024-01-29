@@ -23,13 +23,13 @@ export default {
   props: {
     /**
      * The tag used for the title, also heading level.
-     * values: h1, h2, h3, h4, h5, h6
+     * values: h1, h2, h3, h4, h5, h6, p
      */
     tag: {
       type: [Boolean, String],
       required: true,
       validator: function(value) {
-        return ["h1", "h2", "h3", "h4", "h5", "h6"].indexOf(value) !== -1;
+        return ["h1", "h2", "h3", "h4", "h5", "h6", "p"].indexOf(value) !== -1;
       }
     },
     /**
@@ -64,7 +64,8 @@ export default {
             "neutral",
             "text",
             "inherit"
-          ].indexOf(value) !== -1
+          ].indexOf(value) !== -1 ||
+          (value && value.startsWith('rgb'))
         );
       }
     }
