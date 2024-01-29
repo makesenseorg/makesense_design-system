@@ -197,7 +197,7 @@ export default {
     updateMinWidth() {
       this.$nextTick(function() {
         var container = this.$refs.container;
-        if (container !== undefined) this.minWidth = container.offsetWidth;
+        if (container) this.minWidth = container.offsetWidth;
       });
     }
   }
