@@ -148,7 +148,7 @@ export default {
     //   if (process.client) return getContrastColor(this.color);
     // },
     hoverColor() {
-      return getHoverColor(this.color);
+      return getHoverColor(this.color === 'neutral' ? null : this.color);
     }
   },
   mounted() {

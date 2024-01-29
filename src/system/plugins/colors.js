@@ -60,7 +60,8 @@ function getContrastColor(color) {
 function getHoverColor(color) {
   if (
     (typeof process === "object" && process.server) ||
-    typeof window === "undefined"
+    typeof window === "undefined" ||
+    !color
   )
     return "neutral-100";
   const hex = getHexa(color);
