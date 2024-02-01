@@ -1,7 +1,7 @@
 <template>
   <svg
     :class="`icon icon-${getIcon} icon--color-${color}`"
-    role="img"
+    :role="alt ? 'img' : null"
     xmlns="http://www.w3.org/2000/svg"
     :width="size"
     :height="size"
