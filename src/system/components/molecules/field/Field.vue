@@ -22,6 +22,7 @@
         {{ label }}
         <span class="field__sublabel" v-if="subLabel">{{ subLabel }}</span>
       </mks-field-label>
+
       <div class="field__action">
         <!-- @slot appears in the field header -->
         <slot name="action"></slot>
@@ -71,6 +72,7 @@
       @change="$emit('input', $event)"
       @input="$emit('input', $event)"
     />
+
     <component
       v-else-if="type === 'editor'"
       :is="component"
@@ -106,6 +108,40 @@
       @blur="onBlur"
       @change="$emit('change')"
     />
+    <div v-else-if="type === 'password'">
+      <input
+        v-if="showPassword"
+        type="text"
+        :class="getCss"
+        @input="validPass"
+        v-model="theValue"
+      />
+
+      <input
+        v-else
+        type="password"
+        :class="getCss"
+        @input="validPass"
+        v-model="theValue"
+      />
+
+      <span @click="toggleShow" class="input__password-icon">
+        <mks-icon :type="!showPassword ? 'eye-off' : 'eye'"></mks-icon>
+      </span>
+
+      <div class="password__content-validations">
+        <mks-text :color="hasUppercase ? 'positive' : 'negative'">
+          Password should contain at least one uppercase letter(A-Z).
+        </mks-text>
+        <mks-text :color="hasLowercase ? 'positive' : 'negative'">
+          Password should contain at least one lowercase letter(a-z).
+        </mks-text>
+        <mks-text :color="hasNumber ? 'positive' : 'negative'">
+          Password should contain at least one digit(0-9).
+        </mks-text>
+      </div>
+    </div>
+
     <textarea
       v-else-if="type === 'textarea'"
       class="field field__input field--textarea"
@@ -122,6 +158,7 @@
       @change="$emit('change')"
       @input="onInput"
     ></textarea>
+
     <label
       v-else-if="type === 'checkbox'"
       class="checkbox__label"
@@ -143,6 +180,7 @@
       />
       <span class="checkbox__mention" v-html="checkboxLabel"></span>
     </label>
+
     <div v-else-if="type === 'location'">
       <gmap-autocomplete
         type="text"
@@ -199,6 +237,7 @@
       @focus="$emit('focus')"
       @change="$emit('change')"
     />
+
     <mks-icon
       v-if="type === 'search'"
       aria-hidden="true"
@@ -426,10 +465,27 @@ export default {
     return {
       theValue: null,
       foldingOpen: false,
-      component: null
+      component: null,
+      showPassword: false,
+      hasUppercase: false,
+      hasLowercase: false,
+      hasNumber: false
     };
   },
   methods: {
+    toggleShow() {
+      this.showPassword = !this.showPassword;
+    },
+    validPass() {
+      let regToUpperCase = new RegExp(/[A-Z]+/g);
+      let regToLowerCase = new RegExp(/[a-z]+/g);
+      let regToNumber = new RegExp(/[0-9]+/g);
+
+      this.hasUppercase = regToUpperCase.test(this.theValue);
+      this.hasLowercase = regToLowerCase.test(this.theValue);
+      this.hasNumber = regToNumber.test(this.theValue);
+    },
+
     onInput($event) {
       this.resize($event);
       this.$emit("input", this.theValue);
@@ -532,6 +588,10 @@ export default {
     }
   },
   computed: {
+    buttonLabelPassword() {
+      return this.showPassword ? "Hide" : "Show";
+    },
+
     getCss: function() {
       // todo : refactor this
       var styles = ["-style-" + this.version, "-light-" + this.light];
@@ -757,6 +817,26 @@ select {
     opacity: 0;
   }
 }
+
+.input__password-icon {
+  position: absolute;
+  right: $space-m;
+  top: 22%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  @media only screen and (max-width: 767px) {
+    top: 15%;
+  }
+}
+
+.password__content-validations {
+  display: flex;
+  flex-direction: column;
+  padding: $space-m;
+}
 </style>
 
 <docs>
@@ -767,6 +847,7 @@ For accessibility purposes, indicate required fields by using <code>mks-visually
   ```jsx
     <br>
     <mks-field name="text" type="text" label="Text" placeholder="Placeholder" value=""></mks-field>
+    <mks-field name="password" type="password" label="password" placeholder="Placeholder" value=""></mks-field>
     <mks-field name="number" type="number" label="Number" v-bind:min="1" v-bind:max="10" placeholder="Min and max props can be set" value=""></mks-field>
     <mks-field name="select" type="select" label="Select" placeholder="An array of objects with value and label key sets the options. Or just an array of values." v-bind:options="[{value: '1', label: 'Option 1'}, {value: '2', label: 'Option 2'}]" value=""></mks-field>
     <mks-field name="editor" type="editor" label="Editor" placeholder="Placeholder" value=""></mks-field>
