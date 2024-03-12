@@ -108,39 +108,26 @@
       @blur="onBlur"
       @change="$emit('change')"
     />
-    <div v-else-if="type === 'password'">
-      <input
-        v-if="showPassword"
-        type="text"
-        :class="getCss"
-        @input="validPass"
-        v-model="theValue"
-      />
 
+    <template v-else-if="type === 'password'">
       <input
-        v-else
-        type="password"
+        class="field field__input"
+        :id="name"
+        :name="name"
+        :ref="reference"
+        :type="showPassword ? 'text' : 'password'"
+        :disabled="disable"
         :class="getCss"
-        @input="validPass"
         v-model="theValue"
+        @input="onInput"
+        @blur="$emit('blur')"
+        @focus="$emit('focus')"
+        @change="$emit('change')"
       />
-
       <span @click="toggleShow" class="input__password-icon">
-        <mks-icon :type="!showPassword ? 'eye-off' : 'eye'"></mks-icon>
+        <mks-icon :type="!showPassword ? 'eye-off' : 'eye'" />
       </span>
-
-      <div class="password__content-validations">
-        <mks-text :color="hasUppercase ? 'positive' : 'negative'">
-          Password should contain at least one uppercase letter(A-Z).
-        </mks-text>
-        <mks-text :color="hasLowercase ? 'positive' : 'negative'">
-          Password should contain at least one lowercase letter(a-z).
-        </mks-text>
-        <mks-text :color="hasNumber ? 'positive' : 'negative'">
-          Password should contain at least one digit(0-9).
-        </mks-text>
-      </div>
-    </div>
+    </template>
 
     <textarea
       v-else-if="type === 'textarea'"
@@ -466,26 +453,13 @@ export default {
       theValue: null,
       foldingOpen: false,
       component: null,
-      showPassword: false,
-      hasUppercase: false,
-      hasLowercase: false,
-      hasNumber: false
+      showPassword: false
     };
   },
   methods: {
     toggleShow() {
       this.showPassword = !this.showPassword;
     },
-    validPass() {
-      let regToUpperCase = new RegExp(/[A-Z]+/g);
-      let regToLowerCase = new RegExp(/[a-z]+/g);
-      let regToNumber = new RegExp(/[0-9]+/g);
-
-      this.hasUppercase = regToUpperCase.test(this.theValue);
-      this.hasLowercase = regToLowerCase.test(this.theValue);
-      this.hasNumber = regToNumber.test(this.theValue);
-    },
-
     onInput($event) {
       this.resize($event);
       this.$emit("input", this.theValue);
@@ -588,10 +562,6 @@ export default {
     }
   },
   computed: {
-    buttonLabelPassword() {
-      return this.showPassword ? "Hide" : "Show";
-    },
-
     getCss: function() {
       // todo : refactor this
       var styles = ["-style-" + this.version, "-light-" + this.light];
@@ -821,21 +791,10 @@ select {
 .input__password-icon {
   position: absolute;
   right: $space-m;
-  top: 22%;
-  margin: 0;
-  padding: 0;
+  top: 50%;
   border: none;
   background: transparent;
   cursor: pointer;
-  @media only screen and (max-width: 767px) {
-    top: 15%;
-  }
-}
-
-.password__content-validations {
-  display: flex;
-  flex-direction: column;
-  padding: $space-m;
 }
 </style>
 
