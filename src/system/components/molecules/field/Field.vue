@@ -117,8 +117,12 @@
         :ref="reference"
         :type="showPassword ? 'text' : 'password'"
         :disabled="disable"
+        :placeholder="placeholder"
         :class="getCss"
         v-model="theValue"
+        :aria-describedby="ariaDescribedBy"
+        :aria-required="isRequired"
+        :required="isRequired"
         @input="onInput"
         @blur="$emit('blur')"
         @focus="$emit('focus')"
@@ -200,6 +204,8 @@
         :placeholder="placeholder"
         :class="getCss"
         :disabled="disable"
+        :aria-required="isRequired"
+        :required="isRequired"
         @keydown.enter.prevent="addTag"
         @focus="$emit('focus')"
         @blur="$emit('blur')"
@@ -218,6 +224,8 @@
       :class="getCss"
       :min="min"
       :max="max"
+      :aria-required="isRequired"
+      :required="isRequired"
       v-model="theValue"
       @input="onInput"
       @blur="$emit('blur')"
@@ -438,6 +446,21 @@ export default {
     autoresize: {
       type: Boolean,
       default: false
+    },
+    /**
+     * Marks the field as required.
+     */
+    isRequired: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * When a custom "description" section is provided below
+     * the input, use this attribute to make the field
+     * accessible towards related descriptions and errors.
+     */
+    ariaDescribedBy: {
+      type: String
     }
   },
   watch: {
