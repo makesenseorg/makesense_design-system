@@ -814,7 +814,7 @@ select {
 .input__password-icon {
   position: absolute;
   right: $space-m;
-  top: 50%;
+  top: calc(50% - 12px);
   border: none;
   background: transparent;
   cursor: pointer;
