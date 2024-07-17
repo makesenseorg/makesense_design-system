@@ -131,7 +131,7 @@ export default {
       default: false
     },
     animateIcon: {
-      type: Boolean, 
+      type: Boolean,
       default: false
     },
     /**
@@ -271,7 +271,7 @@ export default {
   }
 
   &--animate-icon {
-    transition: all .3s ease;
+    transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -283,7 +283,7 @@ export default {
       position: relative;
       opacity: 0;
       width: 0;
-      transition: all .3s ease;
+      transition: all 0.3s ease;
     }
 
     span {
