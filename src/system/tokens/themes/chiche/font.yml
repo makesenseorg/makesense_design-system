@@ -7,11 +7,11 @@ props:
   - name: font-heading
     value: "Raleway, Helvetica, Arial, sans-serif"
   - name: font-text
-    value: "Inter, Helvetica, Arial, sans-serif"
+    value: "Onest, Helvetica, Arial, sans-serif"
   - name: font-code
     value: "inconsolata, monospace"
   - name: font-display
-    value: "SP Malton Sans, Raleway, Helvetica, Arial, sans-serif"
+    value: "Boldonse, Helvetica, Arial, sans-serif"
   - name: font-weight-extrablack
     value: "900"
   - name: font-weight-black

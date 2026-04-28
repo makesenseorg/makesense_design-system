@@ -64,6 +64,28 @@ aliases:
     value: "#FADE3C"
   jazzberry_jam:
     value: "#9C0951"
+  beach:
+    value: "#F8F6F0"
+  coraline:
+    value: "#FF6D5F"
+  coraline-dark:
+    value: "#6A2D27"
+  mint:
+    value: "#00CFC1"
+  mint-dark:
+    value: "#013C38"
+  punk:
+    value: "#3843D0"
+  punk-dark:
+    value: "#14184B"
+  peppa-pig:
+    value: "#FB83AB"
+  sun:
+    value: "#FFF30D"
+  eggplant:
+    value: "#3B1E3A"
+  dark-nest:
+    value: "#1C1E2A"
 
 props:
   #
@@ -123,6 +145,29 @@ props:
     value: &color-parsley "{!parsley}"
   - name: color-broom
     value: &color-broom "{!broom}"
+
+  - name: color-beach
+    value: &color-beach "{!beach}"
+  - name: color-coraline
+    value: &color-coraline "{!coraline}"
+  - name: color-coraline-dark
+    value: &color-coraline-dark "{!coraline-dark}"
+  - name: color-mint
+    value: &color-mint "{!mint}"
+  - name: color-mint-dark
+    value: &color-mint-dark "{!mint-dark}"
+  - name: color-punk
+    value: &color-punk "{!punk}"
+  - name: color-punk-dark
+    value: &color-punk-dark "{!punk-dark}"
+  - name: color-peppa-pig
+    value: &color-peppa-pig "{!peppa-pig}"
+  - name: color-sun
+    value: &color-sun "{!sun}"
+  - name: color-eggplant
+    value: &color-eggplant "{!eggplant}"
+  - name: color-dark-nest
+    value: &color-dark-nest "{!dark-nest}"
 
   - name: color-neutral-0
     value: &color-neutral-0 "hsla({!neutral}, 10%, 1)"

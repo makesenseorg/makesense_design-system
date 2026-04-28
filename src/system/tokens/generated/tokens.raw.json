@@ -6,8 +6,26 @@
     "calypso": {
       "value": "#196C84"
     },
+    "mint-dark": {
+      "value": "#013C38"
+    },
+    "punk-dark": {
+      "value": "#14184B"
+    },
+    "mint": {
+      "value": "#00CFC1"
+    },
+    "punk": {
+      "value": "#3843D0"
+    },
+    "beach": {
+      "value": "#F8F6F0"
+    },
     "green": {
       "value": "100, 69%"
+    },
+    "eggplant": {
+      "value": "#3B1E3A"
     },
     "neutral": {
       "value": "216, 23%"
@@ -21,8 +39,14 @@
     "cerise": {
       "value": "#9B084F"
     },
+    "sun": {
+      "value": "#FFF30D"
+    },
     "conifer": {
       "value": "#c1e84d"
+    },
+    "peppa-pig": {
+      "value": "#FB83AB"
     },
     "sahara_sand": {
       "value": "#FCF6A0"
@@ -35,6 +59,12 @@
     },
     "orange": {
       "value": "28, 80%"
+    },
+    "coraline": {
+      "value": "#FF6D5F"
+    },
+    "dark-nest": {
+      "value": "#1C1E2A"
     },
     "mandy": {
       "value": "#E95B5F"
@@ -50,6 +80,9 @@
     },
     "yellow": {
       "value": "48, 100%"
+    },
+    "coraline-dark": {
+      "value": "#6A2D27"
     },
     "jazzberry_jam": {
       "value": "#9C0951"
@@ -288,6 +321,83 @@
       "name": "color-broom",
       "value": "var(--color-broom)",
       "originalValue": "{!broom}"
+    },
+    "color-beach": {
+      "type": "color",
+      "category": "color",
+      "name": "color-beach",
+      "value": "var(--color-beach)",
+      "originalValue": "{!beach}"
+    },
+    "color-coraline": {
+      "type": "color",
+      "category": "color",
+      "name": "color-coraline",
+      "value": "var(--color-coraline)",
+      "originalValue": "{!coraline}"
+    },
+    "color-coraline-dark": {
+      "type": "color",
+      "category": "color",
+      "name": "color-coraline-dark",
+      "value": "var(--color-coraline-dark)",
+      "originalValue": "{!coraline-dark}"
+    },
+    "color-mint": {
+      "type": "color",
+      "category": "color",
+      "name": "color-mint",
+      "value": "var(--color-mint)",
+      "originalValue": "{!mint}"
+    },
+    "color-mint-dark": {
+      "type": "color",
+      "category": "color",
+      "name": "color-mint-dark",
+      "value": "var(--color-mint-dark)",
+      "originalValue": "{!mint-dark}"
+    },
+    "color-punk": {
+      "type": "color",
+      "category": "color",
+      "name": "color-punk",
+      "value": "var(--color-punk)",
+      "originalValue": "{!punk}"
+    },
+    "color-punk-dark": {
+      "type": "color",
+      "category": "color",
+      "name": "color-punk-dark",
+      "value": "var(--color-punk-dark)",
+      "originalValue": "{!punk-dark}"
+    },
+    "color-peppa-pig": {
+      "type": "color",
+      "category": "color",
+      "name": "color-peppa-pig",
+      "value": "var(--color-peppa-pig)",
+      "originalValue": "{!peppa-pig}"
+    },
+    "color-sun": {
+      "type": "color",
+      "category": "color",
+      "name": "color-sun",
+      "value": "var(--color-sun)",
+      "originalValue": "{!sun}"
+    },
+    "color-eggplant": {
+      "type": "color",
+      "category": "color",
+      "name": "color-eggplant",
+      "value": "var(--color-eggplant)",
+      "originalValue": "{!eggplant}"
+    },
+    "color-dark-nest": {
+      "type": "color",
+      "category": "color",
+      "name": "color-dark-nest",
+      "value": "var(--color-dark-nest)",
+      "originalValue": "{!dark-nest}"
     },
     "color-neutral-0": {
       "type": "color",
@@ -1078,14 +1188,14 @@
       "category": "font",
       "name": "font-heading",
       "value": "var(--font-heading)",
-      "originalValue": "Raleway, Helvetica, Arial, sans-serif"
+      "originalValue": "Boldonse, Helvetica, Arial, sans-serif"
     },
     "font-text": {
       "type": "...",
       "category": "font",
       "name": "font-text",
       "value": "var(--font-text)",
-      "originalValue": "Raleway, Helvetica, Arial, sans-serif"
+      "originalValue": "Onest, Helvetica, Arial, sans-serif"
     },
     "font-code": {
       "type": "...",
@@ -1560,8 +1670,8 @@
       "type": "...",
       "category": "media-query",
       "name": "breakpoints",
-      "value": "('small': 767px, 'medium': 992px, 'large': 1200px)",
-      "originalValue": "('small': 767px, 'medium': 992px, 'large': 1200px)"
+      "value": "('small': 767px, 'medium': 992px, 'large': 1200px, 'xlarge': 1550px)",
+      "originalValue": "('small': 767px, 'medium': 992px, 'large': 1200px, 'xlarge': 1550px)"
     },
     "media_query_s": {
       "type": "...",

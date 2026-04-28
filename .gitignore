@@ -28,3 +28,6 @@ coverage/
 
 # Ignore compiled tokens
 src/assets/tokens/
+
+vue3/*
+!vue3/.gitkeep
