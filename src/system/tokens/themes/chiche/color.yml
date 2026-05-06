@@ -66,6 +66,28 @@ aliases:
     value: "#FADE3C"
   jazzberry_jam:
     value: "#9C0951"
+  beach:
+    value: "#F8F6F0"
+  coraline:
+    value: "#FF6D5F"
+  coraline-dark:
+    value: "#6A2D27"
+  mint:
+    value: "#00CFC1"
+  mint-dark:
+    value: "#013C38"
+  punk:
+    value: "#3843D0"
+  punk-dark:
+    value: "#14184B"
+  peppa-pig:
+    value: "#FB83AB"
+  sun:
+    value: "#FFF30D"
+  eggplant:
+    value: "#3B1E3A"
+  dark-nest:
+    value: "#1C1E2A"
 props:
   #
   # Color Choices
@@ -80,23 +102,23 @@ props:
     value: &color-default-inverse "{!blue_dianne}"
 
   - name: color-primary
-    value: &color-primary "{!blue_dianne}"
+    value: &color-primary "{!eggplant}"
   - name: color-primary-active
-    value: &color-primary-active "#083641"
+    value: &color-primary-active "#4d274b"
   - name: color-primary-inverse
     value: &color-primary-inverse "{!white}"
 
   - name: color-secondary
-    value: &color-secondary "{!atlantis}"
+    value: &color-secondary "{!coraline}"
   - name: color-secondary-active
-    value: &color-secondary-active "#B8E04B"
+    value: &color-secondary-active "#ff8d82"
   - name: color-secondary-inverse
-    value: &color-secondary-inverse "{!black}"
+    value: &color-secondary-inverse "{!white}"
 
   - name: color-tertiary
-    value: &color-tertiary "{!roman}"
+    value: &color-tertiary "{!mint}"
   - name: color-tertiary-active
-    value: &color-tertiary-active "#1C582F"
+    value: &color-tertiary-active "#00e4d4"
   - name: color-tertiary-inverse
     value: &color-tertiary-inverse "{!white}"
 
@@ -157,9 +179,9 @@ props:
     value: &color-neutral-100 "hsla({!neutral}, 100%, 1)"
 
   - name: color-success
-    value: &color-success "#52E069"
+    value: &color-success "#00CFC1"
   - name: color-success-active
-    value: &color-success-active "#48d95f"
+    value: &color-success-active "#013C38"
   - name: color-success-inverse
     value: &color-success-inverse "{!white}"
 
